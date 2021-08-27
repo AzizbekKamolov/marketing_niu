@@ -1,0 +1,19 @@
+[2021-08-27 09:33:51] local.ERROR: There are no commands defined in the "generate" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): There are no commands defined in the \"generate\" namespace. at D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php:579)
+[stacktrace]
+#0 D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php(632): Symfony\\Component\\Console\\Application->findNamespace('generate')
+#1 D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php(236): Symfony\\Component\\Console\\Application->find('generate:migrat...')
+#2 D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 D:\\github_clone\\marketing_tsul\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 D:\\github_clone\\marketing_tsul\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 D:\\github_clone\\marketing_tsul\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 {main}
+"} 
+[2021-08-27 09:45:06] local.ERROR: Command "which" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"which\" is not defined. at D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php:651)
+[stacktrace]
+#0 D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php(236): Symfony\\Component\\Console\\Application->find('which')
+#1 D:\\github_clone\\marketing_tsul\\vendor\\symfony\\console\\Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 D:\\github_clone\\marketing_tsul\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 D:\\github_clone\\marketing_tsul\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 D:\\github_clone\\marketing_tsul\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 

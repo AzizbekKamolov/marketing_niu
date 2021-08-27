@@ -132,3 +132,9 @@ Auth::routes();
 Route::get('/clear', function () {
     return Artisan::call('config:cache');
 });
+
+
+
+//new routes
+Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
+Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');

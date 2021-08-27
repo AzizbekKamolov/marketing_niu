@@ -34,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                <h2><a href="{{ route('student.agreement.form') }}" class="link_button">Talabalar uchun to'lov shartnomasini olish</a></h2>
+                <h2><a href="{{ route('shartnoma.form') }}" class="link_button">Talabalar uchun to'lov shartnomasini olish</a></h2>
                 <h2><a href="{{ route('super.super') }}" class="link_button">Tabaqalashtirilgan to'lov kontrakt asosida ta`lim olish uchun ariza qoldirish (magistratura bakalavr)</a></h2>
                 <h2><a href="{{ route('shartnoma.lyceum_form') }}" class="link_button">Akademik litsey o`quvchilari uchun shartnoma olish</a></h2>
                 <h2><a href="{{ route('payment_check') }}" class="link_button">Talabalar uchun to`lovlar tarixi</a></h2>

@@ -77,7 +77,7 @@ class ShartnomaController extends Controller
                     'birthday' => ['required'],
                     'id_code' => ['required'],
                     'step' => ['required'],
-                    'g-recaptcha-response' => 'required|captcha'
+//                    'g-recaptcha-response' => 'required|captcha'
                 ];
 
             }
@@ -86,7 +86,7 @@ class ShartnomaController extends Controller
                     'passport_seria' => ['required'],
                     'passport_number' => ['required'],
                     'id_code' => ['required'],
-                    'g-recaptcha-response' => 'required|captcha'
+//                    'g-recaptcha-response' => 'required|captcha'
                 ];
 
             }

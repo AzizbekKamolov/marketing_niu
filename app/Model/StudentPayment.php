@@ -22,7 +22,7 @@ class StudentPayment extends Model
         return $payments;
     }
     public  function type(){
-        return $this->belongsTo('Test\Model\Type');
+        return $this->belongsTo('Test\Model\Type' , 'status_new' , 'id');
     }
 
     public function get_type_name(){
