@@ -252,4 +252,24 @@ class PaymentAdminController extends Controller
         return json_encode($type);
     }
 
+    public function student_types(){
+        $types = Type::with('agreement_side_types')->with('agreement_types')->orderBy('order' , 'ASC')->get();
+        return view('admin.pages.payment_admin.student_types.index' , [
+            'data' => $types
+        ]);
+    }
+
+    public function student_types_show($id){
+        $type = Type::with('agreement_side_types')->with('agreement_types')->find($id);
+        if ($type){
+            return view('admin.pages.payment_admin.student_types.show' , [
+                'data' => $type
+            ]);
+        }
+        else{
+            return abort(404);
+        }
+
+    }
+
 }

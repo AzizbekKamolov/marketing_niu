@@ -20,6 +20,7 @@
     <!-- Custom CSS -->
     <link href="<?php echo e(asset('assets_admin/dist/css/style.min.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('assets_admin/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')); ?>" rel="stylesheet">
+    <?php echo $__env->yieldContent('link'); ?>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

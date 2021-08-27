@@ -33,5 +33,8 @@ class StudentPayment extends Model
         $type = Type::find($this->status_new);
         return $type;
     }
+    public function getting_agreements(){
+        return $this->hasMany(GettingAgreement::class , 'student_id' , 'id');
+    }
 
 }

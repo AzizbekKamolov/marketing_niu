@@ -123,6 +123,10 @@ Route::group([
     Route::get('/scholarships/{month_id}', 'ScholarshipController@index')->name('scholarship.index');
     Route::get('/scholarships-by-student/{id_code}', 'ScholarshipController@scholarship_by_student')->name('scholarship.scholarship_by_student');
     Route::post('/scholarships-import', 'ScholarshipController@import')->name('scholarship.import');
+
+//    payment admin new
+    Route::get('/payment-admin/student-types', 'PaymentAdminController@student_types')->name('payment_admin.student_types');
+    Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
 });
 
 Auth::routes();
@@ -137,4 +141,5 @@ Route::get('/clear', function () {
 
 //new routes
 Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
+Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
 Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');

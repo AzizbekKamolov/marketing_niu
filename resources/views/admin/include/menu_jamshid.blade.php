@@ -269,4 +269,5 @@
     <li class="sidebar-item @if(Request::is('backoffice/payment-admin-students')) selected @endif"> <a class="sidebar-link  "  href="{{route('payment_admin.student.index')}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Barcha talabalar </span> </a> </li>
     <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('payment_admin.student.no_checkeds')}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Tasdiqlanmaganlar </span> </a> </li>
     <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('month.index')}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Stipendiyalar </span> </a> </li>
+    <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('payment_admin.student_types')}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Talaba turlari </span> </a> </li>
 @endif
