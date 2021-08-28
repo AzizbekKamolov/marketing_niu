@@ -53,7 +53,7 @@
                                                 <th>ID KOD</th>
                                                 <th>Pasport</th>
                                                 <th>Tug'ilgan</th>
-                                                <th>Telefon</th>
+                                                <th>Turi</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -75,7 +75,7 @@
                                                    {{ date('m-d-Y', strtotime($item->birthday)) }}
                                                </td>
                                                <td>
-                                                   {{ $item->phone }}
+                                                   {{ $item->type ? $item->type->name :'' }}
                                                </td>
 
                                                <td class="last-td">

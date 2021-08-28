@@ -1,9 +1,15 @@
 <?php
 
-namespace Test\Http\Controllers;
+namespace Test\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Validator;
+use Test\Model\AgreementSideType;
+use Test\Model\AgreementType;
 use Test\Model\StudentTypeAgreementSideType;
 use Illuminate\Http\Request;
+use Test\Http\Controllers\Controller;
+use Test\Model\Type;
+
 
 class StudentTypeAgreementSideTypeController extends Controller
 {
@@ -35,7 +41,24 @@ class StudentTypeAgreementSideTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        return $request;
+        $type = Type::find($request->type_id);
+        $agreement_type = AgreementSideType::find($request->agreement_side_type_id);
+        $validator = Validator::make($request->all(), [
+            'type_id' => ['required'],
+            'agreement_side_type_id' => ['required'],
+        ]);
+        if ($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput()->with('agreement_side_type_error' , 1);
+        }
+        if ($type && $agreement_type){
+            $new = new StudentTypeAgreementSideType();
+            $new->type_id = $type->id;
+            $new->agreement_side_type_id = $agreement_type->id;
+            $new->save();
+            return redirect()->back()->with('success' , 'Malumot saqlandi');
+        }
+
     }
 
     /**
@@ -78,8 +101,12 @@ class StudentTypeAgreementSideTypeController extends Controller
      * @param  \Test\Model\StudentTypeAgreementSideType  $studentTypeAgreementSideType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StudentTypeAgreementSideType $studentTypeAgreementSideType)
+    public function destroy(Request $request)
     {
-        //
+//        return $request;
+        $type = StudentTypeAgreementSideType::where('type_id',$request->type_id)->where('agreement_side_type_id' , $request->element_id)->first();
+        $type->delete();
+        return redirect()->back()->with('success' , 'Malumot o`chirildi');
+//        return $type;
     }
 }

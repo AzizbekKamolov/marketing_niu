@@ -36,22 +36,22 @@
                             <div class="card-body">
                                 <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                                       <div>
-                                          <h4 class="card-title">Talabalar ro'yhati</h4>
+                                          <h4 class="card-title">O'quvchilar ro'yhati</h4>
                                       </div>
+                                    <div>
+                                        <button type="button" class="btn btn-light back_button_js"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga</button>
+
+                                    </div>
 
                                 </div>
 
 
                                 <div class="table-responsive">
-                                    <table  id="multi_col_order"  class="table table-striped table-bordered no-wrap">
+                                    <table  id="multi_col_order"  class="table table-striped table-bordered no-wrap export">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>F.I.O</th>
-                                                <th>ID KOD</th>
-                                                <th>Pasport</th>
-                                                <th>Tug'ilgan</th>
-                                                <th>Turi</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -59,33 +59,14 @@
                                             <?php $i = 0; ?>
                                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                            <tr>
-                                               <td><?php echo e(++$i); ?></td>
+                                               <td class="last-td"><?php echo e(++$i); ?></td>
                                                <td>
-                                                   <?php echo e($item->fio()); ?>
+                                                       <?php echo e($item->student->fio()); ?>
 
                                                </td>
-                                               <td>
-                                                 <?php echo e($item->id_code); ?>
-
-                                               </td>
-                                               <td>
-                                                   <?php echo e($item->passport_seria); ?><?php echo e($item->passport_number); ?>
-
-                                               </td>
-                                               <td>
-                                                   <?php echo e(date('m-d-Y', strtotime($item->birthday))); ?>
-
-                                               </td>
-                                               <td>
-                                                   <?php echo e($item->type ? $item->type->name :''); ?>
-
-                                               </td>
-
                                                <td class="last-td">
-                                                   <a class="btn btn-success" href="<?php echo e(route('payment_admin.student.check.edit' , ['id' => $item->id])); ?>"> <i class="fa fa-edit"></i> </a>
+                                                   <a href="<?php echo e(route('scholarship.scholarship_by_student' , ['id_code' => $item->id_code])); ?>" class="btn btn-light"><i class="fa fa-list"></i></a>
                                                </td>
-
-
                                            </tr>
                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>

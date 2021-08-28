@@ -1,11 +1,12 @@
 <?php
 
-namespace Test\Http\Controllers;
+namespace Test\Http\Controllers\Admin;
 
-use Test\Model\StudentTypeAgreementType;
+use Test\Model\OtherAgreementType;
 use Illuminate\Http\Request;
+use Test\Http\Controllers\Controller;
 
-class StudentTypeAgreementTypeController extends Controller
+class OtherAgreementTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class StudentTypeAgreementTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Test\Model\StudentTypeAgreementType  $studentTypeAgreementType
+     * @param  \Test\Model\OtherAgreementType  $otherAgreementType
      * @return \Illuminate\Http\Response
      */
-    public function show(StudentTypeAgreementType $studentTypeAgreementType)
+    public function show(OtherAgreementType $otherAgreementType)
     {
         //
     }
@@ -52,10 +53,10 @@ class StudentTypeAgreementTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Test\Model\StudentTypeAgreementType  $studentTypeAgreementType
+     * @param  \Test\Model\OtherAgreementType  $otherAgreementType
      * @return \Illuminate\Http\Response
      */
-    public function edit(StudentTypeAgreementType $studentTypeAgreementType)
+    public function edit(OtherAgreementType $otherAgreementType)
     {
         //
     }
@@ -64,10 +65,10 @@ class StudentTypeAgreementTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Test\Model\StudentTypeAgreementType  $studentTypeAgreementType
+     * @param  \Test\Model\OtherAgreementType  $otherAgreementType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StudentTypeAgreementType $studentTypeAgreementType)
+    public function update(Request $request, OtherAgreementType $otherAgreementType)
     {
         //
     }
@@ -75,10 +76,10 @@ class StudentTypeAgreementTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Test\Model\StudentTypeAgreementType  $studentTypeAgreementType
+     * @param  \Test\Model\OtherAgreementType  $otherAgreementType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StudentTypeAgreementType $studentTypeAgreementType)
+    public function destroy(OtherAgreementType $otherAgreementType)
     {
         //
     }

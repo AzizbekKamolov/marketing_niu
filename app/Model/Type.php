@@ -11,8 +11,11 @@ class Type extends Model
     protected  $table = 'types';
 
     public function agreement_types(){
-        return $this->belongsToMany(AgreementType::class , 'student_type_agreement_types' , 'type_id' , 'agreement_type_id' , 'id');
+        return $this->belongsToMany(AgreementType::class , 'student_type_agreement_types' , 'type_id' , 'agreement_type_id' , 'id')->withPivot('price_part1' , 'price_part2' , 'price_part1_word' , 'price_part2_word');
     }
+//    public function agreement_types_self(){
+//        return $this->hasMany(StudentTypeAgreementType::class , 'type_id' , 'id');
+//    }
     public function agreement_side_types(){
         return $this->belongsToMany(AgreementSideType::class , 'student_type_agreement_side_types' , 'type_id' , 'agreement_side_type_id' , 'id');
     }

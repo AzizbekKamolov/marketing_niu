@@ -30,8 +30,7 @@
 
     </style>
 
-    <div class="container-fluid">
-
+    <div class="container-fluid" style="min-height: auto; padding: 0px">
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -39,16 +38,100 @@
                     <div class="card-body">
                         <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                             <div>
-                                <h4 class="card-title">Talaba turiga mumkin bo'lgan shartnomalar</h4>
+                                <h4 class="card-title">Talaba turiga mumkin bo'lgan shartnomalar (Stipendiya
+                                    bo'yicha)</h4>
                             </div>
                             <div>
+                                <button class="btn btn-outline-success" data-toggle="modal"
+                                        data-target="#agreement_type_modal"><i class="fa fa-plus-circle"></i> Qo'shish
+                                </button>
+                                <div class="modal fade" id="agreement_type_modal" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Shartnomaga ruhsat
+                                                    berish</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="agreement_type_store"
+                                                      action="<?php echo e(route('payment_admin.student_type.agreement_type.store')); ?>"
+                                                      method="post">
+                                                    <?php echo e(csrf_field()); ?>
+
+                                                    <?php echo e(method_field('POST')); ?>
+
+                                                    <input type="text" hidden value="<?php echo e($data->id); ?>" name="type_id">
+                                                    <div class="text-danger col-md-12">
+                                                        <?php if(Session::has('agreement_type_error')): ?>
+                                                            <?php if($errors->any()): ?>
+                                                                <ul>
+                                                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <li><?php echo e($error); ?></li>
+                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                </ul>
+                                                            <?php endif; ?>
+                                                        <?php endif; ?>
+
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Shartnoma:
+                                                        </p>
+                                                        <select name="agreement_type_id" class="form-control" id="">
+                                                            <?php $__currentLoopData = $other_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <option value="<?php echo e($item1->id); ?>"><?php echo e($item1->name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Narx (1 - yarim yillik):
+                                                        </p>
+                                                        <input type="number" class="form-control" name="price_part1">
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Narx (1 - yarim yillik) so'zlar bilan:
+                                                        </p>
+                                                        <input type="text" class="form-control" name="price_part1_word">
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Narx (2 - yarim yillik):
+                                                        </p>
+                                                        <input type="number" class="form-control" name="price_part2">
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Narx (2 - yarim yillik) so'z bilan:
+                                                        </p>
+                                                        <input type="text" class="form-control"
+                                                               name="price_part2_word">
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" form="agreement_type_store"
+                                                        class="btn btn-primary">Save changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                Stipendiya bo'yicha
-                            </div>
+
                             <div class="col-md-12">
                                 <div class="table-responsive">
                                     <table id="multi_col_order"
@@ -57,6 +140,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nomi</th>
+                                            <th>Narx</th>
                                             <th>Amallar</th>
 
 
@@ -68,12 +152,33 @@
                                             <tr>
                                                 <td><?php echo e(++$i); ?></td>
                                                 <td>
-                                                        <?php echo e($item->name); ?>
+                                                    <?php echo e($item->name); ?>
+
+                                                </td>
+                                                <td>
+                                                    <?php echo e($item->pivot->price_part1); ?> / <?php echo e($item->pivot->price_part2); ?>
 
                                                 </td>
 
-                                                <td>
+                                                <td style="width: 1px">
+                                                    <div class="d-flex">
+                                                        <button type="button"
+                                                                class="btn btn-light text-danger delete-button"
+                                                                id="delete-type<?php echo e($item->id); ?>"><i
+                                                                    class="fa fa-trash"></i></button>
+                                                        <form id="form-delete-type<?php echo e($item->id); ?>"
+                                                              action="<?php echo e(route('payment_admin.student_type.agreement_type.destroy')); ?>"
+                                                              method="post">
+                                                            <?php echo e(method_field('DELETE')); ?>
 
+                                                            <?php echo e(csrf_field()); ?>
+
+                                                            <input type="text" name="element_id" hidden
+                                                                   value="<?php echo e($item->id); ?>">
+                                                            <input type="text" name="type_id" hidden
+                                                                   value="<?php echo e($data->id); ?>">
+                                                        </form>
+                                                    </div>
                                                 </td>
 
                                             </tr>
@@ -84,12 +189,94 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-md-12 text-center">
-                                <hr>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container-fluid" style="min-height: auto; padding: 0px">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
+                            <div>
+                                <h4 class="card-title">Talaba turiga mumkin bo'lgan shartnomalar (Tomonlar
+                                    bo'yicha)</h4>
                             </div>
-                            <div class="col-md-12 text-center">
-                                Tomonlar bo'yicha
+                            <div>
+                                <button class="btn btn-outline-success" data-toggle="modal"
+                                        data-target="#agreement_side_type_modal"><i class="fa fa-plus-circle"></i>
+                                    Qo'shish
+                                </button>
+                                <div class="modal fade" id="agreement_side_type_modal" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Shartnomaga ruhsat
+                                                    berish</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="agreement_side_type_store"
+                                                      action="<?php echo e(route('payment_admin.student_type.agreement_side_type.store')); ?>"
+                                                      method="post">
+                                                    <?php echo e(csrf_field()); ?>
+
+                                                    <?php echo e(method_field('POST')); ?>
+
+                                                    <input type="text" hidden value="<?php echo e($data->id); ?>" name="type_id">
+                                                    <div class="text-danger col-md-12">
+                                                         <?php if(Session::has('agreement_side_type_error')): ?>
+                                                            <?php if($errors->any()): ?>
+                                                                <ul>
+                                                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <li><?php echo e($error); ?></li>
+                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                </ul>
+                                                            <?php endif; ?>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <p>
+                                                            Shartnoma:
+                                                        </p>
+                                                        <select name="agreement_side_type_id" class="form-control" id="">
+                                                            <?php $__currentLoopData = $other_side_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <option value="<?php echo e($item1->id); ?>"><?php echo e($item1->name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" form="agreement_side_type_store"
+                                                        class="btn btn-primary">Save changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
                                     <table id="multi_col_order"
@@ -109,12 +296,29 @@
                                             <tr>
                                                 <td><?php echo e(++$i); ?></td>
                                                 <td>
-                                                        <?php echo e($item->name); ?>
+                                                    <?php echo e($item->name); ?>
 
                                                 </td>
 
-                                                <td>
+                                                <td style="width: 1px">
+                                                    <div class="d-flex">
+                                                        <button type="button"
+                                                                class="btn btn-light text-danger delete-button"
+                                                                id="delete-side-type<?php echo e($item->id); ?>"><i
+                                                                    class="fa fa-trash"></i></button>
+                                                        <form id="form-delete-side-type<?php echo e($item->id); ?>"
+                                                              action="<?php echo e(route('payment_admin.student_type.agreement_side_type.destroy')); ?>"
+                                                              method="post">
+                                                            <?php echo e(method_field('DELETE')); ?>
 
+                                                            <?php echo e(csrf_field()); ?>
+
+                                                            <input type="text" name="element_id" hidden
+                                                                   value="<?php echo e($item->id); ?>">
+                                                            <input type="text" name="type_id" hidden
+                                                                   value="<?php echo e($data->id); ?>">
+                                                        </form>
+                                                    </div>
                                                 </td>
 
                                             </tr>
@@ -125,6 +329,7 @@
                                     </table>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -135,6 +340,26 @@
         </div>
     </div>
 
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
+    <script>
+        $('.delete-button').click(function () {
+            var id = $(this).attr('id');
+            if (confirm('O`chirasizmi')) {
+                $('#form-' + id).submit();
+            }
+        })
+    </script>
+    <?php if(Session::has('agreement_type_error')): ?>
+        <script>
+            $('button[data-target="#agreement_type_modal"]').click();
+        </script>
+    <?php endif; ?>
+    <?php if(Session::has('agreement_side_type_error')): ?>
+        <script>
+            $('button[data-target="#agreement_side_type_modal"]').click();
+        </script>
+    <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 
