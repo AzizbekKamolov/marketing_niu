@@ -117,7 +117,7 @@ class PaymentAdminController extends Controller
             $student->passport_given_by = $request->passport_given_by;
             $student->passport_issued_date = $request->passport_issued_date;
             $student->gender = $request->gender;
-//            $student->type_degree = $request->type_degree;
+            $student->course = $request->course;
             $student->status_new = $request->status_new;
             $student->status_check = 1;
             $student->update();
@@ -230,7 +230,7 @@ class PaymentAdminController extends Controller
         $student->passport_issued_date = $request->passport_issued_date;
         $student->gender = $request->gender;
         $student->status_new = $request->status_new;
-//        $student->type_degree = $request->type_degree;
+        $student->course = $request->course;
         $student->status_check = 1;
         $student->save();
         return redirect()->back()->with('success' , 'Ma`lumot saqlandi');
@@ -271,6 +271,7 @@ class PaymentAdminController extends Controller
             $other_side_types = AgreementSideType::whereNotIn('id' , $side_type_ids)->get();
             $type_ids = StudentTypeAgreementType::where('type_id' , $type->id)->pluck('agreement_type_id');
             $other_types = AgreementType::whereNotIn('id' , $type_ids)->get();
+
 
             return view('admin.pages.payment_admin.student_types.show' , [
                 'data' => $type,

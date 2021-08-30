@@ -219,6 +219,15 @@
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
                                         </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Kurs
+                                                <span class="error">
+                                                <?php if($errors->has('course')): ?> | <?php echo e($errors->first('course')); ?> <?php endif; ?>
+                                            </span>
+                                            </label>
+                                            <input type="number" class="form-control" name="course" value="<?php echo e(old('course')); ?>">
+                                        </div>
                                     </div>
                                 </div>
                             </form>

@@ -127,7 +127,7 @@ Route::group([
 //    payment admin new
     Route::get('/payment-admin/student-types', 'PaymentAdminController@student_types')->name('payment_admin.student_types');
     Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
-    Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
+//    Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
 
     Route::delete('/payment-admin/student-type-agreement-type', 'StudentTypeAgreementTypeController@destroy')->name('payment_admin.student_type.agreement_type.destroy');
     Route::post('/payment-admin/student-type-agreement-type', 'StudentTypeAgreementTypeController@store')->name('payment_admin.student_type.agreement_type.store');

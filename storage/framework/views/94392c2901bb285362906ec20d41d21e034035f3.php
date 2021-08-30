@@ -1,6 +1,4 @@
-@extends('layouts.admin_jamshid')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <style type="text/css">
         .error {
@@ -33,7 +31,7 @@
                             </div>
                             <div>
 
-                                {{--                                            <button class="btn btn-success form_submit"><i class="fa fa-save"></i> Saqlash</button>--}}
+                                
                                 <button type="button" class="btn btn-light back_button_js"><i
                                             class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
                                 </button>
@@ -48,108 +46,108 @@
                                     <label for="">
                                         ID KOD
                                         <span class="error">
-                                                @if ($errors->has('id_code')) | {{ $errors->first('id_code') }} @endif
+                                                <?php if($errors->has('id_code')): ?> | <?php echo e($errors->first('id_code')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="id_code"
-                                           value="@if(old('id_code')){{old('id_code')}}@else{{$data->id_code}}@endif">
+                                           value="<?php if(old('id_code')): ?><?php echo e(old('id_code')); ?><?php else: ?><?php echo e($data->id_code); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Ism
                                         <span class="error">
-                                                @if ($errors->has('first_name'))
-                                                | {{ $errors->first('first_name') }} @endif
+                                                <?php if($errors->has('first_name')): ?>
+                                                | <?php echo e($errors->first('first_name')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="first_name"
-                                           value="@if(old('first_name')){{old('first_name')}}@else{{$data->first_name}}@endif">
+                                           value="<?php if(old('first_name')): ?><?php echo e(old('first_name')); ?><?php else: ?><?php echo e($data->first_name); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Familiya
                                         <span class="error">
-                                                @if ($errors->has('last_name'))
-                                                | {{ $errors->first('last_name') }} @endif
+                                                <?php if($errors->has('last_name')): ?>
+                                                | <?php echo e($errors->first('last_name')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="last_name"
-                                           value="@if(old('last_name')){{old('last_name')}}@else{{$data->last_name}}@endif">
+                                           value="<?php if(old('last_name')): ?><?php echo e(old('last_name')); ?><?php else: ?><?php echo e($data->last_name); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Otasining ismi
                                         <span class="error">
-                                                @if ($errors->has('middle_name'))
-                                                | {{ $errors->first('middle_name') }} @endif
+                                                <?php if($errors->has('middle_name')): ?>
+                                                | <?php echo e($errors->first('middle_name')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="middle_name"
-                                           value="@if(old('middle_name')){{old('middle_name')}}@else{{$data->middle_name}}@endif">
+                                           value="<?php if(old('middle_name')): ?><?php echo e(old('middle_name')); ?><?php else: ?><?php echo e($data->middle_name); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Tug'ilgan sana
                                         <span class="error">
-                                                @if ($errors->has('birthday')) | {{ $errors->first('birthday') }} @endif
+                                                <?php if($errors->has('birthday')): ?> | <?php echo e($errors->first('birthday')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="date" class="form-control" name="birthday"
-                                           value="@if(old('birthday')){{old('birthday')}}@else{{$data->birthday}}@endif">
+                                           value="<?php if(old('birthday')): ?><?php echo e(old('birthday')); ?><?php else: ?><?php echo e($data->birthday); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Telefon
                                         <span class="error">
-                                                @if ($errors->has('phone')) | {{ $errors->first('phone') }} @endif
+                                                <?php if($errors->has('phone')): ?> | <?php echo e($errors->first('phone')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="phone"
-                                           value="@if(old('phone')){{old('phone')}}@else{{$data->phone}}@endif">
+                                           value="<?php if(old('phone')): ?><?php echo e(old('phone')); ?><?php else: ?><?php echo e($data->phone); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Viloyat
                                         <span class="error">
-                                                @if ($errors->has('region_id'))
-                                                | {{ $errors->first('region_id') }} @endif
+                                                <?php if($errors->has('region_id')): ?>
+                                                | <?php echo e($errors->first('region_id')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <select disabled name="region" id="" class="form-control">
-                                        @foreach($regions as $region)
-                                            <option @if(old('region')) @if(old('region')==$region->id) selected
-                                                    @endif @else @if($data->region == $region->id) selected
-                                                    @endif @endif value="{{$region->id}}">{{$region->name_uz}}</option>
-                                            {{--                                                    <option @if($data->region_id == $region->id) selected @endif value="{{$region->id}}">{{$region->name_uz}}</option>--}}
-                                        @endforeach
+                                        <?php $__currentLoopData = $regions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $region): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option <?php if(old('region')): ?> <?php if(old('region')==$region->id): ?> selected
+                                                    <?php endif; ?> <?php else: ?> <?php if($data->region == $region->id): ?> selected
+                                                    <?php endif; ?> <?php endif; ?> value="<?php echo e($region->id); ?>"><?php echo e($region->name_uz); ?></option>
+                                            
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Tuman/Shahar
                                         <span class="error">
-                                                @if ($errors->has('area_id')) | {{ $errors->first('area_id') }} @endif
+                                                <?php if($errors->has('area_id')): ?> | <?php echo e($errors->first('area_id')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <select disabled name="area" id="" class="form-control">
-                                        @if(old('region'))
-                                            @php
+                                        <?php if(old('region')): ?>
+                                            <?php
                                                 $ar = 'Test\Model\Area'::where('region_id' , old('region'))->get();
-                                            @endphp
-                                            @foreach($ar as $item)
-                                                <option @if(old('area')) @if(old('area')==$item->id) selected
-                                                        @endif @else @if($data->area == $item->id) selected
-                                                        @endif @endif value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        @else
-                                            @php
+                                            ?>
+                                            <?php $__currentLoopData = $ar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option <?php if(old('area')): ?> <?php if(old('area')==$item->id): ?> selected
+                                                        <?php endif; ?> <?php else: ?> <?php if($data->area == $item->id): ?> selected
+                                                        <?php endif; ?> <?php endif; ?> value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php else: ?>
+                                            <?php
                                                 $ar = 'Test\Model\Area'::where('region_id' , $data->region)->get();
-                                            @endphp
-                                            @foreach($ar as $item)
-                                                <option @if($data->area == $item->id) selected
-                                                        @endif  value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        @endif
+                                            ?>
+                                            <?php $__currentLoopData = $ar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option <?php if($data->area == $item->id): ?> selected
+                                                        <?php endif; ?>  value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
 
                                     </select>
                                 </div>
@@ -157,28 +155,28 @@
                                     <label for="">
                                         Manzil
                                         <span class="error">
-                                                @if ($errors->has('address')) | {{ $errors->first('address') }} @endif
+                                                <?php if($errors->has('address')): ?> | <?php echo e($errors->first('address')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="address"
-                                           value="@if(old('address')){{old('address')}}@else{{$data->address}}@endif">
+                                           value="<?php if(old('address')): ?><?php echo e(old('address')); ?><?php else: ?><?php echo e($data->address); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Passport seria va raqam
                                         <span class="error">
-                                                @if ($errors->has('passport_seria'))
-                                                | {{ $errors->first('passport_seria') }} @endif
-                                            @if ($errors->has('passport_number'))
-                                                | {{ $errors->first('passport_number') }} @endif
+                                                <?php if($errors->has('passport_seria')): ?>
+                                                | <?php echo e($errors->first('passport_seria')); ?> <?php endif; ?>
+                                            <?php if($errors->has('passport_number')): ?>
+                                                | <?php echo e($errors->first('passport_number')); ?> <?php endif; ?>
                                             </span>
                                         <div style="display: flex; margin-top: 7px;">
                                             <input readonly type="text" class="form-control" style="width: 30%"
                                                    name="passport_seria"
-                                                   value="@if(old('passport_seria')){{old('passport_seria')}}@else{{$data->passport_seria}}@endif">
+                                                   value="<?php if(old('passport_seria')): ?><?php echo e(old('passport_seria')); ?><?php else: ?><?php echo e($data->passport_seria); ?><?php endif; ?>">
                                             <input readonly type="text" class="form-control" style="width: 70%"
                                                    name="passport_number"
-                                                   value="@if(old('passport_number')){{old('passport_number')}}@else{{$data->passport_number}}@endif">
+                                                   value="<?php if(old('passport_number')): ?><?php echo e(old('passport_number')); ?><?php else: ?><?php echo e($data->passport_number); ?><?php endif; ?>">
                                         </div>
                                     </label>
                                 </div>
@@ -186,49 +184,49 @@
                                     <label for="">
                                         Passport berilgan sana
                                         <span class="error">
-                                                @if ($errors->has('passport_given_date'))
-                                                | {{ $errors->first('passport_given_date') }} @endif
+                                                <?php if($errors->has('passport_given_date')): ?>
+                                                | <?php echo e($errors->first('passport_given_date')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="date" class="form-control" name="passport_given_date"
-                                           value="@if(old('passport_given_date')){{old('passport_given_date')}}@else{{$data->passport_given_date}}@endif">
+                                           value="<?php if(old('passport_given_date')): ?><?php echo e(old('passport_given_date')); ?><?php else: ?><?php echo e($data->passport_given_date); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Passport amal qilish muddati
                                         <span class="error">
-                                                @if ($errors->has('passport_issued_date'))
-                                                | {{ $errors->first('passport_issued_date') }} @endif
+                                                <?php if($errors->has('passport_issued_date')): ?>
+                                                | <?php echo e($errors->first('passport_issued_date')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="date" class="form-control" name="passport_issued_date"
-                                           value="@if(old('passport_issued_date')){{old('passport_issued_date')}}@else{{$data->passport_issued_date}}@endif">
+                                           value="<?php if(old('passport_issued_date')): ?><?php echo e(old('passport_issued_date')); ?><?php else: ?><?php echo e($data->passport_issued_date); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Kim tomonidan berilgan
                                         <span class="error">
-                                                @if ($errors->has('passport_given_by'))
-                                                | {{ $errors->first('passport_given_by') }} @endif
+                                                <?php if($errors->has('passport_given_by')): ?>
+                                                | <?php echo e($errors->first('passport_given_by')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input readonly type="text" class="form-control" name="passport_given_by"
-                                           value="@if(old('passport_given_by')){{old('passport_given_by')}}@else{{$data->passport_given_by}}@endif">
+                                           value="<?php if(old('passport_given_by')): ?><?php echo e(old('passport_given_by')); ?><?php else: ?><?php echo e($data->passport_given_by); ?><?php endif; ?>">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Jinsi
                                         <span class="error">
-                                                @if ($errors->has('gender')) | {{ $errors->first('gender') }} @endif
+                                                <?php if($errors->has('gender')): ?> | <?php echo e($errors->first('gender')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <select disabled name="gender" id="" class="form-control">
-                                        <option @if(old('gender')) @if(old('gender') == 1) selected
-                                                @endif @else @if($data->gender == 1) selected @endif @endif value="1">
+                                        <option <?php if(old('gender')): ?> <?php if(old('gender') == 1): ?> selected
+                                                <?php endif; ?> <?php else: ?> <?php if($data->gender == 1): ?> selected <?php endif; ?> <?php endif; ?> value="1">
                                             Erkak
                                         </option>
-                                        <option @if(old('gender')) @if(old('gender') == 0) selected
-                                                @endif @else @if($data->gender == 0) selected @endif @endif value="0">
+                                        <option <?php if(old('gender')): ?> <?php if(old('gender') == 0): ?> selected
+                                                <?php endif; ?> <?php else: ?> <?php if($data->gender == 0): ?> selected <?php endif; ?> <?php endif; ?> value="0">
                                             Ayol
                                         </option>
                                     </select>
@@ -241,9 +239,9 @@
                                             </span>
                                     </label>
                                     <select disabled name="type_degree" id="" class="form-control">
-                                        <option @if($data->get_type()->degree == 1) selected @endif value="1">Bakalavr
+                                        <option <?php if($data->get_type()->degree == 1): ?> selected <?php endif; ?> value="1">Bakalavr
                                         </option>
-                                        <option @if($data->get_type()->degree == 2) selected @endif value="2">Magistr
+                                        <option <?php if($data->get_type()->degree == 2): ?> selected <?php endif; ?> value="2">Magistr
                                         </option>
                                     </select>
                                 </div>
@@ -251,32 +249,32 @@
                                     <label for="">
                                         Ta'lim turi
                                         <span class="error">
-                                                @if ($errors->has('status_new'))
-                                                | {{ $errors->first('status_new') }} @endif
+                                                <?php if($errors->has('status_new')): ?>
+                                                | <?php echo e($errors->first('status_new')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <select disabled name="status_new" id="" class="form-control">
-                                        @php
+                                        <?php
                                             $types = 'Test\Model\Type'::all();
-                                        @endphp
-                                        @foreach($types as $type)
-                                            <option @if(old('status_new')) @if(old('status_new') ==$type->id) selected
-                                                    @endif @else @if($data->status_new == $type->id) selected
-                                                    @endif @endif value="{{$type->id}}">
-                                                {{$type->name}}</option>
+                                        ?>
+                                        <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option <?php if(old('status_new')): ?> <?php if(old('status_new') ==$type->id): ?> selected
+                                                    <?php endif; ?> <?php else: ?> <?php if($data->status_new == $type->id): ?> selected
+                                                    <?php endif; ?> <?php endif; ?> value="<?php echo e($type->id); ?>">
+                                                <?php echo e($type->name); ?></option>
 
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label for="">
                                         Kurs
                                         <span class="error">
-                                                @if ($errors->has('course')) | {{ $errors->first('course') }} @endif
+                                                <?php if($errors->has('course')): ?> | <?php echo e($errors->first('course')); ?> <?php endif; ?>
                                             </span>
                                     </label>
                                     <input type="number" class="form-control" name="course"
-                                           value="{{$data->course}}" disabled>
+                                           value="<?php echo e($data->course); ?>" disabled>
                                 </div>
                             </div>
                         </div>
@@ -290,9 +288,9 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
     <script>
         $('.form_submit').click(function () {
             var t = confirm('Saqlansinmi?');
@@ -312,7 +310,7 @@
                     console.log(result);
                     // var result2 = JSON.parse(result.toString());
                     var txt = '';
-                    var old = '{{old('area')}}';
+                    var old = '<?php echo e(old('area')); ?>';
 
                     $.each(result, function (key, value) {
                         if (old == value['id']) {
@@ -340,5 +338,7 @@
         //     }
         // });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.admin_jamshid', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

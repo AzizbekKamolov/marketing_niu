@@ -19,6 +19,7 @@ class CreateOtherAgreementTypesTable extends Migration
             $table->string('price_for_day');
             $table->string('price_for_month');
             $table->string('price');
+            $table->date('to_date');
             $table->timestamps();
         });
     }

@@ -220,6 +220,15 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Kurs
+                                                <span class="error">
+                                                @if ($errors->has('course')) | {{ $errors->first('course') }} @endif
+                                            </span>
+                                            </label>
+                                            <input type="number" class="form-control" name="course" value="{{old('course')}}">
+                                        </div>
                                     </div>
                                 </div>
                             </form>
