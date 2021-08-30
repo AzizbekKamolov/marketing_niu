@@ -133,6 +133,8 @@ Route::group([
     Route::post('/payment-admin/student-type-agreement-type', 'StudentTypeAgreementTypeController@store')->name('payment_admin.student_type.agreement_type.store');
     Route::delete('/payment-admin/student-type-agreement-side-type', 'StudentTypeAgreementSideTypeController@destroy')->name('payment_admin.student_type.agreement_side_type.destroy');
     Route::post('/payment-admin/student-type-agreement-side-type', 'StudentTypeAgreementSideTypeController@store')->name('payment_admin.student_type.agreement_side_type.store');
+    Route::post('/payment-admin/student-type-other-agreement-type', 'StudentTypeOtherAgreementTypeController@store')->name('payment_admin.student_type.other_agreement_type.store');
+    Route::delete('/payment-admin/student-type-other-agreement-type', 'StudentTypeOtherAgreementTypeController@destroy')->name('payment_admin.student_type.other_agreement_type.destroy');
 });
 
 Auth::routes();
@@ -148,4 +150,5 @@ Route::get('/clear', function () {
 //new routes
 Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
 Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
+Route::post('/student/show-other-agreement' , 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
 Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');

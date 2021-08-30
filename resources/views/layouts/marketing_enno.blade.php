@@ -34,6 +34,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  @yield('links')
 
   <!-- =======================================================
   * Template Name: eNno - v2.1.0

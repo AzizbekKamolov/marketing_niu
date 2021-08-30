@@ -12,6 +12,7 @@ use Test\Model\AgreementSideType;
 use Test\Model\AgreementType;
 use Test\Model\BranchAdmin;
 use Test\Model\Group;
+use Test\Model\OtherAgreementType;
 use Test\Model\Student;
 use Test\Model\Region;
 use Test\Model\Area;
@@ -19,6 +20,7 @@ use Test\Model\StudentPayment;
 use Test\Model\Payment;
 use Test\Model\StudentTypeAgreementSideType;
 use Test\Model\StudentTypeAgreementType;
+use Test\Model\StudentTypeOtherAgreementType;
 use Test\Model\Type;
 
 
@@ -264,19 +266,21 @@ class PaymentAdminController extends Controller
     }
 
     public function student_types_show($id){
-        $type = Type::with('agreement_side_types')->with('agreement_types')->find($id);
+        $type = Type::with('agreement_side_types')->with('agreement_types')->with('other_agreement_types')->find($id);
 //        return $type;
         if ($type){
             $side_type_ids = StudentTypeAgreementSideType::where('type_id' , $type->id)->pluck('agreement_side_type_id');
             $other_side_types = AgreementSideType::whereNotIn('id' , $side_type_ids)->get();
             $type_ids = StudentTypeAgreementType::where('type_id' , $type->id)->pluck('agreement_type_id');
             $other_types = AgreementType::whereNotIn('id' , $type_ids)->get();
-
-
+            $others_ids = StudentTypeOtherAgreementType::where('type_id' , $type->id)->pluck('other_agreement_type_id');
+            $others = OtherAgreementType::whereNotIn('id' , $others_ids)->get();
+//            return $others;
             return view('admin.pages.payment_admin.student_types.show' , [
                 'data' => $type,
                 'other_side_types' => $other_side_types,
                 'other_types' => $other_types,
+                'other_agreements' => $others
             ]);
         }
         else{

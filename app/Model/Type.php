@@ -19,5 +19,8 @@ class Type extends Model
     public function agreement_side_types(){
         return $this->belongsToMany(AgreementSideType::class , 'student_type_agreement_side_types' , 'type_id' , 'agreement_side_type_id' , 'id');
     }
+    public function other_agreement_types(){
+        return $this->belongsToMany(OtherAgreementType::class , 'student_type_other_agreement_types' , 'type_id' , 'other_agreement_type_id' , 'id');
+    }
 
 }

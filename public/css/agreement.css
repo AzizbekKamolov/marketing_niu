@@ -1,0 +1,23 @@
+
+.text-bold{
+    font-weight: bold;
+    /*font-weight: bolder;*/
+}
+*{
+    font-family: "Times New Roman";
+}
+
+/*body{*/
+/*    padding-left: 30px;*/
+/*    padding-right: 30px;*/
+/*}*/
+.mt-1{
+    margin-top: 18px;
+}
+.mb-1{
+    margin-bottom: 18px;
+}
+.word-line{
+    padding-top: 15px;
+    border-bottom: 1px solid black
+}
