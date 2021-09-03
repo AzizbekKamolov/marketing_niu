@@ -9,7 +9,7 @@ class IndexController extends Controller
 
     public function index()
     {
-            return view('site.index.index');
+            return view('student.index');
     }
 
     public function university()

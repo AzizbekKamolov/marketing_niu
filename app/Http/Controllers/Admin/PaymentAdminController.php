@@ -200,8 +200,8 @@ class PaymentAdminController extends Controller
             'first_name' => 'required',
             'id_code' => ['required' , 'unique:students' , 'regex:/^[0-9]+$/u'],
             'last_name' => 'required',
-            'middle_name' => 'required',
-//            'birthday' => 'required|date',
+//            'middle_name' => 'required',
+            'birthday' => 'required|date',
 //            'phone' => 'required',
 //            'region' => 'required',
 //            'area' => 'required',
@@ -240,12 +240,14 @@ class PaymentAdminController extends Controller
 
      public function student_show($id){
         if (Auth::user()->role == 11){
-            $student = StudentPayment::find($id);
-            $regions = Region::all();
+            $student = StudentPayment::with('agreement_discounts')->with('other_agreement_discounts.agreement_type')->find($id);
 //            return $student;
+            $regions = Region::all();
+            $other_agreements = OtherAgreementType::all();
             return view('admin.pages.payment_admin.student.student_show' , [
                 'data' => $student,
                 'regions' => $regions,
+                'other_agreement_types' => $other_agreements
             ]);
         }
         else{

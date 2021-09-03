@@ -135,11 +135,15 @@ Route::group([
     Route::post('/payment-admin/student-type-agreement-side-type', 'StudentTypeAgreementSideTypeController@store')->name('payment_admin.student_type.agreement_side_type.store');
     Route::post('/payment-admin/student-type-other-agreement-type', 'StudentTypeOtherAgreementTypeController@store')->name('payment_admin.student_type.other_agreement_type.store');
     Route::delete('/payment-admin/student-type-other-agreement-type', 'StudentTypeOtherAgreementTypeController@destroy')->name('payment_admin.student_type.other_agreement_type.destroy');
+    Route::delete('/payment-admin/discount', 'DiscountController@destroy')->name('payment_admin.discount.destroy');
+    Route::post('/payment-admin/discount', 'DiscountController@store')->name('payment_admin.discount.store');
 });
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function(){
+    return redirect('/backoffice');
+})->name('home');
 
 Route::get('/clear', function () {
     return Artisan::call('config:cache');
@@ -151,4 +155,5 @@ Route::get('/clear', function () {
 Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
 Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
 Route::post('/student/show-other-agreement' , 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
+Route::post('/student/pdf-other-agreement' , 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
 Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');

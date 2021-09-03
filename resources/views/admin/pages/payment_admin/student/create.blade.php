@@ -73,7 +73,7 @@
                                                 @if ($errors->has('middle_name')) | {{ $errors->first('middle_name') }} @endif
                                             </span>
                                             </label>
-                                            <input required type="text" class="form-control" name="middle_name" value="@if(old('middle_name')){{old('middle_name')}}@endif">
+                                            <input  type="text" class="form-control" name="middle_name" value="@if(old('middle_name')){{old('middle_name')}}@endif">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -83,59 +83,6 @@
                                             </span>
                                             </label>
                                             <input required type="date" class="form-control" name="birthday" value="@if(old('birthday')){{old('birthday')}}@endif">
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Telefon
-                                                <span class="error">
-                                                @if ($errors->has('phone')) | {{ $errors->first('phone') }} @endif
-                                            </span>
-                                            </label>
-                                            <input required type="text" class="form-control" name="phone" value="@if(old('phone')){{old('phone')}}@endif">
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Viloyat
-                                                <span class="error">
-                                                @if ($errors->has('region_id')) | {{ $errors->first('region_id') }} @endif
-                                            </span>
-                                            </label>
-                                            <select name="region" id="" class="form-control">
-                                                @foreach($regions as $region)
-                                                    <option @if(old('region')==$region->id) selected @endif  value="{{$region->id}}">{{$region->name_uz}}</option>
-{{--                                                    <option @if($data->region_id == $region->id) selected @endif value="{{$region->id}}">{{$region->name_uz}}</option>--}}
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Tuman/Shahar
-                                                <span class="error">
-                                                @if ($errors->has('area')) | {{ $errors->first('area') }} @endif
-                                            </span>
-                                            </label>
-                                            <select name="area" id="" class="form-control">
-                                                @if(old('region'))
-                                                    @php
-                                                    $ar = 'Test\Model\Area'::where('region_id' , old('region'))->get();
-                                                    @endphp
-                                                    @foreach($ar as $item)
-                                                        <option  @if(old('area')==$item->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
-                                                    @endforeach
-
-
-                                                @endif
-
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="">
-                                                Manzil
-                                                <span class="error">
-                                                @if ($errors->has('address')) | {{ $errors->first('address') }} @endif
-                                            </span>
-                                            </label>
-                                            <input required type="text" class="form-control" name="address" value="@if(old('address')){{old('address')}}@endif">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -150,45 +97,6 @@
                                                     <input required type="text" class="form-control" style="width: 70%" name="passport_number" value="@if(old('passport_number')){{old('passport_number')}}@endif">
                                                 </div>
                                             </label>
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Passport berilgan sana
-                                                <span class="error">
-                                                @if ($errors->has('passport_given_date')) | {{ $errors->first('passport_given_date') }} @endif
-                                            </span>
-                                            </label>
-                                            <input required type="date" class="form-control" name="passport_given_date" value="@if(old('passport_given_date')){{old('passport_given_date')}}@endif">
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Passport amal qilish muddati
-                                                <span class="error">
-                                                @if ($errors->has('passport_issued_date')) | {{ $errors->first('passport_issued_date') }} @endif
-                                            </span>
-                                            </label>
-                                            <input required type="date" class="form-control" name="passport_issued_date" value="@if(old('passport_issued_date')){{old('passport_issued_date')}}@endif">
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Kim tomonidan berilgan
-                                                <span class="error">
-                                                @if ($errors->has('passport_given_by')) | {{ $errors->first('passport_given_by') }} @endif
-                                            </span>
-                                            </label>
-                                            <input required type="text" class="form-control" name="passport_given_by" value="@if(old('passport_given_by')){{old('passport_given_by')}}@endif">
-                                        </div>
-                                        <div class="col-md-3 form-group">
-                                            <label for="">
-                                                Jinsi
-                                                <span class="error">
-                                                @if ($errors->has('gender')) | {{ $errors->first('gender') }} @endif
-                                            </span>
-                                            </label>
-                                            <select name="gender" id="" class="form-control">
-                                                <option   @if(old('gender') == 1) selected @endif  value="1">Erkak</option>
-                                                <option @if( old('gender') == 0) selected @endif  value="0">Ayol</option>
-                                            </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -214,7 +122,7 @@
                                                 $types = 'Test\Model\Type'::all();
                                                 @endphp
                                                 @foreach($types as $type)
-                                                    <option @if(old('status_new') ==$type->id) selected @endif  value="{{$type->id}}">
+                                                    <option @if($type->id == '24') selected="true" @endif  value="{{$type->id}}">
                                                         {{$type->name}}</option>
 
                                                 @endforeach
@@ -227,8 +135,105 @@
                                                 @if ($errors->has('course')) | {{ $errors->first('course') }} @endif
                                             </span>
                                             </label>
-                                            <input type="number" class="form-control" name="course" value="{{old('course')}}">
+                                            <input type="number" class="form-control" name="course" value="{{old('course') ? old('course') :'2'}}">
                                         </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Jinsi
+                                                <span class="error">
+                                                @if ($errors->has('gender')) | {{ $errors->first('gender') }} @endif
+                                            </span>
+                                            </label>
+                                            <select name="gender" id="" class="form-control">
+                                                <option   @if(old('gender') == 1) selected @endif  value="1">Erkak</option>
+                                                <option @if( old('gender') == 0) selected @endif  value="0">Ayol</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Telefon
+                                                <span class="error">
+                                                @if ($errors->has('phone')) | {{ $errors->first('phone') }} @endif
+                                            </span>
+                                            </label>
+                                            <input  type="text" class="form-control" name="phone" value="@if(old('phone')){{old('phone')}}@endif">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Viloyat
+                                                <span class="error">
+                                                @if ($errors->has('region_id')) | {{ $errors->first('region_id') }} @endif
+                                            </span>
+                                            </label>
+                                            <select name="region" id="" class="form-control">
+                                                <option value="">Tanlang</option>
+                                                @foreach($regions as $region)
+                                                    <option @if(old('region')==$region->id) selected @endif  value="{{$region->id}}">{{$region->name_uz}}</option>
+{{--                                                    <option @if($data->region_id == $region->id) selected @endif value="{{$region->id}}">{{$region->name_uz}}</option>--}}
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Tuman/Shahar
+                                                <span class="error">
+                                                @if ($errors->has('area')) | {{ $errors->first('area') }} @endif
+                                            </span>
+                                            </label>
+                                            <select name="area" id="" class="form-control">
+                                                <option value="">Tanlang</option>
+                                                @if(old('region'))
+                                                    @php
+                                                    $ar = 'Test\Model\Area'::where('region_id' , old('region'))->get();
+                                                    @endphp
+                                                    @foreach($ar as $item)
+                                                        <option  @if(old('area')==$item->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach
+
+
+                                                @endif
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="">
+                                                Manzil
+                                                <span class="error">
+                                                @if ($errors->has('address')) | {{ $errors->first('address') }} @endif
+                                            </span>
+                                            </label>
+                                            <input  type="text" class="form-control" name="address" value="@if(old('address')){{old('address')}}@endif">
+                                        </div>
+
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Passport berilgan sana
+                                                <span class="error">
+                                                @if ($errors->has('passport_given_date')) | {{ $errors->first('passport_given_date') }} @endif
+                                            </span>
+                                            </label>
+                                            <input  type="date" class="form-control" name="passport_given_date" value="@if(old('passport_given_date')){{old('passport_given_date')}}@endif">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Passport amal qilish muddati
+                                                <span class="error">
+                                                @if ($errors->has('passport_issued_date')) | {{ $errors->first('passport_issued_date') }} @endif
+                                            </span>
+                                            </label>
+                                            <input  type="date" class="form-control" name="passport_issued_date" value="@if(old('passport_issued_date')){{old('passport_issued_date')}}@endif">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label for="">
+                                                Kim tomonidan berilgan
+                                                <span class="error">
+                                                @if ($errors->has('passport_given_by')) | {{ $errors->first('passport_given_by') }} @endif
+                                            </span>
+                                            </label>
+                                            <input  type="text" class="form-control" name="passport_given_by" value="@if(old('passport_given_by')){{old('passport_given_by')}}@endif">
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </form>

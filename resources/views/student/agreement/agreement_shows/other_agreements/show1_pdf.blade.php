@@ -1,29 +1,4 @@
-{{--@extends('layouts.marketing_enno')--}}
-{{--@section('links')--}}
-{{--    <link rel="stylesheet" href="{{asset('/css/agreement.css')}}">--}}
-{{--@endsection--}}
-{{--@section('content')--}}
-{{--    <style type="text/css">--}}
-{{--        fieldset.scheduler-border {--}}
-{{--            width: inherit; /* Or auto */--}}
-{{--            padding: 0 10px; /* To give a bit of padding on the left and right */--}}
-{{--            border-bottom: none;--}}
-{{--        }--}}
-{{--    </style>--}}
-
-{{--    --}}
-
-{{--    --}}{{--        </div>--}}
-{{--    --}}{{--    </div>--}}
-
-
-{{--@endsection--}}
-
-{{--@section('js')--}}
-
-
-{{--@endsection--}}
-        <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,18 +8,178 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('/css/agreement.css')}}">
     <!-- Latest compiled and minified CSS -->
-{{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"--}}
-{{--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-{{--    <!-- Optional theme -->--}}
-{{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
-{{--          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
+    <!-- Optional theme -->
+    {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
+    {{--          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
 </head>
 <body>
+@php
+
+function yuzlik($yuz){
+          $yuz = intval($yuz);
+          $ar_mln = array(
+          '0' => '',
+          '1' => 'ming',
+          '2' => 'million'
+        );
+        $ar_son = array(
+          '0' => '',
+          '1' => 'bir',
+          '2' => 'ikki',
+          '3' => 'uch',
+          '4' => 'to`rt',
+          '5' => 'besh',
+          '6' => 'olti',
+          '7' => 'yetti',
+          '8' => 'sakkiz',
+          '9' => 'to`qqiz',
+        );
+        $ar_on = array(
+          '0' => '',
+          '1' => 'o`n',
+          '2' => 'yigirma',
+          '3' => 'o`ttiz',
+          '4' => 'qirq',
+          '5' => 'ellik',
+          '6' => 'oltmish',
+          '7' => 'yetmish',
+          '8' => 'sakson',
+          '9' => 'to`qson'
+        );
+        if ($yuz > 99) {
+          $birlar = $yuz%10;
+          $bb = $yuz/10;
+          $onlar = $bb%10;
+          $bb = $bb/10;
+          $yuzlar = $bb%10;
+          $text = $ar_son[$yuzlar].' yuz '.$ar_on[$onlar].' '.$ar_son[$birlar];
+        }
+        elseif($yuz<100 && $yuz > 9){
+          $birlar = $yuz%10;
+          $bb = $yuz/10;
+          $onlar = $bb%10;
+          $text = $ar_on[$onlar].' '.$ar_son[$birlar];
+        }
+        elseif($yuz>0 && $yuz < 10){
+          $text = $ar_son[$yuz];
+        }
+        else{
+          $text = '';
+        }
+
+          return $text;
+}
+    function convert_to_word($number){
+        $result = number_format($number , '2');
+        $result = explode('.', $result);
+        $bir = explode(',' , $result[0]);
+        $re_bir = array_reverse($bir);
+        $ar_mln = array(
+          '0' => '',
+          '1' => 'ming',
+          '2' => 'million',
+          '3' => 'milliard'
+        );
+        $ar_son = array(
+          '0' => '',
+          '1' => 'bir',
+          '2' => 'ikki',
+          '3' => 'uch',
+          '4' => 'to`rt',
+          '5' => 'besh',
+          '6' => 'olti',
+          '7' => 'yetti',
+          '8' => 'sakkiz',
+          '9' => 'to`qqiz',
+        );
+        $ar_on = array(
+          '0' => '',
+          '1' => 'o`n',
+          '2' => 'yigirma',
+          '3' => 'o`ttiz',
+          '4' => 'qirq',
+          '5' => 'ellik',
+          '6' => 'oltmish',
+          '7' => 'yetmish',
+          '8' => 'sakson',
+          '9' => 'to`qson'
+        );
+
+        $ar_text = [];
+        $i = 0;
+        foreach ($re_bir as $key => $value) {
+          // echo $value%10;
+          if (yuzlik($value) != '') {
+
+          $ar_text[$i] = yuzlik($value).' '.$ar_mln[$key].' ';
+          }
+          else{
+            $ar_text[$i] = '';
+          }
+          // echo yuzlik($value).' '.$ar_mln[$key].' ' ;
+          $i++;
+        }
+        $ress = array_reverse($ar_text);
+        $ress = implode(' ', $ress);
+        return $ress;
+    }
+
+     function get_month_name($start_month){
+
+        if ($start_month == "01") {
+            $start_month = "Yanvar";
+        }
+        if ($start_month == "02") {
+            $start_month = "Fevral";
+        }
+        if ($start_month == "03") {
+            $start_month = "Mart";
+        }
+        if ($start_month == "04") {
+            $start_month = "Aprel";
+        }
+        if ($start_month == "05") {
+            $start_month = "May";
+        }
+        if ($start_month == "06") {
+            $start_month = "Iyun";
+        }
+        if ($start_month == "07") {
+            $start_month = "Iyul";
+        }
+        if ($start_month == "08") {
+            $start_month = "Avgust";
+        }
+        if ($start_month == "09") {
+            $start_month = "Sentabr";
+        }
+        if ($start_month == "10") {
+            $start_month = "Oktabr";
+        }
+        if ($start_month == "11") {
+            $start_month = "Noyabr";
+        }
+        if ($start_month == "12") {
+            $start_month = "Dekabr";
+        }
+        return $start_month;
+    }
+
+$month = get_month_name(date('m'));
+$day = date('d');
+    @endphp
+<style>
+    body {
+        font-family: DejaVu Sans, sans-serif !important;
+    }
+</style>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
-        <div class="row bg-danger">
+        <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
@@ -53,22 +188,20 @@
                 <h4 class="text-bold">SHARTNOMA №________</h4>
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <span>2021 yil “___” __________</span>
+            <div style="display: inline-block; width: 49%" class="" >
+                <span>2021 yil “{{$day}}” {{$month}}</span>
             </div>
-            <div class="col-md-6 text-right">
+            <div style="display: inline-block; width: 49%" class=" text-right">
                 <span>Toshkent shahri</span>
             </div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti nomidan O’zbekiston Respublikasi adliya
                     vazirining 441-шт-son buyrug’iga asosan harakat qiluvchi rektor v.v.b. I.Rustambekov keyingi
-                    o’rinlarda “Universitet” deb nomlanuvchi bir tarafdan va ________ yilda tug’ilgan, pasport seriyasi
-                    ____ raqami _________, ________ yilda _______________________
-                    __________________________________________________________ IIB tomonidan berilgan,
-                    __________________________________________________________________________________________________________________________________________________
-                    yashovchi
-                    universitet talabasi ______________________________________________________________ keyingi
+                    o’rinlarda “Universitet” deb nomlanuvchi bir tarafdan va <b>{{$student->birthday}}</b> yilda
+                    tug’ilgan, pasport seriyasi
+                    <b>{{$student->passport_seria}}</b> raqami <b>{{$student->passport_number}}</b>, universitet
+                    talabasi <b>{{$student->fio()}}</b> keyingi
                     o’rinlarda “Talaba” deb nomlanuvchi ikkinchi tarafdan, keyingi o’rinlarda birgalikda “Taraflar” deb
                     nomlanuvchi, ushbu shartnomani quyidagilar haqida tuzdilar.
 
@@ -102,7 +235,7 @@
                     II. Taraflarning huquq va majburiyatlari
                 </h4>
             </div>
-            <div class="col-md-12 mb-1">
+            <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     <b>2.1.</b> Universitet quyidagi huquqlarga ega:
@@ -196,8 +329,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba xona va jihozlardan foydalanadigan o’quv yili uchun 100% oldindan ____________
-                    (________________________________________) so’m miqdorida haq to’laydi.
+                    3.2. Talaba xona va jihozlardan foydalanadigan o’quv yili uchun 100% oldindan <b>{{$general_payment_sum ? number_format($general_payment_sum, 2, ',', ' ') :''}}</b>
+                    (<b>{{convert_to_word($general_payment_sum)}}</b>) so’m miqdorida haq to’laydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -245,12 +378,12 @@
                 </p>
 
             </div>
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center ">
                 <h4 class="text-bold">
                     V. Fors major holatlari
                 </h4>
             </div>
-            <div class="col-md-12 mb-1">
+            <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     5.1. Taraflar ixtiyoriga bog’liq bo’lmagan, ularni oldindan bilish yoki oldini olish imkoniyati
@@ -305,71 +438,77 @@
                     VII. Taraflarning manzillari va imzolari
                 </h4>
             </div>
-            <div class="col-md-6">
-                <p class="w-100 text-center text-bold">
-                    “Universitet”
-                </p>
-                <p>
-                    Toshkent davlat yuridik universiteti
-                    Toshkent shahri Sayilgoh 35-uy
-                    O’zbekiston moliya vazirligi g’aznachiligi
-                    h/r 23402000300100001010
-                    STIR 201122919
-                    HKKM MB Toshkent shahri BB
-                    MFO 00014
-                    shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014
-                    STIR 201122349 OKONX 922110
-                </p>
-                <p>
-                    Prorektor. ____________ A.Iminov
-                </p>
-                <p>
-                    Bosh buхgalter.__________ M.Parpiyev
-                </p>
-                <p>
+            <div class="col-md-12">
+                <table class="w-100">
+                    <tbody>
+                    <tr>
+                        <td class="w-50" style="width: 49%">
+                            <p class="w-100 text-center text-bold">
+                                “Universitet”
+                            </p>
+                        </td>
+                        <td class="w-50" style="width: 49%">
+                            <p class="w-100 text-center text-bold">
+                                “Talaba”
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-50" style="width: 49%">
 
-                    Talabalar turar joyi mudiri
-                </p>
-                <p>
+                            <p>
+                                Toshkent davlat yuridik universiteti
+                                Toshkent shahri Sayilgoh 35-uy
+                                O’zbekiston moliya vazirligi g’aznachiligi
+                                h/r 23402000300100001010
+                                STIR 201122919
+                                HKKM MB Toshkent shahri BB
+                                MFO 00014
+                                shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014
+                                STIR 201122349 OKONX 922110
+                            </p>
+                            <p>
+                                Prorektor. ____________ A.Iminov
+                            </p>
+                            <p>
+                                Bosh buхgalter.__________ M.Parpiyev
+                            </p>
+                            <p>
 
-                    _____________ N.Shayzakov
+                                Talabalar turar joyi mudiri
+                            </p>
+                            <p>
 
-                </p>
+                                _____________ N.Shayzakov
+
+                            </p>
+                        </td>
+                        <td class="w-50" style="width: 49%">
+
+                            <p class="word-line">
+                                <b>{{$student->fio()}}</b>
+                            </p>
+                            <p class="w-100 text-center">
+                                (F.I.Sh.)
+                            </p>
+                            <p>
+                                Manzili: <b>{{$student->address}}</b>
+                            </p>
+
+                            <p>
+                                Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami <b>{{$student->passport_number}}</b>
+                            </p>
+                            <p>
+                                Talaba _________________
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-6">
-                <p class="w-100 text-center text-bold">
-                    “Talaba”
-                </p>
-                <p class="word-line">
-
-                </p>
-                <p class="w-100 text-center">
-                    (F.I.Sh.)
-                </p>
-                <p>
-                    Pochta manzili________________________ ____________________________________
-                    ____________________________________
-                    ____________________________________
-                </p>
-
-                <p>
-                    Pasport seriyasi _____ raqami ___________
-                    _______________________________________________________________________
-                </p>
-                <p>
-                    Talaba _________________
-                </p>
-
-
-            </div>
-
-
         </div>
     </div>
     <div class="col-md-2"></div>
 </div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
 </body>
 </html>
