@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-xxl">
         <div class="justify-content-center align-items-center d-flex">
-          <a class="navbar-brand px-4" href="#">
+          <a class="navbar-brand px-4" href="/">
             <img src="<?php echo e(asset('marketing2021/img/TSUL_EN_white.png')); ?>" alt="" width="120" height="auto" class="d-inline-block align-text-top">
           </a>
           <!-- <h1 class="fs-3 text-white">Marketing TSUL</h1> -->
@@ -17,21 +17,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto my-2  my-lg-0">
             <li class="nav-item">
-              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="#">To'lov shartnomasi (talabalar
+              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.form')); ?>">To'lov shartnomasi (talabalar
                 uchun) </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="#">Tabaqalashtirilgan to'lov kontrakt (magistratura bakalavr)
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('super.super')); ?>">Tabaqalashtirilgan to'lov kontrakt (magistratura bakalavr)
               </a>
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="#">Litsey shartnoma
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('student.agreement.lyceum_form')); ?>">Litsey shartnoma
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="#">To`lovlar tarixi</a>
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('payment_check')); ?>">To`lovlar tarixi</a>
             </li>
           </ul>
 

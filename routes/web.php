@@ -21,8 +21,6 @@ Route::post('/super/store', [
     'as' => 'store'
 ]);
 
-Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
-Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');
 
 Route::post('/super/checkstore', [
     'uses' => 'SuperController@checkstore',
@@ -149,7 +147,18 @@ Route::get('/clear', function () {
     return Artisan::call('config:cache');
 });
 
-
+Route::get('/phone-right', function () {
+    $students = \Test\Model\StudentPayment::select(['id' , 'id_code' , 'phone'])->whereRaw('LENGTH(phone) = ?' , [12])->get();
+//    $students = \Test\Model\StudentPayment::all();
+    foreach ($students as $student) {
+//        $num = $student->phone;
+//        $num = str_replace(' ' , '' , $num);
+//        $student->phone = $num;
+        $student->phone = '+'.$student->phone;
+        $student->update();
+    }
+    return $students;
+});
 
 //new routes
 Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
@@ -157,3 +166,8 @@ Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->n
 Route::post('/student/show-other-agreement' , 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
 Route::post('/student/pdf-other-agreement' , 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
 Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');
+Route::get('/student/lyceum/form' , 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
+Route::post('/student/lyceum/show-agreement' , 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
+Route::post('/student/lyceum/pdf-agreement' , 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
+Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
+Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');

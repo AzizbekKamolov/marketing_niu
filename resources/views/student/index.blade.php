@@ -43,7 +43,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('shartnoma.lyceum_form') }}">
+                        <a class="text-decoration-none" href="{{ route('student.agreement.lyceum_form') }}">
                             <div class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
                                 <div class="col">
                                     <img class="cardImg" class=""

@@ -13,6 +13,7 @@ use Test\Model\AgreementType;
 use Test\Model\BranchAdmin;
 use Test\Model\Group;
 use Test\Model\OtherAgreementType;
+use Test\Model\SmsSend;
 use Test\Model\Student;
 use Test\Model\Region;
 use Test\Model\Area;
@@ -181,13 +182,17 @@ class PaymentAdminController extends Controller
     public function create_student(){
         if (Auth::user()->role == 11){
             $regions = Region::all();
+            $agreement_types = Type::orderBy('order' , 'ASC')->get();
+//            return $agreement_types;
             return view('admin.pages.payment_admin.student.create' , [
-                'regions' => $regions
+                'regions' => $regions,
+                'agreement_types' => $agreement_types
             ]);
         }
     }
 
     public function store_student(Request $request){
+//        return $request;
         $p_seria = $request->passport_seria;
         $p_number = $request->passport_number;
 //        if (StudentPayment::where('id_code' , $request->id_code)->exists()){
@@ -235,6 +240,22 @@ class PaymentAdminController extends Controller
         $student->course = $request->course;
         $student->status_check = 1;
         $student->save();
+        if (isset($request->send_id_code) && $request->send_id_code == 'on' && $request->phone != '' && $request->phone != null){
+            $number = str_replace('+' , '' , $request->phone);
+            $number = str_replace('(' , '' , $number);
+            $number = str_replace(')' , '' , $number);
+            $number = str_replace('_' , '' , $number);
+            $number = str_replace('-' , '' , $number);
+            if (strlen($number) == 12){
+                $send_sms =new SmsSend();
+                $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00'.$student->id_code;
+                $result = $send_sms->send_one_sms($number , $text);
+                if ($result){
+                    $student->sms_sended = 1;
+                    $student->update();
+                }
+            }
+        }
         return redirect()->back()->with('success' , 'Ma`lumot saqlandi');
     }
 
@@ -256,7 +277,7 @@ class PaymentAdminController extends Controller
     }
 
     public function get_type_by_degree($id){
-        $type = Type::where('degree' , $id)->get();
+        $type = Type::where('degree' , $id)->orderBy('order' , 'ASC')->get();
         return json_encode($type);
     }
 

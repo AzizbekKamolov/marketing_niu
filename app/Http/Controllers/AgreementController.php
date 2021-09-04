@@ -92,11 +92,11 @@ class AgreementController extends Controller
                 $now = time(); // or your date as well
                 $your_date = strtotime($need_date);
                 $datediff = $now - $your_date;
-                if ($datediff < 0){
-                    $datediff = $datediff*(-1);
+                if ($datediff < 0) {
+                    $datediff = $datediff * (-1);
                 }
                 $all_days = round($datediff / (60 * 60 * 24));
-                $general_payment_sum = $agreement_type->price_for_day * $part_discount*$all_days;
+                $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
                 return view('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id, [
                     'student' => $student,
                     'agreement' => $agreement_type,
@@ -108,7 +108,9 @@ class AgreementController extends Controller
 
         }
     }
-    public function pdf_other_agreement(Request $request){
+
+    public function pdf_other_agreement(Request $request)
+    {
         $student = StudentPayment::find($request->student_id);
 //        return $student;
         if ($student) {
@@ -127,12 +129,12 @@ class AgreementController extends Controller
                 $now = time(); // or your date as well
                 $your_date = strtotime($need_date);
                 $datediff = $now - $your_date;
-                if ($datediff < 0){
-                    $datediff = $datediff*(-1);
+                if ($datediff < 0) {
+                    $datediff = $datediff * (-1);
                 }
                 $all_days = round($datediff / (60 * 60 * 24));
-                $general_payment_sum = $agreement_type->price_for_day * $part_discount*$all_days;
-                return PDF::loadView('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id.'_pdf', [
+                $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
+                return PDF::loadView('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id . '_pdf', [
                     'student' => $student,
                     'agreement' => $agreement_type,
                     'discounts' => $discounts,
@@ -141,6 +143,51 @@ class AgreementController extends Controller
                 ])->download('shartnoma.pdf');
             }
 
+        }
+    }
+
+    public function lyceum_form()
+    {
+        return view('student.agreement_lyceum.form');
+    }
+
+    public function lyceum_show_agreement(Request $request)
+    {
+//        return $request;
+        $student = Lyceum::where('id_code', $request->id_code)->first();
+        if ($student) {
+            if ($student->parent_pass_seria == $request->parent_pass_seria) {
+                if ($student->parent_pass_number == $request->parent_pass_number) {
+                    if ($student->birthday == date('Y-m-d', strtotime($request->birthday))) {
+                        return view('student.agreement_lyceum.show_agreement', [
+                            'data' => $student
+                        ]);
+                    } else {
+                        return redirect()->back()->with('info_error', 'Tug`ilgan sana noto`g`ri')->withInput();
+                    }
+                } else {
+                    return redirect()->back()->with('info_error', 'Pasport raqam noto`g`ri')->withInput();
+                }
+            } else {
+                return redirect()->back()->with('info_error', 'Pasport seria noto`g`ri')->withInput();
+            }
+        } else {
+            return redirect()->back()->with('info_error', 'O`quvchi topilmadi')->withInput();
+        }
+//        return view('student.agreement_lyceum.show_agreement' , [
+//            'data' =>
+//        ])
+    }
+    public function lyceum_pdf_agreement(Request $request){
+        $ly = Lyceum::where('id_code', $request->id_code)->first();
+        if ($ly) {
+            // return view('site.shartnoma.shartnoma_lyceum_pdf' , ['data' => $ly]);
+            if ($ly->getting_date == null) {
+                $ly->getting_date = date('Y-m-d');
+                $ly->update();
+
+            }
+            return PDF::loadView('student.agreement_lyceum.agreement_pdf', ['data' => $ly])->download($ly->fio() . '.pdf');
         }
     }
 }

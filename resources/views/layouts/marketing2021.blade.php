@@ -29,9 +29,10 @@
 @include('site.includes.footer2021')
 <!-- Bootsrap js -->
 <script src="{{asset('marketing2021/css/bootstrap-5.0.2-dist/js/bootstrap.min.js')}}"></script>
-
 <!-- FontAwesome -->
 <script src="{{asset('marketing2021/css/fontawesome-free-5.15.3-web/js/all.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 @yield('js')
 </body>
 
