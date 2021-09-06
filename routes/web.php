@@ -135,6 +135,7 @@ Route::group([
     Route::delete('/payment-admin/student-type-other-agreement-type', 'StudentTypeOtherAgreementTypeController@destroy')->name('payment_admin.student_type.other_agreement_type.destroy');
     Route::delete('/payment-admin/discount', 'DiscountController@destroy')->name('payment_admin.discount.destroy');
     Route::post('/payment-admin/discount', 'DiscountController@store')->name('payment_admin.discount.store');
+    Route::post('/payment-admin/send-id-code', 'PaymentAdminController@send_id_code')->name('payment_admin.send_id_code');
 });
 
 Auth::routes();

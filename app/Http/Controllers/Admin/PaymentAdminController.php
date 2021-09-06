@@ -27,56 +27,57 @@ use Test\Model\Type;
 
 class PaymentAdminController extends Controller
 {
-    public function index(){
-        if (Auth::user()->role == 11){
-            $students = StudentPayment::orderBy('id' , 'DESC')->where('status_check' , 1)->get();
-            return view('admin.pages.payment_admin.student.index' , [
+    public function index()
+    {
+        if (Auth::user()->role == 11) {
+            $students = StudentPayment::orderBy('id', 'DESC')->where('status_check', 1)->with('type')->get();
+            return view('admin.pages.payment_admin.student.index', [
                 'data' => $students
             ]);
-        }
-        else{
+        } else {
             return "xatolik!!";
         }
     }
 
 
-    public function no_checkeds(){
-        if (Auth::user()->role == 11){
-            $students = StudentPayment::where('status_check' , 0)->with('type')->get();
-            return view('admin.pages.payment_admin.student.no_checkeds' , [
+    public function no_checkeds()
+    {
+        if (Auth::user()->role == 11) {
+            $students = StudentPayment::where('status_check', 0)->with('type')->get();
+            return view('admin.pages.payment_admin.student.no_checkeds', [
                 'data' => $students
             ]);
-        }
-        else{
+        } else {
             return "xatolik!!";
         }
     }
 
-    public function student_check_edit($id){
-        if (Auth::user()->role == 11){
+    public function student_check_edit($id)
+    {
+        if (Auth::user()->role == 11) {
             $student = StudentPayment::find($id);
             $regions = Region::all();
 //            return $student;
-            return view('admin.pages.payment_admin.student.check_edit' , [
+            return view('admin.pages.payment_admin.student.check_edit', [
                 'data' => $student,
                 'regions' => $regions,
             ]);
-        }
-        else{
+        } else {
             return "xatolik!!";
         }
     }
 
-    public function update(Request $request , $id){
-        if (Auth::user()->role == 11){
+    public function update(Request $request, $id)
+    {
+        if (Auth::user()->role == 11) {
             $p_seria = $request->passport_seria;
             $p_number = $request->passport_number;
             $student = StudentPayment::find($id);
-            if (StudentPayment::where('id_code' , $request->id_code)->where('id' , '<>' , $id)->exists()){
-                return redirect()->back()->with('error' , 'Bu id kod  bilan boshqa o`quvchi mavjud');
+            if (StudentPayment::where('id_code', $request->id_code)->where('id', '<>', $id)->exists()) {
+                return redirect()->back()->with('error', 'Bu id kod  bilan boshqa o`quvchi mavjud');
             }
-            if (StudentPayment::where('passport_seria' , $p_seria)->where('passport_number' , $p_number)->where('id' , '<>' , $id)->exists()){
-                return redirect()->back()->with('error' , 'Bu passport malumotlar bilan boshqa o`quvchi mavjud');
+            if (StudentPayment::where('passport_seria', $p_seria)->where('passport_number', $p_number)->where('id', '<>', $id)->exists()) {
+                return redirect()->back()->with('error', 'Bu passport malumotlar bilan boshqa o`quvchi mavjud');
             }
 
             $validatedData = $request->validate([
@@ -98,9 +99,9 @@ class PaymentAdminController extends Controller
                 'status_new' => 'required',
 //                'type_degree' => 'required',
             ]);
-            if (Payment::where('id_code' , $student->id_code)->exists()){
-                $pay = Payment::where('id_code' , $student->id_code)->get();
-                    foreach ($pay as $p){
+            if (Payment::where('id_code', $student->id_code)->exists()) {
+                $pay = Payment::where('id_code', $student->id_code)->get();
+                foreach ($pay as $p) {
                     $p->id_code = $request->id_code;
                     $p->update();
                 }
@@ -124,19 +125,20 @@ class PaymentAdminController extends Controller
             $student->status_new = $request->status_new;
             $student->status_check = 1;
             $student->update();
-            return redirect(route('payment_admin.student.no_checkeds'))->with('success' , 'Ma`lumot o`zgartirildi');
-            return $request;
-        }
-        else{
+            return redirect()->back()->with('success', 'Ma`lumot o`zgartirildi');
+//            return redirect(route('payment_admin.student.no_checkeds'))->with('success', 'Ma`lumot o`zgartirildi');
+//            return $request;
+        } else {
             return "xatolik!!";
         }
     }
 
-    public function student_payments($id){
-        if (Auth::user()->role == 11){
+    public function student_payments($id)
+    {
+        if (Auth::user()->role == 11) {
             $student = StudentPayment::find($id);
 //            return $student->payments();
-            return view('admin.pages.payment_admin.payment.index' , [
+            return view('admin.pages.payment_admin.payment.index', [
                 'student' => $student
             ]);
 
@@ -144,15 +146,16 @@ class PaymentAdminController extends Controller
 
     }
 
-    public function payment_store(Request $request){
+    public function payment_store(Request $request)
+    {
         $validatedData = $request->validate([
             'amount' => 'required',
             'payment_date' => 'required',
             'student_id' => 'required',
         ]);
-        if (Auth::user()->role == 11){
+        if (Auth::user()->role == 11) {
             $student = StudentPayment::find($request->student_id);
-            if ($student){
+            if ($student) {
                 $new_payment = new Payment();
                 $new_payment->amount = $request->amount;
                 $new_payment->payment_date = $request->payment_date;
@@ -162,48 +165,51 @@ class PaymentAdminController extends Controller
                 $new_payment->created_by = Auth::user()->id;
                 $new_payment->updated_by = Auth::user()->id;
                 $new_payment->save();
-                return redirect()->back()->with('success' , 'To`lov saqlandi');
+                return redirect()->back()->with('success', 'To`lov saqlandi');
 
             }
         }
     }
 
-    public function payment_delete($id){
+    public function payment_delete($id)
+    {
 //        return $id;
-        if (Auth::user()->role == 11){
+        if (Auth::user()->role == 11) {
             $payment = Payment::find($id);
-            if ($payment){
+            if ($payment) {
                 $payment->delete();
-                return redirect()->back()->with('success' , 'To`lov o`chirildi');
+                return redirect()->back()->with('success', 'To`lov o`chirildi');
             }
         }
     }
 
-    public function create_student(){
-        if (Auth::user()->role == 11){
+    public function create_student()
+    {
+        if (Auth::user()->role == 11) {
             $regions = Region::all();
-            $agreement_types = Type::orderBy('order' , 'ASC')->get();
+            $agreement_types = Type::orderBy('order', 'ASC')->get();
 //            return $agreement_types;
-            return view('admin.pages.payment_admin.student.create' , [
+            return view('admin.pages.payment_admin.student.create', [
                 'regions' => $regions,
                 'agreement_types' => $agreement_types
             ]);
         }
     }
 
-    public function store_student(Request $request){
+    public function store_student(Request $request)
+    {
 //        return $request;
         $p_seria = $request->passport_seria;
         $p_number = $request->passport_number;
 //        if (StudentPayment::where('id_code' , $request->id_code)->exists()){
 //            return redirect()->back()->with('error' , 'Bu id kod  bilan boshqa o`quvchi mavjud');
 //        }
-        if (StudentPayment::where('passport_seria' , $p_seria)->where('passport_number' , $p_number)->exists()){
-            return redirect()->back()->with('error' , 'Bu passport malumotlar bilan boshqa o`quvchi mavjud');
+        if (StudentPayment::where('passport_seria', $p_seria)->where('passport_number', $p_number)->exists()) {
+            return redirect()->back()->with('error', 'Bu passport malumotlar bilan boshqa o`quvchi mavjud');
         }
         $validator = $request->validate([
             'first_name' => 'required',
-            'id_code' => ['required' , 'unique:students' , 'regex:/^[0-9]+$/u'],
+            'id_code' => ['required', 'unique:students', 'regex:/^[0-9]+$/u'],
             'last_name' => 'required',
 //            'middle_name' => 'required',
             'birthday' => 'required|date',
@@ -211,7 +217,7 @@ class PaymentAdminController extends Controller
 //            'region' => 'required',
 //            'area' => 'required',
 //            'address' => 'required',
-            'passport_seria' => ['required' , 'regex:/^[A-Z]+$/u'],
+            'passport_seria' => ['required', 'regex:/^[A-Z]+$/u'],
             'passport_number' => 'required',
 //            'passport_given_date' => 'date',
 //            'passport_issued_date' => 'date',
@@ -240,76 +246,106 @@ class PaymentAdminController extends Controller
         $student->course = $request->course;
         $student->status_check = 1;
         $student->save();
-        if (isset($request->send_id_code) && $request->send_id_code == 'on' && $request->phone != '' && $request->phone != null){
-            $number = str_replace('+' , '' , $request->phone);
-            $number = str_replace('(' , '' , $number);
-            $number = str_replace(')' , '' , $number);
-            $number = str_replace('_' , '' , $number);
-            $number = str_replace('-' , '' , $number);
-            if (strlen($number) == 12){
-                $send_sms =new SmsSend();
-                $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00'.$student->id_code;
-                $result = $send_sms->send_one_sms($number , $text);
-                if ($result){
+        if (isset($request->send_id_code) && $request->send_id_code == 'on' && $request->phone != '' && $request->phone != null) {
+            $number = str_replace('+', '', $request->phone);
+            $number = str_replace('(', '', $number);
+            $number = str_replace(')', '', $number);
+            $number = str_replace('_', '', $number);
+            $number = str_replace('-', '', $number);
+            if (strlen($number) == 12) {
+                $send_sms = new SmsSend();
+                $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
+                $result = $send_sms->send_one_sms($number, $text);
+                if ($result) {
                     $student->sms_sended = 1;
                     $student->update();
                 }
             }
         }
-        return redirect()->back()->with('success' , 'Ma`lumot saqlandi');
+        return redirect()->back()->with('success', 'Ma`lumot saqlandi');
     }
 
-     public function student_show($id){
-        if (Auth::user()->role == 11){
+    public function student_show($id)
+    {
+        if (Auth::user()->role == 11) {
             $student = StudentPayment::with('agreement_discounts')->with('other_agreement_discounts.agreement_type')->find($id);
 //            return $student;
             $regions = Region::all();
             $other_agreements = OtherAgreementType::all();
-            return view('admin.pages.payment_admin.student.student_show' , [
+            return view('admin.pages.payment_admin.student.student_show', [
                 'data' => $student,
                 'regions' => $regions,
                 'other_agreement_types' => $other_agreements
             ]);
-        }
-        else{
+        } else {
             return "xatolik!!";
         }
     }
 
-    public function get_type_by_degree($id){
-        $type = Type::where('degree' , $id)->orderBy('order' , 'ASC')->get();
+    public function get_type_by_degree($id)
+    {
+        $type = Type::where('degree', $id)->orderBy('order', 'ASC')->get();
         return json_encode($type);
     }
 
-    public function student_types(){
-        $types = Type::with('agreement_side_types')->with('agreement_types')->orderBy('order' , 'ASC')->get();
-        return view('admin.pages.payment_admin.student_types.index' , [
+    public function student_types()
+    {
+        $types = Type::with('agreement_side_types')->with('agreement_types')->orderBy('order', 'ASC')->get();
+        return view('admin.pages.payment_admin.student_types.index', [
             'data' => $types
         ]);
     }
 
-    public function student_types_show($id){
+    public function student_types_show($id)
+    {
         $type = Type::with('agreement_side_types')->with('agreement_types')->with('other_agreement_types')->find($id);
 //        return $type;
-        if ($type){
-            $side_type_ids = StudentTypeAgreementSideType::where('type_id' , $type->id)->pluck('agreement_side_type_id');
-            $other_side_types = AgreementSideType::whereNotIn('id' , $side_type_ids)->get();
-            $type_ids = StudentTypeAgreementType::where('type_id' , $type->id)->pluck('agreement_type_id');
-            $other_types = AgreementType::whereNotIn('id' , $type_ids)->get();
-            $others_ids = StudentTypeOtherAgreementType::where('type_id' , $type->id)->pluck('other_agreement_type_id');
-            $others = OtherAgreementType::whereNotIn('id' , $others_ids)->get();
+        if ($type) {
+            $side_type_ids = StudentTypeAgreementSideType::where('type_id', $type->id)->pluck('agreement_side_type_id');
+            $other_side_types = AgreementSideType::whereNotIn('id', $side_type_ids)->get();
+            $type_ids = StudentTypeAgreementType::where('type_id', $type->id)->pluck('agreement_type_id');
+            $other_types = AgreementType::whereNotIn('id', $type_ids)->get();
+            $others_ids = StudentTypeOtherAgreementType::where('type_id', $type->id)->pluck('other_agreement_type_id');
+            $others = OtherAgreementType::whereNotIn('id', $others_ids)->get();
 //            return $others;
-            return view('admin.pages.payment_admin.student_types.show' , [
+            return view('admin.pages.payment_admin.student_types.show', [
                 'data' => $type,
                 'other_side_types' => $other_side_types,
                 'other_types' => $other_types,
                 'other_agreements' => $others
             ]);
-        }
-        else{
+        } else {
             return abort(404);
         }
 
+    }
+
+    public function send_id_code(Request $request)
+    {
+        $student = StudentPayment::find($request->student_id);
+        if ($student) {
+            $sms = new SmsSend();
+            if ($student->phone) {
+                if (strlen($student->phone) == 13) {
+                    $number = str_replace('+', '', $student->phone);
+                    $number = str_replace(' ', '', $number);
+                    $number = str_replace('_', '', $number);
+                    if (strlen($number) == 12) {
+                        $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
+                        $sms->send_one_sms($number , $text);
+                        return redirect()->back()->with('success' , 'Jo`natildi');
+                    } else {
+                        return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+                    }
+                } else {
+                    return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+                }
+            }
+            return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+        } else {
+            return redirect()->back()->with('error', 'Talaba topilmadi');
+        }
+//        return $request;
     }
 
 }

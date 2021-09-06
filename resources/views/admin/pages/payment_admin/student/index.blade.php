@@ -55,8 +55,9 @@
                                                 <th>F.I.O</th>
                                                 <th>ID KOD</th>
                                                 <th>Pasport</th>
-                                                <th>Tug'ulgan</th>
+                                                <th>Tug'ilgan</th>
                                                 <th>Telefon</th>
+                                                <th>Turi</th>
                                                 <th></th>
 {{--                                                <th></th>--}}
                                                 <th></th>
@@ -82,6 +83,9 @@
                                                </td>
                                                <td>
                                                    {{ $item->phone }}
+                                               </td>
+                                               <td>
+                                                   {{ $item->type?$item->type->name:'' }}
                                                </td>
 
                                                <td class="last-td">

@@ -265,6 +265,7 @@ table.blueTable tfoot .links a{
                             <p>Qolgan qarz: <br></p>
                                 @php
                                 $payms = $payments->sum('amount');
+$ortgan = 0;
                                 @endphp
                                 @foreach($prices as $pr)
                                     @if($loop->last && $student->status_new == 20 && $student->course == 4)

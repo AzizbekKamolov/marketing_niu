@@ -60,7 +60,7 @@ class AgreementController extends Controller
                 $agreement_type = AgreementType::find($request->agreement_type_id);
                 if ($agreement_type) {
 //                        return $agreement_type;
-                    return view('student.agreement.agreement_shows.side_type' . $agreement_side_type->id . '.agreement_show', [
+                    return view('student.agreement.agreement_shows.agreements.agreement_'.$agreement_side_type->id . '_'.$student->edu_type_id, [
                         'student' => $student,
                         'agreement_side_type' => $agreement_side_type,
                         'agreement_type' => $agreement_type

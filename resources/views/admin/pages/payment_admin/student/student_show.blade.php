@@ -34,14 +34,24 @@
                             <div>
 
                                 {{--                                            <button class="btn btn-success form_submit"><i class="fa fa-save"></i> Saqlash</button>--}}
+                                <button type="button" class="btn btn-light send-id-button"><i class="fas fa-envelope"
+                                                                                              aria-hidden="true"></i> Id
+                                    kodni jo'natish
+                                </button>
+
                                 <button type="button" class="btn btn-light back_button_js"><i
                                         class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
                                 </button>
 
                             </div>
 
-                        </div>
 
+                        </div>
+                        <form action="{{route('payment_admin.send_id_code')}}" method="post" id="send-id-form">
+                            {{csrf_field()}}
+                            {{method_field('POST')}}
+                            <input type="text" value="{{$data->id}}" hidden name="student_id">
+                        </form>
                         <div class="table-responsive" style="overflow-x: unset">
                             <div class="row">
                                 <div class="col-md-3 form-group">
@@ -510,6 +520,13 @@
 @endsection
 
 @section('js')
+    <script>
+        $('.send-id-button').click(function(){
+            if(confirm('Jo`natilsinmi')){
+                $('#send-id-form').submit();
+            }
+        });
+    </script>
     <script>
         $('.delete-button').click(function () {
             var id = $(this).attr('id');

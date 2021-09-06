@@ -107,7 +107,7 @@
                                                 @if ($errors->has('phone')) | {{ $errors->first('phone') }} @endif
                                             </span>
                                         </label>
-                                        <input type="text" class="form-control" name="phone"
+                                        <input type="text" class="form-control" name="phone" id="phone"
                                                value="@if(old('phone')){{old('phone')}}@else{{$data->phone}}@endif">
                                     </div>
                                     <div class="col-md-3 form-group">
@@ -302,6 +302,11 @@
 @endsection
 
 @section('js')
+    <script>
+        $('input[name="phone"]').inputmask({
+            'mask': '+\\9\\98999999999',
+        });
+    </script>
     <script>
         function get_statuses(id) {
 
