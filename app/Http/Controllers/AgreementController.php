@@ -14,6 +14,7 @@ use Test\Model\Student;
 use Test\Model\Lyceum;
 use Test\Model\Discount;
 use PDF;
+use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
 
 
@@ -60,7 +61,7 @@ class AgreementController extends Controller
                 $agreement_type = AgreementType::find($request->agreement_type_id);
                 if ($agreement_type) {
 //                        return $agreement_type;
-                    return view('student.agreement.agreement_shows.agreements.agreement_'.$agreement_side_type->id . '_'.$student->edu_type_id, [
+                    return view('student.agreement.agreement_shows.side_type' . $agreement_side_type->id . '.agreement_show', [
                         'student' => $student,
                         'agreement_side_type' => $agreement_side_type,
                         'agreement_type' => $agreement_type
@@ -75,13 +76,11 @@ class AgreementController extends Controller
     public function show_other_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-//        return $student;
         if ($student) {
             $agreement_type = OtherAgreementType::find($request->other_agreement_type_id);
             $discounts = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->get();
             $discount_sum = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->sum('percent');
             $part_discount = 1 - ($discount_sum / 100);
-//                    return $discount_sum;
             if ($agreement_type) {
                 $this_year = date('Y');
                 $need_date = $this_year . '-06-30';
@@ -178,7 +177,9 @@ class AgreementController extends Controller
 //            'data' =>
 //        ])
     }
-    public function lyceum_pdf_agreement(Request $request){
+
+    public function lyceum_pdf_agreement(Request $request)
+    {
         $ly = Lyceum::where('id_code', $request->id_code)->first();
         if ($ly) {
             // return view('site.shartnoma.shartnoma_lyceum_pdf' , ['data' => $ly]);
@@ -189,5 +190,61 @@ class AgreementController extends Controller
             }
             return PDF::loadView('student.agreement_lyceum.agreement_pdf', ['data' => $ly])->download($ly->fio() . '.pdf');
         }
+    }
+
+    public function form_ttj()
+    {
+        return view('student.agreement.ttj.form');
+    }
+
+    public function show_agreement_ttj(Request $request)
+    {
+        $student = StudentPayment::with('type.agreement_types')->with('type.agreement_side_types')->with('type.other_agreement_types')->with('getting_agreements')->where('id_code', substr($request->id_code, 6))->first();
+        if ($student) {
+            if ($student->passport_seria == $request->passport_seria) {
+                if ($student->passport_number == $request->passport_number) {
+                    if (date('Y-m-d', strtotime($student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
+                        $agreement_type = OtherAgreementType::find($request->other_agreement_type_id);
+                        if (!StudentOtherAgreementAccess::where('student_id' , $student->id)->where('other_agreement_type_id' , $request->other_agreement_type_id)->exists()){
+                            return redirect()->back()->with('error' , 'Siz uchun yotoqxona olish ruxsati berilmagan');
+                        }
+                        $discounts = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->get();
+                        $discount_sum = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->sum('percent');
+                        $part_discount = 1 - ($discount_sum / 100);
+                        if ($agreement_type) {
+                            $this_year = date('Y');
+                            $need_date = $this_year . '-06-30';
+                            if (date('Y-m-d') > $need_date) {
+                                $this_year++;
+                                $need_date = $this_year . '-06-30';
+                            }
+                            $now = time(); // or your date as well
+                            $your_date = strtotime($need_date);
+                            $datediff = $now - $your_date;
+                            if ($datediff < 0) {
+                                $datediff = $datediff * (-1);
+                            }
+                            $all_days = round($datediff / (60 * 60 * 24));
+                            $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
+                            return view('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id, [
+                                'student' => $student,
+                                'agreement' => $agreement_type,
+                                'discounts' => $discounts,
+                                'discount_sum' => $discount_sum,
+                                'general_payment_sum' => $general_payment_sum
+                            ]);
+                        }
+                    } else {
+                        return redirect()->back()->with('error', 'Tug`ilgan kun noto`g`ri');
+                    }
+                } else {
+                    return redirect()->back()->with('error', 'Pasport raqami noto`g`ri');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Pasport seria noto`g`ri');
+            }
+        }
+
+
     }
 }

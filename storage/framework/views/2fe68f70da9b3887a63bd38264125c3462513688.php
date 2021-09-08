@@ -21,6 +21,22 @@
 
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
+                        <a class="text-decoration-none" href="<?php echo e(route('student.agreement.form_ttj')); ?>">
+                            <div class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
+                                <div class="col">
+                                    <img class="cardImg" class=""
+                                         src="<?php echo e(asset('marketing2021/img/icons/Payment_agreement.png')); ?>" width="100px"
+                                         alt="">
+                                </div>
+                                <div class="row">
+                                    <h5 class="card-title fs-5 fw-bold colorFour"> Talabalar turar joyi uchun shartnoma</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
@@ -74,6 +90,7 @@
 
                     </div>
                 </div>
+
 
             </div>
 

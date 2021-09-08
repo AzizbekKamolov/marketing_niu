@@ -53,8 +53,9 @@
                                                 <th>F.I.O</th>
                                                 <th>ID KOD</th>
                                                 <th>Pasport</th>
-                                                <th>Tug'ulgan</th>
+                                                <th>Tug'ilgan</th>
                                                 <th>Telefon</th>
+                                                <th>Turi</th>
                                                 <th></th>
 
                                                 <th></th>
@@ -84,6 +85,10 @@
                                                </td>
                                                <td>
                                                    <?php echo e($item->phone); ?>
+
+                                               </td>
+                                               <td>
+                                                   <?php echo e($item->type?$item->type->name:''); ?>
 
                                                </td>
 

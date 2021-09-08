@@ -40,7 +40,7 @@
                                 </button>
 
                                 <button type="button" class="btn btn-light back_button_js"><i
-                                        class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
+                                            class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
                                 </button>
 
                             </div>
@@ -511,6 +511,52 @@
                     </div>
 
                 </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
+                            <div>
+                                <h4 class="card-title">Alohida ruxsat beriladigan shartnomalar</h4>
+                            </div>
+                            <div>
+
+                                <button type="submit" form="access_agreement" class="btn btn-success">Ruxsatlarni saqlash</button>
+                            </div>
+                        </div>
+
+                        <div class="" style="overflow-x: unset">
+                            <form id="access_agreement" action="{{route('payment_admin.other_agreement_access_store')}}" method="POST">
+                                {{csrf_field()}}
+                                {{method_field('POST')}}
+                                <input type="text" hidden value="{{$data->id}}" name="student_id">
+                                <table class="table table-striped table-bordered no-wrap">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($other_spec_agreements as $item)
+                                        <tr>
+                                            <td style="width: 60px">
+                                                <input type="checkbox" @if($item->checked) checked
+                                                       @endif class="form-control" name="access[{{$item->id}}]">
+                                            </td>
+                                            <td>
+                                                <p>{{$item->name}}</p>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
 
@@ -521,8 +567,8 @@
 
 @section('js')
     <script>
-        $('.send-id-button').click(function(){
-            if(confirm('Jo`natilsinmi')){
+        $('.send-id-button').click(function () {
+            if (confirm('Jo`natilsinmi')) {
                 $('#send-id-form').submit();
             }
         });

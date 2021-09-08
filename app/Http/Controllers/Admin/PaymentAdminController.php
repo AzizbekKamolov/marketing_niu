@@ -17,6 +17,7 @@ use Test\Model\SmsSend;
 use Test\Model\Student;
 use Test\Model\Region;
 use Test\Model\Area;
+use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
 use Test\Model\Payment;
 use Test\Model\StudentTypeAgreementSideType;
@@ -272,10 +273,20 @@ class PaymentAdminController extends Controller
 //            return $student;
             $regions = Region::all();
             $other_agreements = OtherAgreementType::all();
+            $other_spec_agreements = OtherAgreementType::where('to_all' , '!=' , 1)->get();
+            foreach ($other_spec_agreements as $other_spec_agreement) {
+                if (StudentOtherAgreementAccess::where('student_id' , $student->id)->where('other_agreement_type_id' , $other_spec_agreement->id)->exists()){
+                    $other_spec_agreement->checked = true;
+                }
+                else{
+                    $other_spec_agreement->checked = false;
+                }
+            }
             return view('admin.pages.payment_admin.student.student_show', [
                 'data' => $student,
                 'regions' => $regions,
-                'other_agreement_types' => $other_agreements
+                'other_agreement_types' => $other_agreements,
+                'other_spec_agreements' => $other_spec_agreements
             ]);
         } else {
             return "xatolik!!";

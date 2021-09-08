@@ -136,6 +136,8 @@ Route::group([
     Route::delete('/payment-admin/discount', 'DiscountController@destroy')->name('payment_admin.discount.destroy');
     Route::post('/payment-admin/discount', 'DiscountController@store')->name('payment_admin.discount.store');
     Route::post('/payment-admin/send-id-code', 'PaymentAdminController@send_id_code')->name('payment_admin.send_id_code');
+
+    Route::post('/payment-admin/other-agreement-access-store', 'StudentOtherAgreementAccessController@store')->name('payment_admin.other_agreement_access_store');
 });
 
 Auth::routes();
@@ -172,3 +174,6 @@ Route::post('/student/lyceum/show-agreement' , 'AgreementController@lyceum_show_
 Route::post('/student/lyceum/pdf-agreement' , 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
 Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
 Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');
+
+Route::get('/student/form-ttj' , 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
+Route::post('/student/show-agreement-ttj' , 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');

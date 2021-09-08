@@ -32,14 +32,26 @@
                             <div>
 
                                 
+                                <button type="button" class="btn btn-light send-id-button"><i class="fas fa-envelope"
+                                                                                              aria-hidden="true"></i> Id
+                                    kodni jo'natish
+                                </button>
+
                                 <button type="button" class="btn btn-light back_button_js"><i
-                                        class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
+                                            class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
                                 </button>
 
                             </div>
 
-                        </div>
 
+                        </div>
+                        <form action="<?php echo e(route('payment_admin.send_id_code')); ?>" method="post" id="send-id-form">
+                            <?php echo e(csrf_field()); ?>
+
+                            <?php echo e(method_field('POST')); ?>
+
+                            <input type="text" value="<?php echo e($data->id); ?>" hidden name="student_id">
+                        </form>
                         <div class="table-responsive" style="overflow-x: unset">
                             <div class="row">
                                 <div class="col-md-3 form-group">
@@ -510,6 +522,54 @@
                     </div>
 
                 </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
+                            <div>
+                                <h4 class="card-title">Alohida ruxsat beriladigan shartnomalar</h4>
+                            </div>
+                            <div>
+
+                                <button type="submit" form="access_agreement" class="btn btn-success">Ruxsatlarni saqlash</button>
+                            </div>
+                        </div>
+
+                        <div class="" style="overflow-x: unset">
+                            <form id="access_agreement" action="<?php echo e(route('payment_admin.other_agreement_access_store')); ?>" method="POST">
+                                <?php echo e(csrf_field()); ?>
+
+                                <?php echo e(method_field('POST')); ?>
+
+                                <input type="text" hidden value="<?php echo e($data->id); ?>" name="student_id">
+                                <table class="table table-striped table-bordered no-wrap">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php $__currentLoopData = $other_spec_agreements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <tr>
+                                            <td style="width: 60px">
+                                                <input type="checkbox" <?php if($item->checked): ?> checked
+                                                       <?php endif; ?> class="form-control" name="access[<?php echo e($item->id); ?>]">
+                                            </td>
+                                            <td>
+                                                <p><?php echo e($item->name); ?></p>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </tbody>
+                                </table>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
 
@@ -519,6 +579,13 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('js'); ?>
+    <script>
+        $('.send-id-button').click(function () {
+            if (confirm('Jo`natilsinmi')) {
+                $('#send-id-form').submit();
+            }
+        });
+    </script>
     <script>
         $('.delete-button').click(function () {
             var id = $(this).attr('id');

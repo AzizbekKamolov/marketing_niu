@@ -49,17 +49,19 @@ class StudentPayment extends Model
 
     public function agreement_discounts()
     {
-        return $this->hasMany(Discount::class, 'student_id', 'id')->where('type_agreement', 1);
+        return $this->hasMany(Discount::class, 'student_id', 'id')->where('type_agreement' , 1);
     }
-
     public function other_agreement_discounts()
     {
-        return $this->hasMany(Discount::class, 'student_id', 'id')->where('type_agreement', 2);
+        return $this->hasMany(Discount::class, 'student_id', 'id')->where('type_agreement' , 2);
     }
-
-    public function edu_type()
-    {
-        return $this->belongsTo(EduType::class, 'edu_type_id', 'id');
+    public function has_access_other_agreement($other_agreement_type_id){
+        if (StudentOtherAgreementAccess::where('student_id' , $this->id)->where('other_agreement_type_id' , $other_agreement_type_id)->exists()){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }
