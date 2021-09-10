@@ -64,7 +64,7 @@
 
                         <fieldset class="scheduler-border myBorder rounded w-100 p-3 my-2">
                             <legend class="scheduler-border w-auto">To'lov kontrakti uchun</legend>
-                            <?php $__currentLoopData = $data->type->agreement_side_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $agreement_side_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-12 my-3 myBorder">
                                     <button type="button"
                                             class="btn border  border-2 w-100 text-center py-sm-1 py-md-2 py-xl-3"
@@ -99,7 +99,7 @@
                                                                     <p for="">Tanlang</p>
                                                                     <select name="agreement_type_id"
                                                                             class="form-control" id="">
-                                                                        <?php $__currentLoopData = $data->type->agreement_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_types): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <?php $__currentLoopData = $agreement_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_types): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                             <option value="<?php echo e($item_types->id); ?>"><?php echo e($item_types->name); ?></option>
                                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                     </select>

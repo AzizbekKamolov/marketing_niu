@@ -172,7 +172,7 @@
                                             </span>
                                             </label>
                                             <input type="number" class="form-control" name="course"
-                                                   value="<?php echo e(old('course') ? old('course') :'3'); ?>">
+                                                   value="<?php echo e(old('course') ? old('course') :'1'); ?>">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -181,7 +181,7 @@
                                                 <?php if($errors->has('phone')): ?> | <?php echo e($errors->first('phone')); ?> <?php endif; ?>
                                             </span>
                                             </label>
-                                            <input type="text" class="form-control" name="phone"
+                                            <input type="text" class="form-control" name="phone" required
                                                    value="<?php if(old('phone')): ?><?php echo e(old('phone')); ?><?php endif; ?>">
                                         </div>
                                         <div class="col-md-3 form-group ">

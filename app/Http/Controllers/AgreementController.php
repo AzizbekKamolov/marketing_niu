@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use App;
 use Test\Model\AgreementSideType;
 use Test\Model\AgreementType;
+use Test\Model\GettingAgreement;
 use Test\Model\OtherAgreementType;
 use Test\Model\Student;
 use Test\Model\Lyceum;
@@ -29,8 +30,21 @@ class AgreementController extends Controller
                     if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
 //                        return
 //                        return $payment_student;
+                        $getting = GettingAgreement::where('student_id' , $payment_student->id)->where('status' , 1)->first();
+                        $agreement_types = AgreementType::where(function($query) use ($getting){
+                            if ($getting){
+                                $query->where('id' , $getting->agreement_type_id);
+                            }
+                        })->get();
+                        $agreement_side_types = AgreementSideType::where(function($query) use ($getting){
+                            if ($getting){
+                                $query->where('id' , $getting->agreement_side_type_id);
+                            }
+                        })->get();
                         return view('student.agreement.data_info', [
-                            'data' => $payment_student
+                            'data' => $payment_student,
+                            'agreement_types' => $agreement_types,
+                            'agreement_side_types' => $agreement_side_types
                         ]);
                     } else {
                         return "tugilgan kun  xato";
@@ -60,12 +74,22 @@ class AgreementController extends Controller
             if ($agreement_side_type) {
                 $agreement_type = AgreementType::find($request->agreement_type_id);
                 if ($agreement_type) {
-//                        return $agreement_type;
-                    return view('student.agreement.agreement_shows.side_type' . $agreement_side_type->id . '.agreement_show', [
-                        'student' => $student,
-                        'agreement_side_type' => $agreement_side_type,
-                        'agreement_type' => $agreement_type
-                    ]);
+                    if ($student->type_student == 1) {
+                        if ($student->course > 1) {
+//                    return $student;
+                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_'.$agreement_side_type->id.'_'.$agreement_type->id , [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type
+                            ]);
+                        }
+                        if ($student->course == 1) {
+
+                        }
+                    }
+                    if($student->type_student == 2){
+
+                    }
                 }
             }
 //            }
@@ -205,8 +229,8 @@ class AgreementController extends Controller
                 if ($student->passport_number == $request->passport_number) {
                     if (date('Y-m-d', strtotime($student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
                         $agreement_type = OtherAgreementType::find($request->other_agreement_type_id);
-                        if (!StudentOtherAgreementAccess::where('student_id' , $student->id)->where('other_agreement_type_id' , $request->other_agreement_type_id)->exists()){
-                            return redirect()->back()->with('error' , 'Siz uchun yotoqxona olish ruxsati berilmagan');
+                        if (!StudentOtherAgreementAccess::where('student_id', $student->id)->where('other_agreement_type_id', $request->other_agreement_type_id)->exists()) {
+                            return redirect()->back()->with('error', 'Siz uchun yotoqxona olish ruxsati berilmagan');
                         }
                         $discounts = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->get();
                         $discount_sum = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->sum('percent');

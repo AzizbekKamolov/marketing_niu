@@ -107,7 +107,7 @@
                                                 <?php if($errors->has('phone')): ?> | <?php echo e($errors->first('phone')); ?> <?php endif; ?>
                                             </span>
                                         </label>
-                                        <input type="text" class="form-control" name="phone"
+                                        <input type="text" class="form-control" name="phone" id="phone"
                                                value="<?php if(old('phone')): ?><?php echo e(old('phone')); ?><?php else: ?><?php echo e($data->phone); ?><?php endif; ?>">
                                     </div>
                                     <div class="col-md-3 form-group">
@@ -302,6 +302,11 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('js'); ?>
+    <script>
+        $('input[name="phone"]').inputmask({
+            'mask': '+\\9\\98999999999',
+        });
+    </script>
     <script>
         function get_statuses(id) {
 

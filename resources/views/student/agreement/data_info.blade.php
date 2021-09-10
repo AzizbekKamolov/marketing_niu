@@ -65,7 +65,7 @@
 
                         <fieldset class="scheduler-border myBorder rounded w-100 p-3 my-2">
                             <legend class="scheduler-border w-auto">To'lov kontrakti uchun</legend>
-                            @foreach($data->type->agreement_side_types as $item)
+                            @foreach($agreement_side_types as $item)
                                 <div class="col-12 my-3 myBorder">
                                     <button type="button"
                                             class="btn border  border-2 w-100 text-center py-sm-1 py-md-2 py-xl-3"
@@ -98,7 +98,7 @@
                                                                     <p for="">Tanlang</p>
                                                                     <select name="agreement_type_id"
                                                                             class="form-control" id="">
-                                                                        @foreach($data->type->agreement_types as $item_types)
+                                                                        @foreach($agreement_types as $item_types)
                                                                             <option value="{{$item_types->id}}">{{$item_types->name}}</option>
                                                                         @endforeach
                                                                     </select>
