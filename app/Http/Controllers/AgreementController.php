@@ -31,6 +31,9 @@ class AgreementController extends Controller
 //                        return
 //                        return $payment_student;
                         $getting = GettingAgreement::where('student_id' , $payment_student->id)->where('status' , 1)->first();
+                        if ($getting){
+                            return $getting;
+                        }
                         $agreement_types = AgreementType::where(function($query) use ($getting){
                             if ($getting){
                                 $query->where('id' , $getting->agreement_type_id);
@@ -67,9 +70,7 @@ class AgreementController extends Controller
     public function show_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-//        return $student;
         if ($student) {
-//            if ($student->amount) {
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
             if ($agreement_side_type) {
                 $agreement_type = AgreementType::find($request->agreement_type_id);
@@ -77,10 +78,16 @@ class AgreementController extends Controller
                     if ($student->type_student == 1) {
                         if ($student->course > 1) {
 //                    return $student;
+                            $getting_date = date('Y-m-d');
+                            $getting = GettingAgreement::where('student_id' , $student->id)->where('status' , 1)->first();
+                            if ($getting){
+                                $getting_date = $getting->getting_date;
+                            }
                             return view('student.agreement.agreement_shows.agreements.high_course.agreement_'.$agreement_side_type->id.'_'.$agreement_type->id , [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
-                                'agreement_side_type' => $agreement_side_type
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
                             ]);
                         }
                         if ($student->course == 1) {
@@ -92,8 +99,6 @@ class AgreementController extends Controller
                     }
                 }
             }
-//            }
-
         }
     }
 
@@ -270,5 +275,50 @@ class AgreementController extends Controller
         }
 
 
+    }
+
+    public function pdf_agreement(Request $request){
+        $student = StudentPayment::find($request->student_id);
+        if ($student) {
+            $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
+            if ($agreement_side_type) {
+                $agreement_type = AgreementType::find($request->agreement_type_id);
+                if ($agreement_type) {
+                    $all_gettings = GettingAgreement::where('student_id' , $student->id)->get();
+                    foreach ($all_gettings as $all_getting) {
+                        $all_getting->status = 0;
+                        $all_getting->update();
+                    }
+                    $getting = new GettingAgreement();
+                    $getting->student_id = $student->id;
+                    $getting->getting_date = $request->getting_date;
+                    $getting->agreement_type_id = $agreement_type->id;
+                    $getting->agreement_side_type_id = $agreement_side_type->id;
+                    $getting->status = 1;
+                    $getting->save();
+                    $getting_date = $getting->getting_date;
+//                    bakalavr
+                    if ($student->type_student == 1) {
+//                        high course
+                        if ($student->course > 1) {
+                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_pdf_'.$agreement_side_type->id.'_'.$agreement_type->id , [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
+                            ]);
+                        }
+//                        first course
+                        if ($student->course == 1) {
+
+                        }
+                    }
+//                    magistr
+                    if($student->type_student == 2){
+
+                    }
+                }
+            }
+        }
     }
 }

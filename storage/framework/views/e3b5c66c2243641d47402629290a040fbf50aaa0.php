@@ -127,56 +127,53 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </fieldset>
 
-                        <fieldset class="scheduler-border myBorder rounded w-100 p-3">
-                            <legend class="scheduler-border w-auto">Boshqa shartnomalar</legend>
-                            <?php $__currentLoopData = $data->type->other_agreement_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col-12 my-3 myBorder">
-                                <button class="btn border border-2 w-100 text-center py-sm-1 py-md-2 py-xl-3" data-bs-toggle="modal"
-                                    data-bs-target="#other_agreement_modal<?php echo e($item->id); ?>">
-                                    <?php echo e($item->name); ?>
 
-                                </button>
-                            </div>
-                             <div class="modal fade" id="other_agreement_modal<?php echo e($item->id); ?>" tabindex="-1" role="dialog"
-                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
 
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="<?php echo e(route('student.other_agreement.show_agreement')); ?>"
-                                                  id="form_other<?php echo e($item->id); ?>" method="post">
-                                                <?php echo e(csrf_field()); ?>
 
-                                                <?php echo e(method_field('POST')); ?>
 
-                                                <input type="text" hidden value="<?php echo e($data->id); ?>" name="student_id">
-                                                <input type="text" hidden value="<?php echo e($item->id); ?>"
-                                                       name="other_agreement_type_id">
-                                                <div class="row">
-                                                    <div class="col-md-12 text-center">
-                                                        <h2><?php echo e($item->name); ?></h2>
-                                                    </div>
-                                                </div>
 
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bekor
-                                                qilish
-                                            </button>
-                                            <button type="submit" form="form_other<?php echo e($item->id); ?>" class="btn btn-primary">
-                                                Shartnomani ko`rish
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
 
                 </div>

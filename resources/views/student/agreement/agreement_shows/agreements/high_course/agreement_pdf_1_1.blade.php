@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('/css/agreement.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/agreement_edu.css')}}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -192,21 +192,22 @@
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b> </h4>
             </div>
             <div class="col-md-3"></div>
-{{--            <div style="display: inline-block; width: 49%" class="">--}}
-{{--                <span>2021 yil “{{$day}}” {{$month}}</span>--}}
-{{--            </div>--}}
-{{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
-{{--                <span>Toshkent shahri</span>--}}
-{{--            </div>--}}
-            <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
-            <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
+            <div style="display: inline-block; width: 49%; padding-left: 20px" class="pl-2">
+                <span>Toshkent shahri</span>
+            </div>
+            <div style="display: inline-block; width: 49%; padding-right: 20px" class=" text-right pr-2">
+                <span>2021 yil “{{$day}}” {{$month}}</span>
+            </div>
+
+{{--            <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>--}}
+{{--            <div class="col-md-6 text-right"><p>2021 yil “{{$day}}” {{$month}}</p></div>--}}
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
                     Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
                     tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar),¬¬¬¬ “Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat ___ kurs davomida
+                    Tomonlar), “Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat <b>{{$student->course}}</b> kurs davomida
                     o‘qitish maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta
                     maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
                     mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral),
@@ -363,7 +364,7 @@
                     <b>2.4.</b> <b>Talabaning majburiyatlari:</b>
                 </p>
             </div>
-            <div class="col-md-12 mb-1 page-break">
+            <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     2.4.1. Joriy o‘quv yili uchun belgilangan o‘qitish qiymatini Kontraktning 3-bobida
@@ -657,39 +658,38 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-12 text-center" style="padding-bottom: 50px">
-                <div  class="tasdiq btn-success " style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
-                    <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , Talabalar turar joyi uchun
-                    Kontrakt mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
-                    to'g'riligini tasdiqlayman
-                    </p>
-                </div>
-                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
-                    {{csrf_field()}}
-                    {{method_field('POST')}}
-                    <input type="text" hidden value="{{$student->id}}" name="student_id">
-                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">
-                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">
-                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
-                </form>
-            </div>
+{{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
+{{--                <div  class="tasdiq btn-success " style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">--}}
+{{--                    <p>--}}
+{{--                        Men , Talaba <b>{{ $student->fio() }}</b> , Talabalar turar joyi uchun--}}
+{{--                    Kontrakt mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim--}}
+{{--                    to'g'riligini tasdiqlayman--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">--}}
+{{--                    {{csrf_field()}}--}}
+{{--                    {{method_field('POST')}}--}}
+{{--                    <input type="text" hidden value="{{$student->id}}" name="student_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">--}}
+{{--                </form>--}}
+{{--            </div>--}}
 
 
         </div>
     </div>
     <div class="col-md-2"></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    $('.tasdiq').click(function () {
-        if (confirm('Tasdiqlaysizmi?')) {
-            $('#accept-form').submit();
-        }
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"--}}
+{{--        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="--}}
+{{--        crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
+{{--<script>--}}
+{{--    $('.tasdiq').click(function () {--}}
+{{--        if (confirm('Tasdiqlaysizmi?')) {--}}
+{{--            $('#accept-form').submit();--}}
+{{--        }--}}
 
-    })
-</script>
+{{--    })--}}
+{{--</script>--}}
 </body>
 </html>
