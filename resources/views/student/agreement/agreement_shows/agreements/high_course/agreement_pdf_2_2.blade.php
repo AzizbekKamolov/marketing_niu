@@ -1,4 +1,4 @@
-{{--3 tomonlama stipendiyali--}}
+{{--3 tomonlama stipendiyasiz--}}
         <!doctype html>
 <html lang="en">
 <head>
@@ -186,7 +186,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, 2,3 va 4-kurslar uchun)
+                    ikki tomonlama KONTRAKT (stipendiyasiz shaklda, 2,3 va 4-kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -481,26 +481,28 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o’quv yilida stipendiyali shaklda ta’lim olish uchun Tashkilot tomonidan to’lanishi
-                    lozim bo’lgan to’lov summasi 13 940 117 (O’n uch million to’qqiz yuz qirq ming bir yuz o’n yetti)
-                    so’mni tashkil etadi va Kontraktning 3.2, 3.3-bandlarda belgilangan tartibda to’lanadi. Mazkur summa
-                    mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
-                    o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o’quv yilida stipendiyasiz shaklda ta’lim olish uchun Tashkilot tomonidan to’lanishi
+                    lozim bo’lgan to’lov summasi pandemiya sharoitini inobatga olgan holda 10 (o’n) foiz chegirma bilan
+                    8 804 117 (Sakkiz million sakkiz yuz to’rt ming bir yuz o’n yetti) so’mni tashkil etadi va
+                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
+                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Tashkilot kuzgi semestr uchun 6 970 058 (olti million to’qqiz yuz yetmish ming ellik sakkiz)
-                    so’mni quyidagi muddatlarda to’laydi:
-                    <br>1-oktyabrgacha -3 000 000 so‘m;
-                    <br>31-dekabrgacha -3 000 000 so‘m.
+                    3.2. Tashkilot kuzgi semestr uchun 4 402 058 (to’rt million to’rt yuz ikki ming ellik sakkiz) so’mni
+                    quyidagi muddatlarda to’laydi:
+                    <br>1-oktyabrgacha -2 201 000 so‘m;
+                    <br>1-yanvargacha -2 201 000 so‘m.
+
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Tashkilot bahorgi semestr uchun 6 970 059 (olti million to’qqiz yuz yetmish ming ellik to’qqiz)
-                    so’mni quyidagi muddatlarda to’laydi:
-                    <br>15-aprelgacha -3 000 000 so‘m;
-                    <br>1-iyulgacha -3 000 000 so‘m.
+                    3.3. Tashkilot bahorgi semestr uchun 4 402 059 (to’rt million sakkiz yuz to’qson bir ming bir yuz
+                    yetmish olti) so’mni quyidagi muddatlarda to’laydi:
+                    <br>15-aprelgacha -2 201 000 so‘m;
+                    <br>1-iyulgacha -2 201 000 so‘m.
+
 
                 </p>
                 <p>
@@ -746,24 +748,24 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-12 text-center" style="padding-bottom: 50px">
-                <div class="tasdiq btn-success "
-                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
-                    <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
-                        shartlariga roziman hamda shaxsiy ma`lumotlarim
-                        to'g'riligini tasdiqlayman
-                    </p>
-                </div>
-                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
-                    {{csrf_field()}}
-                    {{method_field('POST')}}
-                    <input type="text" hidden value="{{$student->id}}" name="student_id">
-                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">
-                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">
-                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
-                </form>
-            </div>
+{{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
+{{--                <div class="tasdiq btn-success "--}}
+{{--                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">--}}
+{{--                    <p>--}}
+{{--                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning--}}
+{{--                        shartlariga roziman hamda shaxsiy ma`lumotlarim--}}
+{{--                        to'g'riligini tasdiqlayman--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">--}}
+{{--                    {{csrf_field()}}--}}
+{{--                    {{method_field('POST')}}--}}
+{{--                    <input type="text" hidden value="{{$student->id}}" name="student_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">--}}
+{{--                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">--}}
+{{--                </form>--}}
+{{--            </div>--}}
 
 
         </div>

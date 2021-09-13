@@ -660,8 +660,7 @@
             <div class="col-md-12 text-center" style="padding-bottom: 50px">
                 <div  class="tasdiq btn-success " style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
                     <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , Talabalar turar joyi uchun
-                    Kontrakt mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
                     to'g'riligini tasdiqlayman
                     </p>
                 </div>

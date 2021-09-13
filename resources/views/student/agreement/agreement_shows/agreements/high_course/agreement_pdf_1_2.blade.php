@@ -1,5 +1,4 @@
-{{--3 tomonlama stipendiyali--}}
-        <!doctype html>
+{{--2 tomonlama stipendiyasiz--}}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -186,7 +185,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, 2,3 va 4-kurslar uchun)
+                    ikki tomonlama KONTRAKT (stipendiyasiz shaklda, 2,3 va 4-kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -202,24 +201,17 @@
             <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o’rinlarda – Ta’lim
-                    muassasasi) nomidan Ustavga asosan
-                    ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov Islombek
-                    Rustambekovich________________________________________________________________________________
-                    (yuridik shaxsning nomi)
-                    (keyingi o’rinlarda – Tashkilot) nomidan ___________________________________ asosan ish yurituvchi
-                    (vakolat beruvchi hujjat turi)
-                    _____________________________________________________________________________ ikkinchi tomondan,
-                    (rahbarning familiyasi, ismi, sharifi, lavozimi)
-                    va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
-                    (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar),¬¬¬¬ “Yurisprudensiya”
-                    ta’lim yo’nalishi bo’yicha Talabani bakalavriat ___ kurs davomida o’qitish maqsadida mazkur ikki
-                    tomonlama kontraktni (keyingi o’rinlarda – Kontrakt) Oliy va o’rta maxsus, kasb-hunar ta’limi
-                    muassasalarida o’qitishning to’lov-kontrakt shakli va undan tushgan mablag’larni taqsimlash tartibi
-                    to’g’risidagi nizom (ro’yxat raqami 2431, 2013 yil 26 fevral), O’zbekiston Respublikasi Vazirlar
-                    Mahkamasining 2019 yil 3 dekabrdagi 967-son qarori, Toshkent davlat yuridik universiteti rektorining
-                    2021 yil sentyabrdagi 02- -son buyrug’iga muvofiq tuzdilar:
-
+                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim
+                    muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
+                    Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
+                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Tomonlar),¬¬¬¬ “Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat ___ kurs davomida
+                    o‘qitish maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta
+                    maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
+                    mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral),
+                    O‘zbekiston Respublikasi Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi
+                    359-son qarorlari, Toshkent davlat yuridik universiteti rektorining 2021 yil __ sentyabrdagi
+                    02-___-son buyrug‘iga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -240,7 +232,7 @@
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
                     muvaffaqiyatli
                     tamomlash muddati
                     2024-yil iyun oyi hisoblanadi.
@@ -272,7 +264,7 @@
                     o‘qitish uchun belgilangan miqdordagi to‘lovni o‘z vaqtida amalga oshirmagan Talabaga nisbatan
                     belgilangan tartibda talabalar safidan chetlashtirish yoki boshqa choralarni qo’llash, GPA
                     ko‘rsatkichini to‘play olmagan, semestr va o‘quv yili yakuni natijalari bo‘yicha akademik
-                    qarzdorligi bor Talabani tegishli kursda qoldirish yoki boshqa choralarni qo‘llash.
+                    qarzdorligi bor Talabani tegishli kursda qoldirish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -363,12 +355,6 @@
                     2.3.6. Kontrakt bo‘yicha to‘lovni stipendiyasiz yoki stipendiyali shaklini joriy yilning
                     1 oktyabrga qadar tanlash.
                 </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.3.7. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va
-                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va
-                    tartibda stipendiya to‘lovlarini amalga oshirish
-                </p>
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
@@ -376,7 +362,7 @@
                     <b>2.4.</b> <b>Talabaning majburiyatlari:</b>
                 </p>
             </div>
-            <div class="col-md-12 mb-1 ">
+            <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     2.4.1. Joriy o‘quv yili uchun belgilangan o‘qitish qiymatini Kontraktning 3-bobida
@@ -420,57 +406,6 @@
                     bo`lgan xatti-harakatlarini sodir etishdan tiyiladi.
                 </p>
             </div>
-            <div class="col-md-12 mb-1 ">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    <b>2.5.</b> <b>Tashkilotning huquqlari:</b>
-                </p>
-            </div>
-            <div class="col-md-12 mb-1 ">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.5.1. Ta’lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.5.2. Ta’lim muassasasining ta’lim jarayonlarini yaxshilashga doir takliflar berish.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.5.3. O’qish uchun bir yillik to’lov summasini bir yola to’liq to’lash.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.5.4. Ta’lim muassasasidan Kontrakt bo’yicha to’lovni amalga oshirish uchun kerakli hujjatlarni
-                    so’rash.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.5.5. Ta’lim muassasasidan Talabaning davomati va o’zlashtirishi haqida ma’lumot so’rash.
-                </p>
-            </div>
-            <div class="col-md-12 mb-1 ">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    <b>2.6.</b> <b>Tashkilotning majburiyatlari:</b>
-                </p>
-            </div>
-            <div class="col-md-12 mb-1 ">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.6.1. Joriy o’quv yili uchun belgilangan o’qitish qiymatini Kontraktning 3-bobida ko’rsatilgan
-                    tartib va miqdorda o’z vaqtida to’laydi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.6.2. Boshqa Tomonlarning talabiga ko’ra Kontraktning to’lovlari yuzasidan taqqoslash
-                    dalolatnomasini tuzish.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.6.3. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi.
-                </p>
-            </div>
 
 
             <div class="col-md-12 text-center">
@@ -481,48 +416,37 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o’quv yilida stipendiyali shaklda ta’lim olish uchun Tashkilot tomonidan to’lanishi
-                    lozim bo’lgan to’lov summasi 13 940 117 (O’n uch million to’qqiz yuz qirq ming bir yuz o’n yetti)
-                    so’mni tashkil etadi va Kontraktning 3.2, 3.3-bandlarda belgilangan tartibda to’lanadi. Mazkur summa
-                    mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
-                    o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o‘quv yilida stipendiyasiz shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
+                    lozim bo‘lgan to‘lov summasi pandemiya sharoitini inobatga olgan holda 10 (o‘n) foiz chegirma bilan
+                    12 000 000 (O‘n ikki million ) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan
+                    tartibda to’lanadi. Mazkur summa mehnatga haq to'lashning eng kam miqdori o’zgarishi bilan mos
+                    ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Tashkilot kuzgi semestr uchun 6 970 058 (olti million to’qqiz yuz yetmish ming ellik sakkiz)
-                    so’mni quyidagi muddatlarda to’laydi:
+                    3.2. Talaba kuzgi semestr uchun 6 000 000 (olti million ) so‘mni quyidagi muddatlarda to‘laydi:
                     <br>1-oktyabrgacha -3 000 000 so‘m;
                     <br>31-dekabrgacha -3 000 000 so‘m.
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Tashkilot bahorgi semestr uchun 6 970 059 (olti million to’qqiz yuz yetmish ming ellik to’qqiz)
-                    so’mni quyidagi muddatlarda to’laydi:
+                    3.3. Talaba bahorgi semestr uchun 6 000 000 (olti million ) so‘mni quyidagi muddatlarda to‘laydi:
                     <br>15-aprelgacha -3 000 000 so‘m;
-                    <br>1-iyulgacha -3 000 000 so‘m.
+                    <br> 1-iyulgacha -3 000 000 so‘m.
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.Tashkilot tomonidan Kontrakt bo’yicha o’qitish qiymatini to’lashda to’lov topshiriqnomasida ID
-                    raqamini, Talabaning familiyasi, ismi, sharifi hamda o’qiyotgan kursi to’liq ko’rsatiladi.
+                    3.4. Talaba tomonidan Kontrakt bo‘yicha o‘qitish qiymatini to‘lashda to‘lov topshiriqnomasida ID
+                    raqamini, Talabaning familiyasi, ismi, sharifi hamda o‘qiyotgan kursi to‘liq ko‘rsatiladi.
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.5. Talaba tegishli fanlar bo’yicha akademik qarzdorlikni qayta topshirish sharti bilan keyingi
-                    kurs (semestr)ga o’tkazilgan taqdirda, keyingi semestr uchun to’lov Tashkilot tomonidan akademik
+                    3.5. Talaba tegishli fanlar bo‘yicha akademik qarzdorlikni qayta topshirish sharti bilan keyingi
+                    kurs (semestr)ga o‘tkazilgan taqdirda, keyingi semestr uchun to‘lov Talaba tomonidan akademik
                     qarzdorlik topshirilgunga qadar amalga oshiriladi.
-
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    3.6. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va
-                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va
-                    tartibda stipendiya to‘lovlarini amalga oshiradi (to‘lov-kontrakt qiymatini tegishli semestri uchun
-                    to’liq amalga oshirilganda so’ng stipendiya to’lanadi va to‘lov-kontrakt qiymatini stipendiyali
-                    shaklda to‘lash haqida murojaat qilgan talabalarga stipendiya to’lanadi);
 
                 </p>
 
@@ -566,11 +490,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.6. Tashkilotning tashabbusiga ko’ra (bir tomonlama yo’zma xat berish orqali).
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    4.7. Qonunchilikda ko’rsatilgan boshqa hollarda.
+                    4.6. Qonunchilikda ko‘rsatilgan boshqa hollarda.
                 </p>
 
             </div>
@@ -617,9 +537,8 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.1. Tomonlar o’rtasida vujudga keladigan nizolar o’zaro muzokaralar olib borish hamda talabnoma
-                    yuborish orqali hal etiladi, Kontraktning 4.2 – 4.6-bandlarida ko’rsatilgan holatlar bundan
-                    mustasno.
+                    6.1. Kontrakt bevosita Tomonlar tomonidan imzolangan paytdan e’tiboran kuchga kiradi, Kontraktning
+                    6.2-bandida ko’rsatilgan holat bundan mustasno.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -627,22 +546,25 @@
                     bo’lib, Talaba o’z ID raqami va passport ma’lumotlarini kiritganidan so’ng uning shartlari bilan
                     tanishib, rozi bo’lgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi. Kontrakt
                     Talaba tomonidan yuklab olingan paytdan e’tiboran tuzilgan va kuchga kirgan hisoblanadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    6.3. Talaba Kontrakt shartlari bilan norozi bo’lgan taqdirda uch ish kunida, biroq joriy yilning 5
+                    <br> &nbsp &nbsp &nbsp &nbsp Talaba Kontrakt shartlari bilan norozi bo’lgan taqdirda uch ish kunida,
+                    biroq joriy yilning 5
                     oktyabga qadar murojaat qilishi mumkin. Kontraktni tuzmagan va to’lovlarni amalga oshirmagan
                     Talabani Ta’lim muassasasi talabalar safidan chiqarishga haqli.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.4. Mehnatga haq to’lashning eng kam miqdori o’zgarganda mos ravishda to’lov-kontrakt qiymati
+                    6.3. Tomonlar o‘rtasida vujudga keladigan nizolar o’zaro muzokaralar olib borish hamda talabnoma
+                    yuborish orqali hal etiladi, Kontraktning 4.2-4.5 bandlarida ko’rsatilgan holatlar bundan mustasno.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.4. Mehnatga haq to‘lashning eng kam miqdori o‘zgarganda mos ravishda to‘lov-kontrakt qiymati
                     miqdori navbatdagi semestr boshidan oshiriladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     6.5. Kontrakt bo’yicha o’z majburiyatlarini bajarmagan Tomon qonunda belgilangan javobgarlikka
-                    tortiladi
+                    tortiladi.
                 </p>
             </div>
             <div class="col-md-12 text-center">
@@ -661,7 +583,7 @@
                         </td>
                         <td class="w-50" style="width: 49%">
                             <p class="w-100 text-center text-bold">
-                                Tashkilot
+                                Talaba
                             </p>
                         </td>
                     </tr>
@@ -697,73 +619,49 @@
                             </p>
                         </td>
                         <td class="w-50" style="width: 49%">
-                            <div>
-                                ________________________________________________________________
-                                <div class="text-center w-100">(yuridik shaxsning nomi)</div>
-                                Pochta manzili: ___________________________________________________
-                                ________________________________________________________________
-                                Bank:___________________________________________________________
-                                <br>
-                                H/r: ____________________________________________________________
-                                <br>
-                                MFO:_____________ STIR_________________________________________
-                                <br>
-                                OKONX_______________ Tel.: _____________________________________
 
-                                ________________________________________________________________
-                                <div class="text-center w-100">(rahbarning familiyasi, ismi, sharifi)</div>
+                            <p class="word-line">
+                                <b>{{$student->fio()}}</b>
+                            </p>
+                            <p class="w-100 text-center">
+                                (F.I.Sh.)
+                            </p>
+                            <p>
+                                Manzili: <b>{{$student->address}}</b>
+                            </p>
 
-
-                            </div>
-
-                            <div>
-                                <div class="text-center w-100">
-                                    <b>Talaba</b>
-                                </div>
-                                <p class="word-line">
-                                    <b>{{$student->fio()}}</b>
-                                </p>
-                                <p class="w-100 text-center">
-                                    (F.I.Sh.)
-                                </p>
-                                <p>
-                                    Manzili: <b>{{$student->address}}</b>
-                                </p>
-
-                                <p>
-                                    Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
-                                    <b>{{$student->passport_number}}</b>
-                                </p>
-                                <p>
-                                    Tel: <b>{{$student->phone}}</b>
-                                </p>
-                                <p>
-                                    Talaba _________________
-                                </p>
-                            </div>
+                            <p>
+                                Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
+                                <b>{{$student->passport_number}}</b>
+                            </p>
+                            <p>
+                                Tel: <b>{{$student->phone}}</b>
+                            </p>
+                            <p>
+                                Talaba _________________
+                            </p>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-12 text-center" style="padding-bottom: 50px">
-                <div class="tasdiq btn-success "
-                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
-                    <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
-                        shartlariga roziman hamda shaxsiy ma`lumotlarim
-                        to'g'riligini tasdiqlayman
-                    </p>
-                </div>
-                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
-                    {{csrf_field()}}
-                    {{method_field('POST')}}
-                    <input type="text" hidden value="{{$student->id}}" name="student_id">
-                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">
-                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">
-                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
-                </form>
-            </div>
+{{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
+{{--                <div class="tasdiq btn-success "--}}
+{{--                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">--}}
+{{--                    <p>--}}
+{{--                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim--}}
+{{--                        to'g'riligini tasdiqlayman--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">--}}
+{{--                    {{csrf_field()}}--}}
+{{--                    {{method_field('POST')}}--}}
+{{--                    <input type="text" hidden value="{{$student->id}}" name="student_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">--}}
+{{--                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">--}}
+{{--                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">--}}
+{{--                </form>--}}
+{{--            </div>--}}
 
 
         </div>

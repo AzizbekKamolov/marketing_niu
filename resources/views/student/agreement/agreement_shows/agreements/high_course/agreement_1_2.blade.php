@@ -232,7 +232,7 @@
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
                     muvaffaqiyatli
                     tamomlash muddati
                     2024-yil iyun oyi hisoblanadi.
@@ -649,8 +649,7 @@
                 <div class="tasdiq btn-success "
                      style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
                     <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , Talabalar turar joyi uchun
-                        Kontrakt mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
                         to'g'riligini tasdiqlayman
                     </p>
                 </div>
