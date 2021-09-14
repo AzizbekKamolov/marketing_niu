@@ -1,4 +1,4 @@
-{{--2 tomonlama stipendiyasiz--}}
+{{--2 tomonlama stipendiyasiz magistr--}}
 <html lang="en">
 <head>
     <meta charset="UTF-8">

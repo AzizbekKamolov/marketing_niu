@@ -189,15 +189,15 @@
                     ikki tomonlama KONTRAKT (stipendiyali shaklda, 2,3 va 4-kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
-                <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b> </h4>
+                <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
             </div>
             <div class="col-md-3"></div>
-{{--            <div style="display: inline-block; width: 49%" class="">--}}
-{{--                <span>2021 yil “{{$day}}” {{$month}}</span>--}}
-{{--            </div>--}}
-{{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
-{{--                <span>Toshkent shahri</span>--}}
-{{--            </div>--}}
+            {{--            <div style="display: inline-block; width: 49%" class="">--}}
+            {{--                <span>2021 yil “{{$day}}” {{$month}}</span>--}}
+            {{--            </div>--}}
+            {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
+            {{--                <span>Toshkent shahri</span>--}}
+            {{--            </div>--}}
             <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
             <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
@@ -206,13 +206,14 @@
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
                     Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
                     tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar),¬¬¬¬ “Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat ___ kurs davomida
+                    Tomonlar),“Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat <b>{{$student->course}}</b> kurs davomida
                     o‘qitish maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta
                     maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
-                    mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral),
-                    O‘zbekiston Respublikasi Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi
-                    359-son qarorlari, Toshkent davlat yuridik universiteti rektorining 2021 yil __ sentyabrdagi
-                    02-___-son buyrug‘iga muvofiq tuzdilar:
+                    mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR
+                    Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari,
+                    Toshkent davlat yuridik universiteti rektorining 2021 yil 1 sentyabrdagi 02- -son buyrug‘i,
+                    O’zbekiston Respublikasi ta’lim muassasalariga o’qishga qabul qilish bo’yicha Davlat komissiyasining
+                    2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -274,8 +275,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.4.Mehnatga haq to‘lashning eng kam miqdori o‘zgarishi bilan mos ravishda Kontrakt
-                    bo‘yicha to‘lov miqdorini o‘zgartirish.
+                    2.1.4.Mehnatga haq to‘lashning eng kam miqdori o‘zgarishi bilan mos ravishda Kontrakt bo‘yicha
+                    to‘lov miqdorini bir tomonlama o’zgartirish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -320,6 +321,12 @@
                     &nbsp &nbsp &nbsp &nbsp
                     2.2.5. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga
                     asosan har oyda o‘rnatilgan muddat va tartibda stipendiya to‘lovlarini amalga oshirish
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.2.6. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
+                    2021/2022 o`quv yili uchun belgilangan stipendiyasiz bazaviy to`lov-kontrakt miqdoriga 10 foiz
+                    chegirma beradi.
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
@@ -418,25 +425,27 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi pandemiya sharoitini inobatga olgan holda 10 (o’n) foiz chegirma bilan
-                    13 940 117 (O’n uch million to’qqiz yuz qirq ming bir yuz o’n yetti) so‘mni tashkil etadi va
-                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
-                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
+                    lozim bo‘lgan to’lov summasi 18 659 005 (O’n sakkiz million olti yuz ellik to`qqiz ming besh) so‘mni
+                    tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
+                    to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
+                    o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 6 970 058 (olti million to‘qqiz yuz yetmish ming ellik sakkiz)
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -3 000 000 so‘m;
-                    <br>1-yanvargacha -3 000 000 so‘m.
+                    3.2. Talaba kuzgi semestr uchun 9 329 502 (to`qqiz million uch yuz yigirma to`qqiz ming besh yuz
+                    ikki) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha - 4 664 751 so‘m;
+                    <br>1-yanvargacha - 4 664 751 so‘m.
+
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 6 970 059 (olti million to‘qqiz yuz yetmish ming ellik to‘qqiz)
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -3 000 000 so‘m;
-                    <br>1-iyulgacha -3 000 000 so‘m.
+                    3.3. Talaba bahorgi semestr uchun 9 329 503 (olti million ikki yuz yigirma ikki ming ikki yuz
+                    tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>15-aprelgacha - 4 664 751 so‘m;
+                    <br>1-iyulgacha -4 664 752 so‘m.
+
 
                 </p>
                 <p>
@@ -472,37 +481,43 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.Kontrakt quyidagi hollarda bekor qilinadi:
+                    4.1.Kontrakt quyidagi hollarda bekor qilinadi:
                 </p>
             </div>
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1. Tomonlarning o‘zaro roziligi bilan.
+                    4.1.1. Tomonlarning o‘zaro roziligi bilan.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.2. Ta’lim muasasasining tashabbusiga ko‘ra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
+                    4.1.2. Ta’lim muasasasining tashabbusiga ko‘ra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
                     talabalar safidan chiqarilganda.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.3. O‘qitish qiymati belgilangan muddat ichida to‘lanmasa (bunda, Ta’lim muassasasi Kontraktni ni
+                    4.1.3. O‘qitish qiymati belgilangan muddat ichida to‘lanmasa (bunda, Ta’lim muassasasi Kontraktni ni
                     bir tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.4.Talabaning tashabbusiga ko‘ra (yozma murojaatga asosan).
+                    4.1.4.Talabaning tashabbusiga ko‘ra (yozma murojaatga asosan).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.5. Kontraktning 2.1.3-bandida ko‘rsatilgan hollarda (Ta’lim muassasasi tomonidan Kontraktning bir
+                    4.1.5. Kontraktning 2.1.3-bandida ko‘rsatilgan hollarda (Ta’lim muassasasi tomonidan Kontraktning
+                    bir
                     tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma yuborish
                     orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.6. Qonunchilikda ko‘rsatilgan boshqa hollarda.
+                    4.1.6. Qonunchilikda ko‘rsatilgan boshqa hollarda.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.2. Kontrakt Tomonlarning o‘zaro roziligi bilan o’zgartiriladi, 2.1.4, 2.1.5-bandlarda ko‘rsatilgan
+                    holatlar bundan mustasno.
                 </p>
 
             </div>
@@ -578,6 +593,11 @@
                     6.5. Kontrakt bo’yicha o’z majburiyatlarini bajarmagan Tomon qonunda belgilangan javobgarlikka
                     tortiladi.
                 </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.6. Tomonlar Kontrakt bo’yicha nizolarni muzokaralar va talabnoma yuborish yo'li bilan hal
+                    qilishadi, aks holda nizo fuqarolik sudida ko’rib chiqiladi.
+                </p>
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
@@ -646,7 +666,7 @@
                                 Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
                                 <b>{{$student->passport_number}}</b>
                             </p>
-                             <p>
+                            <p>
                                 Tel: <b>{{$student->phone}}</b>
                             </p>
                             <p>
@@ -658,10 +678,12 @@
                 </table>
             </div>
             <div class="col-md-12 text-center" style="padding-bottom: 50px">
-                <div  class="tasdiq btn-success " style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
+                <div class="tasdiq btn-success "
+                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
                     <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning shartlariga roziman hamda shaxsiy ma`lumotlarim
-                    to'g'riligini tasdiqlayman
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
+                        shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        to'g'riligini tasdiqlayman
                     </p>
                 </div>
                 <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
