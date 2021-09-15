@@ -455,33 +455,7 @@ $day = date('d');
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-
-                            <p>
-                                Toshkent davlat yuridik universiteti
-                                Toshkent shahri Sayilgoh 35-uy
-                                O’zbekiston moliya vazirligi g’aznachiligi
-                                h/r 23402000300100001010
-                                STIR 201122919
-                                HKKM MB Toshkent shahri BB
-                                MFO 00014
-                                shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014
-                                STIR 201122349 OKONX 922110
-                            </p>
-                            <p>
-                                Prorektor. ____________ A.Iminov
-                            </p>
-                            <p>
-                                Bosh buхgalter.__________ M.Parpiyev
-                            </p>
-                            <p>
-
-                                Talabalar turar joyi mudiri
-                            </p>
-                            <p>
-
-                                _____________ N.Shayzakov
-
-                            </p>
+                            <img src="{{asset('files/pechat/ttj/ttj_pechat2.png')}}" style="width: 100%; height: auto" alt="">
                         </td>
                         <td class="w-50" style="width: 49%">
 

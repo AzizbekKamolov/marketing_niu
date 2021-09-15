@@ -544,26 +544,26 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.Tashkilot tomonidan Kontrakt bo’yicha o’qitish qiymatini to’lashda to’lov topshiriqnomasida ID
-                    raqamini, Talabaning familiyasi, ismi, sharifi hamda o’qiyotgan kursi to’liq ko’rsatiladi.
+                    3.4.Talaba tomonidan Kontrakt bo‘yicha o‘qitish qiymatini to‘lashda to‘lov topshiriqnomasida ID
+                    raqamini, Talabaning familiyasi, ismi, sharifi hamda o‘qiyotgan kursi to‘liq ko‘rsatiladi.
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.5. Talaba tegishli fanlar bo’yicha akademik qarzdorlikni qayta topshirish sharti bilan keyingi
-                    kurs (semestr)ga o’tkazilgan taqdirda, keyingi semestr uchun to’lov Tashkilot tomonidan akademik
+                    3.5. Talaba tegishli fanlar bo‘yicha akademik qarzdorlikni qayta topshirish sharti bilan keyingi
+                    kurs (semestr)ga o‘tkazilgan taqdirda, keyingi semestr uchun to‘lov Talaba tomonidan akademik
                     qarzdorlik topshirilgunga qadar amalga oshiriladi.
 
                 </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    3.6. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va
-                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va
-                    tartibda stipendiya to‘lovlarini amalga oshiradi (to‘lov-kontrakt qiymatini tegishli semestri uchun
-                    to’liq amalga oshirilganda so’ng stipendiya to’lanadi va to‘lov-kontrakt qiymatini stipendiyali
-                    shaklda to‘lash haqida murojaat qilgan talabalarga stipendiya to’lanadi);
+                {{--                <p>--}}
+                {{--                    &nbsp &nbsp &nbsp &nbsp--}}
+                {{--                    3.6. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va--}}
+                {{--                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va--}}
+                {{--                    tartibda stipendiya to‘lovlarini amalga oshiradi (to‘lov-kontrakt qiymatini tegishli semestri uchun--}}
+                {{--                    to’liq amalga oshirilganda so’ng stipendiya to’lanadi va to‘lov-kontrakt qiymatini stipendiyali--}}
+                {{--                    shaklda to‘lash haqida murojaat qilgan talabalarga stipendiya to’lanadi);--}}
 
-                </p>
+                {{--                </p>--}}
 
 
             </div>
@@ -600,13 +600,12 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     4.1.5. Kontraktning 2.1.3-bandida ko‘rsatilgan hollarda (Ta’lim muassasasi tomonidan Kontraktning
-                    bir
-                    tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma yuborish
-                    orqali).
+                    bir tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma
+                    yuborish orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.6. Tashkilotning tashabbusiga ko’ra (bir tomonlama yo’zma xat berish orqali).
+                    4.1.6. Qonunchilikda ko‘rsatilgan boshqa hollarda.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -658,9 +657,8 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.1. Tomonlar o’rtasida vujudga keladigan nizolar o’zaro muzokaralar olib borish hamda talabnoma
-                    yuborish orqali hal etiladi, Kontraktning 4.2 – 4.6-bandlarida ko’rsatilgan holatlar bundan
-                    mustasno.
+                    6.1. Kontrakt bevosita Tomonlar tomonidan imzolangan paytdan e’tiboran kuchga kiradi, Kontraktning
+                    6.2-bandida ko’rsatilgan holat bundan mustasno.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -668,28 +666,31 @@
                     bo’lib, Talaba o’z ID raqami va passport ma’lumotlarini kiritganidan so’ng uning shartlari bilan
                     tanishib, rozi bo’lgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi. Kontrakt
                     Talaba tomonidan yuklab olingan paytdan e’tiboran tuzilgan va kuchga kirgan hisoblanadi.
+                    <br> &nbsp &nbsp &nbsp &nbsp Talaba Kontrakt shartlari bilan norozi bo’lgan taqdirda uch ish kunida,
+                    biroq joriy yilning 1
+                    noyabrga qadar murojaat qilishi mumkin. Kontraktni tuzmagan va to’lovlarni amalga oshirmagan
+                    Talabani Ta’lim muassasasi talabalar safidan chiqarishga haqli.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     6.3. Tomonlar o‘rtasida vujudga keladigan nizolar o’zaro muzokaralar olib borish hamda talabnoma
-                    yuborish orqali hal etiladi, Kontraktning 4.1.2-4.1.5 bandlarida ko’rsatilgan holatlar bundan
-                    mustasno.
+                    yuborish orqali hal etiladi, Kontraktning 4.2-4.5 bandlarida ko’rsatilgan holatlar bundan mustasno.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.4. Mehnatga haq to’lashning eng kam miqdori o’zgarganda mos ravishda to’lov-kontrakt qiymati
+                    6.4. Mehnatga haq to‘lashning eng kam miqdori o‘zgarganda mos ravishda to‘lov-kontrakt qiymati
                     miqdori navbatdagi semestr boshidan oshiriladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     6.5. Kontrakt bo’yicha o’z majburiyatlarini bajarmagan Tomon qonunda belgilangan javobgarlikka
-                    tortiladi
+                    tortiladi.
                 </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    6.6. Tomonlar Kontrakt bo’yicha nizolarni muzokaralar va talabnoma yuborish yo'li bilan hal
-                    qilishadi, aks holda nizo fuqarolik sudida ko’rib chiqiladi.
-                </p>
+{{--                <p>--}}
+{{--                    &nbsp &nbsp &nbsp &nbsp--}}
+{{--                    6.6. Tomonlar Kontrakt bo’yicha nizolarni muzokaralar va talabnoma yuborish yo'li bilan hal--}}
+{{--                    qilishadi, aks holda nizo fuqarolik sudida ko’rib chiqiladi.--}}
+{{--                </p>--}}
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">

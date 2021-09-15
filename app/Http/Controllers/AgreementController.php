@@ -67,40 +67,6 @@ class AgreementController extends Controller
         return view('student.agreement.form');
     }
 
-    public function show_agreement(Request $request)
-    {
-        $student = StudentPayment::find($request->student_id);
-        if ($student) {
-            $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
-            if ($agreement_side_type) {
-                $agreement_type = AgreementType::find($request->agreement_type_id);
-                if ($agreement_type) {
-                    if ($student->type_student == 1) {
-                        if ($student->course > 1) {
-//                    return $student;
-                            $getting_date = date('Y-m-d');
-                            $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
-                            if ($getting) {
-                                $getting_date = $getting->getting_date;
-                            }
-                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-                                'student' => $student,
-                                'agreement_type' => $agreement_type,
-                                'agreement_side_type' => $agreement_side_type,
-                                'getting_date' => $getting_date
-                            ]);
-                        }
-                        if ($student->course == 1) {
-
-                        }
-                    }
-                    if ($student->type_student == 2) {
-
-                    }
-                }
-            }
-        }
-    }
 
     public function show_other_agreement(Request $request)
     {
@@ -162,6 +128,13 @@ class AgreementController extends Controller
                 }
                 $all_days = round($datediff / (60 * 60 * 24));
                 $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
+//                return view('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id . '_pdf', [
+//                    'student' => $student,
+//                    'agreement' => $agreement_type,
+//                    'discounts' => $discounts,
+//                    'discount_sum' => $discount_sum,
+//                    'general_payment_sum' => $general_payment_sum
+//                ]);
                 return PDF::loadView('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id . '_pdf', [
                     'student' => $student,
                     'agreement' => $agreement_type,
@@ -246,11 +219,14 @@ class AgreementController extends Controller
                             if ($request->ttj_start_date) {
                                 $this_date = date('Y-m-d', strtotime($request->ttj_start_date));
                             }
+                            else{
+                                $this_date = date('Y-m-d');
+                            }
                             if ($this_date > $need_date) {
                                 $this_year++;
                                 $need_date = $this_year . '-06-30';
                             }
-                            $now = time(); // or your date as well
+                            $now = strtotime($this_date); // or your date as well
                             $your_date = strtotime($need_date);
                             $datediff = $now - $your_date;
                             if ($datediff < 0) {
@@ -279,6 +255,52 @@ class AgreementController extends Controller
 
 
     }
+
+    public function show_agreement(Request $request)
+    {
+        $student = StudentPayment::find($request->student_id);
+        if ($student) {
+            $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
+            if ($agreement_side_type) {
+                $agreement_type = AgreementType::find($request->agreement_type_id);
+                if ($agreement_type) {
+                    if ($student->type_student == 1) {
+                        if ($student->course > 1) {
+//                    return $student;
+                            $getting_date = date('Y-m-d');
+                            $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
+                            if ($getting) {
+                                $getting_date = $getting->getting_date;
+                            }
+                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
+                            ]);
+                        }
+                        if ($student->course == 1) {
+
+                        }
+                    }
+                    if ($student->type_student == 2) {
+                        $getting_date = date('Y-m-d');
+                        $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
+                        if ($getting) {
+                            $getting_date = $getting->getting_date;
+                        }
+                        return view('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                            'student' => $student,
+                            'agreement_type' => $agreement_type,
+                            'agreement_side_type' => $agreement_side_type,
+                            'getting_date' => $getting_date
+                        ]);
+                    }
+                }
+            }
+        }
+    }
+
 
     public function pdf_agreement(Request $request)
     {
