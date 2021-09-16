@@ -332,12 +332,12 @@ class AgreementController extends Controller
                         );
 //                        response()->download($file,'additional.xls',$headers);
                         if ($student->course > 1) {
-                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                            return PDF::loadView('student.agreement.agreement_shows.agreements.high_course.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
-                            ]);
+                            ])->download($student->fio().'.pdf');
                         }
 //                        first course
                         if ($student->course == 1) {
@@ -346,7 +346,12 @@ class AgreementController extends Controller
                     }
 //                    magistr
                     if ($student->type_student == 2) {
-
+                        return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
+                            ])->download($student->fio().'.pdf');
                     }
                 }
             }

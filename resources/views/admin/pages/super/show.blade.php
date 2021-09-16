@@ -272,12 +272,12 @@
             <div class="form-group">
               <input type="text" hidden="true" readonly="true" name="super_id" value="{{ $data->id }}">
               @php
-              $amounts = 'Test\Model\Type'::where('contract_type' , 'super')->where('degree' , $data->type)->get();
+              $amounts = 'Test\Model\Amount'::where('type' , $data->type)->get();
               @endphp
-              <select class="form-control" name="type_id" required="required" >
+              <select class="form-control" name="amount_id" required="required" >
                 <option value="">Tanlang</option>
                 @foreach($amounts as $item)
-                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                <option value="{{ $item->id }}">{{ $item->allamount() }}</option>
 
                 @endforeach
               </select>

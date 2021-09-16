@@ -165,7 +165,10 @@ Route::get('/phone-right', function () {
 
 //new routes
 Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
-Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
+//Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
+Route::post('/student/show-agreement' , function(){
+    return "Texnik ishlar";
+})->name('student.agreement.show_agreement');
 Route::post('/student/pdf-agreement' , 'AgreementController@pdf_agreement')->name('student.agreement.pdf_agreement');
 Route::post('/student/show-other-agreement' , 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
 Route::post('/student/pdf-other-agreement' , 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
