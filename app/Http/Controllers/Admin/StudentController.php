@@ -8,15 +8,17 @@ use Test\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Test\Model\BranchAdmin;
+use Test\Model\GettingAgreement;
 use Test\Model\Group;
 use Test\Model\Student;
 use Test\Model\Region;
 use Test\Model\Area;
+use Test\Model\StudentPayment;
 use Test\Model\Super;
 use Test\Model\Direction;
 use Test\Model\Amount;
 use PDF;
-
+use Test\Model\Type;
 
 
 class StudentController extends Controller
@@ -26,8 +28,9 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
-    public function super_mar_type_sum($type , $sum){
-        $students = Student::where('status' , '=' , $type)->where('summa' , $sum)->get();
+    public function super_mar_type_sum($type){
+//        $students = Student::where('status' , '=' , $type)->where('summa' , $sum)->get();
+        $students = StudentPayment::where('status_new' , '=' , $type)->get();
         // return $students;
 
         return view('admin.pages.shartnoma.index' , [
@@ -134,8 +137,9 @@ class StudentController extends Controller
     }
 
     public function rozilik_student($id){
-        $student = Student::find($id);
-        return PDF::loadView('admin.pages.shartnoma.rozilik_pdf' , ['data' => $student])->download($student->fio().'.pdf');
+        $student = StudentPayment::find($id);
+        $getting = GettingAgreement::where('student_id' , $student->id)->where('status' , 1)->first();
+        return PDF::loadView('admin.pages.shartnoma.rozilik_pdf' , ['data' => $student , 'getting' => $getting])->download($student->fio().'.pdf');
     }
 
     public function stat(){
@@ -170,41 +174,31 @@ class StudentController extends Controller
                 if ($super != null) {
                     if ($super->status == 2) {
                         if ($super->amount_id != null) {
-                            $student = new Student();
-                            $student->first_name = $super->first_name;
-                            $student->last_name = $super->last_name;
-                            $student->middle_name = $super->middle_name;
-                            $student->phone = $super->phone;
-                            $student->passport_seria = $super->passport_serial;
-                            $student->passport_number = $super->passport_number;
-                            $student->birthday = $super->birthday;
-                            $student->gender = $super->gender;
-                            $student->region = $super->region;
-                            $student->area = $super->area;
-                            $student->passport_given_by = $super->passport_issued_by;
-                            $student->passport_given_date = $super->passport_given_date;
-                            $student->address = $super->address;
-                            $student->summa = $super->amount_id;
-                            $student->super_id = $super->id;
-                            $student->type = $super->type;
-                            $student->course = null;
-                            $student->step = 2;
-                            if ($super->type == 1) {
-                                $student->status = 3;
-                                $student->status_original = 3;
-                            }
-                            elseif($super->type == 2){
-                                $student->status = 4;
-                                $student->status_original = 4;
-
-                            }
-                            $student->id_code = $value;
-                            if ($value) {
-                                $student->save();
-                                $super->status =3;
-                                $super->update();
-
-                            }
+//                            $student = new Student();
+                            $new_student = new StudentPayment();
+                            $new_student->id_code = $value;
+                            $new_student->status_new = $super->amount_id;
+                            $new_student->first_name = $super->first_name;
+                            $new_student->last_name = $super->last_name;
+                            $new_student->middle_name = $super->middle_name;
+                            $new_student->birthday = $super->birthday;
+                            $new_student->birthday = $super->birthday;
+                            $new_student->type_student = $super->type;
+                            $new_student->passport_seria = $super->passport_serial;
+                            $new_student->passport_number = $super->passport_number;
+                            $new_student->passport_jshir = $super->passport_jshshir;
+                            $new_student->course = 1;
+                            $new_student->chechked = 1;
+                            $new_student->status_check = 1;
+                            $new_student->phone = $super->phone;
+                            $new_student->dir = $super->dir;
+                            $new_student->lang = $super->lang;
+                            $new_student->gender = $super->gender;
+                            $new_student->ball = $super->ball;
+                            $new_student->save();
+                            $super->status = 3;
+                            $super->update();
+//                            return $request;
                         }
                     }
                 }
@@ -247,7 +241,7 @@ class StudentController extends Controller
         ]);
     }
     public function super_for_marketing_magister_by_amount($type){
-        $amount = Amount::find($type);
+        $amount = Type::find($type);
         $students = Super::where('status' , 2)->where('type' , 2)->where('amount_id' , $amount->id)->get();
         return view('admin.pages.tasdiqlanganlar.index' , [
             'type' => 2,
@@ -258,7 +252,8 @@ class StudentController extends Controller
 
     public function index()
     {
-          $students = Student::where('status' , '<>' , 3)->where('status' , '<>' , 4)->paginate(20);
+//          $students = Student::where('status' , '<>' , 3)->where('status' , '<>' , 4)->paginate(20);
+          $students = StudentPayment::orderBy('id' , 'DESC')->get();
           return view('admin.pages.shartnoma.index' , [
           	'data' => $students,
           ]);
@@ -267,18 +262,18 @@ class StudentController extends Controller
     public function index_super_id_berilgan()
     {
 
-          $students = Student::where('status' , '=' , 3)->orWhere('status' , '=' , 4)->get();
-          // return $students;
-
-          return view('admin.pages.shartnoma.index' , [
-              'data' => $students,
-              'type' => 'super'
-          ]);
+//          $students = StudentPayment::where('status' , '=' , 3)->orWhere('status' , '=' , 4)->get();
+//          // return $students;
+//
+//          return view('admin.pages.shartnoma.index' , [
+//              'data' => $students,
+//              'type' => 'super'
+//          ]);
     }
 
     public function show($id)
     {
-    	$student = Student::find($id);
+    	$student = StudentPayment::find($id);
       $regions = Region::all();
       return view('admin.pages.shartnoma.show' , [
         'data' => $student,
@@ -370,7 +365,7 @@ class StudentController extends Controller
     }
 
     public function edit( $id){
-      $student = Student::find($id);
+      $student = StudentPayment::find($id);
       $regions = Region::all();
       return view('admin.pages.shartnoma.edit' , [
         'data' => $student,

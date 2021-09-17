@@ -8,7 +8,7 @@
 @if(Auth::user()->role == 6 )
 
   <li class="sidebar-item"> <a class="sidebar-link active" href="/backoffice/student" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Barcha Talabalar</span></a></li>
-  <li class="sidebar-item"> <a class="sidebar-link active" href="/backoffice/student-magistr" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Magistrlar</span></a></li>
+{{--  <li class="sidebar-item"> <a class="sidebar-link active" href="/backoffice/student-magistr" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Magistrlar</span></a></li>--}}
 
 {{--   <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('super_for_marketing') }}"  aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Superkontraktlar <br> (bakalavr)</span></a></li> --}}
   <li class="sidebar-item">
@@ -17,12 +17,18 @@
       <span class="hide-menu">Superkontraktlar <br> (bakalavr) </span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 1])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 2])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 3])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 4])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 5])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 6])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 baravar</span></a></li>
+      @php
+      $types_bakalavr_super = 'Test\Model\Type'::where('degree' , 1)->where('contract_type' , 'super')->get();
+      @endphp
+      @foreach($types_bakalavr_super as $item)
+       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => $item->id])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">{{$item->name}}</span></a></li>
+      @endforeach
+{{--       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type_marketing' , ['type' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 baravar</span></a></li>--}}
     </ul>
   </li>
   <li class="sidebar-item">
@@ -31,12 +37,18 @@
       <span class="hide-menu">Superkontraktlar <br> (magister)</span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 baravar</span></a></li>
+       @php
+      $types_magistr_super = 'Test\Model\Type'::where('degree' , 2)->where('contract_type' , 'super')->get();
+      @endphp
+      @foreach($types_magistr_super as $item)
+       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => $item->id])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu"> {{$item->name}}</span></a></li>
+      @endforeach
+{{--       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 13])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 14])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 15])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 16])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 17])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_for_marketing_magister_by_amount' , ['type' => 18])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 baravar</span></a></li>--}}
     </ul>
   </li>
  {{--  <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('super_for_marketing_magister') }}"  aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Superkontraktlar <br> (magister)</span></a></li> --}}
@@ -47,12 +59,15 @@
       <span class="hide-menu">Superkontraktlar <br> magistr <br> id berilganlar</span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 baravar</span></a></li>
+      @foreach($types_magistr_super as $item)
+      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => $item->id])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">{{$item->name}}</span></a></li>
+      @endforeach
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 4 , 'sum' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 baravar</span></a></li>--}}
     </ul>
   </li>
   <li class="sidebar-item">
@@ -61,12 +76,15 @@
       <span class="hide-menu">Superkontraktlar <br> bakalavr <br> id berilganlar</span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 1])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 2])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 3])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 4])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 5])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 baravar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 6])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 baravar</span></a></li>
+      @foreach($types_bakalavr_super as $item)
+      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => $item->id ])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">{{$item->name}}</span></a></li>
+      @endforeach
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 1])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 2])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 3])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 4])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 5])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 baravar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('super_mar_type_sum' , ['type' => 3 , 'sum' => 6])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 baravar</span></a></li>--}}
     </ul>
   </li>
 @endif
@@ -134,12 +152,18 @@
       <span class="hide-menu">Tasdiqlanganlar </span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 1])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 2])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 3])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 4])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 5])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 6])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 barobar</span></a></li>
+      @php
+      $types_bakalavr_super = 'Test\Model\Type'::where('degree' , 1)->where('contract_type' , 'super')->get();
+      @endphp
+      @foreach($types_bakalavr_super as $item)
+       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => $item->id])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">{{$item->name}}</span></a></li>
+      @endforeach
+{{--       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">25 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_type' , ['type' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">50 barobar</span></a></li>--}}
     </ul>
   </li>
 
@@ -239,12 +263,18 @@
       <span class="hide-menu">Tasdiqlanganlar <br> magistr </span>
     </a>
     <ul aria-expanded="false" class="collapse  first-level base-level-line">
-       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 7])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 8])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 9])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 10])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 11])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 barobar</span></a></li>
-      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 12])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 barobar</span></a></li>
+      @php
+      $types_magistr_super = 'Test\Model\Type'::where('degree' , 2)->where('contract_type' , 'super')->get();
+      @endphp
+      @foreach($types_magistr_super as $item)
+       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => $item->id])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">{{$item->name}}</span></a></li>
+      @endforeach
+{{--       <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 13])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">1.5 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 14])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 15])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">2.5 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 16])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">3 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 17])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">7.5 barobar</span></a></li>--}}
+{{--      <li class="sidebar-item"> <a class="sidebar-link "  href="{{route('amount_magistr_type' , ['type' => 18])}}"   aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">15 barobar</span></a></li>--}}
     </ul>
   </li>
 

@@ -17,6 +17,7 @@ use Test\Model\Discount;
 use PDF;
 use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
+use Test\Model\Type;
 
 
 class AgreementController extends Controller
@@ -218,8 +219,7 @@ class AgreementController extends Controller
                             $need_date = $this_year . '-06-30';
                             if ($request->ttj_start_date) {
                                 $this_date = date('Y-m-d', strtotime($request->ttj_start_date));
-                            }
-                            else{
+                            } else {
                                 $this_date = date('Y-m-d');
                             }
                             if ($this_date > $need_date) {
@@ -260,42 +260,70 @@ class AgreementController extends Controller
     {
         $student = StudentPayment::find($request->student_id);
         if ($student) {
+            $type = Type::find($student->status_new);
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
-            if ($agreement_side_type) {
+            if ($agreement_side_type && $type) {
                 $agreement_type = AgreementType::find($request->agreement_type_id);
                 if ($agreement_type) {
-                    if ($student->type_student == 1) {
-                        if ($student->course > 1) {
-//                    return $student;
-                            $getting_date = date('Y-m-d');
-                            $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
-                            if ($getting) {
-                                $getting_date = $getting->getting_date;
-                            }
-                            return view('student.agreement.agreement_shows.agreements.high_course.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                    $getting_date = date('Y-m-d');
+                    $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
+                    if ($getting) {
+                        $getting_date = $getting->getting_date;
+                    }
+                    if ($type->contract_type == 'super') {
+                        if ($type->edu_place == 'sirtqi') {
+                            return view('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
                             ]);
+                        } else {
+                            if ($student->type_student == 1) {
+                                return view('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
+                            }
+                            if ($student->type_student == 2) {
+                                return view('student.agreement.agreement_shows.agreements.super_magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
+                            }
                         }
-                        if ($student->course == 1) {
+                    } else {
+                        if ($type->edu_place == 'sirtqi') {
+                            return view('student.agreement.agreement_shows.agreements.sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
+                            ]);
+                        } else {
+                            if ($student->type_student == 1) {
+                                return view('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
+                            }
+                            if ($student->type_student == 2) {
+                                return view('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
+                            }
+                        }
+                    }
 
-                        }
-                    }
-                    if ($student->type_student == 2) {
-                        $getting_date = date('Y-m-d');
-                        $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
-                        if ($getting) {
-                            $getting_date = $getting->getting_date;
-                        }
-                        return view('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-                            'student' => $student,
-                            'agreement_type' => $agreement_type,
-                            'agreement_side_type' => $agreement_side_type,
-                            'getting_date' => $getting_date
-                        ]);
-                    }
                 }
             }
         }
@@ -306,8 +334,9 @@ class AgreementController extends Controller
     {
         $student = StudentPayment::find($request->student_id);
         if ($student) {
+            $type = Type::find($student->status_new);
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
-            if ($agreement_side_type) {
+            if ($agreement_side_type && $type) {
                 $agreement_type = AgreementType::find($request->agreement_type_id);
                 if ($agreement_type) {
                     $all_gettings = GettingAgreement::where('student_id', $student->id)->get();
@@ -324,34 +353,76 @@ class AgreementController extends Controller
                     $getting->save();
                     $getting_date = $getting->getting_date;
 //                    bakalavr
-                    if ($student->type_student == 1) {
-//                        high course
-                        $file = public_path() . "/files/additional_agreement/additional.xls";
-                        $headers = array(
-                            'Content-Type: application/vnd.ms-excel',
-                        );
-//                        response()->download($file,'additional.xls',$headers);
-                        if ($student->course > 1) {
-                            return PDF::loadView('student.agreement.agreement_shows.agreements.high_course.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+//                    if ($student->type_student == 1) {
+//                        return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+//                            'student' => $student,
+//                            'agreement_type' => $agreement_type,
+//                            'agreement_side_type' => $agreement_side_type,
+//                            'getting_date' => $getting_date
+//                        ])->download($student->fio() . '.pdf');
+//
+//                    }
+////                    magistr
+//                    if ($student->type_student == 2) {
+//                        return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+//                            'student' => $student,
+//                            'agreement_type' => $agreement_type,
+//                            'agreement_side_type' => $agreement_side_type,
+//                            'getting_date' => $getting_date
+//                        ])->download($student->fio() . '.pdf');
+//                    }
+                    if ($type->contract_type == 'super') {
+                        if ($type->edu_place == 'sirtqi') {
+                            return PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
                             ])->download($student->fio().'.pdf');
+                        } else {
+                            if ($student->type_student == 1) {
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ])->download($student->fio().'.pdf');
+                            }
+                            if ($student->type_student == 2) {
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ])->download($student->fio().'.pdf');
+                            }
                         }
-//                        first course
-                        if ($student->course == 1) {
-
-                        }
-                    }
-//                    magistr
-                    if ($student->type_student == 2) {
-                        return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                    } else {
+                        if ($type->edu_place == 'sirtqi') {
+                            return PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
                             ])->download($student->fio().'.pdf');
+                        } else {
+                            if ($student->type_student == 1) {
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
+                            }
+                            if ($student->type_student == 2) {
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ])->download($student->fio().'.pdf');
+                            }
+                        }
                     }
                 }
             }

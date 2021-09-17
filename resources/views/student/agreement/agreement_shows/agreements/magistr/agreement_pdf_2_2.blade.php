@@ -206,40 +206,31 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o’rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan
                     ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov Islombek
-                    Rustambekovich
-                <div style="width: 100%">
-                    <div style="width: 100%; text-align: center;border-bottom: 1px solid black; padding-top: 20px">
-                    </div>
-                    <div style="width: 100%; text-align: center">
-                        (yuridik shaxsning nomi)
-                    </div>
 
+                <div style="padding: 0; margin: 0;  width: 100%;">
+                    <div style="display: inline-block; width: 18%;">Rustambekovich bir tomondan, &nbsp;</div>
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp; (keyingi o’rinlarda – Tashkilot)</div>
                 </div>
+                <span style="font-size: 11px; text-align:center; display: block;">(yuridik shaxsning nomi)</span>
+{{--                ________________________________________________________________________________--}}
+{{--                (yuridik shaxsning nomi)--}}
 
-
-                <div style="padding: 0; margin-top: 18px;  width: 100%;">
-                    <div style="display: inline-block; width: max-content;white-space: nowrap">(keyingi o’rinlarda –
-                        Tashkilot) nomidan
-                    </div>
-                    <div style="display: inline-block; width: 50%; border-bottom: 1px solid black;"></div>
-                    <div style="display: inline-block; width: max-content; text-align: left;"> &nbsp; asosan ish
-                        yurituvchi
-                    </div>
+                <div style="padding: 0; margin: 0;  width: 100%;">
+                    <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;asosan ish yurituvchi</div>
                 </div>
-                <span style="font-size: 11px; text-align:center; display: block;">(vakolat beruvchi hujjat turi)</span>
+                <span style="font-size: 11px; text-align:center; display: block;"> (vakolat beruvchi hujjat turi)</span>
 
-
-                <div style="width: 100%">
-                    <div style="width: 100%; text-align: center;border-bottom: 1px solid black; padding-top: 20px">
-                    </div>
-                    <div style="width: 100%; text-align: center">
-                        (rahbarning familiyasi, ismi, sharifi, lavozimi)
-                    </div>
-
+                 <div style="padding: 0; margin: 0;  width: 100%;">
+{{--                    <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>--}}
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;ikkinchi tomondan,</div>
                 </div>
-                ikkinchi tomondan,
+                <span style="font-size: 11px; text-align:center; display: block;"> (rahbarning familiyasi, ismi, sharifi, lavozimi)</span>
 
-                va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
+                va {{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
                 (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar),Talabani magistratura davomida
                 o‘qitish maqsadida mazkur uch tomonlama stipendiyasiz kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va
                 o‘rta maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
@@ -457,57 +448,57 @@
                     bo`lgan xatti-harakatlarini sodir etishdan tiyiladi.
                 </p>
             </div>
-            {{--            <div class="col-md-12 mb-1 ">--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    <b>2.5.</b> <b>Tashkilotning huquqlari:</b>--}}
-            {{--                </p>--}}
-            {{--            </div>--}}
-            {{--            <div class="col-md-12 mb-1 ">--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.5.1. Ta’lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.5.2. Ta’lim muassasasining ta’lim jarayonlarini yaxshilashga doir takliflar berish.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.5.3. O’qish uchun bir yillik to’lov summasini bir yola to’liq to’lash.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.5.4. Ta’lim muassasasidan Kontrakt bo’yicha to’lovni amalga oshirish uchun kerakli hujjatlarni--}}
-            {{--                    so’rash.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.5.5. Ta’lim muassasasidan Talabaning davomati va o’zlashtirishi haqida ma’lumot so’rash.--}}
-            {{--                </p>--}}
-            {{--            </div>--}}
-            {{--            <div class="col-md-12 mb-1 ">--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    <b>2.6.</b> <b>Tashkilotning majburiyatlari:</b>--}}
-            {{--                </p>--}}
-            {{--            </div>--}}
-            {{--            <div class="col-md-12 mb-1 ">--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.6.1. Joriy o’quv yili uchun belgilangan o’qitish qiymatini Kontraktning 3-bobida ko’rsatilgan--}}
-            {{--                    tartib va miqdorda o’z vaqtida to’laydi.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.6.2. Boshqa Tomonlarning talabiga ko’ra Kontraktning to’lovlari yuzasidan taqqoslash--}}
-            {{--                    dalolatnomasini tuzish.--}}
-            {{--                </p>--}}
-            {{--                <p>--}}
-            {{--                    &nbsp &nbsp &nbsp &nbsp--}}
-            {{--                    2.6.3. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi.--}}
-            {{--                </p>--}}
-            {{--            </div>--}}
+                        <div class="col-md-12 mb-1 ">
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <b>2.5.</b> <b>Tashkilotning huquqlari:</b>
+                            </p>
+                        </div>
+                        <div class="col-md-12 mb-1 ">
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.5.1. Ta’lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.5.2. Ta’lim muassasasining ta’lim jarayonlarini yaxshilashga doir takliflar berish.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.5.3. O’qish uchun bir yillik to’lov summasini bir yola to’liq to’lash.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.5.4. Ta’lim muassasasidan Kontrakt bo’yicha to’lovni amalga oshirish uchun kerakli hujjatlarni
+                                so’rash.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.5.5. Ta’lim muassasasidan Talabaning davomati va o’zlashtirishi haqida ma’lumot so’rash.
+                            </p>
+                        </div>
+                        <div class="col-md-12 mb-1 ">
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <b>2.6.</b> <b>Tashkilotning majburiyatlari:</b>
+                            </p>
+                        </div>
+                        <div class="col-md-12 mb-1 ">
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.6.1. Joriy o’quv yili uchun belgilangan o’qitish qiymatini Kontraktning 3-bobida ko’rsatilgan
+                                tartib va miqdorda o’z vaqtida to’laydi.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.6.2. Boshqa Tomonlarning talabiga ko’ra Kontraktning to’lovlari yuzasidan taqqoslash
+                                dalolatnomasini tuzish.
+                            </p>
+                            <p>
+                                &nbsp &nbsp &nbsp &nbsp
+                                2.6.3. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi.
+                            </p>
+                        </div>
 
 
             <div class="col-md-12 text-center">
@@ -519,14 +510,14 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi 14 124 000 (O’n to`rt million bir yigirma to`rt ming) so‘mni tashkil
+                    lozim bo‘lgan to’lov summasi <b>14 124 000</b> (O’n to`rt million bir yuz yigirma to`rt ming) so‘mni tashkil
                     etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
                     to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
                     o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 7 062 000 (yetti million oltmish ikki ming ) so‘mni quyidagi
+                    3.2. Talaba kuzgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming ) so‘mni quyidagi
                     muddatlarda to‘laydi:
                     <br>1-oktyabrgacha -3 531 000 so‘m;
                     <br>1-yanvargacha -3 531 000 so‘m.
@@ -535,9 +526,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 7 062 000 (olti million ikki yuz yigirma ikki ming ikki yuz
-                    tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>15-aprelgacha -3 531 000 so‘m;
+                    3.3. Talaba bahorgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -3 531 000 so‘m;
                     <br>1-iyulgacha -3 531 000 so‘m.
 
 

@@ -185,7 +185,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    ikki tomonlama KONTRAKT (stipendiyasiz shaklda, 2,3 va 4-kurslar uchun)
+                    ikki tomonlama KONTRAKT (stipendiyasiz shaklda, {{$student->course}} - kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -237,7 +237,10 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
                     muvaffaqiyatli
                     tamomlash muddati
-                    2024-yil iyun oyi hisoblanadi.
+                    @php
+                    $ended = 2022+4-$student->course;
+                    @endphp
+                    {{$ended}}-yil iyun oyi hisoblanadi.
 
                 </p>
             </div>
@@ -443,7 +446,7 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.3. Talaba bahorgi semestr uchun 6 222 223 (olti million ikki yuz yigirma ikki ming ikki yuz
                     tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>15-aprelgacha -3 111 111 so‘m;
+                    <br>1-aprelgacha -3 111 111 so‘m;
                     <br>1-iyulgacha -3 111 112 so‘m.
 
 

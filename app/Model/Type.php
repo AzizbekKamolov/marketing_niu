@@ -22,5 +22,14 @@ class Type extends Model
     public function other_agreement_types(){
         return $this->belongsToMany(OtherAgreementType::class , 'student_type_other_agreement_types' , 'type_id' , 'other_agreement_type_id' , 'id');
     }
+    public function allamount()
+    {
+        $a = $this->amount;
+        $a = strrev($a);
+        $a = wordwrap($a , 3 , '.' , true );
+        $a = strrev($a);
+        $all = $this->name." :  ".$this->amount." - ".$this->amount_word;
+       return $all;
+    }
 
 }

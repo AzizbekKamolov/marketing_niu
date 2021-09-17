@@ -167,62 +167,9 @@
                                         </div> --}}
                                         
                                       </div>
-                                      @if($data->status == 1 || $data->status == 5)
-                                      <div class="row">
-                                         <div class="col-md-4 form-group border p-3">
-                                          <label>Olgan shartnomasi holati  <span class="error">  @if ($errors->has('shartnoma_type')) | {{ $errors->first('shartnoma_type') }} @endif </span></label>
-                                          <div style="display: flex; justify-content: space-around; width: 100%;">
-                                            <div >
-                                              <label>Stipendiyali</label>
-                                            <input type="radio" name="shartnoma_type" @if($data->step == 1) checked="true" @endif   value="1">
-                                            </div>
-                                            <div >
-                                              <label>Stipendiyasiz</label>
-                                            <input type="radio" name="shartnoma_type"  @if($data->step == 2) checked="true" @endif    value="2">
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      @endif
-                                      @php
-                                      $magister = 0;
-                                      $first = 0;
-                                      $b_super = 0;
-                                      $m_super = 0;
-                                      $belarus = 0;
-                                      $kazak = 0;
-                                      if ($data->type == 2 && $data->status == 0 && $data->course == 5) {
-                                        $magister = 1;
-                                      }
-                                      elseif($data->status == 5 && $data->course == 1){
-                                        $first = 1;
-                                      }
-                                      elseif($data->status == 3 && $data->type = 1){
-                                        $b_super = 1;
-                                      }
-                                      elseif($data->status == 3 && $data->type = 2){
-                                        $m_super = 1;
-                                      }
-                                      elseif($data->status == 10){
-                                        $belarus = 1;
-                                      }
-                                      elseif($data->status == 20){
-                                        $kazak = 1;
-                                      }
-                                      else{
 
-                                      }
-                                      @endphp
-                                      @if($first || $magister)
-                                      <div class="col-md-8" >
-                                        <select class="form-control" name="type_student">
-                                          <option value="mag" @if($magister) selected="true" @endif>Magister oddiy</option>
-                                          <option value="bak" @if($first) selected="true" @endif>Bakalavr 1-kurs</option>
-                                        </select>
 
-                                      </div>
-                                        
-                                      @endif
+
                                   </form>
 
                             </div>

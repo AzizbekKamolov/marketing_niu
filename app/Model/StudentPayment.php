@@ -63,5 +63,16 @@ class StudentPayment extends Model
             return 0;
         }
     }
+    public function getting_agreement(){
+        return $this->hasMany(GettingAgreement::class , 'student_id' , 'id')->where('status' , '=' , 1);
+    }
+    public function status_getting(){
+        if (GettingAgreement::where('student_id' , $this->id)->where('status' , 1)->exists()){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
 
 }

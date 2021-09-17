@@ -1,4 +1,4 @@
-{{--2 tomonlama stipendiyasiz magistr--}}
+{{--2 tomonlama stipendiyasiz--}}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -185,8 +185,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    ikki tomonlama KONTRAKT (stipendiyasiz shaklda, magistratura uchun )
-
+                    ikki tomonlama KONTRAKT (sirtqi ta’lim shaklda, {{$student->course}} - kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -206,15 +205,13 @@
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
                     Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
                     tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar),Talabani magistratura davomida o‘qitish maqsadida mazkur ikki tomonlama stipendiyali
-                    kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta maxsus, kasb-hunar ta’limi muassasalarida
-                    o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni taqsimlash tartibi to‘g‘risidagi
-                    nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar Mahkamasining 2019 yil 3 dekabrdagi
-                    967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti rektorining
-                    2021 yil
-                    1 sentyabrdagi 02- -son buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga qabul
-                    qilish bo’yicha Davlat komissiyasining 2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq tuzdilar:
-
+                    Tomonlar),“Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat
+                    <b>{{$student->course}}</b>-kurs davomida o‘qitish
+                    maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta maxsus,
+                    kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni
+                    taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar
+                    Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat
+                    yuridik universiteti rektorining 2021 yil 1 sentyabrdagi 02- -son buyrug‘iga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -227,16 +224,21 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur <b>Kontraktga</b> asosan <b>Ta’lim muassasasi
                         Talabani</b> 2021/2022
-                    o‘quv yili davomida belgilangan ta’lim standartlari va o‘quv dasturlariga muvofiq o‘qitadi, <b>Talaba</b>
-                    esa <b>Kontraktning</b> 3-bobida ko’rsatilgan tartib va miqdordagi to‘lovni amalga oshiradi hamda
-                    <b>Ta’lim
-                        muassasasida</b> belgilangan tartibga muvofiq ta‘lim olish majburiyatini oladi.
+                    o‘quv yili davomida belgilangan ta’lim standartlari va o‘quv dasturlariga muvofiq o‘qitadi, Talaba
+                    esa Kontraktning 3-bobida ko’rsatilgan tartib va miqdordagi to‘lovni amalga oshiradi hamda Ta’lim
+                    muassasasida belgilangan tartibga muvofiq ta‘lim olish majburiyatini oladi.
                 </p>
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> magistratura mutaxasisligini muvaffaqiyatli tamomlash muddati
-                    2022-yil iyun oyi hisoblanadi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
+                    muvaffaqiyatli
+                    tamomlash muddati
+                    @php
+                        $ended = 2022+5-$student->course;
+                    @endphp
+                    {{$ended}}-yil iyun oyi hisoblanadi.
+
                 </p>
             </div>
             <div class="col-md-12 text-center">
@@ -253,9 +255,10 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.1. Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Ta’lim muassasasining ichki
-                    hujjatlarida belgilangan qoidalarga rioya qilishni, o’quv mashg‘ulotlarida muntazam qatnashishni,
-                    Kontrakt bo‘yicha to‘lovlarni o‘z vaqtida amalga oshirishni talab qilish.
+                    2.1.1. Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Ta’lim
+                    muassasasining
+                    ichki hujjatlarida belgilangan qoidalarga rioya qilishni, o’quv mashg‘ulotlarida muntazam
+                    qatnashishni, Kontrakt bo‘yicha to‘lovlarni o‘z vaqtida amalga oshirishni talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -311,25 +314,15 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.4.Talaba magistratura yo‘nalishini muvaffaqiyatli tamomlaganda belgilangan tartibda diplom
-                    beradi.
+                    2.2.4. Talaba bakalavriat yo‘nalishini muvaffaqiyatli tamomlaganda belgilangan tartibda
+                    diplom beradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.5. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga
-                    asosan har oyda o‘rnatilgan muddat va tartibda stipendiya to‘lovlarini amalga oshirish
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.2.6. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
+                    2.2.5. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
                     talabalar safiga qabul qilish.
                 </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.2.7. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
-                    2021/2022 o`quv yili uchun belgilangan stipendiyasiz bazaviy to`lov-kontrakt miqdoriga 10 foiz
-                    chegirma beradi.
-                </p>
+
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
@@ -364,12 +357,6 @@
                     &nbsp &nbsp &nbsp &nbsp
                     2.3.6. Kontrakt bo‘yicha to‘lovni stipendiyasiz yoki stipendiyali shaklini joriy yilning
                     1 oktyabrga qadar tanlash.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.3.7. O’zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va
-                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va
-                    tartibda stipendiya to‘lovlarini amalga oshirish
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
@@ -432,26 +419,24 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi <b>14 124 000</b> (O’n to`rt million bir yuz yigirma to`rt ming) so‘mni tashkil
-                    etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
-                    to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
-                    o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o‘quv yilida sirtqi ta’lim olish uchun Talaba tomonidan to‘lanishi lozim bo‘lgan
+                    to’lov summasi <b>10 960 400</b> (O’n million to‘qqiz yuz oltmish ming to`rt yuz ) so‘mni tashkil etadi va
+                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
+                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming) so‘mni quyidagi
-                    muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -3 531 000 so‘m;
-                    <br>1-yanvargacha -3 531 000 so‘m.
+                    3.2. Talaba kuzgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ming ikki yuz  ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha -2 740 100 so‘m;
+                    <br>1-yanvargacha -2 740 100  so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -3 531 000 so‘m;
-                    <br>1-iyulgacha -3 531 000 so‘m.
+                    3.3. Talaba bahorgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ming ikki yuz )  so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -2 740 100 so‘m;
+                    <br>1-iyulgacha -2 740 100  so‘m.
 
 
                 </p>
@@ -466,15 +451,6 @@
                     3.5. Talaba tegishli fanlar bo‘yicha akademik qarzdorlikni qayta topshirish sharti bilan keyingi
                     kurs (semestr)ga o‘tkazilgan taqdirda, keyingi semestr uchun to‘lov Talaba tomonidan akademik
                     qarzdorlik topshirilgunga qadar amalga oshiriladi.
-
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    3.6. O‘zbekiston Respublikasi Vazirlar Mahkamasining 2020 yil 31 yanvardagi 59-son qaroriga va
-                    Toshkent davlat yuridik universiteti rektorining buyrug‘iga asosan har oyda o‘rnatilgan muddat va
-                    tartibda stipendiya to‘lovlarini amalga oshiradi (to‘lov-kontrakt qiymatini tegishli semestri uchun
-                    to‘liq amalga oshirilganda so’ng stipendiya to’lanadi va to‘lov-kontrakt qiymatini stipendiyali
-                    shaklda to‘lash haqida murojaat qilgan talabalarga stipendiya to’lanadi).
 
                 </p>
 
@@ -522,14 +498,6 @@
                     4.1.6. Qonunchilikda ko‘rsatilgan boshqa hollarda.
                 </p>
 
-
-            </div>
-            <div class="col-md-12 mb-1">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    4.2. Kontrakt Tomonlarning o‘zaro roziligi bilan o’zgartiriladi, 2.1.4, 2.1.5-bandlarda ko‘rsatilgan
-                    holatlar bundan mustasno.
-                </p>
             </div>
             <div class="col-md-12 mb-1">
                 <p>
@@ -695,24 +663,24 @@
                     </tbody>
                 </table>
             </div>
-{{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
-{{--                <div class="tasdiq btn-success "--}}
-{{--                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">--}}
-{{--                    <p>--}}
-{{--                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning--}}
-{{--                        shartlariga roziman hamda shaxsiy ma`lumotlarim--}}
-{{--                        to'g'riligini tasdiqlayman--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">--}}
-{{--                    {{csrf_field()}}--}}
-{{--                    {{method_field('POST')}}--}}
-{{--                    <input type="text" hidden value="{{$student->id}}" name="student_id">--}}
-{{--                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">--}}
-{{--                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">--}}
-{{--                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">--}}
-{{--                </form>--}}
-{{--            </div>--}}
+            <div class="col-md-12 text-center" style="padding-bottom: 50px">
+                <div class="tasdiq btn-success "
+                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
+                    <p>
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
+                        shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        to'g'riligini tasdiqlayman
+                    </p>
+                </div>
+                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
+                    {{csrf_field()}}
+                    {{method_field('POST')}}
+                    <input type="text" hidden value="{{$student->id}}" name="student_id">
+                    <input type="text" hidden value="{{$agreement_type->id}}" name="agreement_type_id">
+                    <input type="text" hidden value="{{$agreement_side_type->id}}" name="agreement_side_type_id">
+                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
+                </form>
+            </div>
 
 
         </div>

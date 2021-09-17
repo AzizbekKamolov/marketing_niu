@@ -235,8 +235,7 @@
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini muvaffaqiyatli
-                    tamomlash muddati
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> magistratura mutaxasisligini muvaffaqiyatli tamomlash muddati
                     2022-yil iyun oyi hisoblanadi.
                 </p>
             </div>
@@ -434,14 +433,14 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi 14 124 000 (O’n to`rt million bir yigirma to`rt ming) so‘mni tashkil
+                    lozim bo‘lgan to’lov summasi <b>14 124 000</b> (O’n to`rt million bir yuz yigirma to`rt ming) so‘mni tashkil
                     etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
                     to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
                     o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 7 062 000 (yetti million oltmish ikki ming) so‘mni quyidagi
+                    3.2. Talaba kuzgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming) so‘mni quyidagi
                     muddatlarda to‘laydi:
                     <br>1-oktyabrgacha -3 531 000 so‘m;
                     <br>1-yanvargacha -3 531 000 so‘m.
@@ -450,9 +449,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 7 062 000 (olti million ikki yuz yigirma ikki ming ikki yuz
-                    tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>15-aprelgacha -3 531 000 so‘m;
+                    3.3. Talaba bahorgi semestr uchun <b>7 062 000</b> (yetti million oltmish ikki ming ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -3 531 000 so‘m;
                     <br>1-iyulgacha -3 531 000 so‘m.
 
 

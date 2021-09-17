@@ -1,4 +1,4 @@
-{{--3 tomonlama stipendiyali--}}
+{{--3 tomonlama stipendiyasiz--}}
         <!doctype html>
 <html lang="en">
 <head>
@@ -186,7 +186,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, 2,3 va 4-kurslar uchun)
+                    uch tomonlama KONTRAKT (sirtqi ta’lim shaklda, {{$student->course}} - kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -205,22 +205,40 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o’rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan
                     ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov Islombek
-                    Rustambekovich________________________________________________________________________________
-                    (yuridik shaxsning nomi)
-                    (keyingi o’rinlarda – Tashkilot) nomidan ___________________________________ asosan ish yurituvchi
-                    (vakolat beruvchi hujjat turi)
-                    _____________________________________________________________________________ ikkinchi tomondan,
-                    (rahbarning familiyasi, ismi, sharifi, lavozimi)
-                    va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
-                    (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar),“Yurisprudensiya” ta’lim
-                    yo’nalishi bo’yicha Talabani bakalavriat <b>{{$student->course}}</b> kurs davomida o’qitish maqsadida mazkur ikki tomonlama
-                    kontraktni (keyingi o’rinlarda – Kontrakt) Oliy va o’rta maxsus, kasb-hunar ta’limi muassasalarida
-                    o’qitishning to’lov-kontrakt shakli va undan tushgan mablag’larni taqsimlash tartibi to’g’risidagi
-                    nizom (ro’yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar Mahkamasining 2019 yil 3 dekabrdagi
-                    967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti rektorining
-                    202 yil 1 sentyabrdagi 02- -son buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga
-                    qabul qilish bo’yicha Davlat komissiyasining 2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq
-                    tuzdilar:
+
+                <div style="padding: 0; margin: 0;  width: 100%;">
+                    <div style="display: inline-block; width: 18%;">Rustambekovich bir tomondan, &nbsp;</div>
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp; (keyingi o’rinlarda –
+                        Tashkilot)
+                    </div>
+                </div>
+                <span style="font-size: 11px; text-align:center; display: block;">(yuridik shaxsning nomi)</span>
+                {{--                ________________________________________________________________________________--}}
+                {{--                (yuridik shaxsning nomi)--}}
+
+                <div style="padding: 0; margin: 0;  width: 100%;">
+                    <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;asosan ish yurituvchi</div>
+                </div>
+                <span style="font-size: 11px; text-align:center; display: block;"> (vakolat beruvchi hujjat turi)</span>
+
+                <div style="padding: 0; margin: 0;  width: 100%;">
+                    {{--                    <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>--}}
+                    <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
+                    <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;ikkinchi tomondan,</div>
+                </div>
+                <span style="font-size: 11px; text-align:center; display: block;"> (rahbarning familiyasi, ismi, sharifi, lavozimi)</span>
+                va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
+                (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya” ta’lim
+                yo’nalishi bo’yicha Talabani sirtqi bakalavriat <b>{{$student->course}}</b> kurs davomida o’qitish
+                maqsadida mazkur ikki
+                tomonlama kontraktni (keyingi o’rinlarda – Kontrakt) Oliy va o’rta maxsus, kasb-hunar ta’limi
+                muassasalarida o’qitishning to’lov-kontrakt shakli va undan tushgan mablag’larni taqsimlash tartibi
+                to’g’risidagi nizom (ro’yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar Mahkamasining 2019 yil 3
+                dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti
+                rektorining 2021 yil 1 sentyabrdagi 02- -son buyrug‘iga muvofiq tuzdilar:
 
 
                 </p>
@@ -245,7 +263,10 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
                     muvaffaqiyatli
                     tamomlash muddati
-                    202 -yil iyun oyi hisoblanadi.
+                    @php
+                        $ended = 2022+5-$student->course;
+                    @endphp
+                    {{$ended}}-yil iyun oyi hisoblanadi.
 
                 </p>
             </div>
@@ -283,7 +304,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.4. Mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Kontrakt bo’yicha
+                    2.1.4. Mehnatga haq to‘lashning eng kam miqdori o’zgarishi bilan mos ravishda Kontrakt bo‘yicha
                     to’lov miqdorini bir tomonlama o’zgartirish.
                 </p>
                 <p>
@@ -489,27 +510,27 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi 18 659 005 (O’n sakkiz million olti yuz ellik to`qqiz ming besh) so‘mni
-                    tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
-                    to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
-                    o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o‘quv yilida sirtqi ta’lim olish uchun Talaba tomonidan to‘lanishi lozim bo‘lgan
+                    to’lov summasi <b>10 960 400</b> (O’n million to‘qqiz yuz oltmish ming to`rt yuz ) so‘mni tashkil
+                    etadi va
+                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
+                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 9 329 502 (to`qqiz million uch yuz yigirma to`qqiz ming besh yuz
-                    ikki) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha - 4 664 751 so‘m;
-                    <br>1-yanvargacha - 4 664 751 so‘m.
+                    3.2. Talaba kuzgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ning ikki yuz ) so‘mni
+                    quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha -2 740 100 so‘m;
+                    <br>1-yanvargacha - 2 740 100 so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 9 329 503 (olti million ikki yuz yigirma ikki ming ikki yuz
-                    tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>15-aprelgacha - 4 664 751 so‘m;
-                    <br>1-iyulgacha -4 664 752 so‘m.
+                    3.3. Talaba bahorgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ning ikki yuz ) so‘mni
+                    quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -2 740 100 so‘m;
+                    <br>1-iyulgacha -2 740 100 so‘m.
 
 
                 </p>
@@ -571,8 +592,9 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     4.1.5. Kontraktning 2.1.3-bandida ko‘rsatilgan hollarda (Ta’lim muassasasi tomonidan Kontraktning
-                    bir tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma
-                    yuborish orqali).
+                    bir
+                    tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma yuborish
+                    orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp

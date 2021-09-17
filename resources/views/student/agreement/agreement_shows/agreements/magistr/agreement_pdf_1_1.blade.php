@@ -235,10 +235,8 @@
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini muvaffaqiyatli
-                    tamomlash muddati
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> <b>Talabaning</b> magistratura mutaxasisligini muvaffaqiyatli tamomlash muddati
                     2022-yil iyun oyi hisoblanadi.
-
 
                 </p>
             </div>
@@ -437,14 +435,14 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi 20 338 560 (Yigirma million uch yuz o`ttiz sakkiz ming besh yuz
+                    lozim bo‘lgan to’lov summasi <b>20 338 560</b> (Yigirma million uch yuz o`ttiz sakkiz ming besh yuz
                     oltmish) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur
                     summa mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi
                     tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 10 169 280 ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
+                    3.2. Talaba kuzgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
                     sakson ) so‘mni quyidagi muddatlarda to‘laydi:
                     <br>1-oktyabrgacha -5 084 640 so‘m;
                     <br>1-yanvargacha -5 084 640 so‘m.
@@ -453,9 +451,9 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 10 169 280 ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
+                    3.3. Talaba bahorgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
                     sakson) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>15-aprelgacha -5 084 640 so‘m;
+                    <br>1-aprelgacha -5 084 640 so‘m;
                     <br>1-iyulgacha -5 084 640 so‘m.
 
 

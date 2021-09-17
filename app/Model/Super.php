@@ -57,7 +57,8 @@ class Super extends Model
     }
 
     public function getAmount(){
-        $amount = Amount::find($this->amount_id);
+//        $amount = Amount::find($this->amount_id);
+        $amount = Type::find($this->amount_id);
         return $amount;
     }
 

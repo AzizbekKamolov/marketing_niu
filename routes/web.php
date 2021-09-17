@@ -45,7 +45,7 @@ Route::group([
     'middleware' => ['web', 'auth']
 ], function () {
 
-    Route::get('super-mar-type-sum/{type}/{sum}', 'StudentController@super_mar_type_sum')->name('super_mar_type_sum');
+    Route::get('super-mar-type-sum/{type}', 'StudentController@super_mar_type_sum')->name('super_mar_type_sum');
     Route::resource('attendance', 'AttendanceController');
     Route::resource('group', 'GroupController');
     Route::post('/group-change', 'GroupController@change')->name('group.change');
@@ -142,7 +142,7 @@ Route::group([
 
 Auth::routes();
 
-Route::get('/home', function(){
+Route::get('/home', function () {
     return redirect('/backoffice');
 })->name('home');
 
@@ -151,33 +151,75 @@ Route::get('/clear', function () {
 });
 
 Route::get('/phone-right', function () {
-    $students = \Test\Model\StudentPayment::select(['id' , 'id_code' , 'phone'])->whereRaw('LENGTH(phone) = ?' , [12])->get();
+    $students = \Test\Model\StudentPayment::select(['id', 'id_code', 'phone'])->whereRaw('LENGTH(phone) = ?', [12])->get();
 //    $students = \Test\Model\StudentPayment::all();
     foreach ($students as $student) {
 //        $num = $student->phone;
 //        $num = str_replace(' ' , '' , $num);
 //        $student->phone = $num;
-        $student->phone = '+'.$student->phone;
+        $student->phone = '+' . $student->phone;
         $student->update();
     }
     return $students;
 });
 
 //new routes
-Route::post('/student/get-data' , 'AgreementController@get_data')->name('student.agreement.get_data');
-//Route::post('/student/show-agreement' , 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
-Route::post('/student/show-agreement' , function(){
-    return "Texnik ishlar";
-})->name('student.agreement.show_agreement');
-Route::post('/student/pdf-agreement' , 'AgreementController@pdf_agreement')->name('student.agreement.pdf_agreement');
-Route::post('/student/show-other-agreement' , 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
-Route::post('/student/pdf-other-agreement' , 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
-Route::get('/student/form' , 'AgreementController@form')->name('student.agreement.form');
-Route::get('/student/lyceum/form' , 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
-Route::post('/student/lyceum/show-agreement' , 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
-Route::post('/student/lyceum/pdf-agreement' , 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
+Route::post('/student/get-data', 'AgreementController@get_data')->name('student.agreement.get_data');
+Route::post('/student/show-agreement', 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
+//Route::post('/student/show-agreement' , function(){
+//    return "Texnik ishlar";
+//})->name('student.agreement.show_agreement');
+Route::post('/student/pdf-agreement', 'AgreementController@pdf_agreement')->name('student.agreement.pdf_agreement');
+Route::post('/student/show-other-agreement', 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
+Route::post('/student/pdf-other-agreement', 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
+Route::get('/student/form', 'AgreementController@form')->name('student.agreement.form');
+Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
+Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
+Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
 Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
 Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');
 
-Route::get('/student/form-ttj' , 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
-Route::post('/student/show-agreement-ttj' , 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
+Route::get('/student/form-ttj', 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
+Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
+
+
+Route::get('sms-ras', function () {
+    $numbers = \Test\Model\SmsRas::all()->toArray();
+    $chunkeds = array_chunk($numbers, 100);
+//    foreach ($numbers as $number) {
+//        if (strlen($number->number) != 9){
+//            return $number;
+//        }
+////        $number_rigth = str_replace(' ' , '' , $number->number);
+//////        $number_rigth = str_replace(',' , '' , $number_rigth);
+////        $number->number = $number_rigth;
+////        $number->update();
+//    }
+    $body = [];
+    $i = 0;
+//    return $chunkeds;
+    foreach ($chunkeds[19] as $chunked) {
+        $num = \Test\Model\SmsRas::find($chunked['id']);
+        if ($num) {
+            if ($num->status == 0) {
+                $num->status = 1;
+                $num->update();
+                $body['messages'][$i]['recipient'] = '998' . $chunked['number'];
+                $body['messages'][$i]['message-id'] = 'tsulsmstest' . $chunked['id'];
+                $body['messages'][$i]['sms']['originator'] = '3700';
+                $body['messages'][$i]['sms']['content']['text'] = 'Hurmatli abituriyent! TDYUga o\'qishga kirmoqchi bo\'lsangiz ikki diplomli dasturga 01.10.2021-yilgacha hujjat topshiring. Batafsil ma\'lumot:' . PHP_EOL . ' https://t.me/DDprograms';
+                $i++;
+            }
+
+        }
+
+    }
+//    return $body;
+    if (count($body)) {
+        $send_sms = new \Test\Model\SmsSend();
+        $result = $send_sms->send_many_sms(json_encode($body));
+        return $result;
+    }
+
+//    return json_encode($body);
+});
