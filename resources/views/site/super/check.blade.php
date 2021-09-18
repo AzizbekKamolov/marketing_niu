@@ -1,4 +1,4 @@
-@extends('layouts.marketing_enno')
+@extends('layouts.marketing2021')
 <style>
 .unselectable{
     margin: 20px auto;
@@ -125,7 +125,7 @@
                                   
                                 
                                    {{-- <a href="{{route('checkstore',['id'=>$data->id])}}" class="btn-get-started scrollto">Tasdiqlash <i class="icofont-check-circled"></i>  </a> --}}
-                                   <a   class="btn-get-started scrollto super-user-tasdiqlash">Tasdiqlash <i class="icofont-check-circled"></i>  </a>
+                                   <a   class="btn btn-success tasdiqlash">Tasdiqlash <i class="icofont-check-circled"></i>  </a>
                                </div>
                            </div>
                            </form>
@@ -143,7 +143,11 @@
 @endsection
 @section('js')
 <script type="text/javascript">
-  
+  $('.tasdiqlash').click(function(){
+      if(confirm('Tasdiqlaysizmi?')){
+          $('.super-user-form').submit();
+      }
+  })
 </script>
 @endsection
 

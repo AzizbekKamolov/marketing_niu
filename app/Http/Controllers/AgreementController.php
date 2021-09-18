@@ -264,6 +264,9 @@ class AgreementController extends Controller
     public function show_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
+        if ($request->student_id != 9602){
+            return "Texnik ishlar";
+        }
         if ($student) {
             $type = Type::find($student->status_new);
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
@@ -378,7 +381,7 @@ class AgreementController extends Controller
 //                    }
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
-                            return PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                            return PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
@@ -386,7 +389,7 @@ class AgreementController extends Controller
                             ])->download($student->fio().'.pdf');
                         } else {
                             if ($student->type_student == 1) {
-                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
@@ -394,7 +397,7 @@ class AgreementController extends Controller
                                 ])->download($student->fio().'.pdf');
                             }
                             if ($student->type_student == 2) {
-                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
@@ -404,7 +407,7 @@ class AgreementController extends Controller
                         }
                     } else {
                         if ($type->edu_place == 'sirtqi') {
-                            return PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                            return PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
@@ -412,7 +415,7 @@ class AgreementController extends Controller
                             ])->download($student->fio().'.pdf');
                         } else {
                             if ($student->type_student == 1) {
-                                return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
@@ -420,7 +423,7 @@ class AgreementController extends Controller
                                 ]);
                             }
                             if ($student->type_student == 2) {
-                                return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,

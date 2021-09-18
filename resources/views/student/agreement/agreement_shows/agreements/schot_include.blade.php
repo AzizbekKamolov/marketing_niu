@@ -31,12 +31,27 @@
     }
 
     table.blueTable tbody td {
-        font-size: 13px;
-        padding: 3px;
+        font-size: 11px !important;
+        padding: 0 !important;
         text-align: center;
         color: #000000;
         vertical-align: middle;
+
     }
+    .verticalText
+            {
+                text-align: center;
+                vertical-align: middle;
+                width: 20px;
+                margin: 0px;
+                padding: 0px;
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-top: 10px;
+                white-space: nowrap;
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+            };
 
     table.blueTable thead {
         background: #FFFFFF;
@@ -90,6 +105,9 @@
         <p>
             "_____" ________________ 2021 й.
         </p>
+        <p>
+            ID № <b>002-00{{$student->id_code}}</b>
+        </p>
     </div>
 </div>
 <div style="width: 100%; padding-top: 50px">
@@ -108,17 +126,17 @@
     <div style="width: 49%; display: inline-block; text-align: right">
         <span style="display: inline-block; width: max-content; text-align: left">
             <p>
-            Буюртмачи:________________________
+            Буюртмачи:_____________________________
         </p>
         <p>
-            Манзил:___________________________
+            Манзил:________________________________
         </p>
-        <p>Телефон:__________________________</p>
-        <p>Ҳ/р №_____________________________</p>
-        <p>Банк:_____________________________</p>
-        <p>шахар:____________________________</p>
-        <p>ИНН :_____________________________</p>
-        <p>МФО ОКОНХ_________________________</p>
+        <p>Телефон:_______________________________</p>
+        <p>Ҳ/р №__________________________________</p>
+        <p>Банк:__________________________________</p>
+        <p>шахар:_________________________________</p>
+        <p>ИНН :__________________________________</p>
+        <p>МФО ОКОНХ____________________________</p>
         </span>
     </div>
 
@@ -156,17 +174,17 @@
             <td>5</td>
         </tr>
         <tr>
-            <td>___-курс талабаси <br><br> _____________________________ <br> <br> ________________________________ <br> 2021/2022
+            <td>{{$student->course}}-курс талабаси <br><br> {{$student->last_name}} <br> {{$student->first_name}} <br>{{$student->middle_name}} <br> 2021/2022
                 ўқув йили учун
                 контракт тўлови
             </td>
             <td>сум</td>
             <td>1</td>
-            <td></td>
+            <td > <div class="verticalText">{{$summa ? $summa :''}}</div></td>
             <td></td>
             <td colspan="2">АКЦИЗ СОЛИҒИСИЗ</td>
             <td colspan="2">ҚҚСсиз</td>
-            <td></td>
+            <td> <div class="verticalText"> {{$summa ? $summa :''}} </div></td>
         </tr>
         <tr>
             <td>Жами тўлов</td>
@@ -181,6 +199,7 @@
         </tbody>
     </table>
 </div>
-<div style="width: 100%; padding-top: 7px">
-        <img src="{{asset('files/pechat/schot/pechat1.png')}}" style="width: 90%" alt="">
+<div style="width: 100%; padding-top: 30px">
+    <span style="position: absolute; z-index: 1; margin-left: 200px; ">{{$summa_word ? $summa_word:'' }}</span>
+        <img src="{{asset('files/pechat/schot/pechat1.png')}}" style="width: 100%;margin-top: 5px" alt="">
 </div>
