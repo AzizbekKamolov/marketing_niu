@@ -17,6 +17,8 @@ use Test\Model\Discount;
 use PDF;
 use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
+use Test\Model\StudentTypeAgreementSideType;
+use Test\Model\StudentTypeAgreementType;
 use Test\Model\Type;
 
 
@@ -31,6 +33,9 @@ class AgreementController extends Controller
                     if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
 //                        return
 //                        return $payment_student;
+                        $agreement_type_ids = StudentTypeAgreementType::where('type_id',$payment_student->status_new)->pluck('agreement_type_id');
+                        $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id' , $payment_student->status_new)->pluck('agreement_side_type_id');
+
                         $getting = GettingAgreement::where('student_id', $payment_student->id)->where('status', 1)->first();
 //                        if ($getting) {
 //                            return $getting;
@@ -39,12 +44,12 @@ class AgreementController extends Controller
                             if ($getting) {
                                 $query->where('id', $getting->agreement_type_id);
                             }
-                        })->get();
+                        })->whereIn('id' , $agreement_type_ids)->get();
                         $agreement_side_types = AgreementSideType::where(function ($query) use ($getting) {
                             if ($getting) {
                                 $query->where('id', $getting->agreement_side_type_id);
                             }
-                        })->get();
+                        })->whereIn('id',$agreement_side_type_ids)->get();
                         return view('student.agreement.data_info', [
                             'data' => $payment_student,
                             'agreement_types' => $agreement_types,

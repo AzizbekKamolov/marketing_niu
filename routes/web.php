@@ -181,6 +181,10 @@ Route::post('payment-check-result', 'PaymentCheckController@check')->name('payme
 
 Route::get('/student/form-ttj', 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
 Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
+Route::get('/schot', function(){
+    return PDF::loadView('student.agreement.agreement_shows.agreements.schot')->download('dsdsd.pdf');
+//    return view('student.agreement.agreement_shows.agreements.schot');
+});
 
 
 Route::get('sms-ras', function () {
