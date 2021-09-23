@@ -21,6 +21,7 @@ use Test\Model\StudentPayment;
 use Test\Model\StudentTypeAgreementSideType;
 use Test\Model\StudentTypeAgreementType;
 use Test\Model\Type;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class AgreementController extends Controller
@@ -510,33 +511,44 @@ class AgreementController extends Controller
                         }
                     } else {
                         if ($type->edu_place == 'sirtqi') {
+                             $ended = 2022+5-$student->course;
+                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-'.$ended.' , SIRTQI';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
                             return PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
-                                'getting_date' => $getting_date
+                                'getting_date' => $getting_date,
+                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
                         } else {
                             if ($student->type_student == 1) {
+                                 $ended = 2022+4-$student->course;
+                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-'.$ended.' ,KUNDUZGI BAKALAVR';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
+                                    'getting_date' => $getting_date,
+                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                             }
                             if ($student->type_student == 2) {
-                                return view('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-                                    'student' => $student,
-                                    'agreement_type' => $agreement_type,
-                                    'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
-                                ]);
+//                                return view('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+//                                    'student' => $student,
+//                                    'agreement_type' => $agreement_type,
+//                                    'agreement_side_type' => $agreement_side_type,
+//                                    'getting_date' => $getting_date
+//                                ]);
+                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
+                                    'getting_date' => $getting_date,
+                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                             }
                         }

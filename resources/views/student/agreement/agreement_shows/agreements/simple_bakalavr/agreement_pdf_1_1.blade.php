@@ -182,7 +182,7 @@
 </style>
 <div class="row page-break">
     <div class="col-md-2"></div>
-    <div class="col-md-8 ">
+    <div class="col-md-8 page-break">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
@@ -662,6 +662,8 @@
                     </tr>
                     </tbody>
                 </table>
+           <div class="col-md-12 text-right ">
+                <img src="data:image/png;base64, {!! $qr_code !!}">
             </div>
 {{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
 {{--                <div class="tasdiq btn-success "--}}

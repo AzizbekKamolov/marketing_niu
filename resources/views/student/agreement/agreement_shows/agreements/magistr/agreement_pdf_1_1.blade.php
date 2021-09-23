@@ -661,6 +661,10 @@
                     </tbody>
                 </table>
             </div>
+
+             <div class="col-md-12 text-right ">
+                <img src="data:image/png;base64, {!! $qr_code !!}">
+            </div>
 {{--            <div class="col-md-12 text-center" style="padding-bottom: 50px">--}}
 {{--                <div class="tasdiq btn-success "--}}
 {{--                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">--}}
