@@ -192,7 +192,7 @@
                                         </div>
                                         <div class="col-md-4 form-group">
                                           <label>Tanlagan yo'nalishi  <span class="error">  @if ($errors->has('passport_issued_date')) | {{ $errors->first('passport_issued_date') }} @endif </span></label>
-                                          <input readonly="true" type="text" name="passport_issued_date" class="form-control" value="@if($data->type == 1) {{$data->dir()->name}} @elseif($data->type == 2) {{$data->dir}} @endif">
+                                          <input readonly="true" type="text" name="passport_issued_date" class="form-control" value="{{$data->dir()->name}}">
                                         </div>
                                          <div class="col-md-4 form-group">
                                           <label>Ariza holati  </label>
@@ -273,10 +273,11 @@
               <input type="text" hidden="true" readonly="true" name="super_id" value="{{ $data->id }}">
               @php
               $amounts = 'Test\Model\Amount'::where('type' , $data->type)->get();
+              $types = 'Test\Model\Type'::where('degree' , $data->type)->where('contract_type' , 'super')->get();
               @endphp
               <select class="form-control" name="amount_id" required="required" >
                 <option value="">Tanlang</option>
-                @foreach($amounts as $item)
+                @foreach($types as $item)
                 <option value="{{ $item->id }}">{{ $item->allamount() }}</option>
 
                 @endforeach

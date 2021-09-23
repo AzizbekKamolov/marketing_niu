@@ -46,10 +46,10 @@ class StudentTypeAgreementTypeController extends Controller
         $validator = Validator::make($request->all(), [
             'type_id' => ['required'],
             'agreement_type_id' => ['required'],
-            'price_part1' => ['required'],
-            'price_part2' => ['required'],
-            'price_part1_word' => ['required'],
-            'price_part2_word' => ['required'],
+            'price' => ['required'],
+//            'price_part2' => ['required'],
+//            'price_part1_word' => ['required'],
+//            'price_part2_word' => ['required'],
         ]);
         if ($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput()->with('agreement_type_error' , 1);
@@ -58,10 +58,10 @@ class StudentTypeAgreementTypeController extends Controller
             $new = new StudentTypeAgreementType();
             $new->type_id = $type->id;
             $new->agreement_type_id = $agreement_type->id;
-            $new->price_part1 = $request->price_part1;
-            $new->price_part2 = $request->price_part2;
-            $new->price_part1_word = $request->price_part1_word;
-            $new->price_part2_word = $request->price_part2_word;
+            $new->price = $request->price;
+//            $new->price_part2 = $request->price_part2;
+//            $new->price_part1_word = $request->price_part1_word;
+//            $new->price_part2_word = $request->price_part2_word;
             $new->save();
             return redirect()->back()->with('success' , 'Malumot saqlandi');
         }

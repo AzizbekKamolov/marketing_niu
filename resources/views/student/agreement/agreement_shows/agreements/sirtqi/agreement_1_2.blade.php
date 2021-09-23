@@ -211,7 +211,7 @@
                     kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni
                     taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar
                     Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat
-                    yuridik universiteti rektorining 2021 yil 1 sentyabrdagi 02- -son buyrug‘iga muvofiq tuzdilar:
+                    yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-252-son buyrug‘iga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -420,23 +420,23 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida sirtqi ta’lim olish uchun Talaba tomonidan to‘lanishi lozim bo‘lgan
-                    to’lov summasi <b>10 960 400</b> (O’n million to‘qqiz yuz oltmish ming to`rt yuz ) so‘mni tashkil etadi va
+                    to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni tashkil etadi va
                     Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
                     kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ming ikki yuz  ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -2 740 100 so‘m;
-                    <br>1-yanvargacha -2 740 100  so‘m.
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha -{{$student->part_four_1_summa}} so‘m;
+                    <br>1-yanvargacha -{{$student->part_four_2_summa}}  so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 5 480 200 (besh million to‘rt yuz sakson ming ikki yuz )  so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -2 740 100 so‘m;
-                    <br>1-iyulgacha -2 740 100  so‘m.
+                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}} )  so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -{{$student->part_four_3_summa}} so‘m;
+                    <br>1-iyulgacha -{{$student->part_four_4_summa}}  so‘m.
 
 
                 </p>

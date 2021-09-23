@@ -186,7 +186,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, magistratura uchun)
+                    uch tomonlama KONTRAKT (stipendiyali shaklda,kunduzgi  magistratura uchun)
 
                 </h4>
                 <h4 class="text-bold"> №________</h4>
@@ -236,7 +236,7 @@
                     Kontrakt) Oliy va o‘rta maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt
                     shakli va undan tushgan mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431,
                     2013 yil 26 fevral), O‘zbekiston Respublikasi Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son
-                    qarori, Toshkent davlat yuridik universiteti rektorining 2020 yil 16 sentyabrdagi 02-121-son
+                    qarori, Toshkent davlat yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-252-son
                     buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga qabul qilish bo’yicha Davlat
                     komissiyasining 2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq tuzdilar:
 
@@ -260,10 +260,8 @@
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
-                    muvaffaqiyatli
-                    tamomlash muddati
-                    202 -yil iyun oyi hisoblanadi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> magistratura mutaxasisligini muvaffaqiyatli tamomlash muddati
+                    2022-yil iyun oyi hisoblanadi.
 
                 </p>
             </div>
@@ -507,26 +505,23 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi <b>20 338 560</b> (Yigirma million uch yuz o`ttiz sakkiz ming besh yuz
-                    oltmish) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur
+                    lozim bo‘lgan to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur
                     summa mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi
                     tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
-                    sakson ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -5 084 640 so‘m;
-                    <br>1-yanvargacha -5 084 640 so‘m.
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha -{{$student->part_four_1_summa}} so‘m;
+                    <br>1-yanvargacha -{{$student->part_four_2_summa}} so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
-                    sakson) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -5 084 640 so‘m;
-                    <br>1-iyulgacha -5 084 640 so‘m.
+                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -{{$student->part_four_3_summa}} so‘m;
+                    <br>1-iyulgacha -{{$student->part_four_4_summa}} so‘m.
 
 
                 </p>

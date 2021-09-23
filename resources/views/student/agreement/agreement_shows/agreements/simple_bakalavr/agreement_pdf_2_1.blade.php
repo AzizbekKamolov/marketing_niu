@@ -172,13 +172,15 @@
     $month = get_month_name(date('m' , strtotime($getting_date)));
     $day = date('d', strtotime($getting_date));
     $year = date('Y' , strtotime($getting_date));
+    $summa = '18,659,005';
+    $summa_word = 'O’n sakkiz million olti yuz ellik to`qqiz ming besh';
 @endphp
 <style>
     body {
         font-family: DejaVu Sans, sans-serif !important;
     }
 </style>
-<div class="row">
+<div class="row page-break">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
         <div class="row">
@@ -186,7 +188,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, {{$student->course}} - kurslar uchun)
+                    uch tomonlama KONTRAKT (stipendiyali shaklda,kunduzgi {{$student->course}} - kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -228,7 +230,7 @@
                     <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;ikkinchi tomondan,</div>
                 </div>
                 <span style="font-size: 11px; text-align:center; display: block;"> (rahbarning familiyasi, ismi, sharifi, lavozimi)</span>
-                va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
+                va {{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
                 (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar),“Yurisprudensiya” ta’lim
                 yo’nalishi bo’yicha Talabani bakalavriat <b>{{$student->course}}</b> kurs davomida o’qitish maqsadida
                 mazkur ikki tomonlama
@@ -236,7 +238,7 @@
                 o’qitishning to’lov-kontrakt shakli va undan tushgan mablag’larni taqsimlash tartibi to’g’risidagi
                 nizom (ro’yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar Mahkamasining 2019 yil 3 dekabrdagi
                 967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti rektorining
-                202 yil 1 sentyabrdagi 02- -son buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga
+                2021 yil 13 sentyabrdagi 02-252-son buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga
                 qabul qilish bo’yicha Davlat komissiyasining 2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq
                 tuzdilar:
 
@@ -511,26 +513,24 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi 18 659 005 (O’n sakkiz million olti yuz ellik to`qqiz ming besh) so‘mni
+                    lozim bo‘lgan to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni
                     tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
                     to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
                     o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun 9 329 502 (to`qqiz million uch yuz yigirma to`qqiz ming besh yuz
-                    ikki) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha - 4 664 751 so‘m;
-                    <br>1-yanvargacha - 4 664 751 so‘m.
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun 9 329 503 (olti million ikki yuz yigirma ikki ming ikki yuz
-                    tigirma uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha - 4 664 751 so‘m;
-                    <br>1-iyulgacha -4 664 752 so‘m.
+                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha - <b>{{$student->part_four_3_summa}} so‘m</b>;
+                    <br>1-iyulgacha - <b>{{$student->part_four_4_summa}} so‘m</b>.
 
 
                 </p>
@@ -646,7 +646,7 @@
                     6. YAKUNIY QOIDALAR
                 </h4>
             </div>
-            <div class="col-md-12 mb-1">
+            <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     6.1. Tomonlar o’rtasida vujudga keladigan nizolar o’zaro muzokaralar olib borish hamda talabnoma
@@ -704,34 +704,7 @@
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-
-                            <p>
-                                O‘zbekiston Respublikasi
-                                Moliya vazirligi G‘aznachiligi
-                                Bank: HKKM MB Toshkent sh. B.B.
-                                H/r: 23402000300100001010
-                                STIR: 201122919, MFO: 00014
-                                Sh.h.r: 400910860262667094100009002
-                                STIR: 201122349, KOD 7950100
-                                Tel.: (71) 233-66-36,
-                                Manzil: Sayilgoh ko‘chasi, 35-uy.
-
-                            </p>
-                            <p>
-                                Rektor v.v.b _____________ R. Rustambekov
-                            </p>
-                            <p>
-                                Bosh buxgalter _______________ M.Parpiyev
-                            </p>
-                            <p>
-                                Shartnomaviy ta’lim xizmatlari
-                                bo‘limi boshlig‘i ___________ A.Xundibayev
-
-                            </p>
-                            <p>
-                                Katta yuriskonsult ______________E.Xosilov
-
-                            </p>
+                             <img style="width:280px" src="{{asset('pechat/pechat_last.jpg')}}">
                         </td>
                         <td class="w-50" style="width: 49%">
                             <div>
@@ -807,6 +780,7 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+@include('student.agreement.agreement_shows.agreements.schot_include')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

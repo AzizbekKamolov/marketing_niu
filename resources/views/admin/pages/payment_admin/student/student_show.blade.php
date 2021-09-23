@@ -34,13 +34,16 @@
                             <div>
 
                                 {{--                                            <button class="btn btn-success form_submit"><i class="fa fa-save"></i> Saqlash</button>--}}
-                                <button type="button" class="btn btn-light send-id-button"><i class="fas fa-envelope"
-                                                                                              aria-hidden="true"></i> Id
-                                    kodni jo'natish
-                                </button>
+                                @if(Auth::user()->role == 11)
+                                    <button type="button" class="btn btn-light send-id-button"><i
+                                            class="fas fa-envelope"
+                                            aria-hidden="true"></i> Id
+                                        kodni jo'natish
+                                    </button>
+                                @endif
 
                                 <button type="button" class="btn btn-light back_button_js"><i
-                                            class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
+                                        class="fa fa-arrow-circle-left" aria-hidden="true"></i> Ortga
                                 </button>
 
                             </div>
@@ -304,105 +307,114 @@
                         </div>
 
                         <div class="" style="overflow-x: unset">
-                            <div class="row">
-                                <div class="col-md-12" style="display: flex; justify-content: space-between">
-                                    <p>Kontrakt to'lovi uchun chegirmalar</p>
-                                    <button class="btn btn-outline-success" data-toggle="modal"
-                                            data-target="#add-agreement-discount-modal"><i class="fa fa-plus"></i>
-                                        Qo'shish
-                                    </button>
-                                    <div class="modal fade" id="add-agreement-discount-modal" tabindex="-1"
-                                         role="dialog"
-                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Kontrakt to'lovi
-                                                        uchun chegirma</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form id="agreement-discount-store-1"
-                                                          action="{{route('payment_admin.discount.store')}}"
-                                                          method="post">
-                                                        {{csrf_field()}}
-                                                        <div class="form-group">
-                                                            <p>
-                                                                Chegirma foizi (%):
-                                                            </p>
-                                                            <input type="number" class="form-control" name="percent">
-                                                            <input type="number" hidden class="form-control" name="type"
-                                                                   value="1">
-                                                            <input type="text" hidden name="student_id"
-                                                                   value="{{$data->id}}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <p>
-                                                                Izoh
-                                                            </p>
-                                                            <textarea name="description" id="" cols="30" rows="10"
-                                                                      class="form-control"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Bekor qilish
-                                                    </button>
-                                                    <button type="submit" form="agreement-discount-store-1"
-                                                            class="btn btn-primary">Saqlash
-                                                    </button>
+                            @if(Auth::user()->role == 11)
+                                <div class="row">
+                                    <div class="col-md-12" style="display: flex; justify-content: space-between">
+                                        <p>Kontrakt to'lovi uchun chegirmalar</p>
+                                        <button class="btn btn-outline-success" data-toggle="modal"
+                                                data-target="#add-agreement-discount-modal"><i class="fa fa-plus"></i>
+                                            Qo'shish
+                                        </button>
+                                        <div class="modal fade" id="add-agreement-discount-modal" tabindex="-1"
+                                             role="dialog"
+                                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Kontrakt
+                                                            to'lovi
+                                                            uchun chegirma</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="agreement-discount-store-1"
+                                                              action="{{route('payment_admin.discount.store')}}"
+                                                              method="post">
+                                                            {{csrf_field()}}
+                                                            <div class="form-group">
+                                                                <p>
+                                                                    Chegirma foizi (%):
+                                                                </p>
+                                                                <input type="number" class="form-control"
+                                                                       name="percent">
+                                                                <input type="number" hidden class="form-control"
+                                                                       name="type"
+                                                                       value="1">
+                                                                <input type="text" hidden name="student_id"
+                                                                       value="{{$data->id}}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <p>
+                                                                    Izoh
+                                                                </p>
+                                                                <textarea name="description" id="" cols="30" rows="10"
+                                                                          class="form-control"></textarea>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Bekor qilish
+                                                        </button>
+                                                        <button type="submit" form="agreement-discount-store-1"
+                                                                class="btn btn-primary">Saqlash
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <table class="table table-striped table-bordered no-wrap">
-                                    <thead>
-                                    <tr>
-                                        <th>Izoh</th>
-                                        <th>Chegirma</th>
-                                        <th>Amallar</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($data->agreement_discounts as $item)
+                                    <table class="table table-striped table-bordered no-wrap">
+                                        <thead>
                                         <tr>
-                                            <td>
-                                                {{$item->description}}
-                                            </td>
-                                            <td>
-                                                {{$item->percent}}
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-light text-danger delete-button"
-                                                        id="discount-delete-{{$item->id}}"><i class="fa fa-trash"></i>
-                                                </button>
-                                                <form id="form-discount-delete-{{$item->id}}"
-                                                      action="{{route('payment_admin.discount.destroy')}}"
-                                                      method="post">
-                                                    {{csrf_field()}}
-                                                    {{method_field('DELETE')}}
-                                                    <input type="text" hidden value="{{$data->id}}" name="student_id">
-                                                    <input type="text" hidden value="{{$item->id}}" name="discount_id">
-                                                </form>
-                                            </td>
+                                            <th>Izoh</th>
+                                            <th>Chegirma</th>
+                                            <th>Amallar</th>
                                         </tr>
-                                    @endforeach
-                                    </tbody>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($data->agreement_discounts as $item)
+                                            <tr>
+                                                <td>
+                                                    {{$item->description}}
+                                                </td>
+                                                <td>
+                                                    {{$item->percent}}
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-light text-danger delete-button"
+                                                            id="discount-delete-{{$item->id}}"><i
+                                                            class="fa fa-trash"></i>
+                                                    </button>
+                                                    <form id="form-discount-delete-{{$item->id}}"
+                                                          action="{{route('payment_admin.discount.destroy')}}"
+                                                          method="post">
+                                                        {{csrf_field()}}
+                                                        {{method_field('DELETE')}}
+                                                        <input type="text" hidden value="{{$data->id}}"
+                                                               name="student_id">
+                                                        <input type="text" hidden value="{{$item->id}}"
+                                                               name="discount_id">
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
 
 
-                                </table>
+                                    </table>
 
-                            </div>
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-12" style="display: flex; justify-content: space-between">
                                     <p>Boshqa to'lovlar uchun chegirmalar</p>
                                     <button class="btn btn-outline-success" data-toggle="modal"
-                                            data-target="#add-other-agreement-discount-modal"><i class="fa fa-plus"></i>
+                                            data-target="#add-other-agreement-discount-modal"><i
+                                            class="fa fa-plus"></i>
                                         Qo'shish
                                     </button>
                                     <div class="modal fade" id="add-other-agreement-discount-modal" tabindex="-1"
@@ -411,7 +423,8 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Boshqa to'lovlar
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Boshqa
+                                                        to'lovlar
                                                         uchun chegirma</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -427,8 +440,10 @@
                                                             <p>
                                                                 Chegirma foizi (%):
                                                             </p>
-                                                            <input type="number" class="form-control" name="percent">
-                                                            <input type="number" hidden class="form-control" name="type"
+                                                            <input type="number" class="form-control"
+                                                                   name="percent">
+                                                            <input type="number" hidden class="form-control"
+                                                                   name="type"
                                                                    value="2">
                                                             <input type="text" hidden name="student_id"
                                                                    value="{{$data->id}}">
@@ -487,15 +502,18 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-light text-danger delete-button"
-                                                        id="discount-delete-{{$item->id}}"><i class="fa fa-trash"></i>
+                                                        id="discount-delete-{{$item->id}}"><i
+                                                        class="fa fa-trash"></i>
                                                 </button>
                                                 <form id="form-discount-delete-{{$item->id}}"
                                                       action="{{route('payment_admin.discount.destroy')}}"
                                                       method="post">
                                                     {{csrf_field()}}
                                                     {{method_field('DELETE')}}
-                                                    <input type="text" hidden value="{{$data->id}}" name="student_id">
-                                                    <input type="text" hidden value="{{$item->id}}" name="discount_id">
+                                                    <input type="text" hidden value="{{$data->id}}"
+                                                           name="student_id">
+                                                    <input type="text" hidden value="{{$item->id}}"
+                                                           name="discount_id">
                                                 </form>
                                             </td>
                                         </tr>
@@ -516,16 +534,80 @@
                     <div class="card-body">
                         <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                             <div>
-                                <h4 class="card-title">Alohida ruxsat beriladigan shartnomalar</h4>
+                                <h4 class="card-title">Olgan shartnomasi</h4>
                             </div>
                             <div>
 
-                                <button type="submit" form="access_agreement" class="btn btn-success">Ruxsatlarni saqlash</button>
+                                <button type="submit" form="change_agreement_type" class="btn btn-success">Olgan shartnomasini o'zgartirish
+                                </button>
                             </div>
                         </div>
 
                         <div class="" style="overflow-x: unset">
-                            <form id="access_agreement" action="{{route('payment_admin.other_agreement_access_store')}}" method="POST">
+                            @if(Auth::user()->role == 11)
+                                @if($last_agreement_getting)
+                                    <form action="{{route('payment_admin.change_agreement_types')}}" method="post" id="change_agreement_type">
+                                        {{csrf_field()}}
+                                        <input type="text" hidden name="student_id" value="{{$data->id}}">
+                                        <div class="row">
+                                            <table class="table table-striped table-bordered no-wrap">
+                                                <thead>
+                                                <tr>
+                                                    <th>Tomonlar bo'yicha</th>
+                                                    <th>Stipendiya bo'yicha</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select name="changed_agreement_side_type_id"
+                                                                class="form-control" id="">
+                                                            @foreach($allowed_agreement_side_types as $item)
+                                                                <option
+                                                                    {{$last_agreement_getting->agreement_side_type_id == $item->id ? 'selected' :''}} value="{{$item->id}}">{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select name="changed_agreement_type_id" class="form-control"
+                                                                id="">
+                                                            @foreach($allowed_agreement_types as $item)
+                                                                <option
+                                                                    {{$last_agreement_getting->agreement_type_id == $item->id ? 'selected' :''}} value="{{$item->id}}">{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </form>
+                                @endif
+                            @endif
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
+                            <div>
+                                <h4 class="card-title">Alohida ruxsat beriladigan shartnomalar</h4>
+                            </div>
+                            <div>
+
+                                <button type="submit" form="access_agreement" class="btn btn-success">Ruxsatlarni
+                                    saqlash
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="" style="overflow-x: unset">
+                            <form id="access_agreement" action="{{route('payment_admin.other_agreement_access_store')}}"
+                                  method="POST">
                                 {{csrf_field()}}
                                 {{method_field('POST')}}
                                 <input type="text" hidden value="{{$data->id}}" name="student_id">

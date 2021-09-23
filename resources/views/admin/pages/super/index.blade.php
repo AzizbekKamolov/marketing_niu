@@ -95,14 +95,7 @@
                                                    {{ $item->ball }}
                                                </td>
                                                 <td>
-                                                 @if($item->type ==1)
-                                                  @if($item->dir())
-                                                   {{ $item->dir()->name }}
-                                                   @endif
-                                                   @else 
-                                                   {{$item->dir}}
-
-                                                   @endif
+                                                 {{$item->dir()->name}}
                                                </td>
                                                <td>
                                                   @if($item->lang())

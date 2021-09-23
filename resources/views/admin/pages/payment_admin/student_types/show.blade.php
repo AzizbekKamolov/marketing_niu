@@ -90,29 +90,29 @@
                                                     </div>
                                                     <div class="col-md-12 form-group">
                                                         <p>
-                                                            Narx (1 - yarim yillik):
+                                                            Narx
                                                         </p>
-                                                        <input type="number" class="form-control" name="price_part1">
+                                                        <input type="number" class="form-control" name="price">
                                                     </div>
-                                                    <div class="col-md-12 form-group">
-                                                        <p>
-                                                            Narx (1 - yarim yillik) so'zlar bilan:
-                                                        </p>
-                                                        <input type="text" class="form-control" name="price_part1_word">
-                                                    </div>
-                                                    <div class="col-md-12 form-group">
-                                                        <p>
-                                                            Narx (2 - yarim yillik):
-                                                        </p>
-                                                        <input type="number" class="form-control" name="price_part2">
-                                                    </div>
-                                                    <div class="col-md-12 form-group">
-                                                        <p>
-                                                            Narx (2 - yarim yillik) so'z bilan:
-                                                        </p>
-                                                        <input type="text" class="form-control"
-                                                               name="price_part2_word">
-                                                    </div>
+{{--                                                    <div class="col-md-12 form-group">--}}
+{{--                                                        <p>--}}
+{{--                                                            Narx (1 - yarim yillik) so'zlar bilan:--}}
+{{--                                                        </p>--}}
+{{--                                                        <input type="text" class="form-control" name="price_part1_word">--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="col-md-12 form-group">--}}
+{{--                                                        <p>--}}
+{{--                                                            Narx (2 - yarim yillik):--}}
+{{--                                                        </p>--}}
+{{--                                                        <input type="number" class="form-control" name="price_part2">--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="col-md-12 form-group">--}}
+{{--                                                        <p>--}}
+{{--                                                            Narx (2 - yarim yillik) so'z bilan:--}}
+{{--                                                        </p>--}}
+{{--                                                        <input type="text" class="form-control"--}}
+{{--                                                               name="price_part2_word">--}}
+{{--                                                    </div>--}}
                                                 </form>
 
                                             </div>

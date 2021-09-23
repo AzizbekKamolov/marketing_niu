@@ -24,14 +24,33 @@ use Test\Model\StudentTypeAgreementSideType;
 use Test\Model\StudentTypeAgreementType;
 use Test\Model\StudentTypeOtherAgreementType;
 use Test\Model\Type;
+use Test\Model\GettingAgreement;
 
 
 class PaymentAdminController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->role == 11) {
-            $students = StudentPayment::orderBy('id', 'DESC')->where('status_check', 1)->with('type')->get();
+        if (Auth::user()->role == 11 || Auth::user()->role == 12) {
+            $students = StudentPayment::orderBy('id', 'DESC')->with('type')->get();
+            return view('admin.pages.payment_admin.student.index', [
+                'data' => $students
+            ]);
+        } else {
+            return "xatolik!!";
+        }
+    }
+
+    public function ttj_students($type)
+    {
+        if (Auth::user()->role == 12) {
+            if ($type) {
+                $access = StudentOtherAgreementAccess::where('other_agreement_type_id', 1)->pluck('student_id');
+                $students = StudentPayment::orderBy('id', 'DESC')->whereIn('id', $access)->with('type')->get();
+            } else {
+                $access = StudentOtherAgreementAccess::where('other_agreement_type_id', 1)->pluck('student_id');
+                $students = StudentPayment::orderBy('id', 'DESC')->whereNotIn('id', $access)->with('type')->get();
+            }
             return view('admin.pages.payment_admin.student.index', [
                 'data' => $students
             ]);
@@ -268,25 +287,36 @@ class PaymentAdminController extends Controller
 
     public function student_show($id)
     {
-        if (Auth::user()->role == 11) {
+        if (Auth::user()->role == 11 || Auth::user()->role == 12) {
             $student = StudentPayment::with('agreement_discounts')->with('other_agreement_discounts.agreement_type')->find($id);
 //            return $student;
             $regions = Region::all();
             $other_agreements = OtherAgreementType::all();
-            $other_spec_agreements = OtherAgreementType::where('to_all' , '!=' , 1)->get();
+            $other_spec_agreements = OtherAgreementType::where('to_all', '!=', 1)->get();
             foreach ($other_spec_agreements as $other_spec_agreement) {
-                if (StudentOtherAgreementAccess::where('student_id' , $student->id)->where('other_agreement_type_id' , $other_spec_agreement->id)->exists()){
+                if (StudentOtherAgreementAccess::where('student_id', $student->id)->where('other_agreement_type_id', $other_spec_agreement->id)->exists()) {
                     $other_spec_agreement->checked = true;
-                }
-                else{
+                } else {
                     $other_spec_agreement->checked = false;
                 }
             }
+            $type = Type::find($student->status_new);
+            $allowed_agreement_type_ids = StudentTypeAgreementType::where('type_id', $type->id)->pluck('agreement_type_id');
+            $allowed_agreement_types = AgreementType::whereIn('id', $allowed_agreement_type_ids)->get();
+
+            $allowed_agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id', $type->id)->pluck('agreement_side_type_id');
+            $allowed_agreement_side_types = AgreementSideType::whereIn('id', $allowed_agreement_side_type_ids)->get();
+
+            $last_agreement_getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->orderBy('id', 'DESC')->first();
+//            return $allowed_agreement_side_types;
             return view('admin.pages.payment_admin.student.student_show', [
                 'data' => $student,
                 'regions' => $regions,
                 'other_agreement_types' => $other_agreements,
-                'other_spec_agreements' => $other_spec_agreements
+                'other_spec_agreements' => $other_spec_agreements,
+                'allowed_agreement_types' => $allowed_agreement_types,
+                'allowed_agreement_side_types' => $allowed_agreement_side_types,
+                'last_agreement_getting' => $last_agreement_getting
             ]);
         } else {
             return "xatolik!!";
@@ -343,8 +373,8 @@ class PaymentAdminController extends Controller
                     $number = str_replace('_', '', $number);
                     if (strlen($number) == 12) {
                         $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
-                        $sms->send_one_sms($number , $text);
-                        return redirect()->back()->with('success' , 'Jo`natildi');
+                        $sms->send_one_sms($number, $text);
+                        return redirect()->back()->with('success', 'Jo`natildi');
                     } else {
                         return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
                     }
@@ -357,6 +387,18 @@ class PaymentAdminController extends Controller
             return redirect()->back()->with('error', 'Talaba topilmadi');
         }
 //        return $request;
+    }
+
+    public function change_agreement_types(Request $request)
+    {
+        $last_agreement_getting = GettingAgreement::where('student_id', $request->student_id)->where('status', 1)->orderBy('id', 'DESC')->first();
+        if ($last_agreement_getting){
+            if($request->changed_agreement_type_id)$last_agreement_getting->agreement_type_id = $request->changed_agreement_type_id;
+            if($request->changed_agreement_side_type_id)$last_agreement_getting->agreement_side_type_id = $request->changed_agreement_side_type_id;
+            $last_agreement_getting->update();
+        }
+        return redirect()->back()->with('success' , 'Malumot ozgartirildi');
+        return $request;
     }
 
 }

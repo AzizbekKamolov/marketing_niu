@@ -7,6 +7,10 @@ Route::group([
     Route::get('university', ['uses' => 'IndexController@university', 'as' => 'university']);
 });
 Route::get('super', 'SuperController@super')->name('super.super');
+//Route::get('super', function(){
+//    return "Ariza topshirish boshlanmadi";
+//})->name('super.super');
+//Route::get('super-test', 'SuperController@super')->name('super.test');
 //Route::get('super/check/{id}' , 'SuperController@check')->name('super.check');
 
 Route::get('shartnoma', 'ShartnomaController@form')->name('shartnoma.form');
@@ -138,6 +142,11 @@ Route::group([
     Route::post('/payment-admin/send-id-code', 'PaymentAdminController@send_id_code')->name('payment_admin.send_id_code');
 
     Route::post('/payment-admin/other-agreement-access-store', 'StudentOtherAgreementAccessController@store')->name('payment_admin.other_agreement_access_store');
+    Route::post('/payment-admin/change-agreement-types', 'PaymentAdminController@change_agreement_types')->name('payment_admin.change_agreement_types');
+
+
+    Route::get('/ttj-admin/ttj-admin-students', 'PaymentAdminController@index')->name('ttj_admin.students');
+    Route::get('/ttj-admin/ttj-admin-students/{type}', 'PaymentAdminController@ttj_students')->name('ttj_admin.students.type');
 });
 
 Auth::routes();

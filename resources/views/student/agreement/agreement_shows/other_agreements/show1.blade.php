@@ -168,8 +168,8 @@ function yuzlik($yuz){
         return $start_month;
     }
 
-$month = get_month_name(date('m'));
-$day = date('d');
+$month = get_month_name(date('m') , strtotime($this_date));
+$day = date('d' , strtotime($this_date));
     @endphp
 <style>
     body {
@@ -517,6 +517,7 @@ $day = date('d');
                     {{method_field('POST')}}
                     <input type="text" hidden value="{{$student->id}}" name="student_id">
                     <input type="text" hidden value="{{$agreement->id}}" name="other_agreement_type_id">
+                    <input type="text" hidden value="{{$this_date}}" name="date_agreement">
                 </form>
             </div>
 

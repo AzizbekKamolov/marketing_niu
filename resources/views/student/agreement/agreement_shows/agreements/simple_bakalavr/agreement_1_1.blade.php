@@ -186,7 +186,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    ikki tomonlama KONTRAKT (stipendiyali shaklda,{{$student->course}} - kurslar uchun )
+                    ikki tomonlama KONTRAKT (stipendiyali shaklda,kunduzgi {{$student->course}} - kurslar uchun )
                 </h4>
                 <h4 class="text-bold"> №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -212,7 +212,7 @@
                     maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
                     mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR
                     Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari,
-                    Toshkent davlat yuridik universiteti rektorining 2021 yil 1 sentyabrdagi 02- -son buyrug‘i,
+                    Toshkent davlat yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-252-son buyrug‘i,
                     O’zbekiston Respublikasi ta’lim muassasalariga o’qishga qabul qilish bo’yicha Davlat komissiyasining
                     2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq tuzdilar:
 
@@ -437,26 +437,24 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi <b>18 659 005</b> (O’n sakkiz million olti yuz ellik to`qqiz ming besh) so‘mni
+                    lozim bo‘lgan to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni
                     tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq
                     to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan
                     o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>9 329 502</b> (to`qqiz million uch yuz yigirma to`qqiz ming besh yuz
-                    ikki) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha - <b>4 664 751 so‘m;</b>
-                    <br>1-yanvargacha - <b>4 664 751 so‘m.</b>
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>9 329 503</b> (to`qqiz million uch yuz yigirma to`qqiz ming besh yuz
-                    uch ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha - <b>4 664 751 so‘m</b>;
-                    <br>1-iyulgacha - <b>4 664 752 so‘m</b>.
+                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha - <b>{{$student->part_four_3_summa}} so‘m</b>;
+                    <br>1-iyulgacha - <b>{{$student->part_four_4_summa}} so‘m</b>.
 
 
                 </p>

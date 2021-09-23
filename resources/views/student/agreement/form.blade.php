@@ -10,6 +10,13 @@
                             <div class="col-md-8">
                                 <div class="text-center">
                                     <h1 class="colorSix fw-bold fs-4">Talabalar uchun to'lov shartnomasini olish</h1>
+                                    <span class="text-danger">
+                                            @if(session()->has('error'))
+                                                <div class="alert alert-danger">
+                                                            {{ session()->get('error') }}
+                                                        </div>
+                                            @endif
+                                        </span>
                                 </div>
                                 <form action="{{ route('student.agreement.get_data') }}" method="post" name="super-form"
                                       class="register-form" id="register-form">

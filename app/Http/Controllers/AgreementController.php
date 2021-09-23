@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use App;
 use Test\Model\AgreementSideType;
 use Test\Model\AgreementType;
+use Test\Model\AmountConvertToWord;
 use Test\Model\GettingAgreement;
 use Test\Model\OtherAgreementType;
 use Test\Model\Student;
@@ -33,8 +34,8 @@ class AgreementController extends Controller
                     if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
 //                        return
 //                        return $payment_student;
-                        $agreement_type_ids = StudentTypeAgreementType::where('type_id',$payment_student->status_new)->pluck('agreement_type_id');
-                        $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id' , $payment_student->status_new)->pluck('agreement_side_type_id');
+                        $agreement_type_ids = StudentTypeAgreementType::where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
+                        $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
 
                         $getting = GettingAgreement::where('student_id', $payment_student->id)->where('status', 1)->first();
 //                        if ($getting) {
@@ -44,28 +45,30 @@ class AgreementController extends Controller
                             if ($getting) {
                                 $query->where('id', $getting->agreement_type_id);
                             }
-                        })->whereIn('id' , $agreement_type_ids)->get();
+                        })->whereIn('id', $agreement_type_ids)->get();
                         $agreement_side_types = AgreementSideType::where(function ($query) use ($getting) {
                             if ($getting) {
                                 $query->where('id', $getting->agreement_side_type_id);
                             }
-                        })->whereIn('id',$agreement_side_type_ids)->get();
+                        })->whereIn('id', $agreement_side_type_ids)->get();
                         return view('student.agreement.data_info', [
                             'data' => $payment_student,
                             'agreement_types' => $agreement_types,
                             'agreement_side_types' => $agreement_side_types
                         ]);
                     } else {
-                        return "tugilgan kun  xato";
+                        return redirect()->back()->with('error', "tugilgan kun  xato");
                     }
                 } else {
-                    return "pasprot nomer xato";
+                    return redirect()->back()->with('error', "pasprot nomer xato");
                 }
             } else {
-                return "pasprot seria xato";
+                return redirect()->back()->with('error', "pasprot seria xato");
             }
+        } else {
+            return redirect()->back()->with('error', "Malumot topilmadi");
         }
-        return $request;
+//        return $request;
     }
 
     public function form()
@@ -113,6 +116,7 @@ class AgreementController extends Controller
     {
         $student = StudentPayment::find($request->student_id);
 //        return $student;
+//        return $request;
         if ($student) {
             $agreement_type = OtherAgreementType::find($request->other_agreement_type_id);
             $discounts = Discount::where('student_id', $student->id)->where('agreement_id', $agreement_type->id)->where('type_agreement', 2)->get();
@@ -122,11 +126,17 @@ class AgreementController extends Controller
             if ($agreement_type) {
                 $this_year = date('Y');
                 $need_date = $this_year . '-06-30';
-                if (date('Y-m-d') > $need_date) {
+                if ($request->date_agreement) {
+                    $this_date = date('Y-m-d', strtotime($request->date_agreement));
+                } else {
+                    $this_date = date('Y-m-d');
+                }
+//                return $this_date;
+                if ($this_date > $need_date) {
                     $this_year++;
                     $need_date = $this_year . '-06-30';
                 }
-                $now = time(); // or your date as well
+                $now = strtotime($this_date); // or your date as well
                 $your_date = strtotime($need_date);
                 $datediff = $now - $your_date;
                 if ($datediff < 0) {
@@ -134,6 +144,7 @@ class AgreementController extends Controller
                 }
                 $all_days = round($datediff / (60 * 60 * 24));
                 $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
+//                return $general_payment_sum;
 //                return view('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id . '_pdf', [
 //                    'student' => $student,
 //                    'agreement' => $agreement_type,
@@ -146,7 +157,8 @@ class AgreementController extends Controller
                     'agreement' => $agreement_type,
                     'discounts' => $discounts,
                     'discount_sum' => $discount_sum,
-                    'general_payment_sum' => $general_payment_sum
+                    'general_payment_sum' => $general_payment_sum,
+                    'this_date' => $this_date
                 ])->download('shartnoma.pdf');
             }
 
@@ -244,7 +256,8 @@ class AgreementController extends Controller
                                 'agreement' => $agreement_type,
                                 'discounts' => $discounts,
                                 'discount_sum' => $discount_sum,
-                                'general_payment_sum' => $general_payment_sum
+                                'general_payment_sum' => $general_payment_sum,
+                                'this_date' => $this_date
                             ]);
                         }
                     } else {
@@ -264,9 +277,9 @@ class AgreementController extends Controller
     public function show_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-        if ($request->student_id != 9602){
-            return "Texnik ishlar";
-        }
+//        if ($request->student_id != 9602){
+//            return "Texnik ishlar";
+//        }
         if ($student) {
             $type = Type::find($student->status_new);
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
@@ -275,9 +288,62 @@ class AgreementController extends Controller
                 if ($agreement_type) {
                     $getting_date = date('Y-m-d');
                     $getting = GettingAgreement::where('student_id', $student->id)->where('status', 1)->first();
+                    $student_type_agreement_type = StudentTypeAgreementType::where('type_id', $type->id)->where('agreement_type_id', $agreement_type->id)->first();
+                    $all_summa = $student_type_agreement_type->price;
+                    $discount = Discount::where('student_id', $student->id)->where('type_agreement', 1)->sum('percent');
+                    $dif_discount = 1 - $discount / 100;
+                    if ($dif_discount < 1 && $dif_discount > 0) {
+                        $all_summa = $all_summa * $dif_discount;
+                    }
+                    $part1_summa = '';
+                    $part2_summa = '';
+                    $part_four_1_summa = '';
+                    $part_four_2_summa = '';
+                    $part_four_3_summa = '';
+                    $part_four_4_summa = '';
+                    if ($all_summa % 2 == 0) {
+                        $part1_summa = $all_summa / 2;
+                        $part2_summa = $all_summa / 2;
+                    } else {
+                        $part1_summa = ($all_summa - 1) / 2;
+                        $part2_summa = ($all_summa - 1) / 2 + 1;
+                    }
+                    if ($part1_summa % 2 == 0) {
+                        $part_four_1_summa = $part1_summa / 2;
+                        $part_four_2_summa = $part1_summa / 2;
+                    } else {
+                        $part_four_1_summa = ($part1_summa-1) / 2;
+                        $part_four_2_summa = ($part1_summa-1) / 2 + 1;
+                    }
+                    if ($part2_summa % 2 == 0) {
+                        $part_four_3_summa = $part2_summa / 2;
+                        $part_four_4_summa = $part2_summa / 2;
+                    } else {
+                        $part_four_3_summa = ($part2_summa-1) / 2;
+                        $part_four_4_summa = ($part2_summa-1) / 2 + 1;
+                    }
+                    $convert_to_word = new AmountConvertToWord();
+                    $all_summa_word = $convert_to_word->convert_to_word($all_summa);
+                    $part1_summa_word = $convert_to_word->convert_to_word($part1_summa);
+                    $part2_summa_word = $convert_to_word->convert_to_word($part2_summa);
+//                    return $all_summa_word.'-'.$all_summa;
+//                    return $part2_summa_word.'-'.$part2_summa;
+//                    return $part1_summa_word.'-'.$part1_summa;
+//                    return $student_type_agreement_type;
                     if ($getting) {
                         $getting_date = $getting->getting_date;
                     }
+//                    $student->all_summa = $all_summa;
+                    $student->all_summa = number_format($all_summa);
+                    $student->part2_summa = number_format($part2_summa);
+                    $student->part1_summa = number_format($part1_summa);
+                    $student->all_summa_word = $all_summa_word;
+                    $student->part1_summa_word = $part1_summa_word;
+                    $student->part2_summa_word = $part2_summa_word;
+                    $student->part_four_1_summa = number_format($part_four_1_summa);
+                    $student->part_four_2_summa = number_format($part_four_2_summa);
+                    $student->part_four_3_summa = number_format($part_four_3_summa);
+                    $student->part_four_4_summa = number_format($part_four_4_summa);
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
                             return view('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -314,6 +380,7 @@ class AgreementController extends Controller
                             ]);
                         } else {
                             if ($student->type_student == 1) {
+//                                return $student;
                                 return view('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
@@ -360,25 +427,61 @@ class AgreementController extends Controller
                     $getting->status = 1;
                     $getting->save();
                     $getting_date = $getting->getting_date;
-//                    bakalavr
-//                    if ($student->type_student == 1) {
-//                        return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-//                            'student' => $student,
-//                            'agreement_type' => $agreement_type,
-//                            'agreement_side_type' => $agreement_side_type,
-//                            'getting_date' => $getting_date
-//                        ])->download($student->fio() . '.pdf');
-//
-//                    }
-////                    magistr
-//                    if ($student->type_student == 2) {
-//                        return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-//                            'student' => $student,
-//                            'agreement_type' => $agreement_type,
-//                            'agreement_side_type' => $agreement_side_type,
-//                            'getting_date' => $getting_date
-//                        ])->download($student->fio() . '.pdf');
-//                    }
+                    $student_type_agreement_type = StudentTypeAgreementType::where('type_id', $type->id)->where('agreement_type_id', $agreement_type->id)->first();
+                    $all_summa = $student_type_agreement_type->price;
+                    $discount = Discount::where('student_id', $student->id)->where('type_agreement', 1)->sum('percent');
+                    $dif_discount = 1 - $discount / 100;
+                    if ($dif_discount < 1 && $dif_discount > 0) {
+                        $all_summa = $all_summa * $dif_discount;
+                    }
+                    $part1_summa = '';
+                    $part2_summa = '';
+                    $part_four_1_summa = '';
+                    $part_four_2_summa = '';
+                    $part_four_3_summa = '';
+                    $part_four_4_summa = '';
+                    if ($all_summa % 2 == 0) {
+                        $part1_summa = $all_summa / 2;
+                        $part2_summa = $all_summa / 2;
+                    } else {
+                        $part1_summa = ($all_summa - 1) / 2;
+                        $part2_summa = ($all_summa - 1) / 2 + 1;
+                    }
+                    if ($part1_summa % 2 == 0) {
+                        $part_four_1_summa = $part1_summa / 2;
+                        $part_four_2_summa = $part1_summa / 2;
+                    } else {
+                        $part_four_1_summa = ($part1_summa-1) / 2;
+                        $part_four_2_summa = ($part1_summa-1) / 2 + 1;
+                    }
+                    if ($part2_summa % 2 == 0) {
+                        $part_four_3_summa = $part2_summa / 2;
+                        $part_four_4_summa = $part2_summa / 2;
+                    } else {
+                        $part_four_3_summa = ($part2_summa-1) / 2;
+                        $part_four_4_summa = ($part2_summa-1) / 2 + 1;
+                    }
+                    $convert_to_word = new AmountConvertToWord();
+                    $all_summa_word = $convert_to_word->convert_to_word($all_summa);
+                    $part1_summa_word = $convert_to_word->convert_to_word($part1_summa);
+                    $part2_summa_word = $convert_to_word->convert_to_word($part2_summa);
+//                    return $all_summa_word.'-'.$all_summa;
+//                    return $part2_summa_word.'-'.$part2_summa;
+//                    return $part1_summa_word.'-'.$part1_summa;
+//                    return $student_type_agreement_type;
+                    if ($getting) {
+                        $getting_date = $getting->getting_date;
+                    }
+                    $student->all_summa = number_format($all_summa);
+                    $student->part2_summa = number_format($part2_summa);
+                    $student->part1_summa = number_format($part1_summa);
+                    $student->all_summa_word = $all_summa_word;
+                    $student->part1_summa_word = $part1_summa_word;
+                    $student->part2_summa_word = $part2_summa_word;
+                    $student->part_four_1_summa = number_format($part_four_1_summa);
+                    $student->part_four_2_summa = number_format($part_four_2_summa);
+                    $student->part_four_3_summa = number_format($part_four_3_summa);
+                    $student->part_four_4_summa = number_format($part_four_4_summa);
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
                             return PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -386,7 +489,7 @@ class AgreementController extends Controller
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
-                            ])->download($student->fio().'.pdf');
+                            ])->download($student->fio() . '.pdf');
                         } else {
                             if ($student->type_student == 1) {
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -394,7 +497,7 @@ class AgreementController extends Controller
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date
-                                ])->download($student->fio().'.pdf');
+                                ])->download($student->fio() . '.pdf');
                             }
                             if ($student->type_student == 2) {
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -402,7 +505,7 @@ class AgreementController extends Controller
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date
-                                ])->download($student->fio().'.pdf');
+                                ])->download($student->fio() . '.pdf');
                             }
                         }
                     } else {
@@ -412,7 +515,7 @@ class AgreementController extends Controller
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date
-                            ])->download($student->fio().'.pdf');
+                            ])->download($student->fio() . '.pdf');
                         } else {
                             if ($student->type_student == 1) {
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -420,15 +523,21 @@ class AgreementController extends Controller
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date
-                                ]);
+                                ])->download($student->fio() . '.pdf');
                             }
                             if ($student->type_student == 2) {
+                                return view('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date
+                                ]);
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date
-                                ])->download($student->fio().'.pdf');
+                                ])->download($student->fio() . '.pdf');
                             }
                         }
                     }

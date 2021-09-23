@@ -34,7 +34,7 @@ class SuperController extends Controller
     }
      public function magister_dir_lang_super($dir , $id){
             $dir = Direction::find($dir);
-            $supers = Super::where('dir' , $dir->name)->where('lang' , $id)->where('type' , 2)->where('status' , 1)->get();
+            $supers = Super::where('dir' , $dir->id)->where('lang' , $id)->where('type' , 2)->where('status' , 1)->get();
              return view('admin.pages.super.index' , [
                 'data' => $supers,
             ]);
@@ -44,7 +44,7 @@ class SuperController extends Controller
     
 
     public function dir_lang_type($dir , $lang){
-        $mag = Super::where('type' , 1)->where('dir' , $dir)->where('lang' , $lang)->where('status' , 1)->get();
+        $mag = Super::where('dir' , $dir)->where('lang' , $lang)->where('status' , 1)->get();
             return view('admin.pages.super.index' , [
                 'data' => $mag,
             ]);
@@ -73,7 +73,7 @@ class SuperController extends Controller
     }
 
     public function tasdiqlash(Request $request){
-        // return $request;
+         return "Texnik ishlar";
         if (\Auth::user()->role == 5) {
             if (Super::find($request->super_id)->exists()) {
                 $super = Super::find($request->super_id);
@@ -106,7 +106,7 @@ class SuperController extends Controller
 
     public function index()
     {
-        $students = Super::where('type' , 1)->where('status' , 1)->get();
+        $students = Super::whereIn('type' , ['1' , '3'])->where('status' , 1)->get();
         // return $students;
 
         return view('admin.pages.super.index' , [

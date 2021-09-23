@@ -168,8 +168,8 @@ function yuzlik($yuz){
         return $start_month;
     }
 
-$month = get_month_name(date('m'));
-$day = date('d');
+$month = get_month_name(date('m' , strtotime($this_date)));
+$day = date('d' , strtotime($this_date));
     @endphp
 <style>
     body {

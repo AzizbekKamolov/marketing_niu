@@ -40,9 +40,11 @@
                                       <div>
                                           <h4 class="card-title">Talabalar ro'yhati</h4>
                                       </div>
-                                    <div>
+                                    @if(Auth::user()->role == 11)
+                                        <div>
                                         <a href="{{route('payment_admin.student.create')}}" class="btn btn-success" style="color: white; cursor: pointer"><i class="fa fa-plus"></i> Talaba qo'shish </a>
                                     </div>
+                                        @endif
 
                                 </div>
 
@@ -58,9 +60,11 @@
                                                 <th>Tug'ilgan</th>
                                                 <th>Telefon</th>
                                                 <th>Turi</th>
+                                                @if(Auth::user()->role == 11)
                                                 <th></th>
 {{--                                                <th></th>--}}
                                                 <th></th>
+                                                @endif
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -70,7 +74,7 @@
                                            <tr>
                                                <td>{{  ++$i }}</td>
                                                <td>
-                                                   {{ $item->fio() }}
+                                                   <a href="{{route('payment_admin.student.show' , ['id' => $item->id])}}" class="" style="color: #000000">{{ $item->fio() }}</a>
                                                </td>
                                                <td>
                                                  {{ $item->id_code }}
@@ -87,7 +91,7 @@
                                                <td>
                                                    {{ $item->type?$item->type->name:'' }}
                                                </td>
-
+                                               @if(Auth::user()->role == 11)
                                                <td class="last-td">
                                                    <a href="{{route('payment_admin.student.payments' , ['id' => $item->id])}}" class="btn  btn-light" style="color: #148f00"><i class="fas fa-money-bill-alt"></i></a>
 {{--                                                   <a href="" class="btn  btn-light" style="color: #ff8100"><i class="fas fa-money-bill-alt"></i></a>--}}
@@ -99,6 +103,7 @@
                                                <td class="last-td">
                                                    <a href="{{route('payment_admin.student.check.edit' , ['id' => $item->id])}}" class="btn btn-light" style="color: #0053ff"><i class="fa fa-edit"></i></a>
                                                </td>
+                                               @endif
                                                <td class="last-td">
                                                    <a href="{{route('payment_admin.student.show' , ['id' => $item->id])}}" class="btn btn-light" style="color: #000000"><i class="fa fa-eye"></i></a>
 

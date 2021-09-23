@@ -3,6 +3,7 @@
 namespace Test\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Test\Model\Super;
@@ -18,7 +19,7 @@ class SuperController extends Controller
     public function super()
     {
                 $sss = "SSSSSSSSSSSSSSS";
-//                return "<h3>Ariza topshirish vaqti yakunlangan</h3>";
+//                return "<h3>Ariza topshirish boshlanmadi</h3>";
 
         return view('site.super.index',[
 
@@ -27,30 +28,30 @@ class SuperController extends Controller
     }
 
     public function checkstore(Request $request){
-       
+
         $result = Result::find($request->super_id);
 //        return $result;
         if (count(Result::where('passport_jshshir' , $result->passport_jshshir)->get()) > 2) {
             $result = Result::where('passport_jshshir' , $result->passport_jshshir)->where('type' , 2)->first();
         }
         $user_input = $request->all();
-        $request->validate([
-            'dtm_id'=>'required',
-            'ball' =>'required',
-            'tel2' =>'required',
-            'tel1' =>'required',
-        ]);
-//         $validator = Validator::make($user_input, [
-//            'dtm_id'=>'required',
-//            'ball' =>'required',
+//        $request->validate([
+////            'dtm_id'=>'required',
+////            'ball' =>'required',
 //            'tel2' =>'required',
 //            'tel1' =>'required',
-//
+//            'dir_id' =>'exists:dir,id',
 //        ]);
-//         if ($validator->fails()) {
-//            return back()->withErrors($validator)->withInput();
-//        }
-         return $result;
+         $validator = Validator::make($user_input, [
+            'tel2' =>'required',
+            'tel1' =>'required',
+             'dir_id' => 'exists:dir,id'
+
+        ]);
+         if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+//         return $result;
         if ($result) {
 
             $super = Super::where('passport_serial', $result->passport_serial)
@@ -58,8 +59,8 @@ class SuperController extends Controller
                 ->where('passport_jshshir', $result->passport_jshshir)
                 ->first();
             if($super){
-
-                return redirect(route("index"))->with('danger', 'Siz ariza yuborgansiz!');
+                return PDF::loadView('site.super.ariza_pdf' , ['data' => $super])->download($super->last_name.$super->first_name.'.pdf');
+                return redirect(route("index"))->with('error', 'Siz ariza yuborgansiz!');
             }
 
 
@@ -72,27 +73,22 @@ class SuperController extends Controller
             $super->passport_serial = $result->passport_serial;
             $super->passport_number = $result->passport_number;
             $super->birthday = $result->birthday;
-            $super->passport_given_date = $result->passport_given_date;
-            $super->passport_issued_by = $result->passport_issued_by;
+//            $super->passport_given_date = $result->passport_given_date;
+//            $super->passport_issued_by = $result->passport_issued_by;
             $super->gender = $result->gender;
-            $super->dir = $result->dir;
+            $super->dir = $request->dir_id;
             $super->address = $result->address;
             $super->passport_jshshir = $result->passport_jshshir;
-            $super->viloyat = $result->viloyat;
-            $super->tuman = $result->tuman;
-            $super->dtm_id = $request->dtm_id;
-            $super->ball = $request->ball;
+//            $super->viloyat = $result->viloyat;
+//            $super->tuman = $result->tuman;
+            $super->dtm_id = $result->dtm_id;
+            $super->ball = $result->ball;
             $super->tel1 = $request->tel1;
             $super->tel2 = $request->tel2;
-            $super->phone = $result->phone;
+//            $super->phone = $result->phone;
             $super->lang = $result->lang;
-
             $super->status = 1;
-
-
-
             $super->save();
-
             $pdf = PDF::loadView('site.super.ariza_pdf' , [
                 'data' => $super,
             ]);
@@ -160,7 +156,7 @@ class SuperController extends Controller
 
         else
         {
-            return redirect()->back()->with('danger', 'Sizning ma`lumotlaringiz topilmadi!');
+            return redirect()->back()->with('error', 'Sizning ma`lumotlaringiz topilmadi!');
 //            return Redirect::back()->withErrors(['msg', 'Ma\'lumot topilmadi]);
 //            return redirect()->back();
 

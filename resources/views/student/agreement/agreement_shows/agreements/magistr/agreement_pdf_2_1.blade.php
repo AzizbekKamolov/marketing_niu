@@ -172,13 +172,15 @@
     $month = get_month_name(date('m' , strtotime($getting_date)));
     $day = date('d', strtotime($getting_date));
     $year = date('Y' , strtotime($getting_date));
+    $summa = '20,338,560';
+    $summa_word = 'Yigirma million uch yuz o`ttiz sakkiz ming besh yuz oltmish';
 @endphp
 <style>
     body {
         font-family: DejaVu Sans, sans-serif !important;
     }
 </style>
-<div class="row">
+<div class="row page-break">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
         <div class="row">
@@ -186,7 +188,7 @@
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
-                    uch tomonlama KONTRAKT (stipendiyali shaklda, magistratura uchun)
+                    uch tomonlama KONTRAKT (stipendiyali shaklda,kunduzgi magistratura uchun)
 
                 </h4>
                 <h4 class="text-bold"> №________</h4>
@@ -236,7 +238,7 @@
                     Kontrakt) Oliy va o‘rta maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt
                     shakli va undan tushgan mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431,
                     2013 yil 26 fevral), O‘zbekiston Respublikasi Vazirlar Mahkamasining 2019 yil 3 dekabrdagi 967-son
-                    qarori, Toshkent davlat yuridik universiteti rektorining 2020 yil 16 sentyabrdagi 02-121-son
+                    qarori, Toshkent davlat yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-252-son
                     buyrug‘i, O’zbekiston Respublikasi ta’lim muassasalariga o’qishga qabul qilish bo’yicha Davlat
                     komissiyasining 2021 yil 8 sentyabrdagi 6-son qaroriga muvofiq tuzdilar:
 
@@ -259,11 +261,9 @@
                 </p>
             </div>
             <div class="col-md-12 mb-1">
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> bakalavriat ta’lim yo‘nalishini
-                    muvaffaqiyatli
-                    tamomlash muddati
-                    202 -yil iyun oyi hisoblanadi.
+                 <p>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. <b>Talabaning</b> magistratura mutaxasisligini muvaffaqiyatli tamomlash muddati
+                    2022-yil iyun oyi hisoblanadi.
 
                 </p>
             </div>
@@ -507,26 +507,23 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 o‘quv yilida stipendiyali shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
-                    lozim bo‘lgan to’lov summasi <b>20 338 560</b> (Yigirma million uch yuz o`ttiz sakkiz ming besh yuz
-                    oltmish) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur
+                    lozim bo‘lgan to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur
                     summa mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi
                     tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
-                    sakson ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -5 084 640 so‘m;
-                    <br>1-yanvargacha -5 084 640 so‘m.
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-oktyabrgacha -{{$student->part_four_1_summa}} so‘m;
+                    <br>1-yanvargacha -{{$student->part_four_2_summa}} so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>10 169 280</b> ( o`n million bir yuz oltmish to`qqiz ming ikki yuz
-                    sakson) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -5 084 640 so‘m;
-                    <br>1-iyulgacha -5 084 640 so‘m.
+                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}} ) so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>1-aprelgacha -{{$student->part_four_3_summa}} so‘m;
+                    <br>1-iyulgacha -{{$student->part_four_4_summa}} so‘m.
 
 
                 </p>
@@ -700,34 +697,7 @@
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-
-                            <p>
-                                O‘zbekiston Respublikasi
-                                Moliya vazirligi G‘aznachiligi
-                                Bank: HKKM MB Toshkent sh. B.B.
-                                H/r: 23402000300100001010
-                                STIR: 201122919, MFO: 00014
-                                Sh.h.r: 400910860262667094100009002
-                                STIR: 201122349, KOD 7950100
-                                Tel.: (71) 233-66-36,
-                                Manzil: Sayilgoh ko‘chasi, 35-uy.
-
-                            </p>
-                            <p>
-                                Rektor v.v.b _____________ R. Rustambekov
-                            </p>
-                            <p>
-                                Bosh buxgalter _______________ M.Parpiyev
-                            </p>
-                            <p>
-                                Shartnomaviy ta’lim xizmatlari
-                                bo‘limi boshlig‘i ___________ A.Xundibayev
-
-                            </p>
-                            <p>
-                                Katta yuriskonsult ______________E.Xosilov
-
-                            </p>
+                            <img style="width:280px" src="{{asset('pechat/pechat_last.jpg')}}">
                         </td>
                         <td class="w-50" style="width: 49%">
                             <div>
@@ -803,6 +773,7 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+@include('student.agreement.agreement_shows.agreements.schot_include')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
