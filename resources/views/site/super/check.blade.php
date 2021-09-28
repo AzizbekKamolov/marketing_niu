@@ -111,7 +111,7 @@
                                 </div>
                                 <div>
                                     <span class="title"><a>Jinsi:</a></span>
-                                    <span class="title"><a>@if($data->gender==1)Erkak @else Ayol @endif</a></span>
+                                    <span class="title"><a>@if($data->gender==1)Erkak @elseif($data->gender==0) Ayol @endif</a></span>
                                 </div>
                                 <div>
                                     <span class="title"><a>DTM ID:</a></span>

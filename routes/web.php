@@ -190,12 +190,18 @@ Route::post('payment-check-result', 'PaymentCheckController@check')->name('payme
 
 Route::get('/student/form-ttj', 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
 Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
+
+
+Route::get('/lyceum/super/form', 'SuperLyceumController@form')->name('lyceum.super.form');
+Route::post('/lyceum/super/get-data', 'SuperLyceumController@get_data')->name('lyceum.super.get_data');
+Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_application')->name('lyceum.super.store_application');
+
+
+
 Route::get('/schot', function(){
     return PDF::loadView('student.agreement.agreement_shows.agreements.schot')->download('dsdsd.pdf');
 //    return view('student.agreement.agreement_shows.agreements.schot');
 });
-
-
 Route::get('sms-ras', function () {
     $numbers = \Test\Model\SmsRas::all()->toArray();
     $chunkeds = array_chunk($numbers, 100);

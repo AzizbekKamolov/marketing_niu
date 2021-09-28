@@ -144,6 +144,7 @@ class PaymentAdminController extends Controller
             $student->course = $request->course;
             $student->status_new = $request->status_new;
             $student->status_check = 1;
+            $student->type_student = $request->type_degree;
             $student->update();
             return redirect()->back()->with('success', 'Ma`lumot o`zgartirildi');
 //            return redirect(route('payment_admin.student.no_checkeds'))->with('success', 'Ma`lumot o`zgartirildi');
@@ -263,6 +264,7 @@ class PaymentAdminController extends Controller
         $student->passport_issued_date = $request->passport_issued_date;
         $student->gender = $request->gender;
         $student->status_new = $request->status_new;
+        $student->type_student = $request->type_degree;
         $student->course = $request->course;
         $student->status_check = 1;
         $student->save();

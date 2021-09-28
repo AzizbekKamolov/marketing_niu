@@ -206,7 +206,7 @@
                     Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
                     tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar),“Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat
-                    <b>{{$student->course}}</b> kurs davomida
+                    <b>{{$student->course}}</b> - kurs davomida
                     o‘qitish maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta
                     maxsus, kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan
                     mablag‘larni taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR
