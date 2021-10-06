@@ -8,6 +8,7 @@ use Test\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Test\Model\BranchAdmin;
 use Test\Model\Group;
+use Test\Model\PassedBall;
 use Test\Model\Super;
 use Test\Model\Region;
 use Test\Model\Area;
@@ -22,83 +23,110 @@ class SuperController extends Controller
         $this->middleware('auth');
     }
 
-    public function amount_magistr_type($id){
-        $student = Super::where('type' , 2)->where('amount_id' , $id)->where(function($query){
-            $query->where('status' , 2);
-            $query->orWhere('status' , 3);
+    public function amount_magistr_type($id)
+    {
+        $student = Super::where('type', 2)->where('amount_id', $id)->where(function ($query) {
+            $query->where('status', 2);
+            $query->orWhere('status', 3);
         })->get();
         // return $student;
-         return view('admin.pages.super.index' , [
-                'data' => $student,
-            ]);
-    }
-     public function magister_dir_lang_super($dir , $id){
-            $dir = Direction::find($dir);
-            $supers = Super::where('dir' , $dir->id)->where('lang' , $id)->where('type' , 2)->where('status' , 1)->get();
-             return view('admin.pages.super.index' , [
-                'data' => $supers,
-            ]);
-            return $supers;
-        }
-
-    
-
-    public function dir_lang_type($dir , $lang){
-        $mag = Super::where('dir' , $dir)->where('lang' , $lang)->where('status' , 1)->get();
-            return view('admin.pages.super.index' , [
-                'data' => $mag,
-            ]);
+        return view('admin.pages.super.index', [
+            'data' => $student,
+        ]);
     }
 
-    public function amount_type($type){
-         $mag = Super::where('type' , 1)
-         ->where('amount_id' , $type)->get();
-
-
-            return view('admin.pages.super.index' , [
-                'data' => $mag,
-            ]);
+    public function magister_dir_lang_super($dir, $id)
+    {
+        $dir = Direction::find($dir);
+        $supers = Super::where('dir', $dir->id)->where('lang', $id)->where('type', 2)->where('status', 1)->get();
+        return view('admin.pages.super.index', [
+            'data' => $supers,
+        ]);
+        return $supers;
     }
 
-    public function magistr_index(){
-        $mag = Super::where('type' , 2)->where('status' , 1)->get();
-        return view('admin.pages.super.index' , [
+
+    public function dir_lang_type($dir, $lang)
+    {
+        $user = \Auth::user();
+        $mag = Super::where('dir', $dir)->where('lang', $lang)->where('status', 1)->where(function ($user_role) use ($user) {
+            if ($user->role == 13) {
+                $user_role->where('type', $user->type);
+                $user_role->where('comment', $user->comment);
+            }
+        })->get();
+        return view('admin.pages.super.index', [
             'data' => $mag,
         ]);
     }
 
-    public function pdf_for_super($id){
-    	$student = Super::find($id);
-    	return PDF::loadView('site.super.ariza_pdf' , ['data' => $student])->download($student->last_name.$student->first_name.'.pdf');
+    public function amount_type($type)
+    {
+        $user = \Auth::user();
+        $mag = Super::where(function ($user_role) use ($user) {
+            if ($user->role == 13) {
+                $user_role->where('type', $user->type);
+                $user_role->where('comment', $user->comment);
+            }
+        })->where('amount_id', $type)->get();
+//         $mag = Super::where('type' , 1)
+//         ->where('amount_id' , $type)->get();
+
+
+        return view('admin.pages.super.index', [
+            'data' => $mag,
+        ]);
     }
 
-    public function tasdiqlash(Request $request){
-         return "Texnik ishlar";
-        if (\Auth::user()->role == 5) {
+    public function magistr_index()
+    {
+        $mag = Super::where('type', 2)->where('status', 1)->get();
+        return view('admin.pages.super.index', [
+            'data' => $mag,
+        ]);
+    }
+
+    public function pdf_for_super($id)
+    {
+        $student = Super::find($id);
+        return PDF::loadView('site.super.ariza_pdf', ['data' => $student])->download($student->last_name . $student->first_name . '.pdf');
+    }
+
+    public function tasdiqlash(Request $request)
+    {
+//         return "Texnik ishlar";
+        if (\Auth::user()->role == 13) {
+            $user = \Auth::user();
             if (Super::find($request->super_id)->exists()) {
                 $super = Super::find($request->super_id);
-                $super->status = 2;
-                $super->amount_id = $request->amount_id;
-                $super->update();
-                return redirect()->back()->with('success' , 'Ariza tasdiqlandi!');
-            }
-            else{
-                return redirect()->back()->with('error' , 'Ariza topilmadi!');
+                if ($super->comment == $user->comment && $super->type == $user->type) {
+                    $super->status = 2;
+                    $super->amount_id = $request->amount_id;
+                    $super->update();
+                    return redirect()->back()->with('success', 'Ariza tasdiqlandi!');
+                }
+
+            } else {
+                return redirect()->back()->with('error', 'Ariza topilmadi!');
 
             }
         }
     }
-    public function bekor_qilish($id){
-        if (\Auth::user()->role == 5) {
+
+    public function bekor_qilish($id)
+    {
+        if (\Auth::user()->role == 13) {
+             $user = \Auth::user();
             if (Super::find($id)->exists()) {
-                $super = Super::find($id);
-                $super->status = 1;
-                $super->amount_id = null;
-                $super->update();
-                return redirect()->back()->with('success' , 'Ariza bekor qilindi!');
-            }
-            else{
-                return redirect()->back()->with('error' , 'Ariza topilmadi!');
+                     $super = Super::find($id);
+                 if ($super->comment == $user->comment && $super->type == $user->type) {
+                     $super->status = 1;
+                     $super->amount_id = null;
+                     $super->update();
+                     return redirect()->back()->with('success', 'Ariza bekor qilindi!');
+                 }
+            } else {
+                return redirect()->back()->with('error', 'Ariza topilmadi!');
 
             }
         }
@@ -106,10 +134,16 @@ class SuperController extends Controller
 
     public function index()
     {
-        $students = Super::whereIn('type' , ['1' , '3'])->where('status' , 1)->get();
+        $user = \Auth::user();
+        $students = Super::where(function ($user_role) use ($user) {
+            if ($user->role == 13) {
+                $user_role->where('type', $user->type);
+                $user_role->where('comment', $user->comment);
+            }
+        })->get();
         // return $students;
 
-        return view('admin.pages.super.index' , [
+        return view('admin.pages.super.index', [
             'data' => $students,
         ]);
     }
@@ -118,20 +152,25 @@ class SuperController extends Controller
     {
         $student = Super::find($id);
         $regions = Region::all();
-        return view('admin.pages.super.show' , [
+        $passed_ball = PassedBall::where('type' , $student->type)->where('dir' , $student->dir)->where('lang' , $student->lang)->where('comment' , $student->comment)->first();
+        return view('admin.pages.super.show', [
             'data' => $student,
-            'regions' => $regions
+            'regions' => $regions,
+            'passed_ball' => $passed_ball
         ]);
     }
 
-    public function create(){
+    public function create()
+    {
         $regions = Region::all();
 
-        return view('admin.pages.super.create' , [
+        return view('admin.pages.super.create', [
             'regions' => $regions,
         ]);
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $input = $request->all();
         return $request;
 
@@ -178,16 +217,16 @@ class SuperController extends Controller
         $student->id_code = $request->id_code;
 
         if ($student->save()) {
-            return redirect(route('super.create'))->with('success' , 'Ma`lumot qo\'shildi');
+            return redirect(route('super.create'))->with('success', 'Ma`lumot qo\'shildi');
 
-        }
-        else{
-            return redirect(route('super.create'))->with('error' , 'Xatolik iltimos keyinroq qaytadan urinib koring');
+        } else {
+            return redirect(route('super.create'))->with('error', 'Xatolik iltimos keyinroq qaytadan urinib koring');
 
         }
     }
 
-    public function edit( $id){
+    public function edit($id)
+    {
         // $student = Super::find($id);
         // $regions = Region::all();
         // return view('admin.pages.super.edit' , [
@@ -196,7 +235,8 @@ class SuperController extends Controller
         // ]);
     }
 
-    public function search_student($data){
+    public function search_student($data)
+    {
         // return $data;
         $data2 = trim($data);
         $data3 = str_replace(' ', '', $data);
@@ -210,31 +250,32 @@ class SuperController extends Controller
             'ss.passport_seria',
             'ss.passport_number',
         ])
-            ->where(function($query) use ($data3){
-                $query->where('ss.first_name' , 'like' , '%'.$data3.'%');
-                $query->orWhere('ss.last_name' , 'LIKE' , '%'.$data3.'%');
-                $query->orWhere('ss.middle_name' , 'LIKE' , '%'.$data3.'%');
-                $query->orWhere('ss.passport_seria' , 'LIKE' , '%'.$data3.'%');
-                $query->orWhere('ss.passport_number' , 'LIKE' , '%'.$data3.'%');
-                $query->orWhere('ss.phone' , 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.last_name,"",ss.first_name,"",ss.middle_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.last_name,"",ss.middle_name,"",ss.first_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.first_name,"",ss.middle_name,"",ss.last_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.first_name,"",ss.last_name,"",ss.middle_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.middle_name,"",ss.last_name,"",ss.first_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.middle_name,"",ss.first_name,"",ss.last_name)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.passport_seria,"",ss.passport_number)'), 'LIKE' , '%'.$data3.'%');
-                $query->orWhere( DB::raw('CONCAT(ss.passport_seria,"",ss.passport_number)'), 'LIKE' , '%'.$data3.'%');
+            ->where(function ($query) use ($data3) {
+                $query->where('ss.first_name', 'like', '%' . $data3 . '%');
+                $query->orWhere('ss.last_name', 'LIKE', '%' . $data3 . '%');
+                $query->orWhere('ss.middle_name', 'LIKE', '%' . $data3 . '%');
+                $query->orWhere('ss.passport_seria', 'LIKE', '%' . $data3 . '%');
+                $query->orWhere('ss.passport_number', 'LIKE', '%' . $data3 . '%');
+                $query->orWhere('ss.phone', 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.last_name,"",ss.first_name,"",ss.middle_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.last_name,"",ss.middle_name,"",ss.first_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.first_name,"",ss.middle_name,"",ss.last_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.first_name,"",ss.last_name,"",ss.middle_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.middle_name,"",ss.last_name,"",ss.first_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.middle_name,"",ss.first_name,"",ss.last_name)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.passport_seria,"",ss.passport_number)'), 'LIKE', '%' . $data3 . '%');
+                $query->orWhere(DB::raw('CONCAT(ss.passport_seria,"",ss.passport_number)'), 'LIKE', '%' . $data3 . '%');
             })
             ->pluck('ss.id');
-        $sts = Student::whereIn('id' , $students)->paginate(20);
-        return view('admin.pages.super.index' , [
+        $sts = Student::whereIn('id', $students)->paginate(20);
+        return view('admin.pages.super.index', [
             'data' => $sts,
             'search_result_text' => $data2,
         ]);
     }
 
-    public function update(Request $request , $id){
+    public function update(Request $request, $id)
+    {
         $student = Super::find($id);
         $input = $request->all();
         // return $request;
@@ -275,12 +316,27 @@ class SuperController extends Controller
         $student->dir = $request->dir;
 
         if ($student->update()) {
-            return redirect(route('super.edit' , ['id' => $student->id]))->with('success' , 'Ma`lumot o\'zgartirildi');
+            return redirect(route('super.edit', ['id' => $student->id]))->with('success', 'Ma`lumot o\'zgartirildi');
+
+        } else {
+            return redirect(route('super.edit', ['id' => $student->id]))->with('error', 'Xatolik iltimos keyinroq qaytadan urinib koring');
 
         }
-        else{
-            return redirect(route('super.edit' , ['id' => $student->id]))->with('error' , 'Xatolik iltimos keyinroq qaytadan urinib koring');
+    }
 
-        }
+    public function super_index_accepteds()
+    {
+        $user = \Auth::user();
+        $students = Super::where(function ($user_role) use ($user) {
+            if ($user->role == 13) {
+                $user_role->where('type', $user->type);
+                $user_role->where('comment', $user->comment);
+            }
+        })->where('status', '>', 1)->get();
+        // return $students;
+
+        return view('admin.pages.super.index', [
+            'data' => $students,
+        ]);
     }
 }

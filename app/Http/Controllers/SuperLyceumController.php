@@ -55,8 +55,11 @@ class SuperLyceumController extends Controller
                 $new_super->result_id = $student->id;
                 $new_super->tel1 = $request->tel1;
                 $new_super->tel2 = $request->tel2;
+                $student->phone = $request->tel1;
+                $new_super->phone = $request->tel1;
                 $new_super->getting_date = $getting_date;
                 $new_super->save();
+                $student->update();
             }
             return PDF::loadView('site.lyceum_super.ariza', [
                 'data' => $new_super,

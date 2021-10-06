@@ -238,7 +238,7 @@
                     muvaffaqiyatli
                     tamomlash muddati
                     @php
-                        $ended = 2022+5-$student->course;
+                        $ended = 2022+4-$student->course;
                     @endphp
                     {{$ended}}-yil iyun oyi hisoblanadi.
 
@@ -324,6 +324,12 @@
                     &nbsp &nbsp &nbsp &nbsp
                     2.2.5. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
                     talabalar safiga qabul qilish.
+                </p>
+                 <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.2.6. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
+                    2021/2022 o`quv yili uchun belgilangan stipendiyasiz bazaviy to`lov-kontrakt miqdoriga 10 foiz
+                    chegirma beradi
                 </p>
 
             </div>

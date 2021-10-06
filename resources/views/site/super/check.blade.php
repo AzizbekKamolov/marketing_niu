@@ -67,7 +67,7 @@
                                  </div> --}}
                                 <div>
                                     <span class="title"><a>Manzil:</a></span>
-                                    <span class="title"><a>{{$data->viloyat}}, {{$data->tuman}}, {{$data->address}}</a></span>
+                                    <span class="title"><a>{{$data->address}}</a></span>
                                 </div>
 
                             </div>
@@ -105,14 +105,14 @@
                                     <span
                                         class="title"><a>@if($data->type==1) {{"Bakalavr"}} @elseif($data->type == 2) {{"Magister "}} @else {{"Sirtqi"}} @endif</a></span>
                                 </div>
-                                <div>
-                                    <span class="title"><a>Telefon raqam:</a></span>
-                                    <span class="title"><a>{{$data->phone}}</a></span>
-                                </div>
-                                <div>
-                                    <span class="title"><a>Jinsi:</a></span>
-                                    <span class="title"><a>@if($data->gender==1)Erkak @elseif($data->gender==0) Ayol @endif</a></span>
-                                </div>
+{{--                                <div>--}}
+{{--                                    <span class="title"><a>Telefon raqam:</a></span>--}}
+{{--                                    <span class="title"><a>{{$data->phone}}</a></span>--}}
+{{--                                </div>--}}
+{{--                                <div>--}}
+{{--                                    <span class="title"><a>Jinsi:</a></span>--}}
+{{--                                    <span class="title"><a>@if($data->gender==1)Erkak @elseif($data->gender==0) Ayol @else  @endif</a></span>--}}
+{{--                                </div>--}}
                                 <div>
                                     <span class="title"><a>DTM ID:</a></span>
                                     <span class="title"><a>{{$data->dtm_id}}</a></span>
@@ -120,6 +120,10 @@
                                 <div>
                                     <span class="title"><a>To'plangan ball:</a></span>
                                     <span class="title"><a>{{$data->ball}}</a></span>
+                                </div>
+                                <div>
+                                    <span class="title"><a>Izoh</a></span>
+                                    <span class="title"><a><b>{{$data->description}}</b></a></span>
                                 </div>
                                 {{--  <div>
                                      <span class="title"><a>O'tish bali:</a></span>

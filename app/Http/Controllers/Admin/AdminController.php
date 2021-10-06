@@ -39,6 +39,9 @@ class AdminController extends Controller
         if (Auth::user()->role == 12) {
             return redirect('/backoffice/ttj-admin/ttj-admin-students');
         }
+        if (Auth::user()->role == 13) {
+             return redirect(route('super.index'));
+        }
            return view('admin.index');
     }
 }

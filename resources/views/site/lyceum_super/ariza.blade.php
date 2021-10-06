@@ -65,7 +65,7 @@
         <div style="padding-left: 40%; text-align: right">
             <p>
                 TDYU prorektori - akademik litsey direktori  <br>
-                I.R.Rustambekov ga  fuqaro <br>
+                I.R.Rustambekovga  fuqaro <br>
                 <b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b> dan <br>
                 telefon : <br>
                 @if($data->tel1)

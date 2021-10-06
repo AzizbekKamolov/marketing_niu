@@ -323,6 +323,12 @@
                     2.2.5. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
                     talabalar safiga qabul qilish.
                 </p>
+                 <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.2.6. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
+                    2021/2022 o`quv yili uchun belgilangan stipendiyasiz bazaviy to`lov-kontrakt miqdoriga 10 foiz
+                    chegirma beradi
+                </p>
 
             </div>
             <div class="col-md-12 mb-1 ">
@@ -624,7 +630,7 @@
 
                             </p>
                             <p>
-                                Rektor v.v.b _____________ R. Rustambekov
+                                Rektor v.v.b _____________ I. Rustambekov
                             </p>
                             <p>
                                 Bosh buxgalter _______________ M.Parpiyev

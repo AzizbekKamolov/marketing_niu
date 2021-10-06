@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-xxl">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+      <div class="container-fluid">
         <div class="justify-content-center align-items-center d-flex">
           <a class="navbar-brand px-4" href="/">
             <img src="{{asset('marketing2021/img/TSUL_EN_white.png')}}" alt="" width="120" height="auto" class="d-inline-block align-text-top">
@@ -8,7 +8,7 @@
           <!-- <h1 class="fs-3 text-white">Marketing TSUL</h1> -->
         </div>
 
-        <button class=" bg-transparent d-lg-none border-0" type="button" data-bs-toggle="collapse"
+        <button class=" bg-transparent d-xl-none border-0" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
           aria-label="Toggle navigation">
           <i class="fas fa-bars text-white fs-2"></i>
@@ -20,9 +20,18 @@
               <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="{{ route('student.agreement.form') }}">To'lov shartnomasi (talabalar
                 uchun) </a>
             </li>
+              <li class="nav-item">
+              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="{{ route('student.agreement.form_ttj') }}">Talabalar turar joyi uchun
+                                        shartnoma</a>
+            </li>
+
 
             <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="{{ route('super.super') }}">Tabaqalashtirilgan to'lov kontrakt (magistratura bakalavr)
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="{{ route('super.super') }}">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish  (magistratura bakalavr)
+              </a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="{{ route('lyceum.super.form') }}">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish (Akademik litsey)
               </a>
             </li>
 

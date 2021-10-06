@@ -190,7 +190,7 @@
                     Toshkent davlat yuridik universitetida o‘qitish uchun
                     ikki tomonlama KONTRAKT (stipendiyali shaklda,kunduzgi {{$student->course}} - kurslar uchun )
                 </h4>
-                <h4 class="text-bold"> №________</h4>
+                <h4 class="text-bold"> № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
             </div>
             <div class="col-md-3"></div>

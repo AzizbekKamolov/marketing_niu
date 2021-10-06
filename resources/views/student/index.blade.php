@@ -62,8 +62,7 @@
                                          width="85px" alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov
-                                        kontrakt (magistratura bakalavr)</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish  (magistratura bakalavr)</h5>
                                 </div>
                             </div>
                         </a>
@@ -80,8 +79,7 @@
                                          width="85px" alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov
-                                        kontrakt (litsey)</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish (Akademik litsey)</h5>
                                 </div>
                             </div>
                         </a>

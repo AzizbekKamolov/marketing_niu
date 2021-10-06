@@ -30,11 +30,11 @@
 </style>
 
             <div class="container-fluid">
-          
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            
+
                             <div class="card-body">
                                 <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                                       <div>
@@ -54,7 +54,7 @@
 
                                     </div>
                                 </div> --}}
-                              
+
                                 <div class="table-responsive">
                                     <table id="multi_col_order" class="table table-striped table-bordered no-wrap">
                                         <thead>
@@ -69,6 +69,7 @@
                                                 <th>Til</th>
 
                                                 <th>Holati</th>
+                                                <th>Izoh</th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -105,6 +106,9 @@
                                                <td>
                                                    {{ $item->getStatus() }} @if($item->status=="2") <i class="fa fa-check"></i> @endif
                                                </td>
+                                               <td>
+                                                   {{$item->description}}
+                                               </td>
                                                <td class="last-td">
                                                        <a href="{{ route('super.show' , ['id' => $item->id]) }}" class="btn btn-light"> <i class="fa fa-eye"></i> </a>
                                                </td>
@@ -114,12 +118,12 @@
                                                <td class="last-td">
                                                	<a href="{{ route('pdf_for_super' , ['id'=>$item->id]) }}" class="btn btn-default"><i class="fa fa-print"></i></a>
                                                </td>
-                                              
+
                                            </tr>
                                            @endforeach
                                         </tbody>
 
-                                 
+
                                     </table>
                                 </div>
                             </div>
@@ -128,8 +132,8 @@
                             </div> --}}
                         </div>
                     </div>
-                   
-                   
+
+
                 </div>
             </div>
 

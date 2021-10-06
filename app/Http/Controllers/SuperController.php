@@ -19,7 +19,7 @@ class SuperController extends Controller
     public function super()
     {
                 $sss = "SSSSSSSSSSSSSSS";
-//                return "<h3>Ariza topshirish boshlanmadi</h3>";
+                return "<h3>Ariza topshirish muddati tugadi</h3>";
 
         return view('site.super.index',[
 
@@ -87,6 +87,9 @@ class SuperController extends Controller
             $super->tel2 = $request->tel2;
 //            $super->phone = $result->phone;
             $super->lang = $result->lang;
+            $super->comment = $result->comment;
+            $super->course = $result->course;
+            $super->description = $result->description;
             $super->status = 1;
             $super->save();
             $pdf = PDF::loadView('site.super.ariza_pdf' , [

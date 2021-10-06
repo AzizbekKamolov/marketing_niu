@@ -93,6 +93,7 @@ Route::group([
 
 // SUPER
     Route::resource('super', 'SuperController');
+    Route::get('/super-index-accepteds', 'SuperController@super_index_accepteds')->name('super.index.accepteds');
     Route::get('/super-amount-type/{type}', 'SuperController@amount_type')->name('amount_type');
     Route::get('/super-magistr-amount-type/{type}', 'SuperController@amount_magistr_type')->name('amount_magistr_type');
     Route::get('/super-amount-type-marketing/{type}', 'StudentController@amount_type_marketing')->name('amount_type_marketing');
@@ -147,6 +148,15 @@ Route::group([
 
     Route::get('/ttj-admin/ttj-admin-students', 'PaymentAdminController@index')->name('ttj_admin.students');
     Route::get('/ttj-admin/ttj-admin-students/{type}', 'PaymentAdminController@ttj_students')->name('ttj_admin.students.type');
+
+
+    Route::get('/lyceum-admin/super/index', 'LyceumSuperController@super_index')->name('super.lyceum.index');
+    Route::get('/lyceum-admin/super/index-status/{status}', 'LyceumSuperController@super_index_by_status')->name('super.lyceum.index.by_status');
+    Route::get('/lyceum-admin/super/index-amount/{amount}', 'LyceumSuperController@super_index_by_amount')->name('super.lyceum.index.by_amount');
+    Route::get('/lyceum-admin/super/show/{id}', 'LyceumSuperController@super_show')->name('super.lyceum.show');
+    Route::get('/lyceum-admin/super/edit/{id}', 'LyceumSuperController@super_edit')->name('super.lyceum.edit');
+    Route::post('/lyceum-admin/super/accept', 'LyceumSuperController@lyceum_accept')->name('lyceum.accept');
+    Route::get('/lyceum-admin/super/reject/{id}', 'LyceumSuperController@reject_super_lyceum')->name('reject.super.lyceum');
 });
 
 Auth::routes();
@@ -197,48 +207,12 @@ Route::post('/lyceum/super/get-data', 'SuperLyceumController@get_data')->name('l
 Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_application')->name('lyceum.super.store_application');
 
 
-
-Route::get('/schot', function(){
-    return PDF::loadView('student.agreement.agreement_shows.agreements.schot')->download('dsdsd.pdf');
-//    return view('student.agreement.agreement_shows.agreements.schot');
+Route::get('/schot', function () {
+//    $user = new \Test\User();
+//    $user->name = 'Litsey';
+//    $user->username = 'lyceum_super';
+//    $user->password = \Illuminate\Support\Facades\Hash::make('tsul_lyceum_456');
+//    $user->role = 14;
+//    $user->save();
 });
-Route::get('sms-ras', function () {
-    $numbers = \Test\Model\SmsRas::all()->toArray();
-    $chunkeds = array_chunk($numbers, 100);
-//    foreach ($numbers as $number) {
-//        if (strlen($number->number) != 9){
-//            return $number;
-//        }
-////        $number_rigth = str_replace(' ' , '' , $number->number);
-//////        $number_rigth = str_replace(',' , '' , $number_rigth);
-////        $number->number = $number_rigth;
-////        $number->update();
-//    }
-    $body = [];
-    $i = 0;
-//    return $chunkeds;
-    foreach ($chunkeds[19] as $chunked) {
-        $num = \Test\Model\SmsRas::find($chunked['id']);
-        if ($num) {
-            if ($num->status == 0) {
-                $num->status = 1;
-                $num->update();
-                $body['messages'][$i]['recipient'] = '998' . $chunked['number'];
-                $body['messages'][$i]['message-id'] = 'tsulsmstest' . $chunked['id'];
-                $body['messages'][$i]['sms']['originator'] = '3700';
-                $body['messages'][$i]['sms']['content']['text'] = 'Hurmatli abituriyent! TDYUga o\'qishga kirmoqchi bo\'lsangiz ikki diplomli dasturga 01.10.2021-yilgacha hujjat topshiring. Batafsil ma\'lumot:' . PHP_EOL . ' https://t.me/DDprograms';
-                $i++;
-            }
 
-        }
-
-    }
-//    return $body;
-    if (count($body)) {
-        $send_sms = new \Test\Model\SmsSend();
-        $result = $send_sms->send_many_sms(json_encode($body));
-        return $result;
-    }
-
-//    return json_encode($body);
-});
