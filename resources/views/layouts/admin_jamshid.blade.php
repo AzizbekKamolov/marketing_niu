@@ -425,6 +425,7 @@
                 });
 
             });
+            $('#datatable').DataTable();
         </script>
 
     @yield('js')

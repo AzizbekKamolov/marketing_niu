@@ -79,16 +79,16 @@
                             <div>
                                 @if(Auth::user()->role == 14)
                                     <a href="{{ route('super.lyceum.index') }}" class="btn btn-info">Ro'yhat <i
-                                                class="fa fa-list" aria-hidden="true"></i></a>
+                                            class="fa fa-list" aria-hidden="true"></i></a>
 
                                     @if($data->status == 1)
                                         <button href="" class="btn btn-success " data-toggle="modal"
                                                 data-target="#exampleModal">Arizani tasdiqlash <i
-                                                    class="fa fa-check-square" aria-hidden="true"></i></button>
+                                                class="fa fa-check-square" aria-hidden="true"></i></button>
                                     @elseif($data->status == 2)
                                         <button href="" class="btn btn-danger " data-toggle="modal"
                                                 data-target="#exampleModalback">Bekor qilish <i
-                                                    class="fa fa-check-square" aria-hidden="true"></i></button>
+                                                class="fa fa-check-square" aria-hidden="true"></i></button>
 
                                     @endif
                                 @endif
@@ -128,7 +128,6 @@
                             </div>
 
 
-
                             <div class="col-md-4 form-group">
                                 <label> ID raqami<span class="error">  @if ($errors->has('passport_given_date'))
                                             | {{ $errors->first('passport_given_date') }} @endif </span></label>
@@ -138,9 +137,45 @@
 
                             <div class="col-md-4 form-group">
                                 <label> Til </label>
-                                 <input readonly="true" type="text" name="passport_issued_date" class="form-control"
+                                <input readonly="true" type="text" name="passport_issued_date" class="form-control"
                                        value="{{ $data->lang()->name }}">
 
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>ID-KOD (Marketing) <span class="error">   @if ($errors->has('id_code_marketing'))
+                                            | {{ $errors->first('id_code_marketing') }} @endif </span></label>
+                                <input readonly="true" type="text" name="id_code_marketing" class="form-control"
+                                       value="@if(old('id_code_marketing')){{ old('id_code_marketing') }}@else{{ $data->id_code_marketing }}@endif">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>Ota onasi (vasiy) F.I.O <span class="error">   @if ($errors->has('parent_name'))
+                                            | {{ $errors->first('parent_name') }} @endif </span></label>
+                                <input readonly="true" type="text" name="parent_name" class="form-control"
+                                       value="@if(old('parent_name')){{ old('parent_name') }}@else{{ $data->parent_name }}@endif">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>Ota onasi pasport seria va raqami <span class="error">   @if ($errors->has('parent_pass_seria'))
+                                            | {{ $errors->first('parent_pass_seria') }} @endif </span></label>
+                                <div class="d-flex">
+                                    <input readonly="true" type="text" name="parent_pass_seria" class="form-control"
+                                           value="@if(old('parent_pass_seria')){{ old('parent_pass_seria') }}@else{{ $data->parent_pass_seria }}@endif"
+                                           style="width: 30%">
+                                    <input readonly="true" type="text" name="parent_pass_number" class="form-control"
+                                           value="@if(old('parent_pass_number')){{ old('parent_pass_number') }}@else{{ $data->parent_pass_number }}@endif"
+                                           style="width: 70%">
+                                </div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>O'quvchi tug'ilgan sanasi <span class="error">   @if ($errors->has('birthday'))
+                                            | {{ $errors->first('birthday') }} @endif </span></label>
+                                <input readonly="true" type="date" name="birthday" class="form-control"
+                                       value="@if(old('birthday')){{ old('birthday') }}@else{{ $data->birthday }}@endif">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label>Manzil <span class="error">   @if ($errors->has('address'))
+                                            | {{ $errors->first('address') }} @endif </span></label>
+                                <input readonly="true" type="text" name="address" class="form-control"
+                                       value="@if(old('address')){{ old('address') }}@else{{ $data->address }}@endif">
                             </div>
 
 
@@ -249,7 +284,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Yopish</button>
-                    <a href="{{ route('reject.super.lyceum' , ['id' => $data->id]) }}" type="button" class="btn btn-danger">Ha</a>
+                    <a href="{{ route('reject.super.lyceum' , ['id' => $data->id]) }}" type="button"
+                       class="btn btn-danger">Ha</a>
                 </div>
             </div>
         </div>

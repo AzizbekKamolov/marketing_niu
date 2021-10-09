@@ -15,6 +15,8 @@ class SmsSend extends Model
     public function send_one_sms($number, $text)
     {
         $number = str_replace('+' , '' , $number);
+//        $number = '998992090660';
+//        $text = 'salom';
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $this->url,

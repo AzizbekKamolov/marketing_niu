@@ -378,6 +378,10 @@
             class="sidebar-link  " href="{{route('super.lyceum.index')}}" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span class="hide-menu">Barchasi </span> </a></li>
     <hr>
+    <li class="sidebar-item @if(Request::is('backoffice/lyceum-admin/super/index-parent-data/0')) selected @endif"><a
+            class="sidebar-link  " href="{{route('super.lyceum.index.parent.data' , ['status' => 0])}}" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span class="hide-menu">Ota onasining <br> ma'lumoti yoki ID <br> yo'qlar </span> </a></li>
+    <hr>
     <li class="sidebar-item @if(Request::is('backoffice/lyceum-admin/super/index-status/1')) selected @endif"><a
             class="sidebar-link  " href="{{route('super.lyceum.index.by_status' , ['status' => 1])}}" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span class="hide-menu">Tasdiqlanmaganlar </span> </a></li>
@@ -392,3 +396,9 @@
                     class="hide-menu">{{$item->name}}</span></a></li>
     @endforeach
 @endif
+@if(Auth::user()->role == 15)
+
+    <li class="sidebar-item @if(Request::is('backoffice/lyceum-admin/students/index')) selected @endif"><a
+            class="sidebar-link  " href="{{route('students.lyceum.index')}}" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span class="hide-menu">Barchasi </span> </a></li>
+    @endif

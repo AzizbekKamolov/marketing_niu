@@ -319,11 +319,10 @@
                     2.2.5. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
                     talabalar safiga qabul qilish.
                 </p>
-                 <p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     2.2.6. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
-                    2021/2022 o`quv yili uchun belgilangan stipendiyasiz bazaviy to`lov-kontrakt miqdoriga 10 foiz
-                    chegirma beradi
+                    2021/2022 o`quv yili uchun belgilangan to`lov-kontrakt miqdoriga 10 foiz chegirma beradi.
                 </p>
 
             </div>
@@ -422,26 +421,23 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o‘quv yilida sirtqi ta’lim olish uchun Talaba tomonidan to‘lanishi lozim bo‘lgan
-                    to’lov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}}) so‘mni tashkil etadi va
-                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
-                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o‘quv yilida stipendiyasiz shaklda ta’lim olish uchun Talaba tomonidan to‘lanishi
+                    lozim bo‘lgan to’lov summasi <b>{{$student->all_summa}}</b>
+                    ({{$student->all_summa_word}}) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan
+                    tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng kam miqdori o’zgarishi bilan mos
+                    ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b> ( {{$student->part1_summa_word}} )
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -{{$student->part_four_1_summa}} so‘m;
-                    <br>1-yanvargacha -{{$student->part_four_2_summa}} so‘m.
+                    3.2. Talaba o’quv yilining birinchi yarmi uchun <b>{{$student->part1_summa}}</b>
+                    ({{$student->part1_summa_word}}) so‘mni 2021 yilning 1 noyabrgacha to‘laydi.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b> ( {{$student->part2_summa_word}}
-                    ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -{{$student->part_four_3_summa}} so‘m;
-                    <br>1-iyulgacha -{{$student->part_four_4_summa}} so‘m.
+                    3.3. Talaba o’quv yilining ikkinchi yarmi uchun <b>{{$student->part2_summa}}</b>
+                    ({{$student->part2_summa_word}}) so‘mni 2022 yilning 1 martgacha to‘laydi.
 
 
                 </p>

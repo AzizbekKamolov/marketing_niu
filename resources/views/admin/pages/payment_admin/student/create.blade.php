@@ -147,6 +147,8 @@
                                                 </option>
                                                 <option @if(old('type_degree') == 2) selected @endif value="2">Magistr
                                                 </option>
+                                                <option @if(old('type_degree') == 3) selected @endif value="3">Sirtqi
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">

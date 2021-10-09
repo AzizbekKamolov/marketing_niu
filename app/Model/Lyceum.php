@@ -8,7 +8,7 @@ use Test\User;
 class Lyceum extends Model
 {
     protected $table='kollej_shartnoma';
-    
+
 
     public function fio(){
         $fio = $this->last_name." ".$this->first_name." ".$this->middle_name;
@@ -26,6 +26,9 @@ class Lyceum extends Model
             return "Chetlatilgan";
         }
     }
+    public function amount(){
+        return $this->belongsTo(LyceumAmount::class , 'amount_id' , 'id');
+    }
 
-    
+
 }

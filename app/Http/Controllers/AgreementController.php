@@ -32,34 +32,34 @@ class AgreementController extends Controller
         if ($payment_student) {
             if ($payment_student->passport_seria == $request->passport_seria) {
                 if ($payment_student->passport_number == $request->passport_number) {
-                    if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
+//                    if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
 //                        return
 //                        return $payment_student;
-                        $agreement_type_ids = StudentTypeAgreementType::where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
-                        $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
+                    $agreement_type_ids = StudentTypeAgreementType::where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
+                    $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
 
-                        $getting = GettingAgreement::where('student_id', $payment_student->id)->where('status', 1)->first();
+                    $getting = GettingAgreement::where('student_id', $payment_student->id)->where('status', 1)->first();
 //                        if ($getting) {
 //                            return $getting;
 //                        }
-                        $agreement_types = AgreementType::where(function ($query) use ($getting) {
-                            if ($getting) {
-                                $query->where('id', $getting->agreement_type_id);
-                            }
-                        })->whereIn('id', $agreement_type_ids)->get();
-                        $agreement_side_types = AgreementSideType::where(function ($query) use ($getting) {
-                            if ($getting) {
-                                $query->where('id', $getting->agreement_side_type_id);
-                            }
-                        })->whereIn('id', $agreement_side_type_ids)->get();
-                        return view('student.agreement.data_info', [
-                            'data' => $payment_student,
-                            'agreement_types' => $agreement_types,
-                            'agreement_side_types' => $agreement_side_types
-                        ]);
-                    } else {
-                        return redirect()->back()->with('error', "tugilgan kun  xato");
-                    }
+                    $agreement_types = AgreementType::where(function ($query) use ($getting) {
+                        if ($getting) {
+                            $query->where('id', $getting->agreement_type_id);
+                        }
+                    })->whereIn('id', $agreement_type_ids)->get();
+                    $agreement_side_types = AgreementSideType::where(function ($query) use ($getting) {
+                        if ($getting) {
+                            $query->where('id', $getting->agreement_side_type_id);
+                        }
+                    })->whereIn('id', $agreement_side_type_ids)->get();
+                    return view('student.agreement.data_info', [
+                        'data' => $payment_student,
+                        'agreement_types' => $agreement_types,
+                        'agreement_side_types' => $agreement_side_types
+                    ]);
+//                    } else {
+//                        return redirect()->back()->with('error', "tugilgan kun  xato");
+//                    }
                 } else {
                     return redirect()->back()->with('error', "pasprot nomer xato");
                 }
@@ -179,9 +179,62 @@ class AgreementController extends Controller
             if ($student->parent_pass_seria == $request->parent_pass_seria) {
                 if ($student->parent_pass_number == $request->parent_pass_number) {
                     if ($student->birthday == date('Y-m-d', strtotime($request->birthday))) {
-                        return view('student.agreement_lyceum.show_agreement', [
-                            'data' => $student
-                        ]);
+                        $amount = $student->amount;
+                        $all_summa = $amount->price;
+                        $part1_summa = '';
+                        $part2_summa = '';
+                        $part_four_1_summa = '';
+                        $part_four_2_summa = '';
+                        $part_four_3_summa = '';
+                        $part_four_4_summa = '';
+                        if ($all_summa % 2 == 0) {
+                            $part1_summa = $all_summa / 2;
+                            $part2_summa = $all_summa / 2;
+                        } else {
+                            $part1_summa = ($all_summa - 1) / 2;
+                            $part2_summa = ($all_summa - 1) / 2 + 1;
+                        }
+                        if ($part1_summa % 2 == 0) {
+                            $part_four_1_summa = $part1_summa / 2;
+                            $part_four_2_summa = $part1_summa / 2;
+                        } else {
+                            $part_four_1_summa = ($part1_summa - 1) / 2;
+                            $part_four_2_summa = ($part1_summa - 1) / 2 + 1;
+                        }
+                        if ($part2_summa % 2 == 0) {
+                            $part_four_3_summa = $part2_summa / 2;
+                            $part_four_4_summa = $part2_summa / 2;
+                        } else {
+                            $part_four_3_summa = ($part2_summa - 1) / 2;
+                            $part_four_4_summa = ($part2_summa - 1) / 2 + 1;
+                        }
+                        $convert_to_word = new AmountConvertToWord();
+                        $all_summa_word = $convert_to_word->convert_to_word_cyril($all_summa);
+                        $part1_summa_word = $convert_to_word->convert_to_word_cyril($part1_summa);
+                        $part2_summa_word = $convert_to_word->convert_to_word_cyril($part2_summa);
+                        $student->all_summa = number_format($all_summa);
+                        $student->part2_summa = number_format($part2_summa);
+                        $student->part1_summa = number_format($part1_summa);
+                        $student->all_summa_word = $all_summa_word;
+                        $student->part1_summa_word = $part1_summa_word;
+                        $student->part2_summa_word = $part2_summa_word;
+                        $student->part_four_1_summa = number_format($part_four_1_summa);
+                        $student->part_four_2_summa = number_format($part_four_2_summa);
+                        $student->part_four_3_summa = number_format($part_four_3_summa);
+                        $student->part_four_4_summa = number_format($part_four_4_summa);
+                        $student->times = $amount->times;
+                        if ($amount->type == 'simple') {
+                            return view('student.agreement_lyceum.show_agreement', [
+                                'data' => $student,
+                                'amount' => $amount
+                            ]);
+                        } elseif ($amount->type == 'super') {
+                            return view('student.agreement_lyceum.show_agreement_super', [
+                                'data' => $student,
+                                'amount' => $amount
+                            ]);
+                        }
+
                     } else {
                         return redirect()->back()->with('info_error', 'Tug`ilgan sana noto`g`ri')->withInput();
                     }
@@ -209,7 +262,55 @@ class AgreementController extends Controller
                 $ly->update();
 
             }
-            return PDF::loadView('student.agreement_lyceum.agreement_pdf', ['data' => $ly])->download($ly->fio() . '.pdf');
+            $amount = $ly->amount;
+            $all_summa = $amount->price;
+            $part1_summa = '';
+            $part2_summa = '';
+            $part_four_1_summa = '';
+            $part_four_2_summa = '';
+            $part_four_3_summa = '';
+            $part_four_4_summa = '';
+            if ($all_summa % 2 == 0) {
+                $part1_summa = $all_summa / 2;
+                $part2_summa = $all_summa / 2;
+            } else {
+                $part1_summa = ($all_summa - 1) / 2;
+                $part2_summa = ($all_summa - 1) / 2 + 1;
+            }
+            if ($part1_summa % 2 == 0) {
+                $part_four_1_summa = $part1_summa / 2;
+                $part_four_2_summa = $part1_summa / 2;
+            } else {
+                $part_four_1_summa = ($part1_summa - 1) / 2;
+                $part_four_2_summa = ($part1_summa - 1) / 2 + 1;
+            }
+            if ($part2_summa % 2 == 0) {
+                $part_four_3_summa = $part2_summa / 2;
+                $part_four_4_summa = $part2_summa / 2;
+            } else {
+                $part_four_3_summa = ($part2_summa - 1) / 2;
+                $part_four_4_summa = ($part2_summa - 1) / 2 + 1;
+            }
+            $convert_to_word = new AmountConvertToWord();
+            $all_summa_word = $convert_to_word->convert_to_word_cyril($all_summa);
+            $part1_summa_word = $convert_to_word->convert_to_word_cyril($part1_summa);
+            $part2_summa_word = $convert_to_word->convert_to_word_cyril($part2_summa);
+            $ly->all_summa = number_format($all_summa);
+            $ly->part2_summa = number_format($part2_summa);
+            $ly->part1_summa = number_format($part1_summa);
+            $ly->all_summa_word = $all_summa_word;
+            $ly->part1_summa_word = $part1_summa_word;
+            $ly->part2_summa_word = $part2_summa_word;
+            $ly->part_four_1_summa = number_format($part_four_1_summa);
+            $ly->part_four_2_summa = number_format($part_four_2_summa);
+            $ly->part_four_3_summa = number_format($part_four_3_summa);
+            $ly->part_four_4_summa = number_format($part_four_4_summa);
+            $ly->times = $amount->times;
+            if ($amount->type == 'simple') {
+                return PDF::loadView('student.agreement_lyceum.agreement_pdf', ['data' => $ly])->download($ly->fio() . '.pdf');
+            } elseif ($amount->type == 'super') {
+                return PDF::loadView('student.agreement_lyceum.agreement_pdf_super', ['data' => $ly])->download($ly->fio() . '.pdf');
+            }
         }
     }
 
@@ -313,15 +414,15 @@ class AgreementController extends Controller
                         $part_four_1_summa = $part1_summa / 2;
                         $part_four_2_summa = $part1_summa / 2;
                     } else {
-                        $part_four_1_summa = ($part1_summa-1) / 2;
-                        $part_four_2_summa = ($part1_summa-1) / 2 + 1;
+                        $part_four_1_summa = ($part1_summa - 1) / 2;
+                        $part_four_2_summa = ($part1_summa - 1) / 2 + 1;
                     }
                     if ($part2_summa % 2 == 0) {
                         $part_four_3_summa = $part2_summa / 2;
                         $part_four_4_summa = $part2_summa / 2;
                     } else {
-                        $part_four_3_summa = ($part2_summa-1) / 2;
-                        $part_four_4_summa = ($part2_summa-1) / 2 + 1;
+                        $part_four_3_summa = ($part2_summa - 1) / 2;
+                        $part_four_4_summa = ($part2_summa - 1) / 2 + 1;
                     }
                     $convert_to_word = new AmountConvertToWord();
                     $all_summa_word = $convert_to_word->convert_to_word($all_summa);
@@ -452,15 +553,15 @@ class AgreementController extends Controller
                         $part_four_1_summa = $part1_summa / 2;
                         $part_four_2_summa = $part1_summa / 2;
                     } else {
-                        $part_four_1_summa = ($part1_summa-1) / 2;
-                        $part_four_2_summa = ($part1_summa-1) / 2 + 1;
+                        $part_four_1_summa = ($part1_summa - 1) / 2;
+                        $part_four_2_summa = ($part1_summa - 1) / 2 + 1;
                     }
                     if ($part2_summa % 2 == 0) {
                         $part_four_3_summa = $part2_summa / 2;
                         $part_four_4_summa = $part2_summa / 2;
                     } else {
-                        $part_four_3_summa = ($part2_summa-1) / 2;
-                        $part_four_4_summa = ($part2_summa-1) / 2 + 1;
+                        $part_four_3_summa = ($part2_summa - 1) / 2;
+                        $part_four_4_summa = ($part2_summa - 1) / 2 + 1;
                     }
                     $convert_to_word = new AmountConvertToWord();
                     $all_summa_word = $convert_to_word->convert_to_word($all_summa);
@@ -511,9 +612,9 @@ class AgreementController extends Controller
                         }
                     } else {
                         if ($type->edu_place == 'sirtqi') {
-                             $ended = 2022+5-$student->course;
-                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-'.$ended.' , SIRTQI';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
+                            $ended = 2022 + 5 - $student->course;
+                            $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' , SIRTQI';
+                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                             return PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
@@ -523,9 +624,9 @@ class AgreementController extends Controller
                             ])->download($student->fio() . '.pdf');
                         } else {
                             if ($student->type_student == 1) {
-                                 $ended = 2022+4-$student->course;
-                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-'.$ended.' ,KUNDUZGI BAKALAVR';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
+                                $ended = 2022 + 4 - $student->course;
+                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
@@ -541,8 +642,8 @@ class AgreementController extends Controller
 //                                    'agreement_side_type' => $agreement_side_type,
 //                                    'getting_date' => $getting_date
 //                                ]);
-                                $qr_string = 'Toshkent davlat yuridik universiteti , '.$student->course.'-kurs , '.$student->fio().','.'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv ('latin1' , 'utf-8' , $qr_string)));
+                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,

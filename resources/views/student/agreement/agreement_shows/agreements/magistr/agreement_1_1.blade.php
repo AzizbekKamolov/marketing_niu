@@ -204,8 +204,8 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
-                    Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Islombek Rustambekovich bir tomondan, va @if($student->birthday) <b>{{$student->birthday}}</b> yilda
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar),Talabani magistratura davomida o‘qitish maqsadida mazkur ikki tomonlama stipendiyali
                     kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta maxsus, kasb-hunar ta’limi muassasalarida
                     o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni taqsimlash tartibi to‘g‘risidagi

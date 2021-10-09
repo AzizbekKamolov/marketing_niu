@@ -151,12 +151,18 @@ Route::group([
 
 
     Route::get('/lyceum-admin/super/index', 'LyceumSuperController@super_index')->name('super.lyceum.index');
+    Route::get('/lyceum-admin/super/index-parent-data/{status}', 'LyceumSuperController@super_index_parent_data')->name('super.lyceum.index.parent.data');
     Route::get('/lyceum-admin/super/index-status/{status}', 'LyceumSuperController@super_index_by_status')->name('super.lyceum.index.by_status');
     Route::get('/lyceum-admin/super/index-amount/{amount}', 'LyceumSuperController@super_index_by_amount')->name('super.lyceum.index.by_amount');
     Route::get('/lyceum-admin/super/show/{id}', 'LyceumSuperController@super_show')->name('super.lyceum.show');
     Route::get('/lyceum-admin/super/edit/{id}', 'LyceumSuperController@super_edit')->name('super.lyceum.edit');
+    Route::get('/lyceum-admin/super/edit-parent-data/{id}', 'LyceumSuperController@edit_parent_data')->name('super.lyceum.edit_parent_data');
+    Route::put('/lyceum-admin/super/update-parent-data/{id}', 'LyceumSuperController@update_parent_data')->name('super.lyceum.update.parent.data');
     Route::post('/lyceum-admin/super/accept', 'LyceumSuperController@lyceum_accept')->name('lyceum.accept');
     Route::get('/lyceum-admin/super/reject/{id}', 'LyceumSuperController@reject_super_lyceum')->name('reject.super.lyceum');
+
+    Route::get('/lyceum-admin/students/index', 'LyceumSuperController@students_index')->name('students.lyceum.index');
+    Route::get('/lyceum-admin/students/show/{id}', 'LyceumSuperController@students_show')->name('students.lyceum.show');
 });
 
 Auth::routes();
@@ -208,11 +214,11 @@ Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_appl
 
 
 Route::get('/schot', function () {
-//    $user = new \Test\User();
-//    $user->name = 'Litsey';
-//    $user->username = 'lyceum_super';
-//    $user->password = \Illuminate\Support\Facades\Hash::make('tsul_lyceum_456');
-//    $user->role = 14;
-//    $user->save();
+//    $new_user = new \Test\User();
+//    $new_user->name = 'Lyceum students';
+//    $new_user->username = 'lyceum_students';
+//    $new_user->password = \Illuminate\Support\Facades\Hash::make('tsul_lyceum_4141');
+//    $new_user->role = 15;
+//    $new_user->save();
 });
 

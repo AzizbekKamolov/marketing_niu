@@ -211,7 +211,8 @@ class StudentController extends Controller
                                 $new_student->passport_seria = $super->passport_serial;
                                 $new_student->passport_number = $super->passport_number;
                                 $new_student->passport_jshir = $super->passport_jshshir;
-                                $new_student->course = 1;
+                                $new_student->course = $super->course;
+                                $new_student->comment = $super->comment;
                                 $new_student->chechked = 1;
                                 $new_student->status_check = 1;
                                 $new_student->phone = $phone;
@@ -219,11 +220,13 @@ class StudentController extends Controller
                                 $new_student->lang = $super->lang;
                                 $new_student->gender = $super->gender;
                                 $new_student->ball = $super->ball;
+                                $new_student->super_id = $super->id;
                                 $new_student->save();
                                 $super->status = 3;
                                 $super->update();
                                 $send_sms = new SmsSend();
-                                $text = $new_student->fio() . ' sizning marketing.tsul.uz tizimidan shartnoma olish uchun berilgan id-kodingiz: ' . $new_student->id_code . PHP_EOL . '. Tizimda "To`lov shartnomasi" bo`limidan o`z pasport ma`lumotlaringizni kiritgan holda shartnomangizni olishingiz mumkin"';
+                                $text = $new_student->fio() . ' sizning marketing.tsul.uz tizimidan shartnoma olish uchun berilgan id-kodingiz: ' . $new_student->id_code . '. Tizimda To`lov shartnomasi bo`limidan o`z pasport ma`lumotlaringizni kiritgan holda shartnomangizni olishingiz mumkin';
+//                                $text = 'hello world';
                                 if ($new_student->phone) {
                                     $send_sms->send_one_sms($new_student->phone, $text);
                                     $new_student->sms_sended = 1;

@@ -180,11 +180,11 @@
             </td>
             <td>сум</td>
             <td>1</td>
-            <td > <div class="verticalText">{{$summa ? $summa :''}}</div></td>
+            <td > <div class="verticalText">{{$student->all_summa}}</div></td>
             <td></td>
             <td colspan="2">АКЦИЗ СОЛИҒИСИЗ</td>
             <td colspan="2">ҚҚСсиз</td>
-            <td> <div class="verticalText"> {{$summa ? $summa :''}} </div></td>
+            <td> <div class="verticalText"> {{$student->all_summa}} </div></td>
         </tr>
         <tr>
             <td>Жами тўлов</td>
@@ -200,6 +200,6 @@
     </table>
 </div>
 <div style="width: 100%; padding-top: 30px">
-    <span style="position: absolute; z-index: 1; margin-left: 200px; ">{{$summa_word ? $summa_word:'' }}</span>
+    <span style="position: absolute; z-index: 1; margin-left: 200px; ">{{$student->all_summa_word}}</span>
         <img src="{{asset('files/pechat/schot/pechat1.png')}}" style="width: 100%;margin-top: 5px" alt="">
 </div>
