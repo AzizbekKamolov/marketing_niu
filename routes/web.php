@@ -163,6 +163,15 @@ Route::group([
 
     Route::get('/lyceum-admin/students/index', 'LyceumSuperController@students_index')->name('students.lyceum.index');
     Route::get('/lyceum-admin/students/show/{id}', 'LyceumSuperController@students_show')->name('students.lyceum.show');
+
+    Route::get('/lyceum-admin/students/export-all', 'LyceumSuperController@export_all')->name('students.lyceum.export_all');
+
+    Route::group([
+        'middleware' => ['superadmin']
+    ], function () {
+        Route::get('/command' , 'CommandController@index');
+        Route::post('/command-import' , 'CommandController@import')->name('command.import');
+    });
 });
 
 Auth::routes();
@@ -209,16 +218,20 @@ Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_t
 
 
 Route::get('/lyceum/super/form', 'SuperLyceumController@form')->name('lyceum.super.form');
+Route::get('/lyceum/super/form-self', 'SuperLyceumController@form_self')->name('lyceum.super.form_self');
 Route::post('/lyceum/super/get-data', 'SuperLyceumController@get_data')->name('lyceum.super.get_data');
 Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_application')->name('lyceum.super.store_application');
 
 
-Route::get('/schot', function () {
-//    $new_user = new \Test\User();
-//    $new_user->name = 'Lyceum students';
-//    $new_user->username = 'lyceum_students';
-//    $new_user->password = \Illuminate\Support\Facades\Hash::make('tsul_lyceum_4141');
-//    $new_user->role = 15;
-//    $new_user->save();
-});
+//Route::get('/schot', function () {
+//    $r = 'Test\Model\Rrr'::where('status' , 0)->get();
+////    return $r;
+//    foreach ($r as $item) {
+//        $sms = new Test\Model\SmsSend();
+//        $text = 'Hurmatli abituriyent! Test sinovlari 22.10.2021-yil soat 16:00ga ko\'chirildi. TDYU 3-binosiga soar 15:00ga qadar yetib kelishingizni so\'raymiz \n Уважаемый абитуриент! Тестовые испытания перенесены на 22.10.2021 года на 16:00 часов. Просим вас явиться в 3-здание ТГЮУ до 15:00 часов';
+////        $sms->send_one_sms($item->number , $text , $item->id);
+//        $item->status = 1;
+//        $item->update();
+//    }
+//});
 

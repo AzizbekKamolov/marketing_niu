@@ -233,7 +233,7 @@
                     <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;ikkinchi tomondan,</div>
                 </div>
                 <span style="font-size: 11px; text-align:center; display: block;"> (rahbarning familiyasi, ismi, sharifi, lavozimi)</span>
-                va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
+                va @if($student->birthday) b>{{$student->birthday}}</b> yilda tug’ilgan @endif <b>{{$student->fio()}}</b>
                 (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya” ta’lim
                 yo’nalishi bo’yicha Talabani sirtqi bakalavriat <b>{{$student->course}}</b> kurs davomida o’qitish
                 maqsadida mazkur ikki

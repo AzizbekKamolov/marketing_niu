@@ -36,7 +36,7 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="{{ route('student.agreement.lyceum_form') }}">Litsey shartnoma
+              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="{{ route('student.agreement.lyceum_form') }}">Akademik litseylar uchun To`lov shartnomasi
               </a>
             </li>
             <li class="nav-item">

@@ -117,6 +117,9 @@
     <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/super-magister" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Superkontraktlar <br> (magister)</span></a></li>
+    <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/command" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span
+                class="hide-menu">Buyruq chiqqanlar</span></a></li>
 @endif
 
 @if(Auth::user()->role == 5)

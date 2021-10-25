@@ -98,7 +98,7 @@
                                          alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour"> Litsey shartnoma</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center"> Akademik litseylar uchun To`lov shartnomasi </h5>
                                 </div>
                             </div>
                         </a>

@@ -209,7 +209,7 @@ class AmountConvertToWord extends Model
             $onlar = $bb % 10;
             $bb = $bb / 10;
             $yuzlar = $bb % 10;
-            $text = $ar_son[$yuzlar] . ' yuz ' . $ar_on[$onlar] . ' ' . $ar_son[$birlar];
+            $text = $ar_son[$yuzlar] . ' юз ' . $ar_on[$onlar] . ' ' . $ar_son[$birlar];
         } elseif ($yuz < 100 && $yuz > 9) {
             $birlar = $yuz % 10;
             $bb = $yuz / 10;

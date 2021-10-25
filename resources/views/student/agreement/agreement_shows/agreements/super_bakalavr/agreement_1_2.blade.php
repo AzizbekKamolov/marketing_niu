@@ -186,7 +186,7 @@
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
                     ikki tomonlama tabaqalashtirilgan KONTRAKT
-                    (stipendiyasiz shaklda, 1-kurslar uchun)
+                    (stipendiyasiz shaklda, {{$student->course}}-kurslar uchun)
 
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>

@@ -75,4 +75,8 @@ class StudentPayment extends Model
         }
     }
 
+    public function direction(){
+        return $this->belongsTo(Direction::class , 'dir' , 'id');
+    }
+
 }

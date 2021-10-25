@@ -381,6 +381,7 @@
                 });
 
             });
+            $('#datatable').DataTable();
         </script>
 
     <?php echo $__env->yieldContent('js'); ?>

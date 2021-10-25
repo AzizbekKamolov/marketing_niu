@@ -39,9 +39,10 @@
                                 <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                                       <div>
                                           <h4 class="card-title">Qo'shimcha to'lov (superkontrakt) </h4>
-
                                       </div>
-
+                                    <div>
+                                          <a href="{{route('students.lyceum.export_all')}}" class="btn btn-success"><i class="fa fa-file-o-xls"></i> Excel </a>
+                                      </div>
                                 </div>
 
                              {{--    <div class="row " style="display: flex; justify-content: space-around;">

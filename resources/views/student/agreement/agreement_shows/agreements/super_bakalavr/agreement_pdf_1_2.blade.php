@@ -188,7 +188,7 @@
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
                     ikki tomonlama tabaqalashtirilgan KONTRAKT
-                    (stipendiyasiz shaklda, 1-kurslar uchun)
+                    (stipendiyasiz shaklda, {{$student->course}}-kurslar uchun)
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -206,8 +206,8 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
-                    Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Islombek Rustambekovich bir tomondan, va @if($student->birthday) <b>{{$student->birthday}}</b> yilda
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar),“Yurisprudensiya” ta’lim yo‘nalishi bo‘yicha Talabani bakalavriat
                     <b>{{$student->course}}</b>-kurs davomida o‘qitish
                     maqsadida mazkur ikki tomonlama kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta maxsus,

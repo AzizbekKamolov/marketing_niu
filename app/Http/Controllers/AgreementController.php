@@ -254,6 +254,7 @@ class AgreementController extends Controller
 
     public function lyceum_pdf_agreement(Request $request)
     {
+//        return "d";
         $ly = Lyceum::where('id_code', $request->id_code)->first();
         if ($ly) {
             // return view('site.shartnoma.shartnoma_lyceum_pdf' , ['data' => $ly]);
@@ -586,27 +587,38 @@ class AgreementController extends Controller
                     $student->part_four_4_summa = number_format($part_four_4_summa);
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
+                            $ended = 2022 + 5 - $student->course;
+                            $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' , SIRTQI';
+                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                             return PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
-                                'getting_date' => $getting_date
+                                'getting_date' => $getting_date,
+                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
                         } else {
                             if ($student->type_student == 1) {
+                                $ended = 2022 + 4 - $student->course;
+                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
+                                    'getting_date' => $getting_date,
+                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                             }
                             if ($student->type_student == 2) {
+                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
+                                    'getting_date' => $getting_date,
+                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                             }
                         }
@@ -636,12 +648,6 @@ class AgreementController extends Controller
                                 ])->download($student->fio() . '.pdf');
                             }
                             if ($student->type_student == 2) {
-//                                return view('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-//                                    'student' => $student,
-//                                    'agreement_type' => $agreement_type,
-//                                    'agreement_side_type' => $agreement_side_type,
-//                                    'getting_date' => $getting_date
-//                                ]);
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
                                 $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 return PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [

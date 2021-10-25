@@ -18,24 +18,30 @@ use Test\Model\Attendance;
 use Test\Model\SuperLyceum;
 use Test\Model\LyceumAmount;
 use PDF;
+use Test\Exports\LyceumExportAll;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class LyceumSuperController extends Controller
 {
-    public function students_index(){
+    public function students_index()
+    {
         $students = Lyceum::with('amount')->get();
         return view('admin.pages.lyceum_students.index', [
             'data' => $students
         ]);
         return $students;
     }
-    public function students_show($id){
+
+    public function students_show($id)
+    {
         $students = Lyceum::with('amount')->find($id);
         return view('admin.pages.lyceum_students.show', [
             'data' => $students
         ]);
 //        return $students;
     }
+
     public function super_index()
     {
         $students = SuperLyceum::all();
@@ -79,7 +85,11 @@ class LyceumSuperController extends Controller
             $student->amount_id = $amount->id;
             $student->update();
             if ($student->parent_name && $student->parent_pass_seria && $student->parent_pass_number && $student->address && $student->birthday && $student->id_code_marketing) {
-                $new_l = new Lyceum();
+                if (Lyceum::where('id_code', $student->id_code_marketing)->exists()) {
+                    $new_l = Lyceum::where('id_code', $student->id_code_marketing)->first();
+                } else {
+                    $new_l = new Lyceum();
+                }
                 $new_l->last_name = $student->last_name;
                 $new_l->first_name = $student->first_name;
                 $new_l->middle_name = $student->middle_name;
@@ -146,7 +156,11 @@ class LyceumSuperController extends Controller
             $student->id_code_marketing = $request->id_code_marketing;
             $student->update();
             if ($request->id_code_marketing && $student->status == 2) {
-                $new_l = new Lyceum();
+                if (Lyceum::where('id_code', $student->id_code_marketing)->exists()) {
+                    $new_l = Lyceum::where('id_code', $student->id_code_marketing)->first();
+                } else {
+                    $new_l = new Lyceum();
+                }
                 $new_l->last_name = $student->last_name;
                 $new_l->first_name = $student->first_name;
                 $new_l->middle_name = $student->middle_name;
@@ -163,5 +177,10 @@ class LyceumSuperController extends Controller
             }
         }
         return redirect()->back()->with('success', 'Malumot saqlandi');
+    }
+
+    public function export_all()
+    {
+        return Excel::download(new LyceumExportAll, 'lyceum_super_all.xlsx');
     }
 }

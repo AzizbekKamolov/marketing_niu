@@ -188,7 +188,7 @@
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
                     ikki tomonlama tabaqalashtirilgan KONTRAKT
-                    (sirtqi ta’lim shaklda, {{$student->course}} - kurslar uchun)
+                    (magistratura kunduzgi uchun)
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -206,8 +206,8 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi Rektor vazifasini vaqtincha bajaruvchi Rustambekov
-                    Islombek Rustambekovich bir tomondan, va <b>{{$student->birthday}}</b> yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Islombek Rustambekovich bir tomondan, va @if($student->birthday) <b>{{$student->birthday}}</b> yilda
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi o‘rinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar),Talabani magistratura davomida o‘qitish maqsadida mazkur ikki tomonlama stipendiyasiz
                     kontraktni (keyingi o‘rinlarda – Kontrakt) Oliy va o‘rta maxsus, kasb-hunar ta’limi muassasalarida
                     o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni taqsimlash tartibi to‘g‘risidagi
@@ -215,6 +215,7 @@
                     967-son, 2021 yil
                     10 iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti rektorining 2021 yil
                     13 sentyabrdagi 02- 253-son buyrug‘i,:
+
 
                 </p>
             </div>

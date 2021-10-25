@@ -117,6 +117,9 @@
     <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/super-magister" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Superkontraktlar <br> (magister)</span></a></li>
+    <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/command" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span
+                class="hide-menu">Buyruq chiqqanlar</span></a></li>
 <?php endif; ?>
 
 <?php if(Auth::user()->role == 5): ?>
@@ -378,6 +381,10 @@
             class="sidebar-link  " href="<?php echo e(route('super.lyceum.index')); ?>" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span class="hide-menu">Barchasi </span> </a></li>
     <hr>
+    <li class="sidebar-item <?php if(Request::is('backoffice/lyceum-admin/super/index-parent-data/0')): ?> selected <?php endif; ?>"><a
+            class="sidebar-link  " href="<?php echo e(route('super.lyceum.index.parent.data' , ['status' => 0])); ?>" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span class="hide-menu">Ota onasining <br> ma'lumoti yoki ID <br> yo'qlar </span> </a></li>
+    <hr>
     <li class="sidebar-item <?php if(Request::is('backoffice/lyceum-admin/super/index-status/1')): ?> selected <?php endif; ?>"><a
             class="sidebar-link  " href="<?php echo e(route('super.lyceum.index.by_status' , ['status' => 1])); ?>" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span class="hide-menu">Tasdiqlanmaganlar </span> </a></li>
@@ -392,3 +399,9 @@
                     class="hide-menu"><?php echo e($item->name); ?></span></a></li>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
+<?php if(Auth::user()->role == 15): ?>
+
+    <li class="sidebar-item <?php if(Request::is('backoffice/lyceum-admin/students/index')): ?> selected <?php endif; ?>"><a
+            class="sidebar-link  " href="<?php echo e(route('students.lyceum.index')); ?>" aria-expanded="false"><i
+                data-feather="tag" class="feather-icon"></i><span class="hide-menu">Barchasi </span> </a></li>
+    <?php endif; ?>
