@@ -200,7 +200,7 @@
             {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
             {{--                <span>Toshkent shahri</span>--}}
             {{--            </div>--}}
-            <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
+             <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
             <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>

@@ -17,6 +17,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto my-2  my-lg-0">
             <li class="nav-item">
+              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.join_training.form')); ?>">To'lov shartnomasi (Qo'shma ta'lim uchun) </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.form')); ?>">To'lov shartnomasi (talabalar
                 uchun) </a>
             </li>

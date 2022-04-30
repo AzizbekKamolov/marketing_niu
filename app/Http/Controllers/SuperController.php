@@ -70,6 +70,9 @@ class SuperController extends Controller
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
             $super->type = $result->type;
+//            if ($result->type == 2){
+                $super->comment = 'simple_magistr';
+//            }
             $super->passport_serial = $result->passport_serial;
             $super->passport_number = $result->passport_number;
             $super->birthday = $result->birthday;
@@ -91,7 +94,10 @@ class SuperController extends Controller
             $super->course = $result->course;
             $super->description = $result->description;
             $super->status = 1;
+//            return $super;
             $super->save();
+            $super->comment = 'simple_magistr';
+            $super->update();
             $pdf = PDF::loadView('site.super.ariza_pdf' , [
                 'data' => $super,
             ]);
@@ -146,15 +152,14 @@ class SuperController extends Controller
 
 
         if ($result){
-
+            if ($result->type != 2){
+                return "Ariza qoldirish muddati tugagan";
+            }
                 $data = Result::find($result->id);
                 return view('site.super.check',[
 
                     'data'=>$data
                 ]);
-
-
-
         }
 
         else

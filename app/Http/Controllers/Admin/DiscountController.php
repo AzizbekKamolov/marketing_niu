@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Test\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Test\Model\Discount;
+use Test\Model\StudentPayment;
 use PDF;
 
 
@@ -23,13 +24,18 @@ class DiscountController extends Controller
     }
     public function store(Request $request){
         $disc = new Discount();
-        $disc->student_id = $request->student_id;
-        $disc->type_agreement = $request->type;
-        $disc->agreement_id = $request->agreement_id;
-        $disc->percent = $request->percent;
-        $disc->student_id = $request->student_id;
-        $disc->description = $request->description;
-        $disc->save();
+        $student = StudentPayment::find($request->student_id);
+        if($student){
+              $disc->student_id = $request->student_id;
+              $disc->id_code = $student->id_code;
+                $disc->type_agreement = $request->type;
+                $disc->agreement_id = $request->agreement_id;
+                $disc->percent = $request->percent;
+                $disc->student_id = $request->student_id;
+                $disc->description = $request->description;
+                $disc->save();
+        }
+
         return redirect()->back()->with('success' , 'Ma`lumot saqlandi');
 //        return $request;
     }

@@ -434,7 +434,7 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.2. Talaba o’quv yilining birinchi yarmi uchun <b>{{$student->part1_summa}}</b>
-                    ({{$student->part1_summa_word}}) so‘mni 2021 yilning 1 noyabrgacha to‘laydi.
+                    ({{$student->part1_summa_word}}) so‘mni 2021 yilning 20 noyabrgacha to‘laydi.
 
 
                 </p>

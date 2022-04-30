@@ -194,12 +194,6 @@
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
             </div>
             <div class="col-md-3"></div>
-            {{--            <div style="display: inline-block; width: 49%" class="">--}}
-            {{--                <span>2021 yil “{{$day}}” {{$month}}</span>--}}
-            {{--            </div>--}}
-            {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
-            {{--                <span>Toshkent shahri</span>--}}
-            {{--            </div>--}}
             <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
             <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
@@ -214,9 +208,6 @@
                     <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp; (keyingi o’rinlarda – Tashkilot)</div>
                 </div>
                 <span style="font-size: 11px; text-align:center; display: block;">(yuridik shaxsning nomi)</span>
-{{--                ________________________________________________________________________________--}}
-{{--                (yuridik shaxsning nomi)--}}
-
                 <div style="padding: 0; margin: 0;  width: 100%;">
                     <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>
                     <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
@@ -225,12 +216,11 @@
                 <span style="font-size: 11px; text-align:center; display: block;"> (vakolat beruvchi hujjat turi)</span>
 
                  <div style="padding: 0; margin: 0;  width: 100%;">
-{{--                    <div style="display: inline-block; width: 10%;">nomidan &nbsp;</div>--}}
                     <div style="display: inline-block; width: 60%; border-bottom: 1px solid black;"></div>
                     <div style="display: inline-block; width: 18%; text-align: end;"> &nbsp;ikkinchi tomondan,</div>
                 </div>
                 <span style="font-size: 11px; text-align:center; display: block;"> (rahbarning familiyasi, ismi, sharifi, lavozimi)</span>
-                va b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
+                va <b>{{$student->birthday}}</b> yilda tug’ilgan <b>{{$student->fio()}}</b>
                 (keyingi o’rinlarda – Talaba) uchinchi tomondan (birgalikda – Tomonlar),“Yurisprudensiya” ta’lim
                 yo’nalishi bo’yicha Talabani bakalavriat <b>{{$student->course}}</b> - kurs davomida o’qitish maqsadida
                 mazkur uch tomonlama

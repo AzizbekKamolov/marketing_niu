@@ -49,7 +49,7 @@ class StudentPayment extends Model
 
     public function agreement_discounts()
     {
-        return $this->hasMany(Discount::class, 'student_id', 'id')->where('type_agreement' , 1);
+        return $this->hasMany(Discount::class, 'id_code', 'id_code')->where('type_agreement' , 1);
     }
     public function other_agreement_discounts()
     {
@@ -73,10 +73,6 @@ class StudentPayment extends Model
         else{
             return 0;
         }
-    }
-
-    public function direction(){
-        return $this->belongsTo(Direction::class , 'dir' , 'id');
     }
 
 }

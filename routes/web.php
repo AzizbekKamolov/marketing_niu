@@ -126,6 +126,8 @@ Route::group([
     Route::get('/scholarships/{month_id}', 'ScholarshipController@index')->name('scholarship.index');
     Route::get('/scholarships-by-student/{id_code}', 'ScholarshipController@scholarship_by_student')->name('scholarship.scholarship_by_student');
     Route::post('/scholarships-import', 'ScholarshipController@import')->name('scholarship.import');
+    Route::post('/payments-import', 'PaymentImportController@import')->name('payments.import');
+    Route::post('/payments-import-save', 'PaymentImportController@import_save')->name('payments.import_save');
 
 //    payment admin new
     Route::get('/payment-admin/student-types', 'PaymentAdminController@student_types')->name('payment_admin.student_types');
@@ -165,13 +167,6 @@ Route::group([
     Route::get('/lyceum-admin/students/show/{id}', 'LyceumSuperController@students_show')->name('students.lyceum.show');
 
     Route::get('/lyceum-admin/students/export-all', 'LyceumSuperController@export_all')->name('students.lyceum.export_all');
-
-    Route::group([
-        'middleware' => ['superadmin']
-    ], function () {
-        Route::get('/command' , 'CommandController@index');
-        Route::post('/command-import' , 'CommandController@import')->name('command.import');
-    });
 });
 
 Auth::routes();
@@ -200,9 +195,6 @@ Route::get('/phone-right', function () {
 //new routes
 Route::post('/student/get-data', 'AgreementController@get_data')->name('student.agreement.get_data');
 Route::post('/student/show-agreement', 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
-//Route::post('/student/show-agreement' , function(){
-//    return "Texnik ishlar";
-//})->name('student.agreement.show_agreement');
 Route::post('/student/pdf-agreement', 'AgreementController@pdf_agreement')->name('student.agreement.pdf_agreement');
 Route::post('/student/show-other-agreement', 'AgreementController@show_other_agreement')->name('student.other_agreement.show_agreement');
 Route::post('/student/pdf-other-agreement', 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
@@ -222,16 +214,33 @@ Route::get('/lyceum/super/form-self', 'SuperLyceumController@form_self')->name('
 Route::post('/lyceum/super/get-data', 'SuperLyceumController@get_data')->name('lyceum.super.get_data');
 Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_application')->name('lyceum.super.store_application');
 
+Route::group(['prefix' => 'jointraining'], function () {
+    Route::get('/student/form', 'JoinTrainingController@form')->name('student.agreement.join_training.form');
+    Route::post('/student/get-data', 'JoinTrainingController@get_data')->name('student.agreement.join_training.get_data');
+    Route::post('/student/show-agreement', 'JoinTrainingController@show_agreement')->name('student.agreement.join_training.show_agreement');
+    Route::post('/student/pdf-agreement', 'JoinTrainingController@pdf_agreement')->name('student.agreement.join_training.pdf_agreement');
+
+});
 
 //Route::get('/schot', function () {
-//    $r = 'Test\Model\Rrr'::where('status' , 0)->get();
+//    $r = 'Test\Model\Rrr'::where('status', 0)->get();
 ////    return $r;
 //    foreach ($r as $item) {
 //        $sms = new Test\Model\SmsSend();
-//        $text = 'Hurmatli abituriyent! Test sinovlari 22.10.2021-yil soat 16:00ga ko\'chirildi. TDYU 3-binosiga soar 15:00ga qadar yetib kelishingizni so\'raymiz \n Уважаемый абитуриент! Тестовые испытания перенесены на 22.10.2021 года на 16:00 часов. Просим вас явиться в 3-здание ТГЮУ до 15:00 часов';
+//        $text = 'Hurmatli abituriyent! NNDU bilan qoʻshma ta’lim dasturiga kirish testlari TDYU 3-binosida 27.10.2021-yilda soat 8:00da boshlanadi. Batafsil: https://t.me/DDprograms/116 \n Уважаемый абитуриент! Вступительные тесты на совместные образовательные программы с ННГУ пройдут в 3-здании ТГЮУ 22.10.2021 г. в 7:00. Подробно: https://t.me/DDprograms/115';
 ////        $sms->send_one_sms($item->number , $text , $item->id);
 //        $item->status = 1;
 //        $item->update();
 //    }
+//});
+//Route::get('/check-s', function () {
+////    $r = 'Test\Model\StudentPayment'::where('super_id' , '!=' , null)->get();
+//    $r = 'Test\Model\StudentPayment'::where('status_new', '=', 24)->get();
+//    foreach ($r as $item) {
+//        $item->super_id = null;
+//        $item->dtm_id = null;
+//        $item->update();
+//    }
+//    return $r;
 //});
 

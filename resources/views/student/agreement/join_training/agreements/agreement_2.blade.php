@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('/css/agreement.css')}}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
+    {{--          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
+</head>
+<body>
+@php
+
+    function yuzlik($yuz){
+              $yuz = intval($yuz);
+              $ar_mln = array(
+              '0' => '',
+              '1' => 'ming',
+              '2' => 'million'
+            );
+            $ar_son = array(
+              '0' => '',
+              '1' => 'bir',
+              '2' => 'ikki',
+              '3' => 'uch',
+              '4' => 'to`rt',
+              '5' => 'besh',
+              '6' => 'olti',
+              '7' => 'yetti',
+              '8' => 'sakkiz',
+              '9' => 'to`qqiz',
+            );
+            $ar_on = array(
+              '0' => '',
+              '1' => 'o`n',
+              '2' => 'yigirma',
+              '3' => 'o`ttiz',
+              '4' => 'qirq',
+              '5' => 'ellik',
+              '6' => 'oltmish',
+              '7' => 'yetmish',
+              '8' => 'sakson',
+              '9' => 'to`qson'
+            );
+            if ($yuz > 99) {
+              $birlar = $yuz%10;
+              $bb = $yuz/10;
+              $onlar = $bb%10;
+              $bb = $bb/10;
+              $yuzlar = $bb%10;
+              $text = $ar_son[$yuzlar].' yuz '.$ar_on[$onlar].' '.$ar_son[$birlar];
+            }
+            elseif($yuz<100 && $yuz > 9){
+              $birlar = $yuz%10;
+              $bb = $yuz/10;
+              $onlar = $bb%10;
+              $text = $ar_on[$onlar].' '.$ar_son[$birlar];
+            }
+            elseif($yuz>0 && $yuz < 10){
+              $text = $ar_son[$yuz];
+            }
+            else{
+              $text = '';
+            }
+
+              return $text;
+    }
+        function convert_to_word($number){
+            $result = number_format($number , '2');
+            $result = explode('.', $result);
+            $bir = explode(',' , $result[0]);
+            $re_bir = array_reverse($bir);
+            $ar_mln = array(
+              '0' => '',
+              '1' => 'ming',
+              '2' => 'million',
+              '3' => 'milliard'
+            );
+            $ar_son = array(
+              '0' => '',
+              '1' => 'bir',
+              '2' => 'ikki',
+              '3' => 'uch',
+              '4' => 'to`rt',
+              '5' => 'besh',
+              '6' => 'olti',
+              '7' => 'yetti',
+              '8' => 'sakkiz',
+              '9' => 'to`qqiz',
+            );
+            $ar_on = array(
+              '0' => '',
+              '1' => 'o`n',
+              '2' => 'yigirma',
+              '3' => 'o`ttiz',
+              '4' => 'qirq',
+              '5' => 'ellik',
+              '6' => 'oltmish',
+              '7' => 'yetmish',
+              '8' => 'sakson',
+              '9' => 'to`qson'
+            );
+
+            $ar_text = [];
+            $i = 0;
+            foreach ($re_bir as $key => $value) {
+              // echo $value%10;
+              if (yuzlik($value) != '') {
+
+              $ar_text[$i] = yuzlik($value).' '.$ar_mln[$key].' ';
+              }
+              else{
+                $ar_text[$i] = '';
+              }
+              // echo yuzlik($value).' '.$ar_mln[$key].' ' ;
+              $i++;
+            }
+            $ress = array_reverse($ar_text);
+            $ress = implode(' ', $ress);
+            return $ress;
+        }
+
+         function get_month_name($start_month){
+
+            if ($start_month == "01") {
+                $start_month = "Yanvar";
+            }
+            if ($start_month == "02") {
+                $start_month = "Fevral";
+            }
+            if ($start_month == "03") {
+                $start_month = "Mart";
+            }
+            if ($start_month == "04") {
+                $start_month = "Aprel";
+            }
+            if ($start_month == "05") {
+                $start_month = "May";
+            }
+            if ($start_month == "06") {
+                $start_month = "Iyun";
+            }
+            if ($start_month == "07") {
+                $start_month = "Iyul";
+            }
+            if ($start_month == "08") {
+                $start_month = "Avgust";
+            }
+            if ($start_month == "09") {
+                $start_month = "Sentabr";
+            }
+            if ($start_month == "10") {
+                $start_month = "Oktabr";
+            }
+            if ($start_month == "11") {
+                $start_month = "Noyabr";
+            }
+            if ($start_month == "12") {
+                $start_month = "Dekabr";
+            }
+            return $start_month;
+        }
+
+    $month = get_month_name(date('m' , strtotime($getting_date)));
+    $day = date('d', strtotime($getting_date));
+    $year = date('Y' , strtotime($getting_date));
+@endphp
+<style>
+    body {
+        font-family: DejaVu Sans, sans-serif !important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 ">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center text-bold">
+                <h4 class="text-bold">
+                    Mutaxassisni qoʻshma ta’lim dasturi boʻyicha tayorlash haqida ikki tomonlama
+                    KONTRAKT
+                    (stipendiyasiz shaklda, kunduzgi)
+
+
+                </h4>
+                <h4 class="text-bold"> №{{$student->id_code}}</h4>
+                <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
+            </div>
+            <div class="col-md-3"></div>
+            {{--            <div style="display: inline-block; width: 49%" class="">--}}
+            {{--                <span>2021 yil “{{$day}}” {{$month}}</span>--}}
+            {{--            </div>--}}
+            {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
+            {{--                <span>Toshkent shahri</span>--}}
+            {{--            </div>--}}
+            <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
+            <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
+            <div class="col-md-12 mt-1 mb-1">
+                <p>
+
+                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Ta’lim
+                    muassasasi) nomidan Ustavga asosan ish yurituvchi rektor v.v.b. Rustambekov Islambek Rustambekovich,
+                    bir tomondan, va <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b> yilda tugʻilgan
+                    <b>{{$student->fio()}}</b>
+                    (talabaning familiyasi, ismi, sharifi)
+                    (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar) “Yurisprudensiya” ta’lim
+                    yoʻnalishi doirasida Yanka Kupala nomidagi Grodno davlat universiteti (Belarus Respublikasi)
+                    (keyingi oʻrinlarda – GrDU) bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha talabani bakalavriat
+                    2-kurs
+                    bosqichida oʻqitish maqsadida mazkur kontraktni (keyingi oʻrinlarda – Kontrakt) Oʻzbekiston
+                    Respublikasi Prezidentining 2020-yil 29-apreldagi
+                    PF–5987-son Farmoni, 2019-yil 11-iyuldagi PQ–4391-son qarori, Oʻzbekiston Respublikasi Vazirlar
+                    Mahkamasining 2019-yil 3-dekabrdagi 967-son va 2021-yil 6-iyuldagi 421-son qarorlari hamda Oliy va
+                    oʻrta maxsus, kasb-hunar ta’limi muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan
+                    mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizomga (roʻyxat raqami 2431, 2013-yil 26-fevral)
+                    muvofiq tuzdilar:
+
+
+                </p>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    1. KONTRAKT PREDMETI
+                </h4>
+            </div>
+            <div class="col-md-12 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Kontraktga asosan GrDU Talabani 2021/2022 va 2023/2024
+                    oʻquv yillari davomida belgilangan ta’lim standartlari va oʻquv dasturlariga muvofiq oʻqitadi,
+                    Ta’lim muassasasi esa Talabani 2022/2023 oʻquv yili davomida belgilangan ta’lim standartlari va
+                    oʻquv dasturlariga muvofiq oʻqitadi, Talaba esa Kontraktning 2-bobida koʻrsatilgan tartib va
+                    miqdordagi toʻlovni amalga oshiradi hamda Ta’lim muassasasida belgilangan tartibga muvofiq ta‘lim
+                    olish majburiyatini oladi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Talabaning bakalavriat ta'lim yo'nalishini muvaffaqiyatli
+                    tamomlash muddati 2024 -yil iyun oyi hisoblanadi.
+                </p>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    2.HISOB-KITOB QILISH TARTIBI
+                </h4>
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b>2.1.</b> GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Talaba 2022/2023 oʻquv yili davomida
+                    Ta’lim muassasasida ta’lim olishini inobatga olgan holda Kontrakt boʻyicha toʻlovlar miqdori va
+                    muddatlari quyidagicha belgilandi:
+
+                </p>
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.1.1. 2021/2022- va 2023/2024-o‘quv yillari uchun har bir o‘quv yiliga 36 (oʻttiz olti) bazaviy
+                    hisoblash miqdorini tashkil qiladi va quyidagi muddatlarda Ta’lim muassasasiga toʻlanadi: <br>
+
+                    2021-yil 15-oktyabgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2021-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2022-yil 15-fevralgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2022-yil 01-maygacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2023-yil 15-oktyabgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2023-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2024-yil 15-fevralgacha – bazaviy hisoblash miqdorining 9 (toʻqqiz) baravari; <br>
+                    2024-yil 01-maygacha – bazaviy hisoblash miqdorining 9 (toʻqqiz)) baravari.
+
+
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.1.2. 2022/2023 o‘quv yili uchun 84 (sakson toʻrt) bazaviy hisoblash miqdori. Bunda belgilangan
+                    to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi: <br>
+                    2022-yil 15-oktyabgacha –bazaviy hisoblash miqdorining 21 (yigirma bir) baravari; <br>
+                    2022-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 21 (yigirma bir) baravari. <br>
+                    2023-yil 15-fevralgacha – bazaviy hisoblash miqdorining 21 (yigirma bir) baravari; <br>
+                    2023-yil 01-maygacha – bazaviy hisoblash miqdorining 21 (yigirma bir) baravari;
+
+
+                </p>
+
+
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b>2.2.</b> . Kontraktni amal qilish davrida bazaviy hisoblash miqdori oʻzgargan taqdirda Kontrakt
+                    boʻyicha tegishli ravishda oʻzgargan toʻlov miqdori oʻquv yilining keyingi davrida uchun toʻlanadi.
+                </p>
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b>2.3.</b>GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Kontraktni stipendiyasiz shakldan
+                    stipendiyali shakliga oʻtishga yoʻl qoʻyilmaydi.
+                </p>
+            </div>
+
+
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    3. TOMONLARNING HUQUQ VA MAJBURIYATLARI
+                </h4>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b> 3.1. Ta’lim muassasasining huquqlari:</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.1.1. Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Ta’lim muassasasining ichki
+                    hujjatlarida belgilangan qoidalarga rioya qilishni, oʻquv mashgʻulotlarida muntazam qatnashishni,
+                    Kontrakt boʻyicha toʻlovlarni oʻz vaqtida amalga oshirishni talab qilish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.1.2. Ta’lim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, bir semestr
+                    davomida darslarni uzrli sabablarsiz 74 soatdan ortiq qoldirgan yoki oʻqitish uchun belgilangan
+                    miqdordagi toʻlovni oʻz vaqtida amalga oshirmagan Talabaga nisbatan belgilangan tartibda talabalar
+                    safidan chetlashtirish, tegishli kursda qoldirish yoki boshqa choralarni qoʻllash.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.1.3. Talaba Ta’lim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʻpol ravishda
+                    buzgan, xususan huquqbuzarlik sodir etgan hollarda Kontraktni bir tomonlama bekor qilish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.1.4. Istisno tariqasida Kontrakt boʻyicha toʻlov muddatlarini uzaytirish (Ta’lim muassasasining
+                    buyrugʻi orqali).
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.1.5. Talabaga yozma xabarnoma yuborish orqali Kontraktning 2-bobida ko’rsatilgan to’lov
+                    miqdorlarini bir tomonlama o’zgartirish.
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b> 3.2. Ta’lim muassasasining majburiyatlari:</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2.1. Oʻqitish uchun Oʻzbekiston Respublikasining “Ta’lim toʻgʻrisida”gi Qonuniga muvofiq Ta’lim
+                    muassasasi Ustavi va boshqa ichki hujjatlarida nazarda tutilgan zarur shart-sharoitlarni yaratadi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2.2. Talabalarning qonun hujjatlarida belgilangan huquqlarining bajarilishini ta’minlaydi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2.3. Talabani tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari darajasida
+                    oʻqitadi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2.4. Talaba GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha bakalavriat yoʻnalishini
+                    muvaffaqiyatli tamomlaganda belgilangan tartibda diplom beradi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2.5. GrDUning xatiga asosan Talabani talabalar safiga kiritadi.
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b> 3.3. Talabaning huquqlari:</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3.1. Ta’lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3.2. Ta’lim muassasasida tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari
+                    darajasida ta’lim olish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3.3. Ta’lim muassasasining Axborot-resurs markazi, sport inshooti, Wi-Fi hududlaridan foydalanish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3.4. Ta’lim muassasasining ta’lim jarayonlarini yaxshilashga doir takliflar berish
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3.5. Oʻqish uchun bir yillik toʻlov summasini bir yola toʻliq toʻlash.
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b> 3.4. Talabaning majburiyatlari:</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.4.1. Joriy oʻquv yili uchun belgilangan oʻqitish qiymatini Kontraktning 2-bobida koʻrsatilgan
+                    tartib va miqdorda oʻz vaqtida toʻlaydi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.4.2. Ta’lim muassasasi Ustavi va boshqa ichki hujjatlari talablariga qat’iy rioya qiladi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.4.3. Oʻquv mashgʻulotlarida muntazam qatnashadi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.4.4. Ta’lim muassasasida belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
+                    darajasini oshirib boradi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda
+                    Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
+                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
+                </p>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    4. SHARTNOMANI BEKOR QILISH
+                </h4>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.1.Kontrakt quyidagi hollarda bekor qilinadi:
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.2. Ta’lim muasasasining tashabbusiga koʻra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
+                    talabalar safidan chiqarilganda.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.3. Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Ta’lim muassasasi Kontraktni bir
+                    tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.4. Talabaning tashabbusiga koʻra (yozma murojaatga asosan).
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.5. Kontraktning 3.1.3-bandida koʻrsatilgan hollarda (Ta’lim muassasasi tomonidan Kontraktning bir
+                    tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma yuborish
+                    orqali).
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.6. Talaba Ta’lim muasasasining talabalari safidan chiqarilganda bir payting o’zida GrDUning
+                    talabalari safidan ham chiqariladi, shuningdek Talaba GrDUning talabalari safidan chiqarilganda bir
+                    payting o’zida Ta’lim muasasasining talabalari safidan ravishda chiqariladi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    4.7. Qonunchilikda koʻrsatilgan boshqa hollarda.
+                </p>
+            </div>
+
+            <div class="col-md-12 text-center ">
+                <h4 class="text-bold">
+                    5. FORS-MAJOR HOLATLAR
+                </h4>
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    5.1. Ushbu Kontraktga asosan majburiyatlarni bajarilmasligi holatlari yengib boʻlmaydigan kuchlar
+                    (fors-major) holatlar natijasida vujudga kelganda Tomonlar oʻz majburiyatlarini bajarmaslikdan
+                    qisman yoki toʻliq ozod boʻladilar
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    5.2. Yengib boʻlmaydigan kuchlar (fors-major) holatlariga Tomonlarning irodasi va faoliyatiga
+                    bogʻliq boʻlmagan tabiat hodisalari (pandemiya, zilzila, koʻchki, boʻron, qurgʻoqchilik va
+                    boshqalar) yoki ijtimoiy-iqtisodiy holatlar (urush holati, qamal, davlat manfaatlarini koʻzlab
+                    import va eksportni taqiqlash va boshqalar) sababli yuzaga kelgan sharoitlarda Tomonlarga qabul
+                    qilingan majburiyatlarni bajarish imkonini bermaydigan favqulodda, oldini olib boʻlmaydigan va
+                    kutilmagan holatlar kiradi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    5.3. Kontrakt Tomonlaridan qaysi biri uchun majburiyatlarni yengib boʻlmaydigan kuchlar (fors-major)
+                    holatlari sababli bajarmaslik ma’lum boʻlsa, darhol ikkinchi tomonga bu xaqda 10 kun ichida ushbu
+                    holatlar harakati sababini dalillar bilan taqdim etishi lozim.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    5.4. Kontraktga asosan majburiyatlarni ijro qilish muddati ushbu yengib boʻlmaydigan kuchlar
+                    (fors-major) holatlar davom etish muddatiga qadar uzaytiriladi. Agar yengib boʻlmaydigan kuchlar
+                    (fors-major) ta’siri 30 (oʻttiz) kundan ortiqroq davom qilsa, Tomonlar tashabbusiga binoan shartnoma
+                    bekor qilinishi mumkin.
+                </p>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    6. YAKUNIY QOIDALAR
+                </h4>
+            </div>
+            <div class="col-md-12 mb-1">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.1. Kontrakt bevosita Tomonlar tomonidan imzolangan paytdan e’tiboran kuchga kiradi, Kontraktning
+                    6.2-bandida koʻrsatilgan holat bundan mustasno.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.2. Kontrakt elektron shaklda Ta’lim muassasasining marketing.tsul.uz saytida joylashtirilgan
+                    boʻlib, Talaba oʻz passport ma’lumotlarini kiritganidan soʻng uning shartlari bilan tanishib, rozi
+                    boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi. Kontrakt Talaba tomonidan
+                    yuklab olingan paytdan e’tiboran tuzilgan va kuchga kirgan hisoblanadi.
+                    <br>
+                    &nbsp &nbsp &nbsp &nbsp Talaba Kontrakt shartlari bilan norozi boʻlgan taqdirda uch ish kunida,
+                    biroq joriy yilning 15
+                    oktyabga qadar murojaat qilishi mumkin. Kontraktni tuzmagan va toʻlovlarni amalga oshirmagan
+                    Talabani Ta’lim muassasasi talabalar safidan chiqarishga haqli.
+
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.3. Talaba tomonidan shartnoma boʻyicha oʻqitish qiymatini toʻlashda toʻlov topshiriqnomasida
+                    shartnomaning tartib raqami va sanasi, talabaning familiyasi, ismi, sharifi hamda oʻqiyotgan kursi
+                    toʻliq koʻrsatiladi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.4. Tomonlar oʻrtasida vujudga keladigan nizolar oʻzaro muzokaralar olib borish hamda talabnoma
+                    yuborish orqali hal etiladi, Kontraktning 4.2-4.6 bandlarida koʻrsatilgan holatlar bundan mustasno.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.5. Ta’lim muasasasida oʻqitishning modul tizimi sharoitlarida talabalar bilimini nazorat qilish
+                    tartibi va baholash mezonlari toʻgʻrisidagi nizom (roʻyxat raqami 2780, 2016-yil 22-aprel)ga muvofiq
+                    qayta oʻzlashtirish uchun belgilangan tartibda oʻquv fanlari boʻyicha kelgusi semestrning yakuniy
+                    nazorat davri boshlangunga qadar tegishli fanlar boʻyicha akademik qarzdorlikni qayta topshirish
+                    sharti bilan keyingi kurs (semestr)ga oʻtkazilgan Talabadan ushbu semestr uchun ham toʻlov
+                    undiriladi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    6.6. GrDU va Talaba oʻrtasida mutaxassisni qoʻshma ta’lim dasturi boʻyicha tayorlash haqida ikki
+                    tomonlama shartnoma(kontrakt) tuzilmagan taqdirda, mazkur Kontrakt oʻz kuchini yoʻqotadi.
+                </p>
+            </div>
+            <div class="col-md-12 text-center">
+                <h4 class="text-bold">
+                    Tomonlarning manzillari va to`lov rekvizitlari
+                </h4>
+            </div>
+            <div class="col-md-12">
+                <table class="w-100">
+                    <tbody>
+                    <tr>
+                        <td class="w-50" style="width: 49%">
+                            <p class="w-100 text-center text-bold">
+                                Ta’lim muassasasi
+                            </p>
+                        </td>
+                        <td class="w-50" style="width: 49%">
+                            <p class="w-100 text-center text-bold">
+                                Talaba
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-50" style="width: 49%">
+
+                            <p>
+                                Oʻzbekiston Respublikasi
+                                Moliya vazirligi Gʻaznachiligi
+                                Bank: HKKM MB Toshkent sh. B.B.
+                                H/r: 23402000300100001010
+                                STIR: 201122919, MFO: 00014
+                                Sh.h.r: 400910860262667094100009002
+                                STIR: 201122349, KOD 7950100
+                                Tel.: (71) 233-66-36,
+                                Manzil: Sayilgoh koʻchasi, 35 uy.
+
+                            </p>
+                            <p>
+                                Rektor v.v.b _____________ I. Rustambekov
+                            </p>
+                            <p>
+                                Bosh buxgalter _______________ M.Parpiyev
+                            </p>
+                            <p>
+                                Shartnomaviy ta’lim xizmatlari
+                                bo‘limi boshlig‘i ___________ A.Xundibayev
+
+                            </p>
+                            <p>
+                                Yuriskonsult ______________D.Aliboyev
+
+                            </p>
+                        </td>
+                        <td class="w-50" style="width: 49%">
+
+                            <p class="word-line">
+                                <b>{{$student->fio()}}</b>
+                            </p>
+                            <p class="w-100 text-center">
+                                (F.I.Sh.)
+                            </p>
+                            <p>
+                                Manzili: <b>{{$student->address}}</b>
+                            </p>
+
+                            <p>
+                                Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
+                                <b>{{$student->passport_number}}</b>
+                            </p>
+
+                            <p>
+                                Talaba _________________
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12 text-center" style="padding-bottom: 50px">
+                <div class="tasdiq btn-success "
+                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
+                    <p>
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
+                        shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        to'g'riligini tasdiqlayman
+                    </p>
+                </div>
+                <form id="accept-form" action="{{route('student.agreement.join_training.pdf_agreement')}}"
+                      method="post">
+                    {{csrf_field()}}
+                    {{method_field('POST')}}
+                    <input type="text" hidden value="{{$student->id}}" name="student_id">
+                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.tasdiq').click(function () {
+        if (confirm('Tasdiqlaysizmi?')) {
+            $('#accept-form').submit();
+        }
+
+    })
+</script>
+</body>
+</html>
