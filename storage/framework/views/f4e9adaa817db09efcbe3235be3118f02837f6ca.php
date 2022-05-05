@@ -117,9 +117,6 @@
     <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/super-magister" aria-expanded="false"><i
                 data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Superkontraktlar <br> (magister)</span></a></li>
-    <li class="sidebar-item"><a class="sidebar-link " href="/backoffice/command" aria-expanded="false"><i
-                data-feather="tag" class="feather-icon"></i><span
-                class="hide-menu">Buyruq chiqqanlar</span></a></li>
 <?php endif; ?>
 
 <?php if(Auth::user()->role == 5): ?>
@@ -310,9 +307,9 @@
     <li class="sidebar-item"><a class="sidebar-link " href="<?php echo e(route('payment_admin.student_types')); ?>"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Talaba turlari </span> </a></li>
-    <li class="sidebar-item"><a class="sidebar-link " href="<?php echo e(route('payment_admin.student_types')); ?>"
+    <li class="sidebar-item"><a class="sidebar-link " href="<?php echo e(route('payment_admin.credits.index')); ?>"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                class="hide-menu">Shartnoma narxlari </span> </a></li>
+                class="hide-menu">Kreditlar </span> </a></li>
 <?php endif; ?>
 <?php if(Auth::user()->role == 12): ?>
     <li class="sidebar-item <?php if(Request::is('backoffice/ttj-admin/ttj-admin-students')): ?> selected <?php endif; ?>"><a

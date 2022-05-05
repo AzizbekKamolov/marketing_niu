@@ -307,9 +307,9 @@
     <li class="sidebar-item"><a class="sidebar-link " href="{{route('payment_admin.student_types')}}"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Talaba turlari </span> </a></li>
-    <li class="sidebar-item"><a class="sidebar-link " href="{{route('payment_admin.student_types')}}"
+    <li class="sidebar-item"><a class="sidebar-link " href="{{route('payment_admin.credits.index')}}"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                class="hide-menu">Shartnoma narxlari </span> </a></li>
+                class="hide-menu">Kreditlar </span> </a></li>
 @endif
 @if(Auth::user()->role == 12)
     <li class="sidebar-item @if(Request::is('backoffice/ttj-admin/ttj-admin-students')) selected @endif"><a

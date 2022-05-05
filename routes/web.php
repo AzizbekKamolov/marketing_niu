@@ -118,6 +118,10 @@ Route::group([
     Route::get('/payment-admin-students-check-edit/{id}', 'PaymentAdminController@student_check_edit')->name('payment_admin.student.check.edit');
     Route::get('/payment-admin-students-show/{id}', 'PaymentAdminController@student_show')->name('payment_admin.student.show');
 
+    Route::get('/payment-admin-credits', 'CreditController@index')->name('payment_admin.credits.index');
+    Route::post('/payment-admin-credits-import', 'CreditController@import')->name('payment_admin.credits.import');
+    Route::post('/payment-admin-credits-import-save', 'CreditController@import_save')->name('payment_admin.credits.import_save');
+
     Route::get('/payment-admin-student-no-checkeds', 'PaymentAdminController@no_checkeds')->name('payment_admin.student.no_checkeds');
     Route::post('/payment-admin-student-payment-store', 'PaymentAdminController@payment_store')->name('payment_admin.student.payment.store');
     Route::delete('/payment-admin-student-payment-delete/{id}', 'PaymentAdminController@payment_delete')->name('payment_admin.student.payment.delete');
@@ -202,8 +206,12 @@ Route::get('/student/form', 'AgreementController@form')->name('student.agreement
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
+
 Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
 Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');
+Route::get('student-credits', 'StudentCreditController@form')->name('student.credits');
+Route::post('student-credits-check', 'StudentCreditController@check')->name('student.credits.check');
+Route::post('student-credits-agreement', 'StudentCreditController@agreement')->name('student.credits.agreement');
 
 Route::get('/student/form-ttj', 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
 Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
@@ -219,7 +227,6 @@ Route::group(['prefix' => 'jointraining'], function () {
     Route::post('/student/get-data', 'JoinTrainingController@get_data')->name('student.agreement.join_training.get_data');
     Route::post('/student/show-agreement', 'JoinTrainingController@show_agreement')->name('student.agreement.join_training.show_agreement');
     Route::post('/student/pdf-agreement', 'JoinTrainingController@pdf_agreement')->name('student.agreement.join_training.pdf_agreement');
-
 });
 
 //Route::get('/schot', function () {

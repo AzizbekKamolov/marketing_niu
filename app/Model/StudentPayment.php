@@ -75,4 +75,14 @@ class StudentPayment extends Model
         }
     }
 
+    public function credits()
+    {
+        return $this->hasMany(Credit::class , 'id_code' , 'id_code');
+    }
+
+    public function credit_payments()
+    {
+        return $this->hasMany(CreditPayment::class , 'id_code' , 'id_code');
+    }
+
 }
