@@ -310,6 +310,9 @@
     <li class="sidebar-item"><a class="sidebar-link " href="<?php echo e(route('payment_admin.credits.index')); ?>"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Kreditlar </span> </a></li>
+    <li class="sidebar-item"><a class="sidebar-link " href="<?php echo e(route('credit_prices.index')); ?>"
+                                aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                class="hide-menu">Kredit narxlari </span> </a></li>
 <?php endif; ?>
 <?php if(Auth::user()->role == 12): ?>
     <li class="sidebar-item <?php if(Request::is('backoffice/ttj-admin/ttj-admin-students')): ?> selected <?php endif; ?>"><a

@@ -149,6 +149,8 @@
                                                 </option>
                                                 <option @if(old('type_degree') == 3) selected @endif value="3">Sirtqi
                                                 </option>
+                                                <option @if(old('type_degree') == 4) selected @endif value="4">O'qishni ko'chirish
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">

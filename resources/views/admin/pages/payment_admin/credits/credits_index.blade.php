@@ -48,7 +48,7 @@
 
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#importPaymentModal">
-                                        To'lovlarni import qilish
+                                        Kreditlarni import qilish
                                     </button>
                                 </div>
                             @endif

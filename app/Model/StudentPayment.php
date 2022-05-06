@@ -85,4 +85,14 @@ class StudentPayment extends Model
         return $this->hasMany(CreditPayment::class , 'id_code' , 'id_code');
     }
 
+    public function creditPrice()
+    {
+        return $this->belongsTo(CreditPrice::class , 'type_student' , 'degree');
+    }
+
+    public function getDegree()
+    {
+        return $this->belongsTo(StudentDegree::class, 'type_student','degree');
+    }
+
 }

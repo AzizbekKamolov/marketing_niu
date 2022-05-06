@@ -474,7 +474,15 @@ class AgreementController extends Controller
                             }
                         }
                     } else {
-                        if ($type->edu_place == 'sirtqi') {
+                        if ($type->degree == 4) {
+//                            return $agreement_type->id;
+                            return view('student.agreement.agreement_shows.agreements.ukraina.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                'student' => $student,
+                                'agreement_type' => $agreement_type,
+                                'agreement_side_type' => $agreement_side_type,
+                                'getting_date' => $getting_date
+                            ]);
+                        } elseif ($type->edu_place == 'sirtqi') {
                             return view('student.agreement.agreement_shows.agreements.sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
@@ -635,7 +643,20 @@ class AgreementController extends Controller
                                 'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
                         } else {
-                            if ($student->type_student == 1) {
+
+                            if ($type->degree == 4) {
+//                            return $agreement_type->id;
+                                $ended = 2022 + 4 - $student->course;
+                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,O`qishni ko`chirish(Ukraina)';
+                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+                                return PDF::loadView('student.agreement.agreement_shows.agreements.ukraina.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                    'student' => $student,
+                                    'agreement_type' => $agreement_type,
+                                    'agreement_side_type' => $agreement_side_type,
+                                    'getting_date' => $getting_date,
+                                    'qr_code' => $qrcode
+                                ])->download($student->fio() . '.pdf');
+                            } elseif ($student->type_student == 1) {
                                 $ended = 2022 + 4 - $student->course;
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
                                 $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));

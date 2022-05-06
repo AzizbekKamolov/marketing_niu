@@ -138,6 +138,8 @@ Route::group([
     Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
 //    Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
 
+    Route::resource('credit_prices' , 'CreditPriceController');
+
     Route::delete('/payment-admin/student-type-agreement-type', 'StudentTypeAgreementTypeController@destroy')->name('payment_admin.student_type.agreement_type.destroy');
     Route::post('/payment-admin/student-type-agreement-type', 'StudentTypeAgreementTypeController@store')->name('payment_admin.student_type.agreement_type.store');
     Route::delete('/payment-admin/student-type-agreement-side-type', 'StudentTypeAgreementSideTypeController@destroy')->name('payment_admin.student_type.agreement_side_type.destroy');
@@ -212,6 +214,7 @@ Route::post('payment-check-result', 'PaymentCheckController@check')->name('payme
 Route::get('student-credits', 'StudentCreditController@form')->name('student.credits');
 Route::post('student-credits-check', 'StudentCreditController@check')->name('student.credits.check');
 Route::post('student-credits-agreement', 'StudentCreditController@agreement')->name('student.credits.agreement');
+Route::post('student-credits-agreement-pdf', 'StudentCreditController@agreement_pdf')->name('student.credits.agreement_pdf');
 
 Route::get('/student/form-ttj', 'AgreementController@form_ttj')->name('student.agreement.form_ttj');
 Route::post('/student/show-agreement-ttj', 'AgreementController@show_agreement_ttj')->name('student.agreement.show_agreement_ttj');
