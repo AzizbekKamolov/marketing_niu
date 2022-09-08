@@ -28,20 +28,26 @@ class AgreementController extends Controller
 {
     public function get_data(Request $request)
     {
-        $payment_student = StudentPayment::with('type.agreement_types')->with('type.agreement_side_types')->with('type.other_agreement_types')->with('getting_agreements')->where('id_code', substr($request->id_code, 6))->first();
+        $payment_student = StudentPayment::with('type.agreement_types')
+            ->with('type.agreement_side_types')
+            ->with('type.other_agreement_types')
+            ->with('getting_agreements')
+            ->where(function ($query) use ($request) {
+                if ($request->id_code) {
+                    $query->where('id_code', substr($request->id_code, 6));
+                } elseif ($request->passport_jshir) {
+                    $query->where('passport_jshir', $request->passport_jshir);
+                } else {
+                    $query->where('id', 0);
+                }
+            })
+            ->first();
         if ($payment_student) {
             if ($payment_student->passport_seria == $request->passport_seria) {
                 if ($payment_student->passport_number == $request->passport_number) {
-//                    if (date('Y-m-d', strtotime($payment_student->birthday)) == date('Y-m-d', strtotime($request->birthday))) {
-//                        return
-//                        return $payment_student;
                     $agreement_type_ids = StudentTypeAgreementType::where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
                     $agreement_side_type_ids = StudentTypeAgreementSideType::where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
-
                     $getting = GettingAgreement::where('student_id', $payment_student->id)->where('status', 1)->first();
-//                        if ($getting) {
-//                            return $getting;
-//                        }
                     $agreement_types = AgreementType::where(function ($query) use ($getting) {
                         if ($getting) {
                             $query->where('id', $getting->agreement_type_id);
@@ -57,9 +63,6 @@ class AgreementController extends Controller
                         'agreement_types' => $agreement_types,
                         'agreement_side_types' => $agreement_side_types
                     ]);
-//                    } else {
-//                        return redirect()->back()->with('error', "tugilgan kun  xato");
-//                    }
                 } else {
                     return redirect()->back()->with('error', "pasprot nomer xato");
                 }
@@ -69,12 +72,16 @@ class AgreementController extends Controller
         } else {
             return redirect()->back()->with('error', "Malumot topilmadi");
         }
-//        return $request;
     }
 
     public function form()
     {
         return view('student.agreement.form');
+    }
+
+    public function form_first_course()
+    {
+        return view('student.agreement.form_first_course');
     }
 
 

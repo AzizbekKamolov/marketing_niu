@@ -1,4 +1,5 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.marketing2021')
+@section('content')
     <section class="section my-4 my-sm-2 my-md-2 my-lg-4 my-xl-5">
         <div class="container border border-2 rounded">
 
@@ -10,31 +11,17 @@
                                 <div class="text-center">
                                     <h1 class="colorSix fw-bold fs-4">Talabalar uchun to'lov shartnomasini olish</h1>
                                     <span class="text-danger">
-                                            <?php if(session()->has('error')): ?>
+                                            @if(session()->has('error'))
                                                 <div class="alert alert-danger">
-                                                            <?php echo e(session()->get('error')); ?>
-
+                                                            {{ session()->get('error') }}
                                                         </div>
-                                            <?php endif; ?>
+                                            @endif
                                         </span>
                                 </div>
-                                <form action="<?php echo e(route('student.agreement.get_data')); ?>" method="post" name="super-form"
+                                <form action="{{ route('student.agreement.get_data') }}" method="post" name="super-form"
                                       class="register-form" id="register-form">
-                                    <?php echo e(@csrf_field()); ?>
-
-                                    <?php echo e(method_field('POST')); ?>
-
-                                    <div class="col-12">
-                                        <label for="validationDefaultUsername" class="form-label">Talaba ID
-                                            raqami</label>
-                                        <div class="input-group">
-                                        <span class="input-group-text bg-white border-0 iconSpan"
-                                              id="inputGroupPrepend2"><b>ID</b></span>
-                                            <input type="text" class="form-control" id="studentID" name="id_code"
-                                                   aria-describedby="inputGroupPrepend2" required>
-                                        </div>
-                                    </div>
-
+                                    {{ @csrf_field() }}
+                                    {{method_field('POST')}}
                                     <div class="col-12">
                                         <label for="validationDefaultUsername" class="form-label">Passport
                                             seriyasi</label>
@@ -56,6 +43,17 @@
                                               id="inputGroupPrepend2"><i class="fas fa-id-card"></i></span>
                                             <input type="text" class="form-control" id="pasportNumber"
                                                    name="passport_number"
+                                                   aria-describedby="inputGroupPrepend2" required>
+                                        </div>
+                                    </div>
+                                     <div class="col-12">
+                                        <label for="validationDefaultUsername" class="form-label">Passport
+                                            JSHSHIR raqami</label>
+                                        <div class="input-group">
+                                        <span class="input-group-text bg-white border-0 iconSpan"
+                                              id="inputGroupPrepend2"><i class="fas fa-id-card"></i></span>
+                                            <input type="text" class="form-control" id="pasportJshirNumber"
+                                                   name="passport_jshir"
                                                    aria-describedby="inputGroupPrepend2" required>
                                         </div>
                                     </div>
@@ -82,14 +80,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-4 col-md-6 col-sm-12 my-4">
+                                   <div class="col-xl-4 col-md-6 col-sm-12 my-4">
                                         <button class="btn btn-primary text-center w-100" type="submit">Shartnomalarni ko'rish</button>
                                     </div>
                                 </form>
                             </div>
 
                             <div class="col-md-4 paymentBG">
-                                <img src="<?php echo e(asset('marketing2021/img/icons/undraw_Contract_re_ves9.svg')); ?>"
+                                <img src="{{asset('marketing2021/img/icons/undraw_Contract_re_ves9.svg')}}"
                                      class="img-fluid" alt="">
                             </div>
                         </div>
@@ -97,12 +95,12 @@
                 </div>
         </div>
     </section>
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('js'); ?>
-    <script src="<?php echo e(asset('marketing2021/css/bootstrap-5.0.2-dist/js/bootstrap.min.js')); ?>"></script>
+@endsection
+@section('js')
+    <script src="{{asset('marketing2021/css/bootstrap-5.0.2-dist/js/bootstrap.min.js')}}"></script>
 
     <!-- FontAwesome -->
-    <script src="<?php echo e(asset('marketing2021/css/fontawesome-free-5.15.3-web/js/all.min.js')); ?>"></script>
+    <script src="{{asset('marketing2021/css/fontawesome-free-5.15.3-web/js/all.min.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/4.0.9/jquery.inputmask.bundle.min.js"></script>
 
@@ -112,5 +110,4 @@
         $("#pasportNumber").inputmask({"mask": "9999999"});
         $("#pasportJshirNumber").inputmask({"mask": "99999999999999"});
     </script>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.marketing2021', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

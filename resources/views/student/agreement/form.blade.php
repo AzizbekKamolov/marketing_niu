@@ -80,8 +80,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 my-4">
-                                        <button class="btn btn-primary text-center w-25" type="submit">Shartnomalarni ko'rish</button>
+                                    <div class="col-xl-4 col-md-6 col-sm-12 my-4">
+                                        <button class="btn btn-primary text-center w-100" type="submit">Shartnomalarni ko'rish</button>
                                     </div>
                                 </form>
                             </div>
@@ -108,5 +108,6 @@
         $("#studentID").inputmask({"mask": "002-009999999"});
         $("#passportSeria").inputmask({"mask": "AA"});
         $("#pasportNumber").inputmask({"mask": "9999999"});
+        $("#pasportJshirNumber").inputmask({"mask": "99999999999999"});
     </script>
 @endsection
