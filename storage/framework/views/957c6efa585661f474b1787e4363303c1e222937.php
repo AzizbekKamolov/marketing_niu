@@ -186,10 +186,10 @@
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida o‘qitish uchun
                     ikki tomonlama tabaqalashtirilgan KONTRAKT
-                    (stipendiyasiz shaklda, 1-kurslar uchun)
+                    (stipendiyasiz shaklda, <?php echo e($student->course); ?>-kurslar uchun)
 
                 </h4>
-                <h4 class="text-bold"> №________</h4>
+                <h4 class="text-bold"> №<?php echo e($student->id_code); ?></h4>
                 <h4 class="text-bold">ID: <b>002-00<?php echo e($student->id_code); ?></b></h4>
             </div>
             <div class="col-md-3"></div>
@@ -213,7 +213,7 @@
                     kasb-hunar ta’limi muassasalarida o‘qitishning to‘lov-kontrakt shakli va undan tushgan mablag‘larni
                     taqsimlash tartibi to‘g‘risidagi nizom (ro‘yxat raqami 2431, 2013 yil 26 fevral), O‘zR Vazirlar
                     Mahkamasining 2019 yil 3 dekabrdagi 967-son, 2021 yil 10 iyundagi 359-son qarorlari, Toshkent davlat
-                    yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-252-son buyrug‘iga muvofiq tuzdilar:
+                    yuridik universiteti rektorining 2021 yil 13 sentyabrdagi 02-253-son buyrug‘iga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -237,7 +237,7 @@
                     muvaffaqiyatli
                     tamomlash muddati
                     <?php
-                        $ended = 2022+5-$student->course;
+                        $ended = 2022+4-$student->course;
                     ?>
                     <?php echo e($ended); ?>-yil iyun oyi hisoblanadi.
 
@@ -323,6 +323,11 @@
                     &nbsp &nbsp &nbsp &nbsp
                     2.2.5. Abituriyent o’quv yilining birinchi yarmi uchun to’lovni amalga oshirganidan so’ng uni
                     talabalar safiga qabul qilish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.2.6. 2021 yil 1 noyabrga qadar koronavirus infeksiyasiga qarshi emlangan (vaksina olgan) Talabaga
+                    2021/2022 o`quv yili uchun belgilangan to`lov-kontrakt miqdoriga 10 foiz chegirma beradi.
                 </p>
 
             </div>
@@ -421,27 +426,22 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 o‘quv yilida sirtqi ta’lim olish uchun Talaba tomonidan to‘lanishi lozim bo‘lgan
-                    to’lov summasi <b><?php echo e($student->all_summa); ?></b> (<?php echo e($student->all_summa_word); ?>) so‘mni tashkil etadi va
-                    Kontraktning ushbu bobida belgilangan tartibda to’lanadi. Mazkur summa mehnatga haq to’lashning eng
-                    kam miqdori o’zgarishi bilan mos ravishda Ta’lim muassasasi tomonidan o’zgartirilishi mumkin.
+                    3.1. 2021/2022 o‘quv yilida stipendiyasiz shaklda ta’lim olish uchun Kontrakt bo’yicha Talaba
+                    tomonidan to‘lanishi lozim bo‘lgan to‘lov summasi <b><?php echo e($student->all_summa); ?></b>
+                    (<?php echo e($student->all_summa_word); ?>) so‘mni tashkil etadi va Kontraktning ushbu bobida belgilangan
+                    tartibda to’lanadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b><?php echo e($student->part1_summa); ?></b> ( <?php echo e($student->part1_summa_word); ?> )
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-oktyabrgacha -<?php echo e($student->part_four_1_summa); ?> so‘m;
-                    <br>1-yanvargacha -<?php echo e($student->part_four_2_summa); ?> so‘m.
+                    3.2. Talaba o’quv yilining birinchi yarmi uchun <b><?php echo e($student->part1_summa); ?></b>
+                    (<?php echo e($student->part1_summa_word); ?>) so‘mni 2021 yilning 20 noyabrgacha to‘laydi.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b><?php echo e($student->part2_summa); ?></b> ( <?php echo e($student->part2_summa_word); ?>
-
-                    ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>1-aprelgacha -<?php echo e($student->part_four_3_summa); ?> so‘m;
-                    <br>1-iyulgacha -<?php echo e($student->part_four_4_summa); ?> so‘m.
+                    3.3. Talaba o’quv yilining ikkinchi yarmi uchun <b><?php echo e($student->part2_summa); ?></b>
+                    (<?php echo e($student->part2_summa_word); ?>) so‘mni 2022 yilning 1 martgacha to‘laydi.
 
 
                 </p>
@@ -626,7 +626,7 @@
 
                             </p>
                             <p>
-                                Rektor v.v.b _____________ R. Rustambekov
+                                Rektor v.v.b _____________ I. Rustambekov
                             </p>
                             <p>
                                 Bosh buxgalter _______________ M.Parpiyev

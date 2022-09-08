@@ -146,13 +146,14 @@
                                                     | {{ $errors->first('tel1') }}@endif</span> </span>
                                         <select name="dir_id" class="form-control" id="">
                                             @foreach($data->selected_dirs() as $item)
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                                <option value="{{$item->id}},{{$item->eduTypeId}}">{{$item->name}} | {{$item->eduTypeName}} |</option>
                                             @endforeach
                                         </select>
                                         <span>Qo'shimcha telefon raqamlar <span class="error tel1_error">  @if($errors->has('tel1'))
                                                     | {{ $errors->first('tel1') }}@endif</span> </span>
                                         <input type="text" class="form-control telefon-inputmask" required name="tel1"
                                                placeholder="Qo'shimcha telefon raqam" value="{{ old('tel1') }}">
+                                        <input type="text" hidden name="edu_type_id" class="edu_type_id">
                                         <span class="error tel2_error">  @if($errors->has('tel2'))
                                                 | {{ $errors->first('tel2') }}@endif</span>
                                         <input type="text " class="form-control telefon-inputmask" required name="tel2"

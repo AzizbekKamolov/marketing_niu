@@ -65,9 +65,9 @@
         <div style="padding-left: 40%; text-align: right">
             <p>
                 Toshkent davlat yuridik universiteti <br>
-                rektori v.v.b I.R.Rustambekov <br>
+                rektori A.D.Tashkulov ga <br>
                 {{--						<b>{{ $data->viloyat }}</b>, <b>{{ $data->tuman }}</b>,  <br>--}}
-                <b>{{ $data->address }}</b> da yashovchi fuqaro <br>
+{{--                <b>{{ $data->address }}</b> da yashovchi fuqaro <br>--}}
                 <b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b> dan <br>
                 telefon : <br>
                 @if($data->tel1)
@@ -88,11 +88,11 @@
 
     <div class="body" style="margin-bottom: 50px;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Men abituriyent
-        <b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b> 2021/2022 o'quv yilida Toshkent
+        <b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b> 2022/2023 o'quv yilida Toshkent
         davlat yuridik universiteti
         <b> @if($data->type==1) {{"bakalavriyatining"}} @elseif($data->type==2) {{"magistaturasining "}} @elseif($data->type == 3)  @endif </b>
         <b> @if($data->type==1){{ $data->dir()->name }} {{ "ta`lim yo'nalishiga"}} @elseif($data->type == 2) {{ $data->dir()->name }} {{"mutahasisligiga"}} @elseif($data->type == 3) {{ $data->dir()->name }} {{"yo`nalishiga"}} @endif </b>
-        o'qishga kirish maqsadida test sinovlarini topshirdim va <b>{{ $data->ball }}</b> ball to'plagan holda
+         ({{$data->edu_type?$data->edu_type->name:''}}) o'qishga kirish maqsadida test sinovlarini topshirdim va <b>{{ $data->ball }}</b> ball to'plagan holda
         <b>@if($data->lang == 1) o'zbek @elseif($data->lang == 2) rus @endif</b> guruhiga talabalikka tavsiya etilmadim.
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @if($data->type==1) {{"Bakalavriyat"}} @elseif($data->type == 2) {{"Magistratura bosqichida "}} @else {{"sirtqi"}} @endif
@@ -112,8 +112,6 @@
         <div class="" style="float: right;">
             <div class="fio"><b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b></div>
         </div>
-
-
     </div>
 
 </div>

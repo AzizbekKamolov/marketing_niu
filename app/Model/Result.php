@@ -37,10 +37,14 @@ class Result extends Model
 
     public function selected_dirs(){
         $dir_ids = \GuzzleHttp\json_decode($this->dir_array);
-        $dirs = Direction::whereIn('id' , $dir_ids)->get();
         $my_array = [];
-        foreach (json_decode($this->dir_array) as $t){
-            $my_array[] = Direction::find($t);
+        $eduTypes = json_decode($this->edu_types);
+        foreach (json_decode($this->dir_array) as $key => $t){
+            $myDir = Direction::find($t);
+            $eduType = EduType::find($eduTypes[$key]);
+            $myDir->eduTypeName = $eduType->name;
+            $myDir->eduTypeId = $eduType->id;
+            $my_array[] =$myDir;
         }
         return $my_array;
     }

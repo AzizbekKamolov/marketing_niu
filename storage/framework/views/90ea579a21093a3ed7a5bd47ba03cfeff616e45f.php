@@ -65,9 +65,9 @@
         <div style="padding-left: 40%; text-align: right">
             <p>
                 Toshkent davlat yuridik universiteti <br>
-                rektori v.v.b I.R.Rustambekov <br>
+                rektori A.D.Tashkulov ga <br>
                 
-                <b><?php echo e($data->address); ?></b> da yashovchi fuqaro <br>
+
                 <b><?php echo e($data->last_name); ?> <?php echo e($data->first_name); ?> <?php echo e($data->middle_name); ?></b> dan <br>
                 telefon : <br>
                 <?php if($data->tel1): ?>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Test\Model\EduType;
 use Test\Model\Super;
 use Test\Model\Result;
 use App;
@@ -19,7 +20,7 @@ class SuperController extends Controller
     public function super()
     {
                 $sss = "SSSSSSSSSSSSSSS";
-                return "<h3>Ariza topshirish muddati tugadi</h3>";
+//                return "<h3>Ariza topshirish muddati tugadi</h3>";
 
         return view('site.super.index',[
 
@@ -62,24 +63,21 @@ class SuperController extends Controller
                 return PDF::loadView('site.super.ariza_pdf' , ['data' => $super])->download($super->last_name.$super->first_name.'.pdf');
                 return redirect(route("index"))->with('error', 'Siz ariza yuborgansiz!');
             }
-
-
+            $dirEduTypeArray = explode(',',$request->dir_id);
             $super = new Super();
-
             $super->last_name = $result->last_name;
+            $super->edu_type_id = $dirEduTypeArray[1];
+            $super->dir = $dirEduTypeArray[0];
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
             $super->type = $result->type;
-//            if ($result->type == 2){
-                $super->comment = 'simple_magistr';
-//            }
+                $super->comment = $result->comment;
             $super->passport_serial = $result->passport_serial;
             $super->passport_number = $result->passport_number;
             $super->birthday = $result->birthday;
 //            $super->passport_given_date = $result->passport_given_date;
 //            $super->passport_issued_by = $result->passport_issued_by;
             $super->gender = $result->gender;
-            $super->dir = $request->dir_id;
             $super->address = $result->address;
             $super->passport_jshshir = $result->passport_jshshir;
 //            $super->viloyat = $result->viloyat;
@@ -96,7 +94,6 @@ class SuperController extends Controller
             $super->status = 1;
 //            return $super;
             $super->save();
-            $super->comment = 'simple_magistr';
             $super->update();
             $pdf = PDF::loadView('site.super.ariza_pdf' , [
                 'data' => $super,
@@ -152,9 +149,9 @@ class SuperController extends Controller
 
 
         if ($result){
-            if ($result->type != 2){
-                return "Ariza qoldirish muddati tugagan";
-            }
+//            if ($result->type != 2){
+////                return "Ariza qoldirish muddati tugagan";
+//            }
                 $data = Result::find($result->id);
                 return view('site.super.check',[
 

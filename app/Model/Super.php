@@ -40,12 +40,12 @@ class Super extends Model
         {
             return "Bakalavr";
         }
-        
+
         if($this->type==2)
         {
             return "Magister";
         }
-        
+
 
     }
 
@@ -70,6 +70,11 @@ class Super extends Model
     public function lang(){
         $dir = Lang::where('id' , $this->lang)->where('status' , 1)->first();
         return $dir;
+    }
+
+    public function edu_type()
+    {
+        return $this->belongsTo(EduType::class , 'edu_type_id' , 'id');
     }
 
 
