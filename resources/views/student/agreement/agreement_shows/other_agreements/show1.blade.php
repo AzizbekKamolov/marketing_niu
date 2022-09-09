@@ -18,159 +18,159 @@
 <body>
 @php
 
-function yuzlik($yuz){
-          $yuz = intval($yuz);
-          $ar_mln = array(
-          '0' => '',
-          '1' => 'ming',
-          '2' => 'million'
-        );
-        $ar_son = array(
-          '0' => '',
-          '1' => 'bir',
-          '2' => 'ikki',
-          '3' => 'uch',
-          '4' => 'to`rt',
-          '5' => 'besh',
-          '6' => 'olti',
-          '7' => 'yetti',
-          '8' => 'sakkiz',
-          '9' => 'to`qqiz',
-        );
-        $ar_on = array(
-          '0' => '',
-          '1' => 'o`n',
-          '2' => 'yigirma',
-          '3' => 'o`ttiz',
-          '4' => 'qirq',
-          '5' => 'ellik',
-          '6' => 'oltmish',
-          '7' => 'yetmish',
-          '8' => 'sakson',
-          '9' => 'to`qson'
-        );
-        if ($yuz > 99) {
-          $birlar = $yuz%10;
-          $bb = $yuz/10;
-          $onlar = $bb%10;
-          $bb = $bb/10;
-          $yuzlar = $bb%10;
-          $text = $ar_son[$yuzlar].' yuz '.$ar_on[$onlar].' '.$ar_son[$birlar];
-        }
-        elseif($yuz<100 && $yuz > 9){
-          $birlar = $yuz%10;
-          $bb = $yuz/10;
-          $onlar = $bb%10;
-          $text = $ar_on[$onlar].' '.$ar_son[$birlar];
-        }
-        elseif($yuz>0 && $yuz < 10){
-          $text = $ar_son[$yuz];
-        }
-        else{
-          $text = '';
-        }
+    function yuzlik($yuz){
+              $yuz = intval($yuz);
+              $ar_mln = array(
+              '0' => '',
+              '1' => 'ming',
+              '2' => 'million'
+            );
+            $ar_son = array(
+              '0' => '',
+              '1' => 'bir',
+              '2' => 'ikki',
+              '3' => 'uch',
+              '4' => 'to`rt',
+              '5' => 'besh',
+              '6' => 'olti',
+              '7' => 'yetti',
+              '8' => 'sakkiz',
+              '9' => 'to`qqiz',
+            );
+            $ar_on = array(
+              '0' => '',
+              '1' => 'o`n',
+              '2' => 'yigirma',
+              '3' => 'o`ttiz',
+              '4' => 'qirq',
+              '5' => 'ellik',
+              '6' => 'oltmish',
+              '7' => 'yetmish',
+              '8' => 'sakson',
+              '9' => 'to`qson'
+            );
+            if ($yuz > 99) {
+              $birlar = $yuz%10;
+              $bb = $yuz/10;
+              $onlar = $bb%10;
+              $bb = $bb/10;
+              $yuzlar = $bb%10;
+              $text = $ar_son[$yuzlar].' yuz '.$ar_on[$onlar].' '.$ar_son[$birlar];
+            }
+            elseif($yuz<100 && $yuz > 9){
+              $birlar = $yuz%10;
+              $bb = $yuz/10;
+              $onlar = $bb%10;
+              $text = $ar_on[$onlar].' '.$ar_son[$birlar];
+            }
+            elseif($yuz>0 && $yuz < 10){
+              $text = $ar_son[$yuz];
+            }
+            else{
+              $text = '';
+            }
 
-          return $text;
-}
-    function convert_to_word($number){
-        $result = number_format($number , '2');
-        $result = explode('.', $result);
-        $bir = explode(',' , $result[0]);
-        $re_bir = array_reverse($bir);
-        $ar_mln = array(
-          '0' => '',
-          '1' => 'ming',
-          '2' => 'million',
-          '3' => 'milliard'
-        );
-        $ar_son = array(
-          '0' => '',
-          '1' => 'bir',
-          '2' => 'ikki',
-          '3' => 'uch',
-          '4' => 'to`rt',
-          '5' => 'besh',
-          '6' => 'olti',
-          '7' => 'yetti',
-          '8' => 'sakkiz',
-          '9' => 'to`qqiz',
-        );
-        $ar_on = array(
-          '0' => '',
-          '1' => 'o`n',
-          '2' => 'yigirma',
-          '3' => 'o`ttiz',
-          '4' => 'qirq',
-          '5' => 'ellik',
-          '6' => 'oltmish',
-          '7' => 'yetmish',
-          '8' => 'sakson',
-          '9' => 'to`qson'
-        );
-
-        $ar_text = [];
-        $i = 0;
-        foreach ($re_bir as $key => $value) {
-          // echo $value%10;
-          if (yuzlik($value) != '') {
-
-          $ar_text[$i] = yuzlik($value).' '.$ar_mln[$key].' ';
-          }
-          else{
-            $ar_text[$i] = '';
-          }
-          // echo yuzlik($value).' '.$ar_mln[$key].' ' ;
-          $i++;
-        }
-        $ress = array_reverse($ar_text);
-        $ress = implode(' ', $ress);
-        return $ress;
+              return $text;
     }
+        function convert_to_word($number){
+            $result = number_format($number , '2');
+            $result = explode('.', $result);
+            $bir = explode(',' , $result[0]);
+            $re_bir = array_reverse($bir);
+            $ar_mln = array(
+              '0' => '',
+              '1' => 'ming',
+              '2' => 'million',
+              '3' => 'milliard'
+            );
+            $ar_son = array(
+              '0' => '',
+              '1' => 'bir',
+              '2' => 'ikki',
+              '3' => 'uch',
+              '4' => 'to`rt',
+              '5' => 'besh',
+              '6' => 'olti',
+              '7' => 'yetti',
+              '8' => 'sakkiz',
+              '9' => 'to`qqiz',
+            );
+            $ar_on = array(
+              '0' => '',
+              '1' => 'o`n',
+              '2' => 'yigirma',
+              '3' => 'o`ttiz',
+              '4' => 'qirq',
+              '5' => 'ellik',
+              '6' => 'oltmish',
+              '7' => 'yetmish',
+              '8' => 'sakson',
+              '9' => 'to`qson'
+            );
 
-     function get_month_name($start_month){
+            $ar_text = [];
+            $i = 0;
+            foreach ($re_bir as $key => $value) {
+              // echo $value%10;
+              if (yuzlik($value) != '') {
 
-        if ($start_month == "01") {
-            $start_month = "Yanvar";
+              $ar_text[$i] = yuzlik($value).' '.$ar_mln[$key].' ';
+              }
+              else{
+                $ar_text[$i] = '';
+              }
+              // echo yuzlik($value).' '.$ar_mln[$key].' ' ;
+              $i++;
+            }
+            $ress = array_reverse($ar_text);
+            $ress = implode(' ', $ress);
+            return $ress;
         }
-        if ($start_month == "02") {
-            $start_month = "Fevral";
-        }
-        if ($start_month == "03") {
-            $start_month = "Mart";
-        }
-        if ($start_month == "04") {
-            $start_month = "Aprel";
-        }
-        if ($start_month == "05") {
-            $start_month = "May";
-        }
-        if ($start_month == "06") {
-            $start_month = "Iyun";
-        }
-        if ($start_month == "07") {
-            $start_month = "Iyul";
-        }
-        if ($start_month == "08") {
-            $start_month = "Avgust";
-        }
-        if ($start_month == "09") {
-            $start_month = "Sentabr";
-        }
-        if ($start_month == "10") {
-            $start_month = "Oktabr";
-        }
-        if ($start_month == "11") {
-            $start_month = "Noyabr";
-        }
-        if ($start_month == "12") {
-            $start_month = "Dekabr";
-        }
-        return $start_month;
-    }
 
-$month = get_month_name(date('m') , strtotime($this_date));
-$day = date('d' , strtotime($this_date));
-    @endphp
+         function get_month_name($start_month){
+
+            if ($start_month == "01") {
+                $start_month = "Yanvar";
+            }
+            if ($start_month == "02") {
+                $start_month = "Fevral";
+            }
+            if ($start_month == "03") {
+                $start_month = "Mart";
+            }
+            if ($start_month == "04") {
+                $start_month = "Aprel";
+            }
+            if ($start_month == "05") {
+                $start_month = "May";
+            }
+            if ($start_month == "06") {
+                $start_month = "Iyun";
+            }
+            if ($start_month == "07") {
+                $start_month = "Iyul";
+            }
+            if ($start_month == "08") {
+                $start_month = "Avgust";
+            }
+            if ($start_month == "09") {
+                $start_month = "Sentabr";
+            }
+            if ($start_month == "10") {
+                $start_month = "Oktabr";
+            }
+            if ($start_month == "11") {
+                $start_month = "Noyabr";
+            }
+            if ($start_month == "12") {
+                $start_month = "Dekabr";
+            }
+            return $start_month;
+        }
+
+    $month = get_month_name(date('m') , strtotime($this_date));
+    $day = date('d' , strtotime($this_date));
+@endphp
 <style>
     body {
         font-family: DejaVu Sans, sans-serif !important;
@@ -188,7 +188,7 @@ $day = date('d' , strtotime($this_date));
                 <h4 class="text-bold">SHARTNOMA №________</h4>
             </div>
             <div class="col-md-3"></div>
-            <div style="display: inline-block; width: 49%" class="" >
+            <div style="display: inline-block; width: 49%" class="">
                 <span>2021 yil “{{$day}}” {{$month}}</span>
             </div>
             <div style="display: inline-block; width: 49%" class=" text-right">
@@ -196,13 +196,12 @@ $day = date('d' , strtotime($this_date));
             </div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti nomidan O’zbekiston Respublikasi adliya
-                    vazirining 441-шт-son buyrug’iga asosan harakat qiluvchi rektor v.v.b. I.Rustambekov keyingi
-                    o’rinlarda “Universitet” deb nomlanuvchi bir tarafdan va <b>{{$student->birthday}}</b> yilda
+                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti nomidan rektor A.Tashkulov keyingi
+                    oʻrinlarda “Universitet” deb nomlanuvchi bir tarafdan va <b>{{$student->birthday}}</b> yilda
                     tug’ilgan, pasport seriyasi
                     <b>{{$student->passport_seria}}</b> raqami <b>{{$student->passport_number}}</b>, universitet
                     talabasi <b>{{$student->fio()}}</b> keyingi
-                    o’rinlarda “Talaba” deb nomlanuvchi ikkinchi tarafdan, keyingi o’rinlarda birgalikda “Taraflar” deb
+                    o’rinlarda “Talaba” deb nomlanuvchi ikkinchi tarafdan, keyingi oʼrinlarda birgalikda “Taraflar” deb
                     nomlanuvchi, ushbu shartnomani quyidagilar haqida tuzdilar.
 
                 </p>
@@ -214,20 +213,18 @@ $day = date('d' , strtotime($this_date));
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Universitet belgilangan tartibda va shartlarda talabaga
-                    Talabalar turar
-                    joyidan xona va jihozlarni berish, umumiy foydalanishdagi joylardan foydalanish imkoniyatini
-                    yaratish, talaba esa shartnomada belgilangan haqni o’z vaqtida to’lash hamda Talabalar turar joyida
-                    belgilangan tartib va qoidalarga rioya etish majburiyatini oladi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> UUniversitet belgilangan tartibda va shartlarda talabaga
+                    Talabalar turar joyidan xona va jihozlarni berish, umumiy foydalanishdagi joylardan foydalanish
+                    imkoniyatini yaratish, talaba esa shartnomada belgilangan haqni oʼz vaqtida toʼlash hamda Talabalar
+                    turar joyida belgilangan tartib va qoidalarga rioya etish majburiyatini oladi.
                 </p>
             </div>
             <div class="col-md-12 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Talabalar turar joyidan talabaga vaqtinchalik yashash va
-                    foydalanish
-                    uchun mazkur shartnomaning 1-ilovasida ko’rsatilgan xona hamda jihozlar beriladi, shartnoma muddati
-                    tugaganidan so’ng Talabalar turar joyi mudiriga xona va jihozlarni but, toza va ozoda holda
-                    2-ilovaga muvofiq qaytaradi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b>Talabalar turar joyidan talabaga vaqtinchalik yashash va
+                    foydalanish uchun mazkur shartnomaning 1-ilovasida koʼrsatilgan xona hamda jihozlar beriladi,
+                    shartnoma muddati tugaganidan soʼng Talabalar turar joyi mudiriga xona va jihozlarni but, toza va
+                    ozoda holda 2-ilovaga muvofiq qaytaradi.
                 </p>
             </div>
             <div class="col-md-12 text-center">
@@ -325,28 +322,32 @@ $day = date('d' , strtotime($this_date));
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. Xona va jihozlar talabaga 2021/2022 o’quv yili uchun beriladi.
+                    3.1. Xona va jihozlar talabaga 2022-2023-oʼquv yili uchun beriladi.
+                </p>
+                {{--                <p>--}}
+                {{--                    &nbsp &nbsp &nbsp &nbsp--}}
+                {{--                    3.2. Talaba xona va jihozlardan foydalanadigan o’quv yili uchun 100% oldindan--}}
+                {{--                    <b>{{$general_payment_sum ? number_format($general_payment_sum, 2, ',', ' ') :''}}</b>--}}
+                {{--                    (<b>{{convert_to_word($general_payment_sum)}}</b>) so’m miqdorida haq to’laydi.--}}
+                {{--                </p>--}}
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.2. Talaba xona va jihozlardan foydalanganlik uchun toʼlovi oylik toʻlov asosida keyingi oyning
+                    toʻlovini dastlabki oyning 25-sanasiga qadar amalga oshiradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba xona va jihozlardan foydalanadigan o’quv yili uchun 100% oldindan <b>{{$general_payment_sum ? number_format($general_payment_sum, 2, ',', ' ') :''}}</b>
-                    (<b>{{convert_to_word($general_payment_sum)}}</b>) so’m miqdorida haq to’laydi.
+                    3.3. Xona va jihozlardan foydalanganlik uchun haq komissiya tavsiya bergan kundan boshlab toʼlanadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Xona va jihozlardan foydalanganlik uchun haq komissiya tavsiya bergan kundan 10 kun muddatda
-                    to’lanadi.
+                    3.4. Toʼlanadigan haq miqdori bir kunlik toʻlov asosida yani kunlik toʻlov 8 000,0 soʻm miqdorida
+                    amalga oshiriladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4. To’lanadigan haq miqdori bir kunlik to`lov asosida yani kunlik to`lov 8 000,0 so`m miqdorida
-                    amalga
-                    oshiriladi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    3.5. Shartnomada belgilangan haqni o’z vaqtida to’lamagan talabaga unga ajratilgan xonadan va
-                    jihozlardan foydalanishiga yo’l qo’yilmaydi.
+                    3.5. Shartnomada belgilangan haqni oʼz vaqtida toʼlamagan talabaga unga ajratilgan xonadan va
+                    jihozlardan foydalanishiga yoʼl qoʼyilmaydi.
                 </p>
 
             </div>
@@ -433,6 +434,7 @@ $day = date('d' , strtotime($this_date));
                     beriladi.
                 </p>
             </div>
+
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
                     VII. Taraflarning manzillari va imzolari
@@ -459,13 +461,14 @@ $day = date('d' , strtotime($this_date));
                             <p>
                                 Toshkent davlat yuridik universiteti
                                 Toshkent shahri Sayilgoh 35-uy
-                                O’zbekiston moliya vazirligi g’aznachiligi
+                                Oʼzbekiston moliya vazirligi gʼaznachiligi
                                 h/r 23402000300100001010
                                 STIR 201122919
                                 HKKM MB Toshkent shahri BB
                                 MFO 00014
                                 shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014
                                 STIR 201122349 OKONX 922110
+
                             </p>
                             <p>
                                 Prorektor. ____________ A.Iminov
@@ -496,7 +499,8 @@ $day = date('d' , strtotime($this_date));
                             </p>
 
                             <p>
-                                Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami <b>{{$student->passport_number}}</b>
+                                Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
+                                <b>{{$student->passport_number}}</b>
                             </p>
                             <p>
                                 Talaba _________________
@@ -526,10 +530,12 @@ $day = date('d' , strtotime($this_date));
     </div>
     <div class="col-md-2"></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('.tasdiq').click(function(){
-        if(confirm('Tasdiqlaysizmi?')){
+    $('.tasdiq').click(function () {
+        if (confirm('Tasdiqlaysizmi?')) {
             $('#accept-form').submit();
         }
 
