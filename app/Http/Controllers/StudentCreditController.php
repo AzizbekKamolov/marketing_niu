@@ -49,7 +49,9 @@ class StudentCreditController extends Controller
             $type = Type::where('id' , $student->status_new)->first();
 //            return $type;
             $crp = CreditPrice::where('degree' , $type->degree)->first();
-            $credits = $student->credits->sum('credits') - $student->credit_payments->sum('credits');
+//            $credits = $student->credits->sum('credits') - $student->credit_payments->sum('credits');
+            $credit = Credit::find($request->credit_id);
+            $credits = $credit->credits;
             $summa = $credits * $crp->price;
 //            return $summa;
             $converter = new AmountConvertToWord();

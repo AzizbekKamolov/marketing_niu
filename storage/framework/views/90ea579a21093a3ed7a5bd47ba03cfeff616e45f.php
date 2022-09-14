@@ -88,11 +88,11 @@
 
     <div class="body" style="margin-bottom: 50px;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Men abituriyent
-        <b><?php echo e($data->last_name); ?> <?php echo e($data->first_name); ?> <?php echo e($data->middle_name); ?></b> 2021/2022 o'quv yilida Toshkent
+        <b><?php echo e($data->last_name); ?> <?php echo e($data->first_name); ?> <?php echo e($data->middle_name); ?></b> 2022/2023 o'quv yilida Toshkent
         davlat yuridik universiteti
         <b> <?php if($data->type==1): ?> <?php echo e("bakalavriyatining"); ?> <?php elseif($data->type==2): ?> <?php echo e("magistaturasining "); ?> <?php elseif($data->type == 3): ?>  <?php endif; ?> </b>
         <b> <?php if($data->type==1): ?><?php echo e($data->dir()->name); ?> <?php echo e("ta`lim yo'nalishiga"); ?> <?php elseif($data->type == 2): ?> <?php echo e($data->dir()->name); ?> <?php echo e("mutahasisligiga"); ?> <?php elseif($data->type == 3): ?> <?php echo e($data->dir()->name); ?> <?php echo e("yo`nalishiga"); ?> <?php endif; ?> </b>
-        o'qishga kirish maqsadida test sinovlarini topshirdim va <b><?php echo e($data->ball); ?></b> ball to'plagan holda
+         (<?php echo e($data->edu_type?$data->edu_type->name:''); ?>) o'qishga kirish maqsadida test sinovlarini topshirdim va <b><?php echo e($data->ball); ?></b> ball to'plagan holda
         <b><?php if($data->lang == 1): ?> o'zbek <?php elseif($data->lang == 2): ?> rus <?php endif; ?></b> guruhiga talabalikka tavsiya etilmadim.
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php if($data->type==1): ?> <?php echo e("Bakalavriyat"); ?> <?php elseif($data->type == 2): ?> <?php echo e("Magistratura bosqichida "); ?> <?php else: ?> <?php echo e("sirtqi"); ?> <?php endif; ?>
@@ -112,8 +112,6 @@
         <div class="" style="float: right;">
             <div class="fio"><b><?php echo e($data->last_name); ?> <?php echo e($data->first_name); ?> <?php echo e($data->middle_name); ?></b></div>
         </div>
-
-
     </div>
 
 </div>

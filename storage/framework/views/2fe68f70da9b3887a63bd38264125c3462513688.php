@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="row">
                                     <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomasi
-                                        (Yuqori kurs talabalar uchun)</h5>
+                                        (Yuqori bosqich talabalar uchun)</h5>
                                 </div>
                             </div>
                         </a>

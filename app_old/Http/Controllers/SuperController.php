@@ -63,13 +63,11 @@ class SuperController extends Controller
                 return PDF::loadView('site.super.ariza_pdf' , ['data' => $super])->download($super->last_name.$super->first_name.'.pdf');
                 return redirect(route("index"))->with('error', 'Siz ariza yuborgansiz!');
             }
-            $eduTypes = json_decode($result->edu_types);
-            $dirArray = json_decode($result->dir_array);
-            $keyArray = array_search($request->dir_id , $dirArray);
-            $eduType = EduType::find($eduTypes[$keyArray]);
+            $dirEduTypeArray = explode(',',$request->dir_id);
             $super = new Super();
             $super->last_name = $result->last_name;
-            $super->edu_type_id = $eduType->id;
+            $super->edu_type_id = $dirEduTypeArray[1];
+            $super->dir = $dirEduTypeArray[0];
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
             $super->type = $result->type;
@@ -80,7 +78,6 @@ class SuperController extends Controller
 //            $super->passport_given_date = $result->passport_given_date;
 //            $super->passport_issued_by = $result->passport_issued_by;
             $super->gender = $result->gender;
-            $super->dir = $request->dir_id;
             $super->address = $result->address;
             $super->passport_jshshir = $result->passport_jshshir;
 //            $super->viloyat = $result->viloyat;
