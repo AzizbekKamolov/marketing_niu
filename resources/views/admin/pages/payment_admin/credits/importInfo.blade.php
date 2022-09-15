@@ -61,6 +61,11 @@
                                         <input type="text" class="form-control" name="description" required>
                                         <input name="array"  hidden class="form-control" value="{{$data}}" >
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">To`lovning ohirgi muddati</label>
+                                        <input type="date" class="form-control" name="payment_date" required>
+                                        
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">

@@ -19,21 +19,22 @@ class SuperController extends Controller
 {
     public function super()
     {
-                $sss = "SSSSSSSSSSSSSSS";
+        $sss = "SSSSSSSSSSSSSSS";
 //                return "<h3>Ariza topshirish muddati tugadi</h3>";
 
-        return view('site.super.index',[
+        return view('site.super.index', [
 
-            'sss'=>$sss
+            'sss' => $sss
         ]);
     }
 
-    public function checkstore(Request $request){
+    public function checkstore(Request $request)
+    {
 
         $result = Result::find($request->super_id);
 //        return $result;
-        if (count(Result::where('passport_jshshir' , $result->passport_jshshir)->get()) > 2) {
-            $result = Result::where('passport_jshshir' , $result->passport_jshshir)->where('type' , 2)->first();
+        if (count(Result::where('passport_jshshir', $result->passport_jshshir)->get()) > 2) {
+            $result = Result::where('passport_jshshir', $result->passport_jshshir)->where('type', 2)->first();
         }
         $user_input = $request->all();
 //        $request->validate([
@@ -43,13 +44,13 @@ class SuperController extends Controller
 //            'tel1' =>'required',
 //            'dir_id' =>'exists:dir,id',
 //        ]);
-         $validator = Validator::make($user_input, [
-            'tel2' =>'required',
-            'tel1' =>'required',
-             'dir_id' => 'exists:dir,id'
+        $validator = Validator::make($user_input, [
+            'tel2' => 'required',
+            'tel1' => 'required',
+            'dir_id' => 'exists:dir,id'
 
         ]);
-         if ($validator->fails()) {
+        if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
 //         return $result;
@@ -59,51 +60,47 @@ class SuperController extends Controller
                 ->where('passport_number', $result->passport_number)
                 ->where('passport_jshshir', $result->passport_jshshir)
                 ->first();
-            if($super){
-                return PDF::loadView('site.super.ariza_pdf' , ['data' => $super])->download($super->last_name.$super->first_name.'.pdf');
+            if ($super) {
+                return PDF::loadView('site.super.ariza_pdf', ['data' => $super])->download($super->last_name . $super->first_name . '.pdf');
                 return redirect(route("index"))->with('error', 'Siz ariza yuborgansiz!');
             }
-            $dirEduTypeArray = explode(',',$request->dir_id);
+            $dirEduTypeArray = explode(',', $request->dir_id);
             $super = new Super();
             $super->last_name = $result->last_name;
             $super->edu_type_id = $dirEduTypeArray[1];
+            $super->type = $result->type;
+            $super->comment = $result->comment;
+            $super->description = $result->description;
+            if ($dirEduTypeArray[1] == 2) {
+                $super->type = 3;
+                $super->comment = 'sirtqi_bakalavr';
+                $super->description = 'Sirtqi bakalavr';
+            }
             $super->dir = $dirEduTypeArray[0];
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
-            $super->type = $result->type;
-                $super->comment = $result->comment;
             $super->passport_serial = $result->passport_serial;
             $super->passport_number = $result->passport_number;
             $super->birthday = $result->birthday;
-//            $super->passport_given_date = $result->passport_given_date;
-//            $super->passport_issued_by = $result->passport_issued_by;
             $super->gender = $result->gender;
             $super->address = $result->address;
             $super->passport_jshshir = $result->passport_jshshir;
-//            $super->viloyat = $result->viloyat;
-//            $super->tuman = $result->tuman;
             $super->dtm_id = $result->dtm_id;
             $super->ball = $result->ball;
             $super->tel1 = $request->tel1;
             $super->tel2 = $request->tel2;
-//            $super->phone = $result->phone;
             $super->lang = $result->lang;
-            $super->comment = $result->comment;
             $super->course = $result->course;
-            $super->description = $result->description;
             $super->status = 1;
-//            return $super;
             $super->save();
             $super->update();
-            $pdf = PDF::loadView('site.super.ariza_pdf' , [
+            $pdf = PDF::loadView('site.super.ariza_pdf', [
                 'data' => $super,
             ]);
             return $pdf->download('ariza.pdf');
 
             return redirect(route("index"))->with('success', 'Arizangiz qabul qilindi!');
-        }
-        else
-        {
+        } else {
             return redirect(route("index"));
         }
 
@@ -114,16 +111,16 @@ class SuperController extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'passport_seria'=>'required',
-            'passport_number' =>'required',
-           'passport_jshshir' =>'required',
+            'passport_seria' => 'required',
+            'passport_number' => 'required',
+            'passport_jshshir' => 'required',
 //            'check' =>'required|',
 //            'g-recaptcha-response' => 'required|captcha',
         ],
-        [
-            'check.required' => 'Rozilik bildirishingiz kerak!',
+            [
+                'check.required' => 'Rozilik bildirishingiz kerak!',
 //            'g-recaptcha-response.required' => 'Tasdiqlang!',
-        ]);
+            ]);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -131,36 +128,33 @@ class SuperController extends Controller
 
         $passport_seria = $input['passport_seria'];
         $passport_number = $input['passport_number'];
-       $passport_jshshir = $input['passport_jshshir'];
+        $passport_jshshir = $input['passport_jshshir'];
         // $birthday = $input['birthday'];
 
         $result = Result::where('passport_serial', $passport_seria)
             ->where('passport_number', $passport_number)
-           ->where('passport_jshshir', $passport_jshshir)
+            ->where('passport_jshshir', $passport_jshshir)
 //            ->where('birthday', $birthday)
             ->first();
         if (count(Result::where('passport_serial', $passport_seria)->where('passport_number', $passport_number)->where('passport_jshshir', $passport_jshshir)->get()) > 1) {
             $result = Result::where('passport_serial', $passport_seria)
-            ->where('passport_number', $passport_number)
-           ->where('passport_jshshir', $passport_jshshir)
-           ->where('type' , 2)
-            ->first();
+                ->where('passport_number', $passport_number)
+                ->where('passport_jshshir', $passport_jshshir)
+                ->where('type', 2)
+                ->first();
         }
 
 
-        if ($result){
+        if ($result) {
 //            if ($result->type != 2){
 ////                return "Ariza qoldirish muddati tugagan";
 //            }
-                $data = Result::find($result->id);
-                return view('site.super.check',[
+            $data = Result::find($result->id);
+            return view('site.super.check', [
 
-                    'data'=>$data
-                ]);
-        }
-
-        else
-        {
+                'data' => $data
+            ]);
+        } else {
             return redirect()->back()->with('error', 'Sizning ma`lumotlaringiz topilmadi!');
 //            return Redirect::back()->withErrors(['msg', 'Ma\'lumot topilmadi]);
 //            return redirect()->back();

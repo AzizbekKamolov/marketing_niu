@@ -374,7 +374,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba Shartnomaning 3.1-bandidagi to'lovni 2022-yil 1-iyunga qadar to'laydi.
+                    3.2. Talaba Shartnomaning 3.1-bandidagi to'lovni @if($payment_date) {{date('Y' , strtotime($payment_date))}}-yil {{date('d' , strtotime($payment_date))}}-{{get_month_name(date('m' , strtotime($payment_date)))}} @else 2022-yil 1-iyun @endif ga qadar to'laydi.
 
 
                 </p>

@@ -64,7 +64,9 @@ class StudentCreditController extends Controller
                     'summa_word' => $summa_word,
                     'summa_one_credit_word' => $summa_one_credit_word,
                     'summa' => $summa,
-                    'one_credit_summa' => $crp->price
+                    'one_credit_summa' => $crp->price,
+                    'payment_date' => $credit->payment_date,
+                    'credit_id' => $credit->id,
                 ]);
             } else {
                 return 'Kreditingizdan qarzingiz yo`q';
@@ -83,7 +85,9 @@ class StudentCreditController extends Controller
             $type = Type::where('id' , $student->status_new)->first();
 //            return $type;
             $crp = CreditPrice::where('degree' , $type->degree)->first();
-            $credits = $student->credits->sum('credits') - $student->credit_payments->sum('credits');
+//            $credits = $student->credits->sum('credits') - $student->credit_payments->sum('credits');
+            $credit = Credit::find($request->credit_id);
+             $credits = $credit->credits;
             $summa = $credits * $crp->price;
 //            return $credits;
             $converter = new AmountConvertToWord();
@@ -96,7 +100,8 @@ class StudentCreditController extends Controller
                     'summa_word' => $summa_word,
                     'summa_one_credit_word' => $summa_one_credit_word,
                     'summa' => $summa,
-                    'one_credit_summa' => $crp->price
+                    'one_credit_summa' => $crp->price,
+                    'payment_date' => $credit->payment_date,
                 ])->download($student->fio().'.pdf');
             } else {
                 return 'Kreditingizdan qarzingiz yo`q';

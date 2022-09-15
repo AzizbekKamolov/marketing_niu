@@ -21,8 +21,8 @@ class SuperLyceumController extends Controller
 {
     public function form()
     {
-//        return "<h3>Ariza qoldirish muddati tugadi</h3>";
-        return view('site.lyceum_super.form');
+        return "<h3>Ariza qoldirish muddati tugadi</h3>";
+//        return view('site.lyceum_super.form');
     }
     public function form_self()
     {

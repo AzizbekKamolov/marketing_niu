@@ -177,57 +177,54 @@
         font-family: DejaVu Sans, sans-serif !important;
     }
 </style>
-<style>
-    .text-bold {
-        font-weight: bold;
-        /*font-weight: bolder;*/
-    }
+  <style>
+        .text-bold {
+            font-weight: bold;
+            /*font-weight: bolder;*/
+        }
 
-    * {
-        font-family: "Times New Roman";
-    }
+        * {
+            font-family: "Times New Roman";
+        }
 
-    /*body{*/
-    /*    padding-left: 30px;*/
-    /*    padding-right: 30px;*/
-    /*}*/
-    .mt-1 {
-        margin-top: 0px;
-    }
+        /*body{*/
+        /*    padding-left: 30px;*/
+        /*    padding-right: 30px;*/
+        /*}*/
+        .mt-1 {
+            margin-top: 0px;
+        }
 
-    .mb-1 {
-        margin-bottom: 2px;
-    }
+        .mb-1 {
+            margin-bottom: 2px;
+        }
 
-    .word-line {
-        /*padding-top: 30px;*/
-        border-bottom: 1px solid black
-    }
+        .word-line {
+            /*padding-top: 30px;*/
+            border-bottom: 1px solid black
+        }
 
-    td {
-        vertical-align: top;
-        padding: 7px;
-    }
+        td {
+            vertical-align: top;
+            padding: 7px;
+        }
 
-    .page-break {
-        page-break-after: always;
-    }
+        .page-break {
+            page-break-after: always;
+        }
+      .text-center{
+          text-align: center;
+      }
+      h4{
+          padding: 0px !important;
+          margin: 0px !important;
+      }
+      p{
+          padding: 0px !important;
+          margin: 5px !important;
+      }
 
-    .text-center {
-        text-align: center;
-    }
-
-    h4 {
-        padding: 0px !important;
-        margin: 0px !important;
-    }
-
-    p {
-        padding: 0px !important;
-        margin: 5px !important;
-    }
-
-</style>
+    </style>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
@@ -246,7 +243,7 @@
             <div style="display: inline-block; width: 49%" class=" text-right">
                 <span>Toshkent shahri</span>
             </div>
-            <div class="col-md-12 mt-1 ">
+            <div class="col-md-12 mt-1 " >
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti nomidan rektor A.Tashkulov keyingi
                     oʻrinlarda “Universitet” deb nomlanuvchi bir tarafdan va <b>{{$student->birthday}}</b> yilda
@@ -258,8 +255,8 @@
 
                 </p>
             </div>
-            <div class="col-md-12 text-center ">
-                <h4 class="text-bold">
+            <div class="col-md-12 text-center " >
+                <h4 class="text-bold" >
                     I. Shartnoma mazmuni
                 </h4>
             </div>
@@ -512,36 +509,36 @@
                             <img src="{{asset('files/pechat/ttj/ttj_pechat2.png')}}" style="width: 100%; height: auto"
                                  alt="">
                         </td>
-                        {{--                        <td class="w-50" style="width: 49%">--}}
+{{--                        <td class="w-50" style="width: 49%">--}}
 
-                        {{--                            <p>--}}
-                        {{--                                Toshkent davlat yuridik universiteti--}}
-                        {{--                                Toshkent shahri Sayilgoh 35-uy--}}
-                        {{--                                Oʼzbekiston moliya vazirligi gʼaznachiligi--}}
-                        {{--                                h/r 23402000300100001010--}}
-                        {{--                                STIR 201122919--}}
-                        {{--                                HKKM MB Toshkent shahri BB--}}
-                        {{--                                MFO 00014--}}
-                        {{--                                shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014--}}
-                        {{--                                STIR 201122349 OKONX 922110--}}
+{{--                            <p>--}}
+{{--                                Toshkent davlat yuridik universiteti--}}
+{{--                                Toshkent shahri Sayilgoh 35-uy--}}
+{{--                                Oʼzbekiston moliya vazirligi gʼaznachiligi--}}
+{{--                                h/r 23402000300100001010--}}
+{{--                                STIR 201122919--}}
+{{--                                HKKM MB Toshkent shahri BB--}}
+{{--                                MFO 00014--}}
+{{--                                shh/r: 400110860262667094100009002 HKKM MB Toshkent shaxri BB MFO 00014--}}
+{{--                                STIR 201122349 OKONX 922110--}}
 
-                        {{--                            </p>--}}
-                        {{--                            <p>--}}
-                        {{--                                Prorektor. ____________ A.Iminov--}}
-                        {{--                            </p>--}}
-                        {{--                            <p>--}}
-                        {{--                                Bosh buхgalter.__________ M.Parpiyev--}}
-                        {{--                            </p>--}}
-                        {{--                            <p>--}}
+{{--                            </p>--}}
+{{--                            <p>--}}
+{{--                                Prorektor. ____________ A.Iminov--}}
+{{--                            </p>--}}
+{{--                            <p>--}}
+{{--                                Bosh buхgalter.__________ M.Parpiyev--}}
+{{--                            </p>--}}
+{{--                            <p>--}}
 
-                        {{--                                Talabalar turar joyi mudiri--}}
-                        {{--                            </p>--}}
-                        {{--                            <p>--}}
+{{--                                Talabalar turar joyi mudiri--}}
+{{--                            </p>--}}
+{{--                            <p>--}}
 
-                        {{--                                _____________ N.Shayzakov--}}
+{{--                                _____________ N.Shayzakov--}}
 
-                        {{--                            </p>--}}
-                        {{--                        </td>--}}
+{{--                            </p>--}}
+{{--                        </td>--}}
                         <td class="w-50" style="width: 49%">
 
                             <p class="word-line">

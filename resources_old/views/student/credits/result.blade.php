@@ -20,36 +20,40 @@
                         marketing bo`limiga xabar berishingizni so`raymiz.
                     </p>
                 </div>
-                <div style="">
+                <div style="" class="text-center">
                     <hr>
                     <p>Barcha kreditlar: <b>{{$credits->sum('credits')}} kredit</b></p>
-                    <p>To`langan kreditlar: <b>{{$credit_payments->sum('credits')}}</b></p>
-                    <p>Qarzdorlik: <b>
-                            @if($credits->sum('credits')>$credit_payments->sum('credits'))
-                                {{$credits->sum('credits')-$credit_payments->sum('credits')}} kredit
-                            @else
-                                <b>Yo'q</b>
-                            @endif
-                        </b></p>
-                    <form action="{{route('student.credits.agreement')}}" method="post">
-                        {{csrf_field()}}
-                        <input type="text" hidden name="id_code" value="{{$student->id_code}}">
-                    <button class="btn btn-success w-100">Shartnoma olish</button>
+{{--                    <p>To`langan kreditlar: <b>{{$credit_payments->sum('credits')}}</b></p>--}}
+{{--                    <p>Qarzdorlik: <b>--}}
+{{--                            @if($credits->sum('credits')>$credit_payments->sum('credits'))--}}
+{{--                                {{$credits->sum('credits')-$credit_payments->sum('credits')}} kredit--}}
+{{--                            @else--}}
+{{--                                <b>Yo'q</b>--}}
+{{--                            @endif--}}
+{{--                        </b></p>--}}
+{{--                    <form action="{{route('student.credits.agreement')}}" method="post">--}}
+{{--                        {{csrf_field()}}--}}
+{{--                        <input type="text" hidden name="id_code" value="{{$student->id_code}}">--}}
+{{--                        <button class="btn btn-success w-100">Shartnoma olish</button>--}}
 
-                    </form>
+{{--                    </form>--}}
                 </div>
                 <div class="w-100 text-center">
                     <hr>
-                    <p>To`liq ma`lumot</p>
-                    <hr>
-                    <p>Kreditlar</p>
+                    <p>Kreditlarga shartnomalar olish</p>
 
                 </div>
-                <div>
                     @foreach($credits as $key =>$credit)
-                        <p>{{$key+1}}) Kredit soni <b>{{$credit->credits}}</b> ({{$credit->description}}) </p>
-                    @endforeach
+                <div class="border p-3">
+                        <p>{{$key+1}}) Kredit soni <b>{{$credit->credits}}</b> . <br> Izoh - {{$credit->description}} </p>
+                        <form action="{{route('student.credits.agreement')}}" method="post">
+                            {{csrf_field()}}
+                            <input type="text" hidden name="id_code" value="{{$student->id_code}}">
+                            <input type="text" hidden name="credit_id" value="{{$credit->id}}">
+                            <button class="btn btn-success w-100">Shartnoma olish ( {{$credit->description}} - {{$credit->credits}} kredit )</button>
+                        </form>
                 </div>
+                    @endforeach
                 <div class="w-100 text-center">
                     <hr>
                     <p>Kredit uchun to`lovlar</p>
@@ -57,7 +61,7 @@
                 </div>
                 <div>
                     @foreach($credit_payments as $key =>$credit)
-                        <p>{{$key+1}}) Kredit soni <b>{{$credit->credits}}</b> </p>
+                        <p>{{$key+1}}) Kredit soni <b>{{$credit->credits}}</b></p>
                         <p> To`lov summasi <b>{{$credit->amount}}</b> ({{$credit->description}}) </p>
                     @endforeach
                 </div>
