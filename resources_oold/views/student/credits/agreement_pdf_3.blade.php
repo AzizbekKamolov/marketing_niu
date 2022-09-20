@@ -180,30 +180,27 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
-                    Toshkent davlat yuridik universitetida bakalavriat talabasini qayta oʻqitish uchun
+                    Toshkent davlat yuridik universitetida bakalavriat (sirtqi taʻlim shakl ) talabasini qayta oʻqitish uchun
                 </h4>
-                <h4 class="text-bold">SHARTNOMA №________</h4>
+                <h4 class="text-bold">SHARTNOMA ________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
-            <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
+            <div class="col-md-6 text-left" style="width: 30%;display: inline-block"><p>Toshkent shahri</p></div>
+            <div class="col-md-6 text-right" style="width: 50%;display: inline-block"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
-                    muassasasi) nomidan Ustavga asosan ish yurituvchi 2020-yil 25-sentyabrdagi 08-176-son buyruq asosida
-                    ish yurituvchi prorektor Iminov Azizulla Abdulatibovich,
-                    va bakalavriat taʼlim yoʻnalishining
+                    muassasasi) nomidan buyruqga asosan ish yurituvchi prorektor A.Iminov bir tomondan,
+                    va sirtqi ta’lim shakli bakalavriat taʼlim yoʻnalishining
                     <b>{{$student->course}}</b> - kurs talabasi
-                    <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar), oʻzlashtirilmagan fanlardan qayta oʻqitish maqsadida mazkur ikki tomonlama
-                    shartnomani (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida
-                    oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi
-                    nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining
-                    2021-yil 10-iyundagi “Oʻzbekiston Respublikasi Adliya vazirligi tizimidagi taʼlim muassasalarida
-                    kredit-modul tizimini joriy etish chora-tadbirlari toʻgʻrisida”gi Qarori 359-son qarori, Toshkent
-                    davlat yuridik universiteti rektorining 2022 yil 29-apreldagi 08-104-um-son buyrugʻiga muvofiq
-                    tuzdilar:
+                    <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar),
+                    oʻzlashtirilmagan fanlardan qayta oʻqitish maqsadida mazkur ikki tomonlama shartnomani (keyingi
+                    oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning
+                    toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizom (roʻyxat
+                    raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2021-yil
+                    10-iyundagi “Oʻzbekiston Respublikasi Adliya vazirligi tizimidagi taʼlim muassasalarida kredit-modul
+                    tizimini joriy etish chora-tadbirlari toʻgʻrisida”gi Qarori 359-son qaroriga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -214,14 +211,14 @@
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> 1.1. Mazkur <b>Shartnomaga</b> asosan <b>Taʻlim muassasasi
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> 1.1. Mazkur <b>Shartnomaga</b> asosan <b>Ta'lim muassasasi
                         Talabani</b>
-                    belgilangan taʻlim standartlari va oʻquv dasturlariga muvofiq 2021/2022 oʻquv yilining kuzgi
-                    semestridan oʻzlashtirmagan fanlarni qayta oʻqitadi, <b>Talaba</b> esa <b>Shartnomaning</b> 3-bobida
-                    koʻrsatilgan
-                    tartib va miqdordagi toʻlovni amalga oshiradi hamda <b>Taʻlim muassasasida</b> belgilangan tartibga
+                    belgilangan ta'lim standartlari va o'quv dasturlariga muvofiq 2021/2022 o'quv yilining kuzgi
+                    semestridan o'zlashtirmagan fanlarni qayta o'qitadi, <b>Talaba</b> esa <b>Shartnomaning</b> 3-bobida
+                    ko'rsatilgan
+                    tartib va miqdordagi to'lovni amalga oshiradi hamda <b>Ta'lim muassasasida</b> belgilangan tartibga
                     muvofiq
-                    taʻlim olish majburiyatini oladi.
+                    ta'lim olish majburiyatini oladi.
                 </p>
             </div>
 
@@ -233,63 +230,63 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.1.</b> <b>Taʻlim muassasasining huquqlari:</b>
+                    <b>2.1.</b> <b>Ta'lim muassasasining huquqlari:</b>
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.1. <b>Talabadan</b> shartnomaviy majburiyatlari bajarilishini, shu jumladan <b>Taʻlim
+                    2.1.1. <b>Talabadan</b> shartnomaviy majburiyatlari bajarilishini, shu jumladan <b>Ta'lim
                         muassasasining</b> ichki
-                    hujjatlarida belgilangan qoidalarga rioya qilishni, oʻquv mashgʻulotlarida muntazam qatnashishni,
-                    <b>Shartnoma</b> boʻyicha toʻlovlarni oʻz vaqtida amalga oshirishni talab qilish.
+                    hujjatlarida belgilangan qoidalarga rioya qilishni, o'quv mashg'ulotlarida muntazam qatnashishni,
+                    <b>Shartnoma</b> bo'yicha to'lovlarni o'z vaqtida amalga oshirishni talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.2 Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, oʻqitish uchun
-                    belgilangan miqdordagi toʻlovni oʻz vaqtida amalga oshirmagan Talabaga nisbatan belgilangan tartibda
-                    talabalar safidan chetlashtirish yoki boshqa choralarni qoʻllash, semestr yakuni boʻyicha akademik
+                    2.1.2 Ta'lim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, o'qitish uchun
+                    belgilangan miqdordagi to'lovni o'z vaqtida amalga oshirmagan Talabaga nisbatan belgilangan tartibda
+                    talabalar safidan chetlashtirish yoki boshqa choralarni qo'llash, semestr yakuni bo'yicha akademik
                     qarzdorligi bor Talabani tegishli kursda qoldirish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.3.Talaba Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʻpol ravishda buzgan,
+                    2.1.3.Talaba Ta'lim muassasasining ichki hujjatlarida belgilangan qoidalarni qo'pol ravishda buzgan,
                     xususan huquqbuzarlik sodir etgan hollarda Shartnomani bir tomonlama bekor qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.4.Istisno tariqasida Shartnoma boʻyicha toʻlov muddatlarini uzaytirish (Taʻlim muassasasining
-                    buyrugʻi orqali).
+                    2.1.4.Istisno tariqasida Shartnoma bo'yicha to'lov muddatlarini uzaytirish (Ta'lim muassasasining
+                    buyrug'i orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.5.Talaba belgilangan toʻlovni amalga oshirmaganda elektron tizimlardan foydalanishi va dars
-                    mashgʻulotlariga qatnashishini cheklash.
+                    2.1.5.Talaba belgilangan to'lovni amalga oshirmaganda elektron tizimlardan foydalanishi va dars
+                    mashg'ulotlariga qatnashishini cheklash.
                 </p>
 
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.2.</b> <b>Taʻlim muassasasining majburiyatlari:</b>
+                    <b>2.2.</b> <b>Ta'lim muassasasining majburiyatlari:</b>
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.1. Qayta oʻqitish uchun Oʻzbekiston Respublikasining “Taʻlim toʻgʻrisida”gi Qonuni, Vazirlar
+                    2.2.1. Qayta o'qitish uchun O'zbekiston Respublikasining “Ta'lim to'g'risida”gi Qonuni, Vazirlar
                     Mahkamasining 2021-yil 10-iyundagi 359-son qarori va boshqa normativ-huquqiy hujjatlarga muvofiq
-                    Taʻlim muassasasi Ustavi va boshqa ichki hujjatlarida nazarda tutilgan zarur shart-sharoitlarni
+                    Ta'lim muassasasi Ustavi va boshqa ichki hujjatlarida nazarda tutilgan zarur shart-sharoitlarni
                     yaratadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.2. Talabalarning qonun hujjatlarida belgilangan huquqlarining bajarilishini taʻminlaydi.
+                    2.2.2. Talabalarning qonun hujjatlarida belgilangan huquqlarining bajarilishini ta'minlaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.3. Talabani tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari darajasida
-                    oʻqitadi.
+                    2.2.3. Talabani tasdiqlangan o'quv reja va dasturlarga muvofiq davlat standarti talablari darajasida
+                    o'qitadi.
                 </p>
 
             </div>
@@ -302,20 +299,20 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.1. Taʻlim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
+                    2.3.1. Ta'lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.2. Taʻlim muassasasida tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari
-                    darajasida qayta oʻqitish xizmatlarini olish.
+                    2.3.2. Ta'lim muassasasida tasdiqlangan o'quv reja va dasturlarga muvofiq davlat standarti talablari
+                    darajasida qayta o'qitish xizmatlarini olish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.3. Taʻlim muassasasining Axborot-resurs markazi, sport inshooti, Wi-Fi hududlaridan foydalanish.
+                    2.3.3. Ta'lim muassasasining Axborot-resurs markazi, sport inshooti, Wi-Fi hududlaridan foydalanish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.4. Taʻlim muassasasining taʻlim jarayonlarini yaxshilashga doir takliflar berish.
+                    2.3.4. Ta'lim muassasasining ta'lim jarayonlarini yaxshilashga doir takliflar berish.
                 </p>
 
             </div>
@@ -325,34 +322,34 @@
                     <b>2.4.</b> <b>Talabaning majburiyatlari:</b>
                 </p>
             </div>
-            <div class="col-md-12 mb-1 page-break">
+            <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.1. Qayta oʻqitish qiymatini Shartnomaning 3-bobida koʻrsatilgan tartib va miqdorda oʻz vaqtida
-                    toʻlaydi.
+                    2.4.1. Qayta o'qitish qiymatini Shartnomaning 3-bobida ko'rsatilgan tartib va miqdorda o'z vaqtida
+                    to'laydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     2.4.2.Toshkent davlat yuridik universiteti Ustavi va boshqa ichki hujjatlari bilan tanishadi va
-                    ularning talablariga qatʻiy rioya qiladi.
+                    ularning talablariga qat'iy rioya qiladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.3.Oʻquv mashgʻulotlarida belgilangan tartib va meʻyorlarga muvofiq qatnashadi.
+                    2.4.3.O'quv mashg'ulotlarida belgilangan tartib va me'yorlarga muvofiq qatnashadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.4.Taʻlim muassasasida belgilangan tartib va doirada taʻlim oladi hamda ushbu jarayonda bilim
+                    2.4.4.Ta'lim muassasasida belgilangan tartib va doirada ta'lim oladi hamda ushbu jarayonda bilim
                     darajasini oshirib boradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.5.Shartnomani imzolangandan keyin Taʻlim muassasasiga taqdim etadi.
+                    2.4.5.Shartnomani imzolangandan keyin Ta'lim muassasasiga taqdim etadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.6.Oʻzining xatti-harakatlari, OAV va ijtimoiy tarmoqlardagi chiqishlari bilan universitetning
-                    ishshanlik obroʻsi va manfaatlariga putur yetkazmaslik hamda zarar yetkazishi mumkin boʻlgan
+                    2.4.6.O'zining xatti-harakatlari, OAV va ijtimoiy tarmoqlardagi chiqishlari bilan universitetning
+                    ishshanlik obro'si va manfaatlariga putur yetkazmaslik hamda zarar yetkazishi mumkin bo'lgan
                     xatti-harakatlarini sodir etishdan tiyiladi.
 
                 </p>
@@ -360,7 +357,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    3. TOʻLOV MIQDORLARI VA MUDDATLARI
+                    3. TO'LOV MIQDORLARI VA MUDDATLARI
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
@@ -375,7 +372,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba Shartnomaning 3.1-bandidagi toʻlovni 2022-yil 1-iyunga qadar toʻlaydi.
+                    3.2. Talaba Shartnomaning 3.1-bandidagi toʻlovni @if($payment_date) {{date('Y' , strtotime($payment_date))}}-yil {{date('d' , strtotime($payment_date))}}-{{get_month_name(date('m' , strtotime($payment_date)))}} @else 2022-yil 1-iyun @endif ga qadar toʻlaydi.
 
 
                 </p>
@@ -386,11 +383,10 @@
 
 
                 </p>
-                <p>
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    4. SHARTNOMANI BEKOR QILISH VA OʻZGARTIRISH
+                    4. SHARTNOMANI BEKOR QILISH VA O'ZGARTIRISH
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
@@ -402,36 +398,36 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.1. Tomonlarning oʻzaro roziligi bilan.
+                    4.1.1. Tomonlarning o'zaro roziligi bilan.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.2. Taʻlim muasasasining tashabbusiga koʻra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
+                    4.1.2. Ta'lim muasasasining tashabbusiga ko'ra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
                     talabalar safidan chiqarilganda.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.3.Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Taʻlim muassasasi Shartnomani
+                    4.1.3.O'qitish qiymati belgilangan muddat ichida to'lanmasa (bunda, Ta'lim muassasasi Shartnomani
                     bir tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.4.Talabaning tashabbusiga koʻra (yozma murojaatga asosan).
+                    4.1.4.Talabaning tashabbusiga ko'ra (yozma murojaatga asosan).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.5. Shartnomaning 2.1.3-bandida koʻrsatilgan hollarda (Taʻlim muassasasi tomonidan Shartnomaning
+                    4.1.5. Shartnomaning 2.1.3-bandida ko'rsatilgan hollarda (Ta'lim muassasasi tomonidan Shartnomaning
                     bir tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma
                     yuborish orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.6. Qonunchilikda koʻrsatilgan boshqa hollarda.
+                    4.1.6. Qonunchilikda ko'rsatilgan boshqa hollarda.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.2. Shartnoma Tomonlarning oʻzaro roziligi bilan oʻzgartiriladi, 2.1.4, 2.1.5-bandlarda
-                    koʻrsatilgan holatlar bundan mustasno.
+                    4.2. Shartnoma Tomonlarning o'zaro roziligi bilan o'zgartiriladi, 2.1.4, 2.1.5-bandlarda
+                    ko'rsatilgan holatlar bundan mustasno.
                 </p>
 
             </div>
@@ -443,30 +439,30 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    5.1.Ushbu Shartnomaga asosan majburiyatlarni bajarilmasligi holatlari yengib boʻlmas kuchlar
-                    (fors-major) holatlar natijasida vujudga kelganda Tomonlar oʻz majburiyatlarini bajarishdan qisman
-                    yoki toʻliq ozod boʻladilar.
+                    5.1.Ushbu Shartnomaga asosan majburiyatlarni bajarilmasligi holatlari yengib bo'lmas kuchlar
+                    (fors-major) holatlar natijasida vujudga kelganda Tomonlar o'z majburiyatlarini bajarishdan qisman
+                    yoki to'liq ozod bo'ladilar.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    5.2. Yengib boʻlmaydigan kuchlar (fors-major) holatlariga Tomonlarning irodasi va faoliyatiga
-                    bogʻliq boʻlmagan tabiat hodisalari (pandemiya, zilzila, koʻchki, boʻron, qurgʻoqchilik va
-                    boshqalar) yoki ijtimoiy-iqtisodiy holatlar (urush holati, qamal, davlat manfaatlarini koʻzlab
-                    import va eksportni taʻqiqlash va boshqalar) sababli yuzaga kelgan sharoitlarda Tomonlarga qabul
-                    qilingan majburiyatlarni bajarish imkonini bermaydigan favqulodda, oldini olib boʻlmaydigan va
+                    5.2. Yengib bo'lmaydigan kuchlar (fors-major) holatlariga Tomonlarning irodasi va faoliyatiga
+                    bog'liq bo'lmagan tabiat hodisalari (pandemiya, zilzila, ko'chki, bo'ron, qurg'oqchilik va
+                    boshqalar) yoki ijtimoiy-iqtisodiy holatlar (urush holati, qamal, davlat manfaatlarini ko'zlab
+                    import va eksportni ta'qiqlash va boshqalar) sababli yuzaga kelgan sharoitlarda Tomonlarga qabul
+                    qilingan majburiyatlarni bajarish imkonini bermaydigan favqulodda, oldini olib bo'lmaydigan va
                     kutilmagan holatlar kiradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    5.3. Shartnoma Tomonlaridan qaysi biri uchun majburiyatlarni yengib boʻlmaydigan kuchlar
-                    (fors-major) holatlari sababli bajarmaslik maʻlum boʻlsa, darhol ikkinchi tomonga bu xaqda 10 kun
+                    5.3. Shartnoma Tomonlaridan qaysi biri uchun majburiyatlarni yengib bo'lmaydigan kuchlar
+                    (fors-major) holatlari sababli bajarmaslik ma'lum bo'lsa, darhol ikkinchi tomonga bu xaqda 10 kun
                     ichida dalillar bilan taqdim etishi lozim.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    5.4.Shartnomaga asosan majburiyatlarni ijro qilish muddati ushbu yengib boʻlmaydigan kuchlar
-                    (fors-major) holatlar davom etish muddatiga qadar uzaytiriladi. Agar yengib boʻlmaydigan kuchlar
-                    (fors-major) taʻsiri 30 (oʻttiz) kundan ortiqroq davom qilsa, Tomonlar tashabbusiga binoan Shartnoma
+                    5.4.Shartnomaga asosan majburiyatlarni ijro qilish muddati ushbu yengib bo'lmaydigan kuchlar
+                    (fors-major) holatlar davom etish muddatiga qadar uzaytiriladi. Agar yengib bo'lmaydigan kuchlar
+                    (fors-major) ta'siri 30 (o'ttiz) kundan ortiqroq davom qilsa, Tomonlar tashabbusiga binoan Shartnoma
                     bekor qilinishi mumkin.
                 </p>
             </div>
@@ -478,29 +474,29 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.1. Shartnoma bevosita Tomonlar tomonidan imzolangan paytdan eʻtiboran kuchga kiradi.
+                    6.1. Shartnoma bevosita Tomonlar tomonidan imzolangan paytdan e'tiboran kuchga kiradi.
                 </p>
 
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.2. Tomonlar oʻrtasida vujudga keladigan nizolar oʻzaro muzokaralar olib borish hamda talabnoma
-                    yuborish orqali hal etiladi, Shartnomaning 4.1.2-4.1.5 bandlarida koʻrsatilgan holatlar bundan
+                    6.2. Tomonlar o'rtasida vujudga keladigan nizolar o'zaro muzokaralar olib borish hamda talabnoma
+                    yuborish orqali hal etiladi, Shartnomaning 4.1.2-4.1.5 bandlarida ko'rsatilgan holatlar bundan
                     mustasno.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.3. Shartnoma boʻyicha oʻz majburiyatlarini bajarmagan Tomon qonunda belgilangan javobgarlikka
+                    6.3. Shartnoma bo'yicha o'z majburiyatlarini bajarmagan Tomon qonunda belgilangan javobgarlikka
                     tortiladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.4. Tomonlar Shartnoma boʻyicha nizolarni muzokaralar va talabnoma yuborish yoʻli bilan hal
-                    qilishadi, aks holda nizo fuqarolik sudida koʻrib chiqiladi.
+                    6.4. Tomonlar Shartnoma bo'yicha nizolarni muzokaralar va talabnoma yuborish yo'li bilan hal
+                    qilishadi, aks holda nizo fuqarolik sudida ko'rib chiqiladi.
                 </p>
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    Tomonlarning manzillari va toʻlov rekvizitlari
+                    Tomonlarning manzillari va to'lov rekvizitlari
                 </h4>
             </div>
             <div class="col-md-12">
@@ -519,38 +515,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="w-50" style="width: 49%">
-                            <p>Toshkent davlat yuridik universiteti</p>
-                            <p>
-                                Oʻzbekiston Respublikasi
-                                Moliya vazirligi Gʻaznachiligi
-                                Bank: HKKM MB Toshkent sh. B.B.
-                                H/r: 23402000300100001010
-                                STIR: 201122919, MFO: 00014
-                                Sh.h.r: 400110860262667094100009002
-                                STIR: 201122349, KOD 7094100
-                                Tel.: (71) 233-66-36,
-                                Manzil: Sayilgoh koʻchasi, 35-uy
-
-
-                            </p>
-                            <p>
-                                Prorektor _____________A. Iminov
-                            </p>
-                            <p>
-                                Bosh buxgalter _______________ M.Parpiyev
-                            </p>
-                            <p>
-                                Shartnomaviy ta’lim xizmatlari
-                                bo‘limi boshlig‘i ___________ A.Xundibayev
-
-                            </p>
-                            <p>
-                                Yuridik byuro
-                                katta yuriskonsulti
-                                ______________E.Xosilov
-
-                            </p>
+                         <td class="w-50" style="width: 49%">
+                             <img style="width:280px" src="{{asset('pechat/pechat_kredit2.jpg')}}">
                         </td>
                         <td class="w-50" style="width: 49%">
 
@@ -576,23 +542,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-12 text-center" style="padding-bottom: 50px">
-                <div class="tasdiq btn-success "
-                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
-                    <p>
-                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
-                        shartlariga roziman hamda shaxsiy ma`lumotlarim
-                        to'g'riligini tasdiqlayman
-                    </p>
-                </div>
-                <form id="accept-form" action="{{route('student.credits.agreement_pdf')}}" method="post">
-                    {{csrf_field()}}
-                    {{method_field('POST')}}
-                    <input type="text" hidden value="{{$student->id_code}}" name="id_code">
-                </form>
-            </div>
-
-
         </div>
     </div>
     <div class="col-md-2"></div>

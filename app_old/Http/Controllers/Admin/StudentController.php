@@ -220,6 +220,7 @@ class StudentController extends Controller
                                 $new_student->lang = $super->lang;
                                 $new_student->gender = $super->gender;
                                 $new_student->ball = $super->ball;
+                                $new_student->edu_type_id = $super->edu_type_id;
                                 $new_student->super_id = $super->id;
                                 $new_student->save();
                                 $super->status = 3;

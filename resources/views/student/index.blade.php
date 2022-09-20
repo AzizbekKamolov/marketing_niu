@@ -14,19 +14,18 @@
                                         </span>
                     </p>
                 </div>
-                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.agreement.join_training.form') }}">
+                        <a class="text-decoration-none" href="{{ route('student.contract_cards') }}">
                             <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
+                                    class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
                                 <div class="col">
                                     <img class="cardImg"
                                          src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
                                          alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomasi
-                                        (Qo'shma ta'lim uchun)</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomalarini olish</h5>
                                 </div>
                             </div>
                         </a>
@@ -35,36 +34,16 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.agreement.form_first_course') }}">
+                        <a class="text-decoration-none" href="{{ route('student.super_cards') }}">
                             <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
+                                    class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
                                 <div class="col">
                                     <img class="cardImg"
                                          src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
                                          alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomasi
-                                        (1 - bosqich talabalari uchun)</h5>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.agreement.form') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg"
-                                         src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
-                                         alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomasi
-                                        (Yuqori bosqich talabalar uchun)</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov-shartnoma asosida o'qish uchun ariza topshirish</h5>
                                 </div>
                             </div>
                         </a>
@@ -72,113 +51,6 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.agreement.form_ttj') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" class=""
-                                         src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
-                                         alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour"> Talabalar turar joyi uchun
-                                        shartnoma</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('super.super') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" src="{{asset('marketing2021/img/icons/contract.png')}}"
-                                         width="85px" alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish  (magistratura bakalavr)</h5>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('lyceum.super.form') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" src="{{asset('marketing2021/img/icons/contract.png')}}"
-                                         width="85px" alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish (Akademik litsey)</h5>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.agreement.lyceum_form') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" class=""
-                                         src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
-                                         alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center"> Akademik litseylar uchun To`lov shartnomasi </h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.credits') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}"
-                                         width="100px" alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Kredit qarzdorlikni ko'rish va shartnoma olish</h5>
-
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
-                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('payment_check') }}">
-                            <div
-                                class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
-                                <div class="col">
-                                    <img class="cardImg" src="{{asset('marketing2021/img/icons/payment_history.png')}}"
-                                         width="100px" alt="">
-                                </div>
-                                <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour">To`lovlar tarixi</h5>
-
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
 
 
             </div>

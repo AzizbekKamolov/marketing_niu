@@ -216,7 +216,7 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> 1.1. Mazkur <b>Shartnomaga</b> asosan <b>Taʻlim muassasasi
                         Talabani</b>
-                    belgilangan taʻlim standartlari va oʻquv dasturlariga muvofiq 2021/2022 oʻquv yilining kuzgi
+                    belgilangan taʻlim standartlari va oʻquv dasturlariga muvofiq 2021/2022 oʻquv yilining bahorgi
                     semestridan oʻzlashtirmagan fanlarni qayta oʻqitadi, <b>Talaba</b> esa <b>Shartnomaning</b> 3-bobida
                     koʻrsatilgan
                     tartib va miqdordagi toʻlovni amalga oshiradi hamda <b>Taʻlim muassasasida</b> belgilangan tartibga
@@ -366,7 +366,7 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
+                    3.1. 2021/2022 oʻquv yili bahorgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
                     miqdoriga <b>{{$one_credit_summa}}</b> ({{$summa_one_credit_word}}) soʻm,
                     jami <b>{{$credits}}</b>-kredit uchun <b>{{$summa}}</b> ({{$summa_word}}) soʻmni
                     Shartnomaning ushbu

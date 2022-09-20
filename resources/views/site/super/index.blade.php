@@ -72,6 +72,7 @@
                                             Shaxsiy ma'lumotlarimdan foydalanishlariga roziman.
                                         </label>
                                     </div>
+                                    <input type="text" hidden value="@if(isset($comment)){{$comment}}@endif" name="comment">
                                 </div>
 
                                 <div class="col-12 my-4">

@@ -396,7 +396,7 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
+                    3.1. 2021/2022 oʻquv yili bahorgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
                     miqdoriga 207 407 (ikki yuz yetti ming toʻrt yuz yetti) soʻm,
                     jami <b>{{$credits}}</b>-kredit uchun <b>{{$credits*207407}}</b> ({{$summa_word}}) soʻmni
                     Shartnomaning ushbu

@@ -1,4 +1,5 @@
 <?php
+use Test\Model\StudentPayment;
 Route::group([
     'prefix' => \LaravelLocalization::setLocale(),
 ], function () {
@@ -7,6 +8,9 @@ Route::group([
     Route::get('university', ['uses' => 'IndexController@university', 'as' => 'university']);
 });
 Route::get('super', 'SuperController@super')->name('super.super');
+Route::get('super-perevod', 'SuperController@super_perevod')->name('super.super_perevod');
+Route::get('/contract-cards', 'SuperController@contract_cards')->name('student.contract_cards');
+Route::get('/super-cards', 'SuperController@super_cards')->name('student.super_cards');
 //Route::get('super', function(){
 //    return "Ariza topshirish boshlanmadi";
 //})->name('super.super');
@@ -182,22 +186,6 @@ Route::get('/home', function () {
     return redirect('/backoffice');
 })->name('home');
 
-Route::get('/clear', function () {
-    return Artisan::call('config:cache');
-});
-
-Route::get('/phone-right', function () {
-    $students = \Test\Model\StudentPayment::select(['id', 'id_code', 'phone'])->whereRaw('LENGTH(phone) = ?', [12])->get();
-//    $students = \Test\Model\StudentPayment::all();
-    foreach ($students as $student) {
-//        $num = $student->phone;
-//        $num = str_replace(' ' , '' , $num);
-//        $student->phone = $num;
-        $student->phone = '+' . $student->phone;
-        $student->update();
-    }
-    return $students;
-});
 
 //new routes
 Route::post('/student/get-data', 'AgreementController@get_data')->name('student.agreement.get_data');
@@ -210,6 +198,10 @@ Route::get('/student/form-first-course', 'AgreementController@form_first_course'
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
+
+
+//card routes
+
 
 Route::get('payment-check', 'PaymentCheckController@index')->name('payment_check');
 Route::post('payment-check-result', 'PaymentCheckController@check')->name('payment_check_result');
@@ -234,51 +226,4 @@ Route::group(['prefix' => 'jointraining'], function () {
     Route::post('/student/pdf-agreement', 'JoinTrainingController@pdf_agreement')->name('student.agreement.join_training.pdf_agreement');
 });
 
-//Route::get('/schot', function () {
-//    $r = 'Test\Model\Rrr'::where('status', 2)->get();
-//    foreach ($r as $item) {
-////        $newSuper = new \Test\Model\Result();
-////        $newSuper->passport_serial = $item->pass_seria;
-////        $newSuper->passport_number = $item->pass_number;
-////        $newSuper->passport_jshshir = $item->jshir;
-////        $newSuper->last_name = $item->lastname;
-////        $newSuper->first_name = $item->firstname;
-////        $newSuper->middle_name = $item->middlename;
-////        $newSuper->dtm_id = $item->dtm_id;
-////        $newSuper->lang = $item->lang1;
-////        $newSuper->dir_array = $item->dir;
-////        $newSuper->type = 1;
-////        $newSuper->ball = $item->ball;
-////        $newSuper->birthday = $item->birthday;
-////        $newSuper->gender = $item->gender;
-////        $newSuper->comment = 'simple_bakalavr';
-////        $newSuper->description = 'Oddiy bakalavr ';
-////        $newSuper->save();
-////        $newArray = [];
-//        if ($item->dir1)array_push($newArray,$item->type1);
-//        if ($item->dir2)array_push($newArray,$item->type2);
-//        if ($item->dir3)array_push($newArray,$item->type3);
-//        if ($item->dir4)array_push($newArray,$item->type4);
-//        if ($item->dir5)array_push($newArray,$item->type5);
-//        $item->edu_types = json_encode($newArray);
-////        $result = \Test\Model\Result::where('passport_jshshir' , $item->jshir)->first();
-////        if ($result){
-////            $result->edu_types = $item->edu_types;
-////            $result->update();
-////        }
-//        $item->status = 3;
-//        $item->update();
-//    }
-//
-//});
-//Route::get('/check-s', function () {
-////    $r = 'Test\Model\StudentPayment'::where('super_id' , '!=' , null)->get();
-//    $r = 'Test\Model\StudentPayment'::where('status_new', '=', 24)->get();
-//    foreach ($r as $item) {
-//        $item->super_id = null;
-//        $item->dtm_id = null;
-//        $item->update();
-//    }
-//    return $r;
-//});
 

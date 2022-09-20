@@ -180,7 +180,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
-                    Toshkent davlat yuridik universitetida bakalavriat talabasini qayta oʻqitish uchun
+                    Toshkent davlat yuridik universitetida magistratura talabasini qayta oʻqitish uchun
                 </h4>
                 <h4 class="text-bold">SHARTNOMA №________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -190,39 +190,37 @@
             <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʼlim
-                    muassasasi) nomidan 2020-yil 25-sentyabrdagi 08-176-son buyruq asosida ish yurituvchi prorektor
-                    Iminov Azizulla Abdulatibovich bir tomondan, va <b>{{$student->birthday}}</b> yilda tugʻilgan
+                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
+                    muassasasi) nomidan Ustavga asosan ish yurituvchi 2020-yil 25-sentyabrdagi 08-176-son buyruq asosida
+                    ish yurituvchi prorektor Iminov Azizulla Abdulatibovich,
+                    va magistratura talabasi
                     <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar),¬¬¬¬ “Yurisprudensiya” taʼlim yoʻnalishi boʻyicha Talabani bakalavriat ___ kurs davomida
-                    oʻqitish maqsadida mazkur ikki tomonlama kontraktni (keyingi oʻrinlarda – Kontrakt) Oliy va oʻrta
-                    maxsus, kasb-hunar taʼlimi muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan
-                    mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), OʻzR
-                    Vazirlar Mahkamasining 2019-yil 3 dekabrdagi 967-son,
-                    2021-yil 10-iyundagi 359-son qarorlari, Toshkent davlat yuridik universiteti rektorining 2022 yil
-                    29-apreldagi 08-104-um son buyrugʼi, Oʻzbekiston Respublikasi taʼlim muassasalariga oʻqishga qabul
-                    qilish boʻyicha Davlat komissiyasining 2022 yil 22-apreldagi 13-son qaroriga muvofiq tuzdilar:
-
+                    Tomonlar), oʻzlashtirilmagan fanlardan qayta oʻqitish maqsadida mazkur ikki tomonlama
+                    shartnomani (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida
+                    oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi
+                    nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining
+                    2021-yil 10-iyundagi “Oʻzbekiston Respublikasi Adliya vazirligi tizimidagi taʼlim muassasalarida
+                    kredit-modul tizimini joriy etish chora-tadbirlari toʻgʻrisida”gi Qarori 359-son qarori, Toshkent
+                    davlat yuridik universiteti rektorining 2022 yil 29-apreldagi 08-104-um-son buyrugʻiga muvofiq
+                    tuzdilar:
 
                 </p>
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    1. KONTRAKT PREDMETI
+                    1. SHARTNOMA PREDMETI
                 </h4>
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp 1.1. Mazkur Kontraktga asosan Taʼlim muassasasi Talabani
-                    2021/2022 oʼquv yili bahorgi semestr uchun belgilangan taʼlim standartlari va oʼquv dasturlariga
-                    muvofiq oʼqitadi, Talaba esa Kontraktning 3-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga
-                    oshiradi hamda Taʼlim muassasasida belgilangan tartibga muvofiq taʼlim olish majburiyatini oladi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp 1.2. Talabaning bakalavriat taʼlim yoʻnalishini muvaffaqiyatli tamomlash
-                    muddati
-                    202__ -yil iyun oyi hisoblanadi.
-
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> 1.1. Mazkur <b>Shartnomaga</b> asosan <b>Taʻlim muassasasi
+                        Talabani</b>
+                    belgilangan taʻlim standartlari va oʻquv dasturlariga muvofiq 2021/2022 oʻquv yilining kuzgi
+                    semestridan oʻzlashtirmagan fanlarni qayta oʻqitadi, <b>Talaba</b> esa <b>Shartnomaning</b> 3-bobida
+                    koʻrsatilgan
+                    tartib va miqdordagi toʻlovni amalga oshiradi hamda <b>Taʻlim muassasasida</b> belgilangan tartibga
+                    muvofiq
+                    taʻlim olish majburiyatini oladi.
                 </p>
             </div>
 
@@ -240,39 +238,32 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.1. Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Taʼlim muassasasining ichki
-                    hujjatlarida belgilangan qoidalarga rioya qilishni, oʼquv mashgʼulotlarida muntazam qatnashishni,
-                    Taʼlim muassasasiga koʻchirishga doir tegishli hujjatlar taqdim etilishini, Kontrakt boʼyicha
-                    toʻlovlarni oʼz vaqtida amalga oshirishni talab qilish.
+                    2.1.1. <b>Talabadan</b> shartnomaviy majburiyatlari bajarilishini, shu jumladan <b>Taʻlim
+                        muassasasining</b> ichki
+                    hujjatlarida belgilangan qoidalarga rioya qilishni, oʻquv mashgʻulotlarida muntazam qatnashishni,
+                    <b>Shartnoma</b> boʻyicha toʻlovlarni oʻz vaqtida amalga oshirishni talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.2 Taʼlim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, oʻqitish uchun
+                    2.1.2 Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, oʻqitish uchun
                     belgilangan miqdordagi toʻlovni oʻz vaqtida amalga oshirmagan Talabaga nisbatan belgilangan tartibda
-                    talabalar safidan chetlashtirish yoki boshqa choralarni qoʻllash, GPA koʻrsatkichini toʻplay
-                    olmagan, semestr va oʻquv yili yakuni natijalari boʻyicha akademik qarzdorligi bor Talabani tegishli
-                    kursda qoldirish.
+                    talabalar safidan chetlashtirish yoki boshqa choralarni qoʻllash, semestr yakuni boʻyicha akademik
+                    qarzdorligi bor Talabani tegishli kursda qoldirish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.3.Talaba Taʼlim muassasasiga koʻchirishga doir tegishli hujjatlar taqdim etmagan, shuningdek
-                    Taʼlim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʼpol ravishda buzgan, xususan
-                    huquqbuzarlik sodir etgan hollarda Kontraktni bir tomonlama bekor qilish.
+                    2.1.3.Talaba Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʻpol ravishda buzgan,
+                    xususan huquqbuzarlik sodir etgan hollarda Shartnomani bir tomonlama bekor qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.4.Mehnatga haq toʻlashning eng kam miqdori oʻzgarishi bilan mos ravishda Kontrakt boʻyicha
-                    toʻlov miqdorini bir tomonlama oʻzgartirish.
+                    2.1.4.Istisno tariqasida Shartnoma boʻyicha toʻlov muddatlarini uzaytirish (Taʻlim muassasasining
+                    buyrugʻi orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.5.Istisno tariqasida Kontrakt boʼyicha toʻlov muddatlarini uzaytirish (Taʼlim muassasasining
-                    buyrugʼi orqali).
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.1.6.Talaba belgilangan toʻlovni amalga oshirmaganda elektron tizimlardan foydalanishi va dars
-                    mashgʼulotlariga qatnashishini cheklash.
+                    2.1.5.Talaba belgilangan toʻlovni amalga oshirmaganda elektron tizimlardan foydalanishi va dars
+                    mashgʻulotlariga qatnashishini cheklash.
                 </p>
 
             </div>
@@ -285,23 +276,19 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.1. Oʻqitish uchun Oʻzbekiston Respublikasining “Taʼlim toʻgʻrisida”gi Qonuni va Kadrlar
-                    tayyorlash milliy dasturiga muvofiq Taʼlim muassasasi Ustavi va boshqa ichki hujjatlarida nazarda
-                    tutilgan zarur shart-sharoitlarni yaratadi.
+                    2.2.1. Qayta oʻqitish uchun Oʻzbekiston Respublikasining “Taʻlim toʻgʻrisida”gi Qonuni, Vazirlar
+                    Mahkamasining 2021-yil 10-iyundagi 359-son qarori va boshqa normativ-huquqiy hujjatlarga muvofiq
+                    Taʻlim muassasasi Ustavi va boshqa ichki hujjatlarida nazarda tutilgan zarur shart-sharoitlarni
+                    yaratadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.2. Talabalarning qonun hujjatlarida belgilangan huquqlarining bajarilishini taʼminlaydi.
+                    2.2.2. Talabalarning qonun hujjatlarida belgilangan huquqlarining bajarilishini taʻminlaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     2.2.3. Talabani tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari darajasida
                     oʻqitadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.2.4. Talaba bakalavriat yoʻnalishini muvaffaqiyatli tamomlaganda belgilangan tartibda diplom
-                    beradi.
                 </p>
 
             </div>
@@ -314,24 +301,20 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.1. Taʼlim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
+                    2.3.1. Taʻlim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.2. Taʼlim muassasasida tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari
-                    darajasida taʼlim olish.
+                    2.3.2. Taʻlim muassasasida tasdiqlangan oʻquv reja va dasturlarga muvofiq davlat standarti talablari
+                    darajasida qayta oʻqitish xizmatlarini olish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.3. Taʼlim muassasasining Axborot-resurs markazi, sport inshooti, Wi-Fi hududlaridan foydalanish.
+                    2.3.3. Taʻlim muassasasining Axborot-resurs markazi, sport inshooti, Wi-Fi hududlaridan foydalanish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.3.4. Taʼlim muassasasining taʼlim jarayonlarini yaxshilashga doir takliflar berish.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.3.5. Oʻqish uchun bir yillik toʼlov summasini bir yola toʼliq toʼlash.
+                    2.3.4. Taʻlim muassasasining taʻlim jarayonlarini yaxshilashga doir takliflar berish.
                 </p>
 
             </div>
@@ -344,46 +327,32 @@
             <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.1. Joriy oʻquv yili uchun belgilangan oʻqitish qiymatini Kontraktning
-                    3-bobida koʻrsatilgan tartib va miqdorda oʻz vaqtida toʻlaydi.
-
+                    2.4.1. Qayta oʻqitish qiymatini Shartnomaning 3-bobida koʻrsatilgan tartib va miqdorda oʻz vaqtida
+                    toʻlaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.2.Akadem qarzdor boʻlgan talabalar oʻqishni davom ettirish uchun qonunchilikda belgilangan
-                    kredit miqdorlariga mos ravishda toʻlovlarni amalga oshiradilar.
+                    2.4.2.Toshkent davlat yuridik universiteti Ustavi va boshqa ichki hujjatlari bilan tanishadi va
+                    ularning talablariga qatʻiy rioya qiladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.3.Toshkent davlat yuridik universiteti Ustavi va boshqa ichki hujjatlari bilan tanishadi va
-                    ularning talablariga qatʼiy rioya qiladi.
+                    2.4.3.Oʻquv mashgʻulotlarida belgilangan tartib va meʻyorlarga muvofiq qatnashadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.4.Oʻquv mashgʻulotlarida belgilangan tartib va meʼyorlarga muvofiq qatnashadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.4.5.Taʼlim muassasasida belgilangan tartib va doirada taʼlim oladi hamda ushbu jarayonda bilim
+                    2.4.4.Taʻlim muassasasida belgilangan tartib va doirada taʻlim oladi hamda ushbu jarayonda bilim
                     darajasini oshirib boradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.6.Kontraktni imzolangandan keyin Taʼlim muassasasiga taqdim etadi. Kontrakt elektron shaklda
-                    Taʼlim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
-                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
-
+                    2.4.5.Shartnomani imzolangandan keyin Taʻlim muassasasiga taqdim etadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.7.Oʻzining xatti-harakatlari, OAV va ijtimoiy tarmoqlardagi chiqishlari bilan universitetning
-                    ishchanlik obroʻsi va manfaatlariga putur yetkazmaslik hamda zarar yetkazishi mumkin boʻlgan
+                    2.4.6.Oʻzining xatti-harakatlari, OAV va ijtimoiy tarmoqlardagi chiqishlari bilan universitetning
+                    ishshanlik obroʻsi va manfaatlariga putur yetkazmaslik hamda zarar yetkazishi mumkin boʻlgan
                     xatti-harakatlarini sodir etishdan tiyiladi.
-
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.4.8.Talabani Taʼlim muassasasiga oʻqishini koʻchirishga doir tegishli xujjatlarni belgilangan tartibda taqdim etadi.
 
                 </p>
 
@@ -394,11 +363,11 @@
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
-                <p>
+               <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
-                    miqdoriga 207 407 (ikki yuz yetti ming toʻrt yuz yetti) soʻm,
-                    jami <b>{{$credits}}</b>-kredit uchun <b>{{$credits*207407}}</b> ({{$summa_word}}) soʻmni
+                    miqdoriga <b>{{$one_credit_summa}}</b> ({{$summa_one_credit_word}}) soʻm,
+                    jami <b>{{$credits}}</b>-kredit uchun <b>{{$summa}}</b> ({{$summa_word}}) soʻmni
                     Shartnomaning ushbu
                     bobida belgilangan tartibda oldindan toʻlanadi.
 
@@ -560,7 +529,7 @@
                                 Sh.h.r: 400110860262667094100009002
                                 STIR: 201122349, KOD 7094100
                                 Tel.: (71) 233-66-36,
-                                Manzil: Sayilgoh koʻchasi, 35-uy.
+                                Manzil: Sayilgoh koʻchasi, 35-uy
 
 
                             </p>
@@ -615,10 +584,11 @@
                         to'g'riligini tasdiqlayman
                     </p>
                 </div>
-                <form id="accept-form" action="{{route('student.agreement.pdf_agreement')}}" method="post">
+                <form id="accept-form" action="{{route('student.credits.agreement_pdf')}}" method="post">
                     {{csrf_field()}}
                     {{method_field('POST')}}
-                    <input type="text" hidden value="{{$student->id}}" name="student_id">
+                    <input type="text" hidden value="{{$student->id_code}}" name="id_code">
+                       <input type="text" hidden value="{{$credit_id}}" name="credit_id">
                 </form>
             </div>
 

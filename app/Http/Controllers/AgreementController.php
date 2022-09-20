@@ -85,6 +85,8 @@ class AgreementController extends Controller
     }
 
 
+
+
     public function show_other_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);

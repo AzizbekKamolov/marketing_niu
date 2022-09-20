@@ -130,12 +130,14 @@ class CreditController extends Controller
             'array' => ['required']
         ]);
         $description = $request->description;
+        $payment_date = $request->payment_date;
         $array = json_decode($request->array);
         foreach ($array as $item) {
             $new_payment = new Credit();
             $new_payment->credits = $item->credits;
             $new_payment->id_code = $item->id;
             $new_payment->description = $description;
+            $new_payment->payment_date = $payment_date;
             $new_payment->save();
         }
         return redirect(route('payment_admin.credits.index'))->with('success' , 'Import qilindi');

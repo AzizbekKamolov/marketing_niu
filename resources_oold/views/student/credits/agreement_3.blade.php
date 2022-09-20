@@ -584,6 +584,7 @@
                     {{csrf_field()}}
                     {{method_field('POST')}}
                     <input type="text" hidden value="{{$student->id_code}}" name="id_code">
+                       <input type="text" hidden value="{{$credit_id}}" name="credit_id">
                 </form>
             </div>
 

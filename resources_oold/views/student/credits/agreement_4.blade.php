@@ -364,7 +364,7 @@
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
-                <p>
+               <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
                     miqdoriga <b>{{$one_credit_summa}}</b> ({{$summa_one_credit_word}}) soʻm,
@@ -589,6 +589,7 @@
                     {{csrf_field()}}
                     {{method_field('POST')}}
                     <input type="text" hidden value="{{$student->id_code}}" name="id_code">
+                       <input type="text" hidden value="{{$credit_id}}" name="credit_id">
                 </form>
             </div>
 

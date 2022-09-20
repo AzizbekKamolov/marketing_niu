@@ -180,7 +180,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
-                    Toshkent davlat yuridik universitetida bakalavriat (sirtqi taʻlim shakl ) talabasini qayta oʻqitish uchun
+                    Toshkent davlat yuridik universitetida bakalavriat talabasini qayta o'qitish uchun
                 </h4>
                 <h4 class="text-bold">SHARTNOMA ________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -190,17 +190,20 @@
             <div class="col-md-6 text-right" style="width: 50%;display: inline-block"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
-                    muassasasi) nomidan buyruqga asosan ish yurituvchi prorektor A.Iminov bir tomondan,
-                    va sirtqi ta’lim shakli bakalavriat taʼlim yoʻnalishining
+                    &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o'rinlarda – Ta'lim
+                    muassasasi) nomidan Ustavga asosan ish yurituvchi 2020-yil 25-sentyabrdagi 08-176-son buyruq asosida
+                    ish yurituvchi prorektor Iminov Azizulla Abdulatibovich,
+                    va bakalavriat taʼlim yo'nalishining
                     <b>{{$student->course}}</b> - kurs talabasi
-                    <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar),
-                    oʻzlashtirilmagan fanlardan qayta oʻqitish maqsadida mazkur ikki tomonlama shartnomani (keyingi
-                    oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning
-                    toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizom (roʻyxat
-                    raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2021-yil
-                    10-iyundagi “Oʻzbekiston Respublikasi Adliya vazirligi tizimidagi taʼlim muassasalarida kredit-modul
-                    tizimini joriy etish chora-tadbirlari toʻgʻrisida”gi Qarori 359-son qaroriga muvofiq tuzdilar:
+                    <b>{{$student->fio()}}</b> (keyingi o'rinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Tomonlar), o'zlashtirilmagan fanlardan qayta o'qitish maqsadida mazkur ikki tomonlama
+                    shartnomani (keyingi o'rinlarda – Shartnoma) Oliy va o'rta maxsus, kasb-hunar ta'limi muassasalarida
+                    o'qitishning to'lov-kontrakt shakli va undan tushgan mablag'larni taqsimlash tartibi to'g'risidagi
+                    nizom (ro'yxat raqami 2431, 2013-yil 26-fevral), O'zbekiston Respublikasi Vazirlar Mahkamasining
+                    2021-yil 10-iyundagi “O'zbekiston Respublikasi Adliya vazirligi tizimidagi taʼlim muassasalarida
+                    kredit-modul tizimini joriy etish chora-tadbirlari to'g'risida”gi Qarori 359-son qarori, Toshkent
+                    davlat yuridik universiteti rektorining 2022 yil 29-apreldagi 08-104-um-son buyrug'iga muvofiq
+                    tuzdilar:
 
                 </p>
             </div>
@@ -361,7 +364,7 @@
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
-               <p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
                     miqdoriga <b>{{$one_credit_summa}}</b> ({{$summa_one_credit_word}}) soʻm,
@@ -372,17 +375,18 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba Shartnomaning 3.1-bandidagi toʻlovni 2022-yil 25-iyuliga qadar toʻlaydi.
+                    3.2. Talaba Shartnomaning 3.1-bandidagi to'lovni @if($payment_date) {{date('Y' , strtotime($payment_date))}}-yil {{date('d' , strtotime($payment_date))}}-{{get_month_name(date('m' , strtotime($payment_date)))}} @else 2022-yil 1-iyun @endif ga qadar to'laydi.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba tomonidan Shartnoma boʻyicha oʻqitish qiymatini toʻlashda toʻlov topshiriqnomasida
-                    Shartnoma raqamini, Talabaning familiyasi, ismi, sharifi toʻliq koʻrsatiladi.
+                    3.3. Talaba tomonidan Shartnoma bo'yicha o'qitish qiymatini to'lashda to'lov topshiriqnomasida
+                    Shartnoma raqamini, Talabaning familiyasi, ismi, sharifi to'liq ko'rsatiladi.
 
 
                 </p>
+                <p>
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
@@ -516,7 +520,7 @@
                     </tr>
                     <tr>
                          <td class="w-50" style="width: 49%">
-                             <img style="width:280px" src="{{asset('pechat/pechat_kredit2.jpg')}}">
+                             <img style="width:280px" src="{{asset('pechat/pechat_kredit.jpg')}}">
                         </td>
                         <td class="w-50" style="width: 49%">
 

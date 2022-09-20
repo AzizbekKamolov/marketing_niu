@@ -180,7 +180,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center text-bold">
                 <h4 class="text-bold">
-                   Toshkent davlat yuridik universitetida magistratura talabasini qayta oʻqitish uchun
+                    Toshkent davlat yuridik universitetida bakalavriat talabasini qayta o'qitish uchun
                 </h4>
                 <h4 class="text-bold">SHARTNOMA ________</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -193,7 +193,8 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi o'rinlarda – Ta'lim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi 2020-yil 25-sentyabrdagi 08-176-son buyruq asosida
                     ish yurituvchi prorektor Iminov Azizulla Abdulatibovich,
-                    va magistratura talabasi
+                    va bakalavriat taʼlim yo'nalishining
+                    <b>{{$student->course}}</b> - kurs talabasi
                     <b>{{$student->fio()}}</b> (keyingi o'rinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar), o'zlashtirilmagan fanlardan qayta o'qitish maqsadida mazkur ikki tomonlama
                     shartnomani (keyingi o'rinlarda – Shartnoma) Oliy va o'rta maxsus, kasb-hunar ta'limi muassasalarida
@@ -363,7 +364,7 @@
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
-               <p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1. 2021/2022 oʻquv yili kuzgi semestri hisobidan qayta oʻqitish uchun Talaba tomonidan bir kredit
                     miqdoriga <b>{{$one_credit_summa}}</b> ({{$summa_one_credit_word}}) soʻm,
@@ -374,7 +375,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba Shartnomaning 3.1-bandidagi to'lovni 2022-yil 1-iyunga qadar to'laydi.
+                    3.2. Talaba Shartnomaning 3.1-bandidagi to'lovni @if($payment_date) {{date('Y' , strtotime($payment_date))}}-yil {{date('d' , strtotime($payment_date))}}-{{get_month_name(date('m' , strtotime($payment_date)))}} @else 2022-yil 1-iyun @endif ga qadar to'laydi.
 
 
                 </p>

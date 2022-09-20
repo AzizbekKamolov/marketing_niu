@@ -74,6 +74,7 @@
                                             Shaxsiy ma'lumotlarimdan foydalanishlariga roziman.
                                         </label>
                                     </div>
+                                    <input type="text" hidden value="<?php if(isset($comment)): ?><?php echo e($comment); ?><?php endif; ?>" name="comment">
                                 </div>
 
                                 <div class="col-12 my-4">

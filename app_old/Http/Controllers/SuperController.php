@@ -76,6 +76,11 @@ class SuperController extends Controller
                 $super->comment = 'sirtqi_bakalavr';
                 $super->description = 'Sirtqi bakalavr';
             }
+            elseif ($dirEduTypeArray[1] == 3) {
+                $super->type = 1;
+                $super->comment = 'remote_bakalavr';
+                $super->description = 'Masofaviy bakalavr';
+            }
             $super->dir = $dirEduTypeArray[0];
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
