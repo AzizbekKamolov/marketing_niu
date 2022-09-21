@@ -1,4 +1,4 @@
-        <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
 
     <!-- Optional theme -->
     {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
@@ -229,8 +230,7 @@ td{
                     Mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayyorlash haqida ikki tomonlama
                     KONTRAKT
                     <br>
-                    (stipendiyasiz shaklda, Oʻzbekiston Respublikasi Adliya vazirligi
-                    yuridik texnikumlar bitiruvchilari uchun)
+                     (stipendiyasiz shaklda)
 
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
@@ -246,10 +246,10 @@ td{
                     va
                     <b>{{$student->fio()}}</b>
                     (keyingi oʻrinlarda – Talaba), ikkinchi tomondan, (birgalikda – Tomonlar) “Yurisprudensiya (faoliyat
-                    turlari boʻyicha)” taʻlim yoʻnalishi doirasida Rossiya Federatsiyasi N.I.Lobachevskiy nomidagi
-                    Milliy tadqiqot Nijniy Novgorod davlat universiteti (keyingi oʻrinlarda – NNDU) bilan tuzilgan
-                    qoʻshma taʻlim dasturi boʻyicha talabani bakalavriat bosqichida oʻqitish maqsadida mazkur kontraktni
-                    (keyingi oʻrinlarda – Kontrakt) Oʻzbekiston Respublikasi Prezidentining 2020-yil
+                    turlari boʻyicha)” taʻlim yoʻnalishi doirasida V.F.Yakovlev nomidagi Rossiya Federatsiyasi Ural
+                    davlat yuridik universiteti (keyingi oʻrinlarda – UrDYU) bilan tuzilgan qoʻshma taʻlim dasturi
+                    boʻyicha talabani bakalavriat bosqichida oʻqitish maqsadida mazkur kontraktni (keyingi oʻrinlarda –
+                    Kontrakt) Oʻzbekiston Respublikasi Prezidentining 2020-yil
                     29-apreldagi PF–5987-son Farmoni, 2019-yil 11-iyuldagi PQ–4391-son qarori, Oʻzbekiston Respublikasi
                     Vazirlar Mahkamasining 2019-yil 3-dekabrdagi 967-son va 2021-yil 6-iyuldagi 421-son qarori hamda
                     Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan
@@ -284,15 +284,16 @@ td{
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.1.</b> NNDU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha taʻlim olish joylari
+                    <b>2.1.</b> UrDYU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha taʻlim olish joylari
                     va oʻqitishning toʻlov miqdorlari tegishli boʻlgan oliy taʻlim tashkilotlar, oʻqitishning toʻlov
                     miqdorlari va toʻlovlar reja-jadvali oʻquv yillari kesimida quyidagicha belgilandi:
+
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
-                @include('student.agreement.join_training.agreements.1_table')
-                * mazkur summa miqdori O‘zbekiston Respublikasi belgilangan bazaviy hisoblash miqdorining
-                123 baravar miqdoridan kelib chiqib belgilangan.
+                @include('student.agreement.join_training.agreements.4_table')
+                * mazkur summa miqdori O‘zbekiston Respublikasi belgilangan bazaviy hisoblash miqdorining 130 baravar
+                miqdoridan kelib chiqib belgilangan.
 
             </div>
             <div class="col-md-12 mb-1 ">
@@ -314,8 +315,10 @@ td{
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.3.</b> NNDU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha Kontraktni stipendiyasiz shakldan
+                    <b>2.3.</b>UrDYU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha Kontraktni stipendiyasiz shakldan
                     stipendiyali shakliga oʻtishga yoʻl qoʻyilmaydi.
+
+
                 </p>
             </div>
 
@@ -334,9 +337,9 @@ td{
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1.1.. Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Taʻlim muassasasining
-                    ichki hujjatlarida belgilangan qoidalarga rioya qilishni, oʻquv mashgʻulotlarida muntazam
-                    qatnashishni, Kontrakt boʻyicha toʻlovlarni oʻz vaqtida amalga oshirishni talab qilish.
+                    3.1.1.Talabadan shartnomaviy majburiyatlari bajarilishini, shu jumladan Taʻlim muassasasining ichki
+                    hujjatlarida belgilangan qoidalarga rioya qilishni, oʻquv mashgʻulotlarida muntazam qatnashishni,
+                    Kontrakt boʻyicha toʻlovlarni oʻz vaqtida amalga oshirishni talab qilish.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -365,7 +368,7 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1.6. Talabani GPA oʻtish ballini toʻplay olmagan yoki akademik qarzdorliklar soni talablarini
+                    3.1.6.Talabani GPA oʻtish ballini toʻplay olmagan yoki akademik qarzdorliklar soni talablarini
                     bajarmagan taqdirda qayta oʻqish uchun tegishli kursda qoldirish.
                 </p>
             </div>
@@ -383,7 +386,7 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2.2. Talabaning qonunchilik hujjatlarida belgilangan huquqlarining bajarilishini taʻminlaydi.
+                    3.2.2.Talabaning qonunchilik hujjatlarida belgilangan huquqlarining bajarilishini taʻminlaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -393,20 +396,20 @@ td{
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.2.4. Talaba tomonidan toʻlangan yoki tijorat banki tomonidan taʻlim krediti boʻyicha oʻtkazilgan
-                    va NNDUga tegishli boʻlgan toʻlov-kontrakt miqdorini NNDUga oʻtkazadi. Bunda NNDU va Talaba
-                    o‘rtasida tuzilgan shartnomada NNDUga tegishli bo‘lgan oʻqitishning toʻlov miqdorlari 200 000 (ikki
+                    va UrDYUga tegishli boʻlgan toʻlov-kontrakt miqdorini UrDYUga oʻtkazadi. Bunda UrDYU va Talaba
+                    o‘rtasida tuzilgan shartnomada UrDYUga tegishli bo‘lgan oʻqitishning toʻlov miqdorlari 200 000 (ikki
                     yuz ming) Rossiya rubl miqdorida belgilanganligini inobatga olgan holda mablagʻlarni xorijiy
                     valyutaga konvertatsiya qilish, xalqaro hisob-kitoblarni amalga oshirish, valyuta kursi tufayli
                     yutqazishlar bilan bogʻliq va boshqa xarajatlar toʻliq Talaba hisobidan qoplanadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2.5.Talaba NNDU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha bakalavriat yoʻnalishini
+                    3.2.5.Talaba UrDYU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha bakalavriat yoʻnalishini
                     muvaffaqiyatli tamomlaganda belgilangan tartibda diplom beradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2.6.NNDUning xatiga asosan Talabani talabalar safiga kiritadi.
+                    3.2.6.UrDYUning xatiga asosan Talabani talabalar safiga kiritadi.
                 </p>
             </div>
             <div class="col-md-12 mb-1">
@@ -497,7 +500,7 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.3. Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Taʻlim muassasasi Kontraktni bir
+                    4.3.Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Taʻlim muassasasi Kontraktni bir
                     tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
                 </p>
                 <p>
@@ -512,8 +515,8 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.6. Talaba Taʻlim muasasasining talabalari safidan chiqarilganda NNDUning talabalari safidan ham
-                    avtomatik ravishda chiqariladi, shuningdek Talaba NNDUning talabalari safidan chiqarilganda Taʻlim
+                    4.6.Talaba Taʻlim muasasasining talabalari safidan chiqarilganda UrDYUning talabalari safidan ham
+                    avtomatik ravishda chiqariladi, shuningdek Talaba UrDYUning talabalari safidan chiqarilganda Taʻlim
                     muasasasining talabalari safidan avtomatik ravishda chiqariladi.
                 </p>
                 <p>
@@ -604,13 +607,14 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    6.6. NNDU va Talaba oʻrtasida taʻlim olish va tegishli hisob-kitoblarni amalga oshirish boʻyicha
-                    alohida toʻlov-kontrakt shartnomasi tuziladi. Bunda NNDU va Talaba oʻrtasida tuzilgan shartnomaning
-                    shartlari mazkur Kontrakt shartlari oʻrtasida tafovutlar boʻlgan taqdirda NNDU va Talaba oʻrtasida
+                    6.6. UrDYU va Talaba oʻrtasida taʻlim olish va tegishli hisob-kitoblarni amalga oshirish boʻyicha
+                    alohida toʻlov-kontrakt shartnomasi tuziladi. Bunda UrDYU va Talaba oʻrtasida tuzilgan shartnomaning
+                    shartlari mazkur Kontrakt shartlari oʻrtasida tafovutlar boʻlgan taqdirda UrDYU va Talaba oʻrtasida
                     tuzilgan shartnomaning shartlari qoʻllaniladi (shu jumladan mazkur Kontraktning 2.1-bandida
                     koʻrsatilgan oʻqitishning toʻlov miqdorlari).
-                    NNDU va Talaba oʻrtasida mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayorlash haqida ikki
+                    UrDYU va Talaba oʻrtasida mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayorlash haqida ikki
                     tomonlama shartnoma(kontrakt) tuzilmagan taqdirda, mazkur Kontrakt oʻz kuchini yoʻqotadi.
+
 
                 </p>
             </div>
@@ -636,7 +640,6 @@ td{
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-
                             <img src="{{asset('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
                         </td>
                         <td class="w-50" style="width: 49%">
@@ -665,10 +668,20 @@ td{
                 </table>
             </div>
 
-
         </div>
     </div>
     <div class="col-md-2"></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.tasdiq').click(function () {
+        if (confirm('Tasdiqlaysizmi?')) {
+            $('#accept-form').submit();
+        }
+
+    })
+</script>
 </body>
 </html>
