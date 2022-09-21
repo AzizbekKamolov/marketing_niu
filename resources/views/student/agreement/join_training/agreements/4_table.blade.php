@@ -11,10 +11,10 @@ table.blueTable td, table.blueTable th {
   padding: 3px 2px;
 }
 table.blueTable tbody td {
-  font-size: 12px;
+  font-size: 11px;
 }
 table.blueTable tfoot td {
-  font-size: 14px;
+  font-size: 11px;
 }
 table.blueTable tfoot .links {
   text-align: right;

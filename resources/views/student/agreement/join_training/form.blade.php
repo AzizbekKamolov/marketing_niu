@@ -22,16 +22,16 @@
                                       class="register-form" id="register-form">
                                     {{ @csrf_field() }}
                                     {{method_field('POST')}}
-                                    <div class="col-12">
-                                        <label for="validationDefaultUsername" class="form-label">Talaba ID
-                                            raqami</label>
-                                        <div class="input-group">
-                                        <span class="input-group-text bg-white border-0 iconSpan"
-                                              id="inputGroupPrepend2"><b>ID</b></span>
-                                            <input type="text" class="form-control" id="studentID" name="id_code"
-                                                   aria-describedby="inputGroupPrepend2" required>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-12">--}}
+{{--                                        <label for="validationDefaultUsername" class="form-label">Talaba ID--}}
+{{--                                            raqami</label>--}}
+{{--                                        <div class="input-group">--}}
+{{--                                        <span class="input-group-text bg-white border-0 iconSpan"--}}
+{{--                                              id="inputGroupPrepend2"><b>ID</b></span>--}}
+{{--                                            <input type="text" class="form-control" id="studentID" name="id_code"--}}
+{{--                                                   aria-describedby="inputGroupPrepend2" required>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
                                     <div class="col-12">
                                         <label for="validationDefaultUsername" class="form-label">Passport

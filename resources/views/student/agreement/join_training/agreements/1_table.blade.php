@@ -13,11 +13,11 @@
     }
 
     table.blueTable tbody td {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     table.blueTable tfoot td {
-        font-size: 14px;
+        font-size: 11px;
     }
 
     table.blueTable tfoot .links {
