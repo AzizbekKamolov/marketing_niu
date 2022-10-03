@@ -10,7 +10,7 @@ use Test\Model\Lang;
 
 class Rrr extends Model
 {
-    protected $table = "rrr_copy2";
+    protected $table = "rrr";
     public $timestamps = false;
 
 

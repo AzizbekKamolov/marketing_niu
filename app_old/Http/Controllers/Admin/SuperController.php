@@ -137,7 +137,7 @@ class SuperController extends Controller
         $user = \Auth::user();
         $students = Super::where(function ($user_role) use ($user) {
             if ($user->role == 13) {
-                $user_role->where('type', $user->type);
+//                $user_role->where('type', $user->type);
                 $user_role->where('comment', $user->comment);
             }
         })->get();

@@ -1,5 +1,7 @@
 <?php
 use Test\Model\StudentPayment;
+use Test\Model\SmsRas;
+use Test\Model\SmsSend;
 Route::group([
     'prefix' => \LaravelLocalization::setLocale(),
 ], function () {
@@ -227,3 +229,70 @@ Route::group(['prefix' => 'jointraining'], function () {
 });
 
 
+Route::get('/sms-ras', function () {
+        $rass1 = SmsRas::where('status', 0)->get()->toArray();
+        $body = [];
+        $index = 0;
+        $smsSend = new SmsSend();
+        $chunked = array_chunk($rass1, 100);
+//        return $rass1;
+        foreach ($chunked as $itemChunk) {
+            $rass = $itemChunk;
+            foreach ($rass as $item) {
+                $body['messages'][$index]['recipient'] = $item['number'];
+                $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
+                $body['messages'][$index]['sms']['originator'] = '3700';
+                $body['messages'][$index]['sms']['content']['text'] = $item['name'];
+                $index++;
+            }
+            if (count($rass)) {
+                $result = $smsSend->send_many_sms(json_encode($body));
+                foreach ($rass as $item) {
+                    $itemGet = SmsRas::find($item['id']);
+                    $itemGet->response = json_encode($result);
+                    $itemGet->status = 1;
+                    $itemGet->update();
+                }
+            }
+            sleep(3);
+        }
+        return 'Success';
+    });
+//Route::get('/schot', function () {
+//    $r = 'Test\Model\Rrr'::where('status', 4)->get();
+//    foreach ($r as $item) {
+//        $newSuper = new \Test\Model\Result();
+//        $newSuper->passport_serial = $item->pass_seria;
+//        $newSuper->passport_number = $item->pass_number;
+//        $newSuper->passport_jshshir = $item->jshir;
+//        $newSuper->last_name = $item->lastname;
+//        $newSuper->first_name = $item->firstname;
+//        $newSuper->middle_name = $item->middlename;
+//        $newSuper->dtm_id = $item->dtm_id;
+//        $newSuper->lang = $item->lang1;
+//        $newSuper->dir_array = $item->dir;
+//        $newSuper->edu_types = $item->edu_types;
+//        $newSuper->type = 1;
+//        $newSuper->ball = $item->ball;
+//        $newSuper->birthday = $item->birthday;
+//        $newSuper->gender = $item->gender;
+//        $newSuper->comment = 'simple_bakalavr';
+//        $newSuper->description = 'Oddiy bakalavr (Boshqa OTM ga kirgan)';
+//        $newSuper->save();
+////        $newArray = [];
+////        if ($item->dir1)array_push($newArray,$item->dir1);
+////        if ($item->dir2)array_push($newArray,$item->dir2);
+////        if ($item->dir3)array_push($newArray,$item->dir3);
+////        if ($item->dir4)array_push($newArray,$item->dir4);
+////        if ($item->dir5)array_push($newArray,$item->dir5);
+////        $item->dir = json_encode($newArray);
+////        $result = \Test\Model\Result::where('passport_jshshir' , $item->jshir)->first();
+////        if ($result){
+////            $result->edu_types = $item->edu_types;
+////            $result->update();
+////        }
+//        $item->status = 5;
+//        $item->update();
+//    }
+//
+//});

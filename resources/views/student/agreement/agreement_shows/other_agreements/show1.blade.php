@@ -189,7 +189,7 @@
             </div>
             <div class="col-md-3"></div>
             <div style="display: inline-block; width: 49%" class="">
-                <span>2021 yil “{{$day}}” {{$month}}</span>
+                <span>{{date('Y')}} yil “{{$day}}” {{$month}}</span>
             </div>
             <div style="display: inline-block; width: 49%" class=" text-right">
                 <span>Toshkent shahri</span>
@@ -346,7 +346,13 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.5. Shartnomada belgilangan haqni oʼz vaqtida toʼlamagan talabaga unga ajratilgan xonadan va
+                    3.5. Talaba xona va jihozlardan foydalanganlik uchun shartnomaning umumiy miqdori
+                    <b>{{$general_payment_sum ? number_format($general_payment_sum, 2, ',', ' ') :''}}</b>
+                    (<b>{{convert_to_word($general_payment_sum)}}</b>)
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.6. Shartnomada belgilangan haqni oʼz vaqtida toʼlamagan talabaga unga ajratilgan xonadan va
                     jihozlardan foydalanishiga yoʼl qoʼyilmaydi.
                 </p>
 

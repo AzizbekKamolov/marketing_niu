@@ -84,9 +84,6 @@ class AgreementController extends Controller
         return view('student.agreement.form_first_course');
     }
 
-
-
-
     public function show_other_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
@@ -389,9 +386,6 @@ class AgreementController extends Controller
     public function show_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-//        if ($request->student_id != 9602){
-//            return "Texnik ishlar";
-//        }
         if ($student) {
             $type = Type::find($student->status_new);
             $agreement_side_type = AgreementSideType::find($request->agreement_side_type_id);
@@ -438,14 +432,12 @@ class AgreementController extends Controller
                     $all_summa_word = $convert_to_word->convert_to_word($all_summa);
                     $part1_summa_word = $convert_to_word->convert_to_word($part1_summa);
                     $part2_summa_word = $convert_to_word->convert_to_word($part2_summa);
-//                    return $all_summa_word.'-'.$all_summa;
-//                    return $part2_summa_word.'-'.$part2_summa;
-//                    return $part1_summa_word.'-'.$part1_summa;
-//                    return $student_type_agreement_type;
                     if ($getting) {
                         $getting_date = $getting->getting_date;
                     }
-//                    $student->all_summa = $all_summa;
+                    $dateArray['year'] = date('Y', strtotime($getting_date));
+                    $dateArray['month'] = $this->get_month_name(date('m', strtotime($getting_date)));
+                    $dateArray['day'] = date('d', strtotime($getting_date));
                     $student->all_summa = number_format($all_summa);
                     $student->part2_summa = number_format($part2_summa);
                     $student->part1_summa = number_format($part1_summa);
@@ -500,13 +492,24 @@ class AgreementController extends Controller
                             ]);
                         } else {
                             if ($student->type_student == 1) {
-//                                return $student;
-                                return view('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-                                    'student' => $student,
-                                    'agreement_type' => $agreement_type,
-                                    'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date
-                                ]);
+                                if ($student->course == 1) {
+//                                    return $agreement_side_type->id.'-'.$agreement_type->id;
+                                    return view('student.agreement.agreement_shows.agreements.first_course.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                        'student' => $student,
+                                        'agreement_type' => $agreement_type,
+                                        'agreement_side_type' => $agreement_side_type,
+                                        'getting_date' => $getting_date,
+                                        'dateArray' => $dateArray
+                                    ]);
+                                } else {
+                                    return view('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                        'student' => $student,
+                                        'agreement_type' => $agreement_type,
+                                        'agreement_side_type' => $agreement_side_type,
+                                        'getting_date' => $getting_date,
+                                        'dateArray' => $dateArray
+                                    ]);
+                                }
                             }
                             if ($student->type_student == 2) {
                                 return view('student.agreement.agreement_shows.agreements.magistr.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -523,7 +526,6 @@ class AgreementController extends Controller
             }
         }
     }
-
 
     public function pdf_agreement(Request $request)
     {
@@ -592,6 +594,9 @@ class AgreementController extends Controller
                     if ($getting) {
                         $getting_date = $getting->getting_date;
                     }
+                    $dateArray['year'] = date('Y', strtotime($getting_date));
+                    $dateArray['month'] = $this->get_month_name(date('m', strtotime($getting_date)));
+                    $dateArray['day'] = date('d', strtotime($getting_date));
                     $student->all_summa = number_format($all_summa);
                     $student->part2_summa = number_format($part2_summa);
                     $student->part1_summa = number_format($part1_summa);
@@ -666,16 +671,30 @@ class AgreementController extends Controller
                                     'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                             } elseif ($student->type_student == 1) {
-                                $ended = 2022 + 4 - $student->course;
-                                $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
-                                return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
-                                    'student' => $student,
-                                    'agreement_type' => $agreement_type,
-                                    'agreement_side_type' => $agreement_side_type,
-                                    'getting_date' => $getting_date,
-                                    'qr_code' => $qrcode
-                                ])->download($student->fio() . '.pdf');
+                                if ($student->course == 1) {
+//                                    return $agreement_side_type->id.'-'.$agreement_type->id;
+                                    return PDF::loadView('student.agreement.agreement_shows.agreements.first_course.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                        'student' => $student,
+                                        'agreement_type' => $agreement_type,
+                                        'agreement_side_type' => $agreement_side_type,
+                                        'getting_date' => $getting_date,
+                                        'dateArray' => $dateArray
+                                    ])->download($student->fio() . '.pdf');
+                                } else {
+//                                    return $agreement_side_type->id.'-'.$agreement_type->id;
+                                    $ended = 2022 + 4 - $student->course;
+//                                    $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
+//                                    $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+                                    return PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                                        'student' => $student,
+                                        'agreement_type' => $agreement_type,
+                                        'agreement_side_type' => $agreement_side_type,
+                                        'getting_date' => $getting_date,
+//                                        'qr_code' => $qrcode,
+                                        'dateArray' => $dateArray
+                                    ])->download($student->fio() . '.pdf');
+                                }
+
                             }
                             if ($student->type_student == 2) {
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
@@ -693,5 +712,155 @@ class AgreementController extends Controller
                 }
             }
         }
+    }
+
+    public function get_month_name($start_month)
+    {
+
+        if ($start_month == "01") {
+            $start_month = "Yanvar";
+        }
+        if ($start_month == "02") {
+            $start_month = "Fevral";
+        }
+        if ($start_month == "03") {
+            $start_month = "Mart";
+        }
+        if ($start_month == "04") {
+            $start_month = "Aprel";
+        }
+        if ($start_month == "05") {
+            $start_month = "May";
+        }
+        if ($start_month == "06") {
+            $start_month = "Iyun";
+        }
+        if ($start_month == "07") {
+            $start_month = "Iyul";
+        }
+        if ($start_month == "08") {
+            $start_month = "Avgust";
+        }
+        if ($start_month == "09") {
+            $start_month = "Sentabr";
+        }
+        if ($start_month == "10") {
+            $start_month = "Oktabr";
+        }
+        if ($start_month == "11") {
+            $start_month = "Noyabr";
+        }
+        if ($start_month == "12") {
+            $start_month = "Dekabr";
+        }
+        return $start_month;
+    }
+
+    public function convert_to_word($number)
+    {
+        $result = number_format($number, '2');
+        $result = explode('.', $result);
+        $bir = explode(',', $result[0]);
+        $re_bir = array_reverse($bir);
+        $ar_mln = array(
+            '0' => '',
+            '1' => 'ming',
+            '2' => 'million',
+            '3' => 'milliard'
+        );
+        $ar_son = array(
+            '0' => '',
+            '1' => 'bir',
+            '2' => 'ikki',
+            '3' => 'uch',
+            '4' => 'to`rt',
+            '5' => 'besh',
+            '6' => 'olti',
+            '7' => 'yetti',
+            '8' => 'sakkiz',
+            '9' => 'to`qqiz',
+        );
+        $ar_on = array(
+            '0' => '',
+            '1' => 'o`n',
+            '2' => 'yigirma',
+            '3' => 'o`ttiz',
+            '4' => 'qirq',
+            '5' => 'ellik',
+            '6' => 'oltmish',
+            '7' => 'yetmish',
+            '8' => 'sakson',
+            '9' => 'to`qson'
+        );
+
+        $ar_text = [];
+        $i = 0;
+        foreach ($re_bir as $key => $value) {
+            // echo $value%10;
+            if ($this->yuzlik($value) != '') {
+
+                $ar_text[$i] = $this->yuzlik($value) . ' ' . $ar_mln[$key] . ' ';
+            } else {
+                $ar_text[$i] = '';
+            }
+            // echo yuzlik($value).' '.$ar_mln[$key].' ' ;
+            $i++;
+        }
+        $ress = array_reverse($ar_text);
+        $ress = implode(' ', $ress);
+        return $ress;
+    }
+
+    public function yuzlik($yuz)
+    {
+        $yuz = intval($yuz);
+        $ar_mln = array(
+            '0' => '',
+            '1' => 'ming',
+            '2' => 'million'
+        );
+        $ar_son = array(
+            '0' => '',
+            '1' => 'bir',
+            '2' => 'ikki',
+            '3' => 'uch',
+            '4' => 'to`rt',
+            '5' => 'besh',
+            '6' => 'olti',
+            '7' => 'yetti',
+            '8' => 'sakkiz',
+            '9' => 'to`qqiz',
+        );
+        $ar_on = array(
+            '0' => '',
+            '1' => 'o`n',
+            '2' => 'yigirma',
+            '3' => 'o`ttiz',
+            '4' => 'qirq',
+            '5' => 'ellik',
+            '6' => 'oltmish',
+            '7' => 'yetmish',
+            '8' => 'sakson',
+            '9' => 'to`qson'
+        );
+        if ($yuz > 99) {
+            $birlar = $yuz % 10;
+            $bb = $yuz / 10;
+            $onlar = $bb % 10;
+            $bb = $bb / 10;
+            $yuzlar = $bb % 10;
+            $text = $ar_son[$yuzlar] . ' yuz ' . $ar_on[$onlar] . ' ' . $ar_son[$birlar];
+        } elseif ($yuz < 100 && $yuz > 9) {
+            $birlar = $yuz % 10;
+            $bb = $yuz / 10;
+            $onlar = $bb % 10;
+            $text = $ar_on[$onlar] . ' ' . $ar_son[$birlar];
+        } elseif ($yuz > 0 && $yuz < 10) {
+            $text = $ar_son[$yuz];
+        } else {
+            $text = '';
+        }
+
+        return $text;
     }
 }

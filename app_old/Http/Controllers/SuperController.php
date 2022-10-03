@@ -28,22 +28,20 @@ class SuperController extends Controller
         ]);
     }
 
+    public function super_perevod()
+    {
+        $sss = "SSSSSSSSSSSSSSS";
+        $comment = 'perevod';
+        return view('site.super.index', ['comment' => $comment,
+            'sss' => $sss
+        ]);
+    }
+
     public function checkstore(Request $request)
     {
 
         $result = Result::find($request->super_id);
-//        return $result;
-        if (count(Result::where('passport_jshshir', $result->passport_jshshir)->get()) > 2) {
-            $result = Result::where('passport_jshshir', $result->passport_jshshir)->where('type', 2)->first();
-        }
         $user_input = $request->all();
-//        $request->validate([
-////            'dtm_id'=>'required',
-////            'ball' =>'required',
-//            'tel2' =>'required',
-//            'tel1' =>'required',
-//            'dir_id' =>'exists:dir,id',
-//        ]);
         $validator = Validator::make($user_input, [
             'tel2' => 'required',
             'tel1' => 'required',
@@ -53,12 +51,15 @@ class SuperController extends Controller
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
-//         return $result;
         if ($result) {
-
             $super = Super::where('passport_serial', $result->passport_serial)
                 ->where('passport_number', $result->passport_number)
                 ->where('passport_jshshir', $result->passport_jshshir)
+                ->where(function ($query) use ($result){
+                    if ($result->comment == 'perevod'){
+                        $query->where('comment', $result->comment);
+                    }
+                })
                 ->first();
             if ($super) {
                 return PDF::loadView('site.super.ariza_pdf', ['data' => $super])->download($super->last_name . $super->first_name . '.pdf');
@@ -71,16 +72,18 @@ class SuperController extends Controller
             $super->type = $result->type;
             $super->comment = $result->comment;
             $super->description = $result->description;
-            if ($dirEduTypeArray[1] == 2) {
-                $super->type = 3;
-                $super->comment = 'sirtqi_bakalavr';
-                $super->description = 'Sirtqi bakalavr';
+            if ($result->comment != 'perevod') {
+                if ($dirEduTypeArray[1] == 2) {
+                    $super->type = 3;
+                    $super->comment = 'sirtqi_bakalavr';
+                    $super->description = 'Sirtqi bakalavr';
+                } elseif ($dirEduTypeArray[1] == 3) {
+                    $super->type = 1;
+                    $super->comment = 'remote_bakalavr';
+                    $super->description = 'Masofaviy bakalavr';
+                }
             }
-            elseif ($dirEduTypeArray[1] == 3) {
-                $super->type = 1;
-                $super->comment = 'remote_bakalavr';
-                $super->description = 'Masofaviy bakalavr';
-            }
+
             $super->dir = $dirEduTypeArray[0];
             $super->middle_name = $result->middle_name;
             $super->first_name = $result->first_name;
@@ -115,6 +118,7 @@ class SuperController extends Controller
     {
         $input = $request->all();
 
+//        return $input;
         $validator = Validator::make($input, [
             'passport_seria' => 'required',
             'passport_number' => 'required',
@@ -139,32 +143,32 @@ class SuperController extends Controller
         $result = Result::where('passport_serial', $passport_seria)
             ->where('passport_number', $passport_number)
             ->where('passport_jshshir', $passport_jshshir)
-//            ->where('birthday', $birthday)
+            ->where(function ($query) use ($request) {
+                if ($request->comment) {
+                    $query->where('comment', $request->comment);
+                }
+            })
             ->first();
-        if (count(Result::where('passport_serial', $passport_seria)->where('passport_number', $passport_number)->where('passport_jshshir', $passport_jshshir)->get()) > 1) {
-            $result = Result::where('passport_serial', $passport_seria)
-                ->where('passport_number', $passport_number)
-                ->where('passport_jshshir', $passport_jshshir)
-                ->where('type', 2)
-                ->first();
-        }
-
-
+//        return $result;
         if ($result) {
-//            if ($result->type != 2){
-////                return "Ariza qoldirish muddati tugagan";
-//            }
             $data = Result::find($result->id);
             return view('site.super.check', [
-
                 'data' => $data
             ]);
         } else {
             return redirect()->back()->with('error', 'Sizning ma`lumotlaringiz topilmadi!');
-//            return Redirect::back()->withErrors(['msg', 'Ma\'lumot topilmadi]);
-//            return redirect()->back();
 
         }
+    }
+
+    public function contract_cards()
+    {
+        return view('student.child_cards.agreement_cards');
+    }
+
+    public function super_cards()
+    {
+        return view('student.child_cards.super_cards');
     }
 
 

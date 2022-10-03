@@ -54,6 +54,16 @@
                                            value="<?php echo e($data->type ? $data->type->name :''); ?>">
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+                                <label for="validationDefaultUsername" class="form-label text-muted">Kurs</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-0 iconSpan" id="inputGroupPrepend2"><i
+                                                class="fas fa-book-reader"></i></span>
+                                    <input type="text" class="form-control" id="validationDefaultUsername"
+                                           aria-describedby="inputGroupPrepend2" required
+                                           value="<?php echo e($data->course ? $data->course :''); ?>">
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
 
