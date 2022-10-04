@@ -25,7 +25,8 @@
                                          alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomalarini olish</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">To'lov shartnomalarini
+                                        olish</h5>
                                 </div>
                             </div>
                         </a>
@@ -43,14 +44,14 @@
                                          alt="">
                                 </div>
                                 <div class="row">
-                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan to'lov-shartnoma asosida o'qish uchun ariza topshirish</h5>
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan
+                                        to'lov-shartnoma asosida o'qish uchun ariza topshirish</h5>
                                 </div>
                             </div>
                         </a>
 
                     </div>
                 </div>
-
 
 
             </div>
