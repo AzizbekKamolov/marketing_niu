@@ -17,34 +17,42 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto my-2  my-lg-0">
             <li class="nav-item">
-              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.join_training.form')); ?>">To'lov shartnomasi (Qo'shma ta'lim uchun) </a>
+              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.contract_cards')); ?>">To'lov shartnomalarini
+                olish</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.form')); ?>">To'lov shartnomasi (talabalar
-                uchun) </a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.agreement.form_ttj')); ?>">Talabalar turar joyi uchun
-                                        shartnoma</a>
+              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.super_cards')); ?>">Tabaqalashtirilgan
+                to'lov-shartnoma asosida <br>o'qish uchun ariza topshirish </a>
             </li>
 
 
-            <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('super.super')); ?>">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish  (magistratura bakalavr)
-              </a>
-            </li>
-              <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('lyceum.super.form')); ?>">Tabaqalashtirilgan to'lov shartnomaga ariza qoldirish (Akademik litsey)
-              </a>
-            </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('student.agreement.lyceum_form')); ?>">Akademik litseylar uchun To`lov shartnomasi
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-6 linkColor  mx-lg-1 mx-xl-2" href="<?php echo e(route('payment_check')); ?>">To`lovlar tarixi</a>
-            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </ul>
 
         </div>

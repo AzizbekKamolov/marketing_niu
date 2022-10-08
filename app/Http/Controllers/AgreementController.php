@@ -448,6 +448,20 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
+                    if ($type->id != 24){
+                        return "Shartnomalar tez orada joylanadi";
+                    }
+                    if ($student->status == 0){
+                        return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
+                    }
+                    return view('student.agreements_by_id.show.type_'.$type->id .'.side_type_'. $agreement_side_type->id . '.agreement_type_' . $agreement_type->id.'.course_'.$student->course, [
+                        'student' => $student,
+                        'agreement_type' => $agreement_type,
+                        'agreement_side_type' => $agreement_side_type,
+                        'getting_date' => $getting_date,
+                        'dateArray' => $dateArray,
+                        'which_process' => 'show'
+                    ]);
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
                             return view('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_' . $agreement_side_type->id . '_' . $agreement_type->id, [
@@ -607,6 +621,14 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
+                     return  PDF::loadView('student.agreements_by_id.show.type_'.$type->id .'.side_type_'. $agreement_side_type->id . '.agreement_type_' . $agreement_type->id.'.course_'.$student->course, [
+                        'student' => $student,
+                        'agreement_type' => $agreement_type,
+                        'agreement_side_type' => $agreement_side_type,
+                        'getting_date' => $getting_date,
+                        'dateArray' => $dateArray,
+                        'which_process' => 'pdf'
+                    ])->download($student->fio() . '.pdf');
                     if ($type->contract_type == 'super') {
                         if ($type->edu_place == 'sirtqi') {
                             $ended = 2022 + 5 - $student->course;

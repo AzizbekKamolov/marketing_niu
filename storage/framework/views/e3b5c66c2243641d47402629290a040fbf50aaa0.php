@@ -68,6 +68,9 @@
                     </fieldset>
 
                     <div class="col-12 my-3">
+                         <div>
+                            <p class=" text-center color-warning">3 tomonlama shartnomalar tez orada tizimga joylanadi !</p>
+                        </div>
                         <div>
                             <h1 class="fs-3 text-center">Shartnomalar</h1>
                         </div>
