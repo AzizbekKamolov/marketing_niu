@@ -84,6 +84,10 @@ class AgreementController extends Controller
         return view('student.agreement.form_first_course');
     }
 
+    public function form_first_classified_courses()
+    {
+        return view('student.agreement.form_first_classified_course');
+    }
     public function show_other_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);

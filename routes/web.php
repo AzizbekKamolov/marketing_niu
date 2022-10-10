@@ -197,6 +197,7 @@ Route::post('/student/show-other-agreement', 'AgreementController@show_other_agr
 Route::post('/student/pdf-other-agreement', 'AgreementController@pdf_other_agreement')->name('student.other_agreement.pdf_agreement');
 Route::get('/student/form', 'AgreementController@form')->name('student.agreement.form');
 Route::get('/student/form-first-course', 'AgreementController@form_first_course')->name('student.agreement.form_first_course');
+Route::get('/student/form-first-classified-course', 'AgreementController@form_first_classified_courses')->name('student.agreement.form_first_classified_course');
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');

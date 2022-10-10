@@ -16,6 +16,25 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
+                        <a class="text-decoration-none" href="{{ route('student.agreement.form_first_classified_course') }}">
+                            <div
+                                    class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
+                                <div class="col">
+                                    <img class="cardImg"
+                                         src="{{asset('marketing2021/img/icons/Payment_agreement.png')}}" width="100px"
+                                         alt="">
+                                </div>
+                                <div class="row">
+                                    <h5 class="card-title fs-5 fw-bold colorFour text-center">
+                                        Tabaqalashtirilgan to'lov shartnomani olish</h5>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
+                    <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
                         <a class="text-decoration-none" href="{{ route('student.agreement.join_training.form') }}">
                             <div
                                     class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
