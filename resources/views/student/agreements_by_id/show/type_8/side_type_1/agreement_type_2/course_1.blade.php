@@ -275,7 +275,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    4. SHARTNOMANI BEKOR QILISH VA O‘ZGARTIRISH
+                    4. SHARTNOMANI BEKOR QILISH
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
