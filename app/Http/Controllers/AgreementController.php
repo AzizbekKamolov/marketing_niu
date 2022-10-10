@@ -40,6 +40,9 @@ class AgreementController extends Controller
                 } else {
                     $query->where('id', 0);
                 }
+                if ($request->type){
+                    $query->where('comment' , $request->type);
+                }
             })
             ->first();
         if ($payment_student) {

@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="row">
                                     <h5 class="card-title fs-5 fw-bold colorFour text-center">
-                                        Tabaqalashtirilgan to'lov shartnomani olish</h5>
+                                        Tabaqalashtirilgan to'lov shartnomani olish (Kunduzgi)</h5>
                                 </div>
                             </div>
                         </a>

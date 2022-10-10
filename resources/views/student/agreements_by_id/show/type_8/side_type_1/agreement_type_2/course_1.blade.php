@@ -248,11 +248,9 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
-                    ( {{$student->part1_summa_word}} )
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
-                    <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
+                    3.2. Talaba kuzgi semestr uchun  <b>{{$student->part1_summa}}</b>
+                    ( {{$student->part1_summa_word}} ) so‘mni
+                    2022 yilning 1 noyabrgacha to‘laydi.
 
 
                 </p>
@@ -260,9 +258,7 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b>
                     ( {{$student->part2_summa_word}}
-                    ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2023-yil 15-aprelgacha - <b>{{$student->part_four_3_summa}} so‘m</b>;
-                    <br>2023-yil 1-iyulgacha -<b>{{$student->part_four_4_summa}} so‘m</b>.
+                    ) so‘mni 2023 yilning 1 martgacha to‘laydi.
 
 
                 </p>
@@ -275,7 +271,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
-                    4. SHARTNOMANI BEKOR QILISH
+                    4. SHARTNOMANI BEKOR QILISH VA O‘ZGARTIRISH
                 </h4>
             </div>
             <div class="col-md-12 mb-1">
