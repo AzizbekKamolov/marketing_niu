@@ -325,6 +325,16 @@ class PaymentAdminController extends Controller
         }
     }
 
+    public function change_status($id)
+    {
+        if (Auth::user()->role == 11 || Auth::user()->role == 12) {
+            $student = StudentPayment::find($id);
+            $student->status = !$student->status;
+            $student->update();
+            return redirect()->back();
+        }
+    }
+
     public function get_type_by_degree($id)
     {
         $type = Type::where('degree', $id)->orderBy('order', 'ASC')->get();

@@ -11,7 +11,7 @@
 <body>
 @include('student.agreements_by_id.show.includes.style_show')
 <div class="row">
-    <div class="col-md-2"> </div>
+    <div class="col-md-2"></div>
     <div class="col-md-8 ">
         <div class="row">
             <div class="col-md-12 text-center text-bold">
@@ -41,7 +41,8 @@
                     <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
                     yilda
                     tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat {{$student->course}} - kurs davomida
+                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat {{$student->course}} -
+                    kurs davomida
                     oʻqitish maqsadida mazkur ikki tomonlama stipendiyali shakldagi toʻlov kontrakt shartnomasini
                     (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida
                     oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi
@@ -240,32 +241,31 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.1.2022/2023-oʻquv yilida stipensiyali shaklda ta’lim olish uchun Talaba tomonidan toʻlanishi lozim
-                    boʻlgan toʻlov summasi <b>{{$student->all_summa}}</b> ({{$student->all_summa_word}})
+                    boʻlgan toʻlov summasi 17 623 245,0 (oʻn yetti million olti yuz yigirma uch ming ikki yuz qirq besh)
                     soʻmni tashkil etadi va Shartnomaning ushbu bobida belgilangan tartibda toʻlanadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
-                    ( {{$student->part1_summa_word}} )
-                    so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
-                    <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
+                    3.2. Talaba kuzgi semestr uchun 8 811 622,50 (sakkiz million sakkiz yuz o‘n bir ming olti yuz
+                    yigirma ikki so‘m, ellik tiyin ) so‘mni quyidagi muddatlarda to‘laydi: <br>
+                    2022-yil 1-noyabrgacha - 4 405 811,25 so‘m; <br>
+                    2023-yil 1-yanvargacha - 4 405 811,25 so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b>
-                    ( {{$student->part2_summa_word}}
-                    ) so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2023-yil 15-aprelgacha - <b>{{$student->part_four_3_summa}} so‘m</b>;
-                    <br>2023-yil 1-iyulgacha -<b>{{$student->part_four_4_summa}} so‘m</b>.
+                    3.3. Talaba bahorgi semestr uchun 8 811 622,50 (sakkiz million sakkiz yuz o‘n bir ming olti yuz
+                    yigirma ikki so‘m, ellik tiyin ) so‘mni quyidagi muddatlarda to‘laydi: <br>
+                    2023-yil 15-aprelgacha - 4 405 811,25 so‘m; <br>
+                    2023-yil 1-iyulgacha - 4 405 811,25 so‘m.
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.Talaba tomonidan Shartnoma boʻyicha oʻqitish qiymatini toʻlashda toʻlov topshiriqnomasida ID raqamini, Talabaning familiyasi, ismi, sharifi hamda oʻqiyotgan kursi toʻliq koʻrsatiladi.
+                    3.4.Talaba tomonidan Shartnoma boʻyicha oʻqitish qiymatini toʻlashda toʻlov topshiriqnomasida ID
+                    raqamini, Talabaning familiyasi, ismi, sharifi hamda oʻqiyotgan kursi toʻliq koʻrsatiladi.
 
                 </p>
             </div>
@@ -287,11 +287,13 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.2. Taʻlim muasasasining tashabbusiga koʻra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba talabalar safidan chiqarilganda.
+                    4.1.2. Taʻlim muasasasining tashabbusiga koʻra Ustavi va boshqa ichki hujjatlariga muvofiq Talaba
+                    talabalar safidan chiqarilganda.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.3. Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Taʻlim muassasasi Shartnomani bir tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
+                    4.1.3. Oʻqitish qiymati belgilangan muddat ichida toʻlanmasa (bunda, Taʻlim muassasasi Shartnomani
+                    bir tomonlama bekor qiladi, Talaba Talabalar safidan chiqariladi).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -299,7 +301,9 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.1.5.Shartnomaning 2.1.3-bandida koʻrsatilgan hollarda (Taʻlim muassasasi tomonidan Shartnomaning bir tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma yuborish orqali).
+                    4.1.5.Shartnomaning 2.1.3-bandida koʻrsatilgan hollarda (Taʻlim muassasasi tomonidan Shartnomaning
+                    bir tomonlama bekor qilinishi va talabalar safidan chiqarilishi haqida Talabaga yozma xabarnoma
+                    yuborish orqali).
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -307,7 +311,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    4.2. Shartnoma Tomonlarning oʻzaro roziligi bilan oʻzgartiriladi, 2.1.4, 2.1.5-bandlarda koʻrsatilgan holatlar bundan mustasno.
+                    4.2. Shartnoma Tomonlarning oʻzaro roziligi bilan oʻzgartiriladi, 2.1.4, 2.1.5-bandlarda
+                    koʻrsatilgan holatlar bundan mustasno.
                 </p>
 
             </div>
@@ -393,7 +398,7 @@
                 </p>
 
             </div>
-             @include('student.agreements_by_id.show.includes.rekvisit_show')
+            @include('student.agreements_by_id.show.includes.rekvisit_show')
             @include('student.agreements_by_id.show.includes.form_accept')
 
 

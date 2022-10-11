@@ -291,6 +291,13 @@
                                     <input type="number" class="form-control" name="course"
                                            value="{{$data->course}}" disabled>
                                 </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="">
+                                        Status
+
+                                    </label>
+                                    <a class="btn {{$data->status ? 'btn-success':'btn-danger'}} w-100" href="{{route('payment_admin.student.change_status' , ['id' => $data->id])}}">{{$data->status ? 'Aktiv':'Aktiv emas'}}</a>
+                                </div>
                             </div>
                         </div>
 
