@@ -344,6 +344,7 @@ class PaymentAdminController extends Controller
     public function student_types()
     {
         $types = Type::with('agreement_side_types')->with('agreement_types')->orderBy('order', 'ASC')->get();
+//        return $types;
         return view('admin.pages.payment_admin.student_types.index', [
             'data' => $types
         ]);

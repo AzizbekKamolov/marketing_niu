@@ -9,7 +9,7 @@
 
                             <div class="col-md-8">
                                 <div class="text-center">
-                                    <h1 class="colorSix fw-bold fs-4">Talabalar uchun tabaqalashtirilgan to'lov shartnomasini olish (Kunduzgi)</h1>
+                                    <h1 class="colorSix fw-bold fs-4">Talabalar uchun tabaqalashtirilgan to'lov shartnomasini olish (Masofaviy)</h1>
                                     <span class="text-danger">
                                             @if(session()->has('error'))
                                                 <div class="alert alert-danger">
@@ -23,7 +23,7 @@
                                     {{ @csrf_field() }}
                                     {{method_field('POST')}}
                                     <div class="col-12">
-                                        <input type="text" hidden name="type" value="super_bakalavr">
+                                        <input type="text" hidden name="type" value="super_masofaviy">
                                         <label for="validationDefaultUsername" class="form-label">Passport
                                             seriyasi</label>
                                         <div class="input-group">

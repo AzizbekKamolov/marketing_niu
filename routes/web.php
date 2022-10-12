@@ -199,6 +199,8 @@ Route::post('/student/pdf-other-agreement', 'AgreementController@pdf_other_agree
 Route::get('/student/form', 'AgreementController@form')->name('student.agreement.form');
 Route::get('/student/form-first-course', 'AgreementController@form_first_course')->name('student.agreement.form_first_course');
 Route::get('/student/form-first-classified-course', 'AgreementController@form_first_classified_courses')->name('student.agreement.form_first_classified_course');
+Route::get('/student/form-first-classified-course-sirtqi', 'AgreementController@form_first_classified_courses_sirtqi')->name('student.agreement.form_first_classified_course_sirtqi');
+Route::get('/student/form-first-classified-course-masofaviy', 'AgreementController@form_first_classified_courses_masofaviy')->name('student.agreement.form_first_classified_course_masofaviy');
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
@@ -244,7 +246,7 @@ Route::get('/sms-ras', function () {
                 $body['messages'][$index]['recipient'] = $item['number'];
                 $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
                 $body['messages'][$index]['sms']['originator'] = '3700';
-                $body['messages'][$index]['sms']['content']['text'] = $item['name'];
+                $body['messages'][$index]['sms']['content']['text'] = 'TDYUda o‘qish uchun tabaqalashtirilgan to‘lov shartnomani quyidagi manzildan yuklab oling:'.PHP_EOL.'http://marketing.tsul.uz/student/form-first-classified-course-masofaviy'.PHP_EOL.'Qo‘shimcha ma’lumotlar uchun quyidagi raqamga qo‘ng‘iroq qiling: +998712331395';
                 $index++;
             }
             if (count($rass)) {

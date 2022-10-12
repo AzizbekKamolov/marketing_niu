@@ -75,7 +75,7 @@
                                                </td>
                                                 <td>
                                                    @foreach($item->agreement_types as $agreemen_type)
-                                                       <span>{{$agreemen_type->name}}</span> <br>
+                                                       <span>{{$agreemen_type->name}} ({{number_format($agreemen_type->pivot->price)}})</span> <br>
                                                    @endforeach
                                                </td>
                                                <td>

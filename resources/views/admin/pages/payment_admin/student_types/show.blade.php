@@ -40,6 +40,7 @@
                     <div class="card-body">
                         <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                             <div>
+                                <h3><b>{{$data->name}}</b></h3>
                                 <h4 class="card-title">Talaba turiga mumkin bo'lgan shartnomalar (Stipendiya
                                     bo'yicha)</h4>
                             </div>
@@ -155,7 +156,7 @@
                                                     {{ $item->name }}
                                                 </td>
                                                 <td>
-                                                    {{ $item->pivot->price_part1 }} / {{ $item->pivot->price_part2 }}
+                                                    {{ number_format($item->pivot->price) }}
                                                 </td>
 
                                                 <td style="width: 1px">
