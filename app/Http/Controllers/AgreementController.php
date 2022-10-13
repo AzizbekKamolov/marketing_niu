@@ -101,6 +101,14 @@ class AgreementController extends Controller
     {
         return view('student.agreement.form_first_classified_course_masofaviy');
     }
+    public function form_first_classified_courses_transfer_study()
+    {
+        return view('student.agreement.form_first_classified_courses_transfer_study');
+    }
+    public function form_first_classified_courses_magistr()
+    {
+        return view('student.agreement.form_first_classified_courses_magistr');
+    }
 
     public function show_other_agreement(Request $request)
     {
