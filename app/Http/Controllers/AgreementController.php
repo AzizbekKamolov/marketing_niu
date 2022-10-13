@@ -40,8 +40,8 @@ class AgreementController extends Controller
                 } else {
                     $query->where('id', 0);
                 }
-                if ($request->type){
-                    $query->where('comment' , $request->type);
+                if ($request->type) {
+                    $query->where('comment', $request->type);
                 }
             })
             ->first();
@@ -91,10 +91,12 @@ class AgreementController extends Controller
     {
         return view('student.agreement.form_first_classified_course');
     }
+
     public function form_first_classified_courses_sirtqi()
     {
         return view('student.agreement.form_first_classified_course_sirtqi');
     }
+
     public function form_first_classified_courses_masofaviy()
     {
         return view('student.agreement.form_first_classified_course_masofaviy');
@@ -464,7 +466,8 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
-                    if ($type->id == 24 || $type->id == 7 || $type->id == 8 || $type->id == 9 || $type->id == 10 || $type->id == 11 || $type->id == 12 || $type->id == 28|| $type->id == 29|| $type->id == 30|| $type->id == 31|| $type->id == 32|| $type->id == 33|| $type->id == 38|| $type->id == 39|| $type->id == 40|| $type->id == 41|| $type->id == 42|| $type->id == 43) {
+                    $accessTypesArray = [24,7,8,9,10,11,12,28,29,30,31,32,33,38,39,40,41,42,43,27,37];
+                    if (in_array($type->id,$accessTypesArray)) {
                         if ($student->status == 0) {
                             return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
                         }
