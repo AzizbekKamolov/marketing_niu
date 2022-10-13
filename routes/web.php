@@ -201,6 +201,8 @@ Route::get('/student/form-first-course', 'AgreementController@form_first_course'
 Route::get('/student/form-first-classified-course', 'AgreementController@form_first_classified_courses')->name('student.agreement.form_first_classified_course');
 Route::get('/student/form-first-classified-course-sirtqi', 'AgreementController@form_first_classified_courses_sirtqi')->name('student.agreement.form_first_classified_course_sirtqi');
 Route::get('/student/form-first-classified-course-masofaviy', 'AgreementController@form_first_classified_courses_masofaviy')->name('student.agreement.form_first_classified_course_masofaviy');
+Route::get('/student/form-first-classified-course-transfer-study', 'AgreementController@form_first_classified_courses_transfer_study')->name('student.agreement.form_first_classified_courses_transfer_study');
+Route::get('/student/form-first-classified-course-magistr', 'AgreementController@form_first_classified_courses_magistr')->name('student.agreement.form_first_classified_courses_magistr');
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');
