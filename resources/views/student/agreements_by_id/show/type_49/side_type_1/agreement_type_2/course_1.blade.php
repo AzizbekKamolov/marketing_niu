@@ -18,7 +18,7 @@
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida oʻqitish uchun
                     ikki tomonlama tabaqalashtirilgan toʻlov kontrakt <br>
-                    (masofaviy ta’lim shakli uchun, 1-kurslar uchun)
+                    (stipendiyasiz shaklda)
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -37,10 +37,8 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabaevich bir tomondan
                     va talabalikka tavsiya etilgan abituriyent
-                    <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
-                    yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat 1-kurs davomida
+                     <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat ta'lim yo'nalishida
                     oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz shakldagi toʻlov kontrakt shartnomasini
                     (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida
                     oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi
@@ -222,7 +220,8 @@
                     2.4.7. Shartnoma elektron shaklda Taʻlim muassasasining marketing.tsul.uz yoki Oliy va oʻrta taʻlim
                     vazirligining kontrakt.edu.uz saytida joylashtirilgan boʻlib, Talaba oʻz ID raqami yoki passport
                     maʻlumotlarini kiritadi va shartnoma shartlari bilan tanishadi. Agar talaba shartnoma shartlariga
-                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi. 
+                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi. Shundan soʻng, shartnoma
+                    stipendiyali shaklga qayta oʻzgartirilmaydi va koʻrib chiqilmaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp

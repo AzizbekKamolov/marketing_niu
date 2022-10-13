@@ -165,6 +165,10 @@ class SuperController extends Controller
     {
         return view('student.child_cards.agreement_cards');
     }
+    public function contract_cards_tabaqa()
+    {
+        return view('student.child_cards.tabaqalashtirilgan.tabaqalashtirilgan');
+    }
 
     public function super_cards()
     {

@@ -11,14 +11,15 @@
 <body>
 @include('student.agreements_by_id.show.includes.style_show')
 <div class="row">
-    <div class="col-md-2"> </div>
+    <div class="col-md-2"></div>
     <div class="col-md-8 ">
         <div class="row">
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida oʻqitish uchun
-                    ikki tomonlama tabaqalashtirilgan toʻlov kontrakt <br>
-                    (stipendiyasiz shaklda)
+                    ikki tomonlama tabaqalashtirilgan toʻlov-kontrakt
+                    <br>
+                    (stipendiyasiz shaklda, magistratura uchun)
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -37,14 +38,16 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabaevich bir tomondan
                     va talabalikka tavsiya etilgan abituriyent
-                     <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat ta'lim yo'nalishida
-                    oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz shakldagi toʻlov kontrakt shartnomasini
-                    (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida
-                    oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi
-                    nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining
-                    2019-yil 3-dekabrdagi 967-son, 2021-yil 10-iyundagi 359-son qarorlari, Toshkent davlat yuridik
-                    universiteti kengashining 2022-yil 31-avgustdagi 1-son majlis bayonnomasiga muvofiq tuzdilar:
+                    <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
+                    yilda
+                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    Tomonlar), Talabani magistratura davomida oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz
+                    shakldagi toʻlov-kontrakt shartnomasini (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus,
+                    kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni
+                    taqsimlash tartibi toʻgʻrisidagi nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston
+                    Respublikasi Vazirlar Mahkamasining 2019-yil 3-dekabrdagi 967-son, 2021-yil 10-iyundagi 359-son
+                    qarorlari, Toshkent davlat yuridik universiteti kengashining 2022-yil 31-avgustdagi 1-son majlis
+                    bayonnomasiga muvofiq tuzdilar:
 
                 </p>
             </div>
@@ -62,8 +65,8 @@
                     majburiyatini oladi.
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Talabaning bakalavriat taʻlim yoʻnalishini muvaffaqiyatli
-                    tamomlash muddati 2026-yil iyun oyi hisoblanadi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Talabaning magistraturani muvaffaqiyatli tamomlash muddati
+                    2023-yil iyun oyi hisoblanadi.
                 </p>
             </div>
 
@@ -97,7 +100,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.1.3.Talaba Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʻpol ravishda buzgan,
+                    2.1.3 Talaba Taʻlim muassasasining ichki hujjatlarida belgilangan qoidalarni qoʻpol ravishda buzgan,
                     xususan huquqbuzarlik sodir etgan hollarda Shartnomani bir tomonlama bekor qilish.
                 </p>
                 <p>
@@ -126,7 +129,7 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.1. Oʻqitish uchun Oʻzbekiston Respublikasining “Taʻlim toʻgʻrisida”gi Qonuniga muvofiq Taʻlim
+                    2.2.1.Oʻqitish uchun Oʻzbekiston Respublikasining “Taʻlim toʻgʻrisida”gi Qonuniga muvofiq Taʻlim
                     muassasasi Ustavi va boshqa ichki hujjatlarida nazarda tutilgan zarur shart-sharoitlarni yaratadi.
                 </p>
                 <p>
@@ -140,8 +143,8 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.2.4.Talaba bakalavriat bosqichining yurisprudensiya taʻlim yoʻnalishini muvaffaqiyatli
-                    tamomlaganda belgilangan tartibda diplom beradi.
+                    2.2.4.Talaba magistratura yoʻnalishini muvaffaqiyatli tamomlaganda belgilangan tartibda diplom
+                    beradi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -187,7 +190,7 @@
             <div class="col-md-12 mb-1 page-break">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.1.Joriy oʻquv yili uchun belgilangan oʻqitish qiymatini Kontraktning 3-bobida koʻrsatilgan
+                    2.4.1.. Joriy oʻquv yili uchun belgilangan oʻqitish qiymatini Kontraktning 3-bobida koʻrsatilgan
                     tartib va miqdorda oʻz vaqtida toʻlaydi.
                 </p>
                 <p>
@@ -220,8 +223,7 @@
                     2.4.7. Shartnoma elektron shaklda Taʻlim muassasasining marketing.tsul.uz yoki Oliy va oʻrta taʻlim
                     vazirligining kontrakt.edu.uz saytida joylashtirilgan boʻlib, Talaba oʻz ID raqami yoki passport
                     maʻlumotlarini kiritadi va shartnoma shartlari bilan tanishadi. Agar talaba shartnoma shartlariga
-                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi. Shundan soʻng, shartnoma
-                    stipendiyali shaklga qayta oʻzgartirilmaydi va koʻrib chiqilmaydi.
+                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -246,17 +248,21 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. Talaba kuzgi semestr uchun  <b>{{$student->part1_summa}}</b>
-                    ( {{$student->part1_summa_word}} ) so‘mni
-                    2022 yilning 1 noyabrgacha to‘laydi.
+                    3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
+                    ( {{$student->part1_summa_word}} )
+                    so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.3. Talaba bahorgi semestr uchun <b>{{$student->part2_summa}}</b>
-                    ( {{$student->part2_summa_word}}
-                    ) so‘mni 2023 yilning 1 martgacha to‘laydi.
+                    ( {{$student->part2_summa_word}} )
+                    so‘mni quyidagi muddatlarda to‘laydi:
+                    <br>2023-yil 15-aprelgacha - <b>{{$student->part_four_3_summa}} so‘m;</b>
+                    <br>2023-yil 1-iyulgacha - <b>{{$student->part_four_4_summa}} so‘m.</b>
 
 
                 </p>
@@ -396,7 +402,7 @@
                 </p>
 
             </div>
-             @include('student.agreements_by_id.show.includes.rekvisit_show')
+            @include('student.agreements_by_id.show.includes.rekvisit_show')
             @include('student.agreements_by_id.show.includes.form_accept')
 
 

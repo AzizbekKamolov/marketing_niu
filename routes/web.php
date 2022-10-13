@@ -12,6 +12,7 @@ Route::group([
 Route::get('super', 'SuperController@super')->name('super.super');
 Route::get('super-perevod', 'SuperController@super_perevod')->name('super.super_perevod');
 Route::get('/contract-cards', 'SuperController@contract_cards')->name('student.contract_cards');
+Route::get('/contract-cards-tabaqa', 'SuperController@contract_cards_tabaqa')->name('student.contract_cards_tabaqa');
 Route::get('/super-cards', 'SuperController@super_cards')->name('student.super_cards');
 //Route::get('super', function(){
 //    return "Ariza topshirish boshlanmadi";
@@ -203,6 +204,9 @@ Route::get('/student/form-first-classified-course-sirtqi', 'AgreementController@
 Route::get('/student/form-first-classified-course-masofaviy', 'AgreementController@form_first_classified_courses_masofaviy')->name('student.agreement.form_first_classified_course_masofaviy');
 Route::get('/student/form-first-classified-course-transfer-study', 'AgreementController@form_first_classified_courses_transfer_study')->name('student.agreement.form_first_classified_courses_transfer_study');
 Route::get('/student/form-first-classified-course-magistr', 'AgreementController@form_first_classified_courses_magistr')->name('student.agreement.form_first_classified_courses_magistr');
+Route::get('/student/form-classified-perevod', 'AgreementController@form_classified_perevod')->name('student.agreement.form_classified_perevod');
+Route::get('/student/form-classified-perevod-sirtqi', 'AgreementController@form_classified_perevod_sirtqi')->name('student.agreement.form_classified_perevod_sirtqi');
+Route::get('/student/form-super-magister', 'AgreementController@form_super_magister')->name('student.agreement.form_super_magister');
 Route::get('/student/lyceum/form', 'AgreementController@lyceum_form')->name('student.agreement.lyceum_form');
 Route::post('/student/lyceum/show-agreement', 'AgreementController@lyceum_show_agreement')->name('student.agreement.lyceum_show_agreement');
 Route::post('/student/lyceum/pdf-agreement', 'AgreementController@lyceum_pdf_agreement')->name('student.agreement.lyceum_pdf_agreement');

@@ -110,6 +110,19 @@ class AgreementController extends Controller
         return view('student.agreement.form_first_classified_courses_magistr');
     }
 
+    public function form_classified_perevod()
+    {
+        return view('student.agreement.form_classified_perevod');
+    }
+    public function form_classified_perevod_sirtqi()
+    {
+        return view('student.agreement.form_classified_perevod_sirtqi');
+    }
+    public function form_super_magister()
+    {
+        return view('student.agreement.super_magister');
+    }
+
     public function show_other_agreement(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
@@ -158,7 +171,7 @@ class AgreementController extends Controller
 //                    return $discount_sum;
             if ($agreement_type) {
                 $this_year = date('Y');
-                $need_date = $this_year . '-07-01';
+                $need_date = $this_year . '-06-30';
                 if ($request->date_agreement) {
                     $this_date = date('Y-m-d', strtotime($request->date_agreement));
                 } else {
@@ -167,7 +180,7 @@ class AgreementController extends Controller
 //                return $this_date;
                 if ($this_date > $need_date) {
                     $this_year++;
-                    $need_date = $this_year . '-07-01';
+                    $need_date = $this_year . '-06-30';
                 }
                 $now = strtotime($this_date); // or your date as well
                 $your_date = strtotime($need_date);
@@ -368,7 +381,7 @@ class AgreementController extends Controller
                         $part_discount = 1 - ($discount_sum / 100);
                         if ($agreement_type) {
                             $this_year = date('Y');
-                            $need_date = $this_year . '-07-01';
+                            $need_date = $this_year . '-06-30';
                             if ($request->ttj_start_date) {
                                 $this_date = date('Y-m-d', strtotime($request->ttj_start_date));
                             } else {
@@ -376,7 +389,7 @@ class AgreementController extends Controller
                             }
                             if ($this_date > $need_date) {
                                 $this_year++;
-                                $need_date = $this_year . '-07-01';
+                                $need_date = $this_year . '-06-30';
                             }
                             $now = strtotime($this_date); // or your date as well
                             $your_date = strtotime($need_date);
@@ -475,7 +488,7 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
-                    $accessTypesArray = [24,7,8,9,10,11,12,28,29,30,31,32,33,38,39,40,41,42,43,27,37];
+                    $accessTypesArray = [24,7,8,9,10,11,12,28,29,30,31,32,33,38,39,40,41,42,43,27,37,44,45,46,47,48,49,50,51,52,53,54,55,13,14,15,16,17,18];
                     if (in_array($type->id,$accessTypesArray)) {
                         if ($student->status == 0) {
                             return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
