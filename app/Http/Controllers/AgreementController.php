@@ -150,7 +150,7 @@ class AgreementController extends Controller
 //                    return $discount_sum;
             if ($agreement_type) {
                 $this_year = date('Y');
-                $need_date = $this_year . '-06-30';
+                $need_date = $this_year . '-07-01';
                 if ($request->date_agreement) {
                     $this_date = date('Y-m-d', strtotime($request->date_agreement));
                 } else {
@@ -159,7 +159,7 @@ class AgreementController extends Controller
 //                return $this_date;
                 if ($this_date > $need_date) {
                     $this_year++;
-                    $need_date = $this_year . '-06-30';
+                    $need_date = $this_year . '-07-01';
                 }
                 $now = strtotime($this_date); // or your date as well
                 $your_date = strtotime($need_date);
@@ -360,7 +360,7 @@ class AgreementController extends Controller
                         $part_discount = 1 - ($discount_sum / 100);
                         if ($agreement_type) {
                             $this_year = date('Y');
-                            $need_date = $this_year . '-06-30';
+                            $need_date = $this_year . '-07-01';
                             if ($request->ttj_start_date) {
                                 $this_date = date('Y-m-d', strtotime($request->ttj_start_date));
                             } else {
@@ -368,7 +368,7 @@ class AgreementController extends Controller
                             }
                             if ($this_date > $need_date) {
                                 $this_year++;
-                                $need_date = $this_year . '-06-30';
+                                $need_date = $this_year . '-07-01';
                             }
                             $now = strtotime($this_date); // or your date as well
                             $your_date = strtotime($need_date);
@@ -377,6 +377,7 @@ class AgreementController extends Controller
                                 $datediff = $datediff * (-1);
                             }
                             $all_days = round($datediff / (60 * 60 * 24));
+//                            return $all_days;
                             $general_payment_sum = $agreement_type->price_for_day * $part_discount * $all_days;
                             return view('student.agreement.agreement_shows.other_agreements.show' . $agreement_type->id, [
                                 'student' => $student,
