@@ -488,7 +488,7 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
-                    $accessTypesArray = [24,7,8,9,10,11,12,28,29,30,31,32,33,38,39,40,41,42,43,27,37,44,45,46,47,48,49,50,51,52,53,54,55,13,14,15,16,17,18];
+                    $accessTypesArray = [24,7,8,9,10,11,12,28,29,30,31,32,33,38,39,40,41,42,43,27,37,44,45,46,47,48,49,50,51,52,53,54,55,13,14,15,16,17,18,2];
                     if (in_array($type->id,$accessTypesArray)) {
                         if ($student->status == 0) {
                             return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
