@@ -46,17 +46,17 @@
                                                    aria-describedby="inputGroupPrepend2" required>
                                         </div>
                                     </div>
-                                     <div class="col-12">
-                                        <label for="validationDefaultUsername" class="form-label">Passport
-                                            JSHSHIR raqami</label>
-                                        <div class="input-group">
-                                        <span class="input-group-text bg-white border-0 iconSpan"
-                                              id="inputGroupPrepend2"><i class="fas fa-id-card"></i></span>
-                                            <input type="text" class="form-control" id="pasportJshirNumber"
-                                                   name="passport_jshir"
-                                                   aria-describedby="inputGroupPrepend2" required>
-                                        </div>
-                                    </div>
+{{--                                     <div class="col-12">--}}
+{{--                                        <label for="validationDefaultUsername" class="form-label">Passport--}}
+{{--                                            JSHSHIR raqami</label>--}}
+{{--                                        <div class="input-group">--}}
+{{--                                        <span class="input-group-text bg-white border-0 iconSpan"--}}
+{{--                                              id="inputGroupPrepend2"><i class="fas fa-id-card"></i></span>--}}
+{{--                                            <input type="text" class="form-control" id="pasportJshirNumber"--}}
+{{--                                                   name="passport_jshir"--}}
+{{--                                                   aria-describedby="inputGroupPrepend2" required>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 {{--                                    <div class="col-12">--}}
 {{--                                        <label for="validationDefaultUsername" class="form-label">Tug'ulgan--}}
