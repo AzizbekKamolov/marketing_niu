@@ -58,17 +58,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <label for="validationDefaultUsername" class="form-label">Tug'ulgan
-                                            sanasi</label>
-                                        <div class="input-group">
-                                        <span class="input-group-text bg-white border-0 iconSpan"
-                                              id="inputGroupPrepend2"><i class="far fa-user"></i></span>
-                                            <input type="date" class="form-control" id="validationDefaultUsername"
-                                                   name="birthday"
-                                                   aria-describedby="inputGroupPrepend2" required>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-12">--}}
+{{--                                        <label for="validationDefaultUsername" class="form-label">Tug'ulgan--}}
+{{--                                            sanasi</label>--}}
+{{--                                        <div class="input-group">--}}
+{{--                                        <span class="input-group-text bg-white border-0 iconSpan"--}}
+{{--                                              id="inputGroupPrepend2"><i class="far fa-user"></i></span>--}}
+{{--                                            <input type="date" class="form-control" id="validationDefaultUsername"--}}
+{{--                                                   name="birthday"--}}
+{{--                                                   aria-describedby="inputGroupPrepend2" required>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="col-12">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""

@@ -3172,3 +3172,15 @@
 #16 D:\\github_clone\\marketing_tsul\\server.php(21): require_once('D:\\\\github_clone...')
 #17 {main}
 "} 
+[2022-10-17 10:24:15] local.ERROR: Maximum execution time of 60 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at D:\\myProject\\OSPanel\\domains\\marketing_tsul\\vendor\\dompdf\\dompdf\\src\\Helpers.php:536)
+[stacktrace]
+#0 {main}
+"} 
+[2022-10-17 10:25:36] local.ERROR: Maximum execution time of 60 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at D:\\myProject\\OSPanel\\domains\\marketing_tsul\\vendor\\dompdf\\dompdf\\src\\Helpers.php:536)
+[stacktrace]
+#0 {main}
+"} 
+[2022-10-17 10:33:22] local.ERROR: Maximum execution time of 60 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at D:\\myProject\\OSPanel\\domains\\marketing_tsul\\vendor\\dompdf\\dompdf\\src\\Helpers.php:536)
+[stacktrace]
+#0 {main}
+"} 
