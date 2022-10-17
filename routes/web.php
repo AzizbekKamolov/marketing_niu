@@ -124,6 +124,7 @@ Route::group([
     Route::get('/payment-admin-student-payments/{id}', 'PaymentAdminController@student_payments')->name('payment_admin.student.payments');
     Route::get('/payment-admin-students-check-edit/{id}', 'PaymentAdminController@student_check_edit')->name('payment_admin.student.check.edit');
     Route::get('/payment-admin-students-show/{id}', 'PaymentAdminController@student_show')->name('payment_admin.student.show');
+    Route::get('/payment-admin-students-delete/{id}', 'PaymentAdminController@student_delete')->name('payment_admin.student.delete');
     Route::get('/payment-admin-students-change-status/{id}', 'PaymentAdminController@change_status')->name('payment_admin.student.change_status');
 
     Route::get('/payment-admin-credits', 'CreditController@index')->name('payment_admin.credits.index');
