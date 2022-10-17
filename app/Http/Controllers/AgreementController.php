@@ -37,14 +37,19 @@ class AgreementController extends Controller
                     $query->where('id_code', substr($request->id_code, 6));
                 } elseif ($request->passport_jshir) {
                     $query->where('passport_jshir', $request->passport_jshir);
-                } else {
-                    $query->where('id', 0);
                 }
                 if ($request->type) {
                     $query->where('comment', $request->type);
                 }
+                if ($request->passport_seria) {
+                    $query->where('passport_seria', $request->passport_seria);
+                }
+                 if ($request->passport_number) {
+                    $query->where('passport_number', $request->passport_number);
+                }
             })
             ->first();
+//        return $payment_student;
         if ($payment_student) {
             if ($payment_student->passport_seria == $request->passport_seria) {
                 if ($payment_student->passport_number == $request->passport_number) {
