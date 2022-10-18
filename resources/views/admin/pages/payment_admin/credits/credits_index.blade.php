@@ -45,13 +45,17 @@
                             </div>
                             @if(Auth::user()->role == 11)
                                 <div>
-
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#importPaymentModal2">
+                                        Yopilgan kreditlarni import qilish
+                                    </button>
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#importPaymentModal">
                                         Kreditlarni import qilish
                                     </button>
                                 </div>
                             @endif
+                            @include('admin.pages.payment_admin.credits.importClosedCredits')
                             @include('admin.pages.payment_admin.credits.importCredits')
                         </div>
 
