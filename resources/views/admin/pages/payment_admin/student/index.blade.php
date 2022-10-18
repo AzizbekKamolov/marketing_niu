@@ -75,6 +75,7 @@
                                         <th></th>
                                     @endif
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -122,6 +123,12 @@
                                             <a href="{{route('payment_admin.student.show' , ['id' => $item->id])}}"
                                                class="btn btn-light" style="color: #000000"><i
                                                         class="fa fa-eye"></i></a>
+
+                                        </td>
+                                        <td class="last-td">
+                                            <a href="{{route('payment_admin.student.delete' , ['id' => $item->id])}}"
+                                               class="btn btn-danger" onclick="confirm('Haqiqatdaan ham o\'chirmoqchimisiz')"><i
+                                                        class="fa fa-trash"></i></a>
 
                                         </td>
                                     </tr>

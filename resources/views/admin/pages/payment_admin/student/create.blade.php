@@ -137,21 +137,13 @@
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
-                                                Ta'lim turi
+                                                JSHSHIR
                                                 <span class="error">
-
+                                                @if ($errors->has('passport_jshir')) | {{ $errors->first('passport_jshir') }} @endif
                                             </span>
                                             </label>
-                                            <select name="type_degree" id="" class="form-control">
-                                                <option @if(old('type_degree') == 1) selected @endif value="1">Bakalavr
-                                                </option>
-                                                <option @if(old('type_degree') == 2) selected @endif value="2">Magistr
-                                                </option>
-                                                <option @if(old('type_degree') == 3) selected @endif value="3">Sirtqi
-                                                </option>
-                                                <option @if(old('type_degree') == 4) selected @endif value="4">O'qishni ko'chirish
-                                                </option>
-                                            </select>
+                                            <input required type="text" class="form-control" name="passport_jshir"
+                                                   value="@if(old('passport_jshir')){{old('passport_jshir')}}@endif">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -161,7 +153,7 @@
                                                         | {{ $errors->first('status_new') }} @endif
                                             </span>
                                             </label>
-                                            <select name="status_new" id="" class="form-control">
+                                            <select name="status_new" class="form-control">
                                                 @foreach($agreement_types as $type)
                                                     <option value="{{$type->id}}">
                                                         {{$type->name}}</option>
@@ -201,7 +193,7 @@
                                     </div>
                                 </fieldset>
                                 <fieldset class="scheduler-border">
-                                    <legend class="scheduler-border w-auto">Ihtiyoriy</legend>
+                                    <legend class="scheduler-border w-auto">Ixtiyoriy</legend>
                                     <div class="row">
                                         <div class="col-md-3 form-group">
                                             <label for="">
@@ -386,34 +378,34 @@
         $('input[name="phone"]').inputmask({
             'mask': '+\\9\\98\\999999999',
         });
-        $('input[name="id_code"]').inputmask({
+        $('input[name="passport_jshir"]').inputmask({
             'regex': '[0-9]*',
         });
     </script>
-    <script>
-        function get_type_by_degree(id) {
-            var url = '/backoffice/get-type-by-degree/' + id;
-            $.ajax({
-                url: url,
-                method: 'GET',
-                success: function (result3) {
-                    console.log(result3);
-                    var txt = '';
-                    var old = '{{old('status_new')}}';
-                    $.each(JSON.parse(result3), function (key, value) {
-                        if (old == value['id']) {
-                            var gg = 'selected';
-                        } else {
-                            var gg = '';
-                        }
-                        txt = txt + '<option ' + gg + ' value="' + value['id'] + '">' + value['name'] + '</option>';
-                    });
-                    $('select[name="status_new"]').html(txt);
-                }
-            });
-        }
+{{--    <script>--}}
+{{--        function get_type_by_degree(id) {--}}
+{{--            var url = '/backoffice/get-type-by-degree/' + id;--}}
+{{--            $.ajax({--}}
+{{--                url: url,--}}
+{{--                method: 'GET',--}}
+{{--                success: function (result3) {--}}
+{{--                    console.log(result3);--}}
+{{--                    var txt = '';--}}
+{{--                    var old = '{{old('status_new')}}';--}}
+{{--                    $.each(JSON.parse(result3), function (key, value) {--}}
+{{--                        if (old == value['id']) {--}}
+{{--                            var gg = 'selected';--}}
+{{--                        } else {--}}
+{{--                            var gg = '';--}}
+{{--                        }--}}
+{{--                        txt = txt + '<option ' + gg + ' value="' + value['id'] + '">' + value['name'] + '</option>';--}}
+{{--                    });--}}
+{{--                    $('select[name="status_new"]').html(txt);--}}
+{{--                }--}}
+{{--            });--}}
+{{--        }--}}
 
-    </script>
+{{--    </script>--}}
 @endsection
 
 

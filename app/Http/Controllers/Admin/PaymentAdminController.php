@@ -77,10 +77,12 @@ class PaymentAdminController extends Controller
         if (Auth::user()->role == 11) {
             $student = StudentPayment::find($id);
             $regions = Region::all();
+            $agreement_types = Type::orderBy('order', 'ASC')->get();
 //            return $student;
             return view('admin.pages.payment_admin.student.check_edit', [
                 'data' => $student,
                 'regions' => $regions,
+                'agreement_types' => $agreement_types
             ]);
         } else {
             return "xatolik!!";
@@ -115,6 +117,7 @@ class PaymentAdminController extends Controller
 //                'passport_given_date' => 'date',
 //                'passport_issued_date' => 'date',
 //                'passport_given_by' => 'string',
+                'passport_jshir' => 'required|max:14',
                 'gender' => 'required',
                 'status_new' => 'required',
 //                'type_degree' => 'required',
@@ -141,6 +144,7 @@ class PaymentAdminController extends Controller
             $student->passport_given_by = $request->passport_given_by;
             $student->passport_issued_date = $request->passport_issued_date;
             $student->gender = $request->gender;
+            $student->passport_jshir = $request->passport_jshir;
             $student->course = $request->course;
             $student->status_new = $request->status_new;
             $student->status_check = 1;
@@ -230,7 +234,7 @@ class PaymentAdminController extends Controller
         }
         $validator = $request->validate([
             'first_name' => 'required',
-            'id_code' => ['required', 'unique:students', 'regex:/^[0-9]+$/u'],
+            'id_code' => ['required', 'unique:students'],
             'last_name' => 'required',
 //            'middle_name' => 'required',
             'birthday' => 'required|date',
@@ -243,6 +247,7 @@ class PaymentAdminController extends Controller
 //            'passport_given_date' => 'date',
 //            'passport_issued_date' => 'date',
 //            'passport_given_by' => 'string',
+            'passport_jshir' => 'required|max:14',
             'gender' => 'required',
             'status_new' => 'required',
 //            'type_degree' => 'required',
@@ -263,6 +268,7 @@ class PaymentAdminController extends Controller
         $student->passport_given_by = $request->passport_given_by;
         $student->passport_issued_date = $request->passport_issued_date;
         $student->gender = $request->gender;
+        $student->passport_jshir = $request->passport_jshir;
         $student->status_new = $request->status_new;
         $student->type_student = $request->type_degree;
         $student->course = $request->course;
@@ -412,6 +418,15 @@ class PaymentAdminController extends Controller
         }
         return redirect()->back()->with('success' , 'Malumot ozgartirildi');
         return $request;
+    }
+
+    public function  student_delete($id){
+        $student = StudentPayment::find($id);
+        if ($student){
+            $student->delete();
+            return back()->with('success', 'Student deleted successfully');
+        }
+        return back()->with('error', 'student not found');
     }
 
 }
