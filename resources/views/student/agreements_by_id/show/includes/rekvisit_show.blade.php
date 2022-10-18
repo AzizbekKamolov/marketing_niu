@@ -55,7 +55,7 @@
             @endif
             @if($which_process == 'pdf')
                 <td class="w-50" style="width: 49%">
-                    <img src="{{asset('/pechat/pechat-2022-simple.jpg')}}" alt="" style="width: 100%">
+                    <img src="{{public_path('/pechat/pechat-2022-simple.jpg')}}" alt="" style="width: 100%">
                 </td>
             @endif
             <td class="w-50" style="width: 49%">
