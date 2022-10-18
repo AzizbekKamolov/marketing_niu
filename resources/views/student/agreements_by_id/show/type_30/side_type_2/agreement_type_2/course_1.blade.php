@@ -17,9 +17,9 @@
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     Toshkent davlat yuridik universitetida oʻqitish uchun
-                    ikki tomonlama tabaqalashtirilgan toʻlov-kontrakt
+                    uch tomonlama tabaqalashtirilgan toʻlov-kontrakt
                     <br>
-                    (sirtqi ta’lim shaklda, {{$student->course}}-kurslar uchun)
+                    (sirtqi ta’lim shaklda, 1-kurslar uchun)
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>002-00{{$student->id_code}}</b></h4>
@@ -37,10 +37,15 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabaevich bir tomondan
+                     _____________________________________________ (keyingi o'rinlarda - Tashkilot) nomidan
+                    _____________________________________________ (vakolat beruvchi hujjat turi) asosan ish yurituvchi
+                    _____________________________________________ (rahbarning familiyasi , ismi , sharifi, lavozimi) ikkinchi tomondan
                     va talabalikka tavsiya etilgan abituriyent
-                     <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
-                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat {{$student->course}}-kurs davomida
-                    oʻqitish maqsadida mazkur ikki tomonlama tabaqalashtirilgan toʻlov-kontrakt shartnomasini (keyingi
+                    <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
+                    yilda
+                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) uchinchi tomondan (birgalikda –
+                    Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat 1-kurs davomida
+                    oʻqitish maqsadida mazkur uch tomonlama tabaqalashtirilgan toʻlov-kontrakt shartnomasini (keyingi
                     oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning
                     toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizom (roʻyxat
                     raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2019-yil
@@ -231,8 +236,57 @@
                 </p>
             </div>
 
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b>2.5.</b> <b>Tashkilotning huquqlari:</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1 page-break">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.5.1.Ta’lim muassasasidan shartnomaviy majburiyatlari bajarilishini talab qilish
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.5.2. Ta’lim muassasasining ta’lim jarayonlarini yaxshilashga doir takliflar berish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.5.3. O’qish uchun bir yillik to’lov summasini bir yola to’liq to’lash.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.5.4. Ta’lim muassasasidan Kontrakt bo’yicha to’lovni amalga oshirish uchun kerakli hujjat so’rash.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.5.5. Ta’lim muassasasidan Talabaning davomati va o’zlashtirishi haqida ma’lumot so’rash.
+                </p>
 
-
+            </div>
+            <div class="col-md-12 mb-1 ">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    <b>2.6.</b> <b>Tashkilotning majburiyatlari::</b>
+                </p>
+            </div>
+            <div class="col-md-12 mb-1 page-break">
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.6.1. Joriy o’quv yili uchun belgilangan o’qitish qiymatini Kontraktning 3-bobida ko’rsatilgan
+                    tartib va miqdorda o’z vaqtida to’laydi.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.6.2. Boshqa Tomonlarning talabiga ko’ra Kontraktning to’lovlari yuzasidan taqqoslash
+                    dalolatnomasini tuzish.
+                </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    2.6.3. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi.
+                </p>
+            </div>
 
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
@@ -398,7 +452,7 @@
                 </p>
 
             </div>
-            @include('student.agreements_by_id.show.includes.rekvisit_show')
+            @include('student.agreements_by_id.show.includes.rekvisit_show_3')
             @include('student.agreements_by_id.show.includes.form_accept')
 
 

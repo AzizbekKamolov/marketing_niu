@@ -232,6 +232,7 @@
             </div>
 
 
+
             <div class="col-md-12 text-center">
                 <h4 class="text-bold">
                     3. TO’LOV MIQDORLARI VA MUDDATLARI

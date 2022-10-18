@@ -11,7 +11,7 @@
 <body>
 @include('student.agreements_by_id.show.includes.style_show')
 <div class="row">
-    <div class="col-md-2"> s</div>
+    <div class="col-md-2"></div>
     <div class="col-md-8 ">
         <div class="row">
             <div class="col-md-12 text-center text-bold">

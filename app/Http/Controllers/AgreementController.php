@@ -61,11 +61,7 @@ class AgreementController extends Controller
                             $query->where('id', $getting->agreement_type_id);
                         }
                     })->whereIn('id', $agreement_type_ids)->get();
-                    $agreement_side_types = AgreementSideType::where(function ($query) use ($getting) {
-                        if ($getting) {
-                            $query->where('id', $getting->agreement_side_type_id);
-                        }
-                    })->whereIn('id', $agreement_side_type_ids)->get();
+                    $agreement_side_types = AgreementSideType::whereIn('id', $agreement_side_type_ids)->get();
                     return view('student.agreement.data_info', [
                         'data' => $payment_student,
                         'agreement_types' => $agreement_types,
