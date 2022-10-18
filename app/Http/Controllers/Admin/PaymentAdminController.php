@@ -129,6 +129,8 @@ class PaymentAdminController extends Controller
                     $p->update();
                 }
             }
+            $type = Type::where('id', $request->status_new)->first();
+            $comment = $type['comment'];
             $student->id_code = $request->id_code;
             $student->first_name = $request->first_name;
             $student->last_name = $request->last_name;
@@ -144,6 +146,8 @@ class PaymentAdminController extends Controller
             $student->passport_given_by = $request->passport_given_by;
             $student->passport_issued_date = $request->passport_issued_date;
             $student->gender = $request->gender;
+            $student->status = 1;
+            $student->comment = $comment;
             $student->passport_jshir = $request->passport_jshir;
             $student->course = $request->course;
             $student->status_new = $request->status_new;
@@ -252,6 +256,8 @@ class PaymentAdminController extends Controller
             'status_new' => 'required',
 //            'type_degree' => 'required',
         ]);
+        $type = Type::where('id', $request->status_new)->first();
+        $comment = $type['comment'];
         $student = new StudentPayment();
         $student->id_code = $request->id_code;
         $student->first_name = $request->first_name;
@@ -268,6 +274,8 @@ class PaymentAdminController extends Controller
         $student->passport_given_by = $request->passport_given_by;
         $student->passport_issued_date = $request->passport_issued_date;
         $student->gender = $request->gender;
+        $student->status = 1;
+        $student->comment = $comment;
         $student->passport_jshir = $request->passport_jshir;
         $student->status_new = $request->status_new;
         $student->type_student = $request->type_degree;

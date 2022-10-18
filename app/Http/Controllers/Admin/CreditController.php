@@ -19,9 +19,9 @@ class CreditController extends Controller
     public function index()
     {
         $data = Credit::pluck('id_code');
-        $students = StudentPayment::whereIn('id_code' , $data)->with('credits')->get();
+        $students = StudentPayment::whereIn('id_code', $data)->with('credits')->get();
 //        return $students[0]->credits->sum('credits');
-        return view('admin.pages.payment_admin.credits.credits_index' , [
+        return view('admin.pages.payment_admin.credits.credits_index', [
             'data' => $students
         ]);
     }
@@ -39,7 +39,7 @@ class CreditController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +50,7 @@ class CreditController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -61,7 +61,7 @@ class CreditController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -72,15 +72,15 @@ class CreditController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-        $credits = Credit::where('id_code' , $student->id_code)->get();
-        foreach ( $credits as $item) {
+        $credits = Credit::where('id_code', $student->id_code)->get();
+        foreach ($credits as $item) {
             $newArchive = new CreditArchive();
             $newArchive->id_code = $item->id_code;
             $newArchive->credits = $item->credits;
@@ -98,7 +98,7 @@ class CreditController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -109,12 +109,12 @@ class CreditController extends Controller
     public function import(Request $request)
     {
         $request->validate([
-            'file' => ['required' , 'file']
+            'file' => ['required', 'file']
         ]);
         $file = $request->file('file');
-        $response = \Excel::toCollection(new CreditImport , $file);
-        if (count($response) >= 1){
-        $sum = $response[0]->sum('credits');
+        $response = \Excel::toCollection(new CreditImport, $file);
+        if (count($response) >= 1) {
+            $sum = $response[0]->sum('credits');
             return view('admin.pages.payment_admin.credits.importInfo')->with([
                 'data' => $response[0],
                 'sum' => $sum
@@ -125,8 +125,8 @@ class CreditController extends Controller
 
     public function import_save(Request $request)
     {
-         $request->validate([
-            'description' => ['required' , 'string'],
+        $request->validate([
+            'description' => ['required', 'string'],
             'array' => ['required']
         ]);
         $description = $request->description;
@@ -140,6 +140,31 @@ class CreditController extends Controller
             $new_payment->payment_date = $payment_date;
             $new_payment->save();
         }
-        return redirect(route('payment_admin.credits.index'))->with('success' , 'Import qilindi');
+        return redirect(route('payment_admin.credits.index'))->with('success', 'Import qilindi');
+    }
+
+
+    public function closedCredits(Request $request)
+    {
+
+        $request->validate([
+            'file' => ['required', 'file']
+        ]);
+        $file = $request->file('file');
+        $responses = \Excel::toCollection(new CreditImport, $file);
+
+        foreach ($responses[0] as $response) {
+            $sum = Credit::where('id_code', $response['id'])->sum('credits');
+            Credit::where('id_code', $response['id'])->delete();
+
+            if ($response['credits'] < $sum) {
+                Credit::create([
+                    'id_code' => $response['id'],
+                    'credits' => $sum - $response['credits'],
+                    'description' => 'updated ' . date('Y-m-d H:i:s')
+                ]);
+            }
+        }
+        return back()->with('success', 'Credits closed successfully');
     }
 }

@@ -130,6 +130,7 @@ Route::group([
     Route::get('/payment-admin-credits', 'CreditController@index')->name('payment_admin.credits.index');
     Route::post('/payment-admin-credits-update', 'CreditController@update')->name('payment_admin.credits.update');
     Route::post('/payment-admin-credits-import', 'CreditController@import')->name('payment_admin.credits.import');
+    Route::post('/payment-admin-import-closed-credits', 'CreditController@closedCredits')->name('payment_admin.import.closed.credits');
     Route::post('/payment-admin-credits-import-save', 'CreditController@import_save')->name('payment_admin.credits.import_save');
 
     Route::get('/payment-admin-student-no-checkeds', 'PaymentAdminController@no_checkeds')->name('payment_admin.student.no_checkeds');

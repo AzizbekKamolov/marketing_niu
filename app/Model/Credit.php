@@ -15,4 +15,5 @@ class Credit extends Model
         }
         return $fio;
     }
+    protected $fillable = ['id_code', 'credits', 'description'];
 }
