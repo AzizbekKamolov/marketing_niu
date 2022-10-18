@@ -144,6 +144,7 @@ class PaymentAdminController extends Controller
             $student->passport_given_by = $request->passport_given_by;
             $student->passport_issued_date = $request->passport_issued_date;
             $student->gender = $request->gender;
+            $student->status = 1;
             $student->passport_jshir = $request->passport_jshir;
             $student->course = $request->course;
             $student->status_new = $request->status_new;
@@ -268,6 +269,7 @@ class PaymentAdminController extends Controller
         $student->passport_given_by = $request->passport_given_by;
         $student->passport_issued_date = $request->passport_issued_date;
         $student->gender = $request->gender;
+        $student->status = 1;
         $student->passport_jshir = $request->passport_jshir;
         $student->status_new = $request->status_new;
         $student->type_student = $request->type_degree;
