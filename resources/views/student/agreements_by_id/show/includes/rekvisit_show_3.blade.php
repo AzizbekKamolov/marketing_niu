@@ -49,7 +49,6 @@
                     </p>
                     <p>
                         Yuriskonsult ______________D.Aliboyev
-
                     </p>
                 </td>
             @endif
@@ -86,6 +85,12 @@
                 </p>
                 <p class="word-line">
                     Tel:
+                </p>
+                <p class="word-line">
+                    &nbsp <br>
+                </p>
+                <p class="w-100 text-center">
+                    (rahbarning ism , familiya , sharifi)
                 </p>
 
                 <p><b>Talaba</b></p>
