@@ -78,11 +78,11 @@
         /*    padding-right: 30px;*/
         /*}*/
         .mt-1 {
-            margin-top: 7px;
+            margin-top: 2px;
         }
 
         .mb-1 {
-            margin-bottom: 7px;
+            margin-bottom: 2px;
         }
 
         .word-line {
@@ -92,7 +92,7 @@
 
         td {
             vertical-align: top;
-            padding: 7px;
+            padding: 2px;
         }
 
         .page-break {
@@ -116,6 +116,9 @@
 
         .text-right {
             text-align: right;
+        }
+        h4{
+            margin-top: 2px;
         }
 
     </style>
