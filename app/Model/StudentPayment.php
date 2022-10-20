@@ -14,6 +14,7 @@ class StudentPayment extends Model
 {
     protected $table = 'students';
 
+    protected $guarded = [];
     public function fio()
     {
         return $this->last_name . ' ' . $this->first_name . ' ' . $this->middle_name;

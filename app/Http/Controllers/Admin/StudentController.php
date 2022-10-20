@@ -4,16 +4,18 @@ namespace Test\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Response;
 use Test\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Test\Imports\StudentImport;
 use Test\Model\BranchAdmin;
 use Test\Model\GettingAgreement;
 use Test\Model\Group;
 use Test\Model\SmsSend;
-use Test\Model\Student;
 use Test\Model\Region;
 use Test\Model\Area;
+use Test\Model\Student;
 use Test\Model\StudentPayment;
 use Test\Model\Super;
 use Test\Model\Direction;
@@ -22,7 +24,8 @@ use PDF;
 use Test\Model\Type;
 
 
-class StudentController extends Controller
+class
+StudentController extends Controller
 {
     public function __construct()
     {
@@ -528,5 +531,69 @@ class StudentController extends Controller
             return redirect(route('student.edit', ['id' => $student->id]))->with('error', 'Xatolik iltimos keyinroq qaytadan urinib koring');
 
         }
+    }
+
+    public function importStudents(Request $request){
+
+        $request->validate([
+            'file' => ['required', 'file']
+        ]);
+        $file = $request->file('file');
+        $data = \Excel::toCollection(new StudentImport, $file);
+        if (count($data) >= 1) {
+            foreach ($data[0] as $d) {
+                while (strlen($d['passport_number']) < 7){
+                    $d['passport_number'] = '0' . $d['passport_number'];
+                }
+                $student = StudentPayment::where('id_code', $d['id_code'])->orWhere(DB::raw('CONCAT(students.passport_seria,"",students.passport_number)'), $d['passport_seria'].$d['passport_number'])->first();
+
+                if (empty($student)){
+                    $result[] = collect([
+                        'id_code' => $d['id_code'],
+                        'last_name' => $d['last_name'],
+                        'first_name' => $d['first_name'],
+                        'middle_name' => $d['middle_name'],
+                        'passport_seria' => $d['passport_seria'],
+                        'passport_number' => $d['passport_number'],
+                        'passport_jshir' => $d['passport_jshir'],
+                        'birthday' => date('Y-m-d', strtotime($d['birthday'])),
+                        'course' => $d['course'],
+                        'phone' => '+998' . $d['phone'],
+                    ]);
+                }else{
+                    $response[] = $d;
+                }
+            }
+            $types  = Type::all();
+            return view('admin.pages.payment_admin.student.studentsImportInfo', [
+                'data' => collect($result ?? []),
+                'types' => $types,
+                'dataErrors' => collect($response ?? [])
+            ]);
+        }
+        return $data[0];
+    }
+    public function importStudentsSave(Request $request){
+        $request->validate([
+            'array' => 'required',
+            'comment' => 'required',
+            'status_new' => 'required',
+        ]);
+        $data = json_decode($request->array, true);
+       if (!empty($data)){
+           foreach ($data as $item){
+                $item['comment'] = $request->comment;
+                $item['status'] = 1;
+                $item['status_new'] = $request->status_new;
+               $s = substr($item['last_name'], -1, 1);
+               ($s == 'a') ? $item['gender'] = 0 : $item['gender'] = 1;
+
+                $result[] =  $item;
+           }
+           StudentPayment::insert($result);
+
+           return redirect()->route('payment_admin.student.index')->with('success', 'Students import successfully');
+       }
+           return redirect()->route('payment_admin.student.index')->with('error', 'Students or ID KOD already exist');
     }
 }

@@ -97,6 +97,8 @@ Route::group([
     Route::get('/super-give-id-code', 'StudentController@super_give_id_code')->name('super_give_id_code');
     Route::post('/store-id-code', 'StudentController@store_id_code')->name('store_id_code');
     Route::get('/rozilik-student/{id}', 'StudentController@rozilik_student')->name('rozilik_student');
+    Route::post('/import-students', 'StudentController@importStudents')->name('import.students');
+    Route::post('/import-students-save', 'StudentController@importStudentsSave')->name('import.students.save');
 
 // SUPER
     Route::resource('super', 'SuperController');
@@ -106,6 +108,9 @@ Route::group([
     Route::get('/super-amount-type-marketing/{type}', 'StudentController@amount_type_marketing')->name('amount_type_marketing');
     Route::get('/super-give-id-by-type/{type}', 'StudentController@give_id_by_type')->name('give_id_by_type');
     Route::get('/super-dir-lang-type/{dir}/{lang}', 'SuperController@dir_lang_type')->name('dir_lang_type');
+    Route::get('/student-import-example',  function (){
+        return response()->download(public_path('files/students-import-example.xlsx'));
+    })->name('student.import.example');
 
     Route::get('/magister-dir-lang-super/{dir}/{lang}', 'SuperController@magister_dir_lang_super')->name('magister_dir_lang_super');
 

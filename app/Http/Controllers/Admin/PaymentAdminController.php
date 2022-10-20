@@ -34,7 +34,7 @@ class PaymentAdminController extends Controller
         if (Auth::user()->role == 11 || Auth::user()->role == 12) {
             $students = StudentPayment::orderBy('id', 'DESC')->with('type')->get();
             return view('admin.pages.payment_admin.student.index', [
-                'data' => $students
+                'data' => $students,
             ]);
         } else {
             return "xatolik!!";

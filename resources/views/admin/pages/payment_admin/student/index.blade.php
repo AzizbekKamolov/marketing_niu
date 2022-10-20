@@ -48,12 +48,20 @@
                                     <a href="{{route('payment_admin.student.create')}}" class="btn btn-success"
                                        style="color: white; cursor: pointer"><i class="fa fa-plus"></i> Talaba qo'shish
                                     </a>
+                                    <a href="{{route('student.import.example')}}" class="btn btn-cyan"
+                                       style="color: white; cursor: pointer"><i class="fa fa-download"></i>  Talabalarni import qilish example
+                                    </a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#importStudentsModal"><i class="fa fa-upload"></i>
+                                        Talabalarni import qilish
+                                    </button>
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#importPaymentModal">
                                         To'lovlarni import qilish
                                     </button>
                                 </div>
                             @endif
+                            @include('admin.pages.payment_admin.student.importStudentsModal')
                             @include('admin.pages.payment_admin.student.importModal')
                         </div>
 
