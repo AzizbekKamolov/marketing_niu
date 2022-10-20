@@ -585,8 +585,8 @@ StudentController extends Controller
                 $item['comment'] = $request->comment;
                 $item['status'] = 1;
                 $item['status_new'] = $request->status_new;
-               $s = substr($item['last_name'], -1, 1);
-               ($s == 'a') ? $item['gender'] = 0 : $item['gender'] = 1;
+                $s = substr($item['last_name'], -1, 1);
+                ($s == 'a') ? $item['gender'] = 0 : $item['gender'] = 1;
 
                 $result[] =  $item;
            }

@@ -61,14 +61,14 @@
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> 1.1. Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b>  Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani
                     2022/2023 oʻquv yili davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va
                     dasturlariga muvofiq oʻqitadi, Talaba esa Shartnomaning 3-bobida koʻrsatilgan tartib va miqdordagi
                     toʻlovni amalga oshiradi hamda Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish
                     majburiyatini oladi.
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> 1.2. Talabaning bakalavriat taʻlim yoʻnalishini muvaffaqiyatli
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b>  Talabaning bakalavriat taʻlim yoʻnalishini muvaffaqiyatli
                     tamomlash muddati 2027-yil iyun oyi hisoblanadi.
                 </p>
             </div>

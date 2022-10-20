@@ -65,6 +65,10 @@
                     toʻlovni amalga oshiradi hamda Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish
                     majburiyatini oladi.
                 </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Talabaning bakalavriat taʻlim yoʻnalishini muvaffaqiyatli
+                    tamomlash muddati 2023-yil iyun oyi hisoblanadi.
+                </p>
             </div>
 
             <div class="col-md-12 text-center">
