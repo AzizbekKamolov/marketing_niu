@@ -259,7 +259,7 @@ Route::get('/sms-ras', function () {
                 $body['messages'][$index]['recipient'] = $item['number'];
                 $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
                 $body['messages'][$index]['sms']['originator'] = '3700';
-                $body['messages'][$index]['sms']['content']['text'] = 'TDYUda o‘qish uchun tabaqalashtirilgan to‘lov shartnomani quyidagi manzildan yuklab oling:'.PHP_EOL.'http://marketing.tsul.uz/student/form-super-magister'.PHP_EOL.'Qo‘shimcha ma’lumotlar uchun quyidagi raqamga qo‘ng‘iroq qiling: +998712331395';
+                $body['messages'][$index]['sms']['content']['text'] = $item['name'];
                 $index++;
             }
             if (count($rass)) {
@@ -271,7 +271,7 @@ Route::get('/sms-ras', function () {
                     $itemGet->update();
                 }
             }
-            sleep(3);
+            sleep(1);
         }
         return 'Success';
     });
