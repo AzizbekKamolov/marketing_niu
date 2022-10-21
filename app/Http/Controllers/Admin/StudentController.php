@@ -561,14 +561,14 @@ StudentController extends Controller
                         'phone' => '+998' . $d['phone'],
                     ]);
                 }else{
-                    $response[] = $d;
+                    $dataErrors[] = $d;
                 }
             }
             $types  = Type::all();
             return view('admin.pages.payment_admin.student.studentsImportInfo', [
                 'data' => collect($result ?? []),
                 'types' => $types,
-                'dataErrors' => collect($response ?? [])
+                'dataErrors' => collect($dataErrors ?? [])
             ]);
         }
         return $data[0];
