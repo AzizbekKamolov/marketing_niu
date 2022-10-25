@@ -591,6 +591,9 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
+                    if ($student->status_new == 24 && $student->course == 4 && $agreement_type->id == 1){
+                        $student->all_summa = 17623245.0;
+                    }
                       $qr_string = "Toshkent davlat yuridik universiteti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
                     $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                     return PDF::loadView('student.agreements_by_id.show.type_' . $type->id . '.side_type_' . $agreement_side_type->id . '.agreement_type_' . $agreement_type->id . '.course_' . $student->course, [
