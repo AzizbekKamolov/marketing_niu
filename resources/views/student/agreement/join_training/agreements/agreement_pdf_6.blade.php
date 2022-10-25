@@ -243,7 +243,7 @@ td{
                 <p>
                     &nbsp &nbsp &nbsp &nbspToshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim muassasasi)
                     nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabayevich, bir tomondan,
-                    va {{$student->birthday }} yilda tug'ilgan
+                    va
                     <b>{{$student->fio()}}</b>
                     (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya”
                     taʻlim yoʻnalishi boʻyicha Yanka Kupala nomidagi Grodno davlat universiteti (Belarus
