@@ -15,45 +15,53 @@
 <body>
 <style>
 
-.text-bold{
-    font-weight: bold;
-    /*font-weight: bolder;*/
-}
-*{
-    font-family: "Times New Roman";
-    font-size: 11px;
-}
+    .text-bold {
+        font-weight: bold;
+        /*font-weight: bolder;*/
+    }
 
-/*body{*/
-/*    padding-left: 30px;*/
-/*    padding-right: 30px;*/
-/*}*/
-.mt-1{
-    margin-top: 7px;
-}
-.mb-1{
-    margin-bottom: 7px;
-}
-.word-line{
-    /*padding-top: 30px;*/
-    border-bottom: 1px solid black
-}
-td{
-    vertical-align: top;
-    padding: 7px;
-}
-.page-break{
-    page-break-after: always;
-}
-.text-center{
-    text-align: center;
-}
-    .text-right{
+    * {
+        font-family: "Times New Roman";
+        font-size: 11px;
+    }
+
+    /*body{*/
+    /*    padding-left: 30px;*/
+    /*    padding-right: 30px;*/
+    /*}*/
+    .mt-1 {
+        margin-top: 7px;
+    }
+
+    .mb-1 {
+        margin-bottom: 7px;
+    }
+
+    .word-line {
+        /*padding-top: 30px;*/
+        border-bottom: 1px solid black
+    }
+
+    td {
+        vertical-align: top;
+        padding: 7px;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
         display: inline-block;
         width: 49%;
         text-align: right;
     }
-    .text-left{
+
+    .text-left {
         display: inline-block;
         width: 49%;
 
@@ -230,7 +238,7 @@ td{
                     Mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayyorlash haqida ikki tomonlama
                     KONTRAKT
                     <br>
-                     (stipendiyasiz shaklda)
+                    (stipendiyasiz shaklda)
 
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
@@ -248,7 +256,8 @@ td{
                     (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya”
                     taʻlim yoʻnalishi boʻyicha Yanka Kupala nomidagi Grodno davlat universiteti (Belarus
                     Respublikasi) (keyingi oʻrinlarda – GrDU) bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha
-                    talabani bakalavriat bosqichida oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz shakldagi toʻlov
+                    talabani bakalavriat bosqichida oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz shakldagi
+                    toʻlov
                     kontrakt shartnomasini (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi
                     muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi
                     toʻgʻrisidagi nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar
@@ -266,7 +275,8 @@ td{
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2023/2024 oʻquv yili
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2023/2024
+                    oʻquv yili
                     davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va dasturlariga muvofiq
                     oʻqitadi, Talaba esa Shartnomaning 2-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga
                     oshiradi hamda Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish majburiyatini oladi.
@@ -286,29 +296,31 @@ td{
                     davomida Ta’lim muassasasida ta’lim olishini inobatga olgan holda Kontrakt boʻyicha toʻlovlar
                     miqdori va muddatlari quyidagicha belgilandi:
 
-                </p><p>
+                </p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     <b>2.1.1</b> 2022/2023-, 2024/2025-o‘quv yillari uchun har bir o‘quv yiliga 31 (o‘ttiz bir) bazaviy
                     hisoblash miqdorini tashkil qiladi va quyidagi muddatlarda Ta’lim muassasasiga toʻlanadi:
-
+                    <br>
+                    2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2024-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2024-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2025-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    2025-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori. <br>
                 </p>
 
             </div>
             <div class="col-md-12 mb-1 ">
-                2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2024-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2024-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2025-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-                2025-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
+
                 <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 58 (ellik sakkiz) bazaviy hisoblash miqdori.
                 Bunda belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim
-                muassasasiga to‘lanadi:
-                2024-yil 15-oktyabgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori;
-                2024-yil 15-dekabrgacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori.
-                2025-yil 15-fevralgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori;
+                muassasasiga to‘lanadi: <br>
+                2024-yil 15-oktyabgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori; <br>
+                2024-yil 15-dekabrgacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori. <br>
+                2025-yil 15-fevralgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori; <br>
                 2025-yil 01-maygacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori.
 
             </div>
@@ -456,7 +468,9 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib, rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
+                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda
+                    Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
+                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
                 </p>
             </div>
             <div class="col-md-12 text-center">
@@ -619,7 +633,7 @@ td{
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-                            <img src="{{asset('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
+                            <img src="{{public_path('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
                         </td>
                         <td class="w-50" style="width: 49%">
 

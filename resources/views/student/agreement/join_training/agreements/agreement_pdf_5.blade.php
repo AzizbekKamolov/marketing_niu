@@ -285,34 +285,39 @@ td{
                     davomida Ta’lim muassasasida ta’lim olishini inobatga olgan holda Kontrakt boʻyicha toʻlovlar
                     miqdori va muddatlari quyidagicha belgilandi:
 
-                </p><p>
+                </p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     <b>2.1.1</b> 2022/2023-, 2023/2024- va 2025/2026-o‘quv yillari uchun har bir o‘quv yiliga 31
                     (o‘ttiz bir) bazaviy hisoblash miqdorini tashkil qiladi va quyidagi muddatlarda Ta’lim
                     muassasasiga toʻlanadi:
+                    <br>
+                    &nbsp &nbsp 2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2024-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2024-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2025-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2025-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2026-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2026-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
 
                 </p>
 
             </div>
             <div class="col-md-12 mb-1 ">
-               &nbsp &nbsp 2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2026-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2026-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
-               &nbsp &nbsp <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda
-               &nbsp &nbsp belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi:
-               &nbsp &nbsp 2024-yil 15-oktyabgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 15-dekabrgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori.
-               &nbsp &nbsp 2025-yil 15-fevralgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori.
+
+                &nbsp &nbsp <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda
+                &nbsp &nbsp belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga
+                to‘lanadi:
+                <br>
+                &nbsp &nbsp 2024-yil 15-oktyabgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
+                &nbsp &nbsp 2024-yil 15-dekabrgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
+                &nbsp &nbsp 2025-yil 15-fevralgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
+                &nbsp &nbsp 2025-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
 
             </div>
             <div class="col-md-12 mb-1 ">

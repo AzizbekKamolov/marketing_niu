@@ -6,59 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('/css/agreement.css')}}">
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
     {{--          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
 </head>
 <body>
-<style>
-
-.text-bold{
-    font-weight: bold;
-    /*font-weight: bolder;*/
-}
-*{
-    font-family: "Times New Roman";
-    font-size: 11px;
-}
-
-/*body{*/
-/*    padding-left: 30px;*/
-/*    padding-right: 30px;*/
-/*}*/
-.mt-1{
-    margin-top: 7px;
-}
-.mb-1{
-    margin-bottom: 7px;
-}
-.word-line{
-    /*padding-top: 30px;*/
-    border-bottom: 1px solid black
-}
-td{
-    vertical-align: top;
-    padding: 7px;
-}
-.page-break{
-    page-break-after: always;
-}
-.text-center{
-    text-align: center;
-}
-    .text-right{
-        display: inline-block;
-        width: 49%;
-        text-align: right;
-    }
-    .text-left{
-        display: inline-block;
-        width: 49%;
-
-    }
-</style>
 @php
 
     function yuzlik($yuz){
@@ -230,7 +187,7 @@ td{
                     Mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayyorlash haqida ikki tomonlama
                     KONTRAKT
                     <br>
-                     (stipendiyasiz shaklda)
+                    (stipendiyasiz shaklda)
 
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
@@ -253,7 +210,8 @@ td{
                     muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi
                     toʻgʻrisidagi nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar
                     Mahkamasining 2019-yil 3-dekabrdagi 967-son, 2021-yil 10-iyundagi 359-son qarorlari, Toshkent
-                    davlat yuridik universiteti kengashining 2022-yil 31-avgustdagi 1-son majlis bayonnomasiga muvofiq tuzdilar:
+                    davlat yuridik universiteti kengashining 2022-yil 31-avgustdagi 1-son majlis bayonnomasiga muvofiq
+                    tuzdilar:
 
 
                 </p>
@@ -265,9 +223,11 @@ td{
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2024/2025 oʻquv yili
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2024/2025
+                    oʻquv yili
                     davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va dasturlariga muvofiq
-                    oʻqitadi, Talaba esa Shartnomaning 2-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga oshiradi hamda
+                    oʻqitadi, Talaba esa Shartnomaning 2-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga
+                    oshiradi hamda
                     Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish majburiyatini oladi.
 
                 </p>
@@ -285,34 +245,39 @@ td{
                     davomida Ta’lim muassasasida ta’lim olishini inobatga olgan holda Kontrakt boʻyicha toʻlovlar
                     miqdori va muddatlari quyidagicha belgilandi:
 
-                </p><p>
+                </p>
+                <p>
                     &nbsp &nbsp &nbsp &nbsp
                     <b>2.1.1</b> 2022/2023-, 2023/2024- va 2025/2026-o‘quv yillari uchun har bir o‘quv yiliga 31
                     (o‘ttiz bir) bazaviy hisoblash miqdorini tashkil qiladi va quyidagi muddatlarda Ta’lim
                     muassasasiga toʻlanadi:
+                    <br>
+                    &nbsp &nbsp 2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2023-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2024-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2024-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2025-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2025-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2026-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
+                    &nbsp &nbsp 2026-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
 
                 </p>
 
             </div>
             <div class="col-md-12 mb-1 ">
-               &nbsp &nbsp 2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2023-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2026-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2026-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
-               &nbsp &nbsp <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda
-               &nbsp &nbsp belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi:
-               &nbsp &nbsp 2024-yil 15-oktyabgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2024-yil 15-dekabrgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori.
-               &nbsp &nbsp 2025-yil 15-fevralgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori;
-               &nbsp &nbsp 2025-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori.
+
+                &nbsp &nbsp <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda
+                &nbsp &nbsp belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga
+                to‘lanadi:
+                <br>
+                &nbsp &nbsp 2024-yil 15-oktyabgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
+                &nbsp &nbsp 2024-yil 15-dekabrgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
+                &nbsp &nbsp 2025-yil 15-fevralgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
+                &nbsp &nbsp 2025-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
 
             </div>
             <div class="col-md-12 mb-1 ">
@@ -325,7 +290,8 @@ td{
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.3.</b>GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Kontraktni stipendiyasizdan shakldan stipendiyali
+                    <b>2.3.</b>GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Kontraktni stipendiyasizdan shakldan
+                    stipendiyali
                     shakliga oʻtishga yoʻl qoʻyilmaydi.
                 </p>
             </div>
@@ -354,7 +320,8 @@ td{
                     3.1.2. Ta’lim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, bir
                     semestr davomida darslarni uzrli sabablarsiz 74 soatdan ortiq qoldirgan yoki oʻqitish uchun
                     belgilangan miqdordagi toʻlovni oʻz vaqtida amalga oshirmagan Talabaga nisbatan belgilangan
-                    tartibda talabalar safidan chetlashtirish, tegishli kursda qoldirish yoki boshqa choralarni qoʻllash.
+                    tartibda talabalar safidan chetlashtirish, tegishli kursda qoldirish yoki boshqa choralarni
+                    qoʻllash.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -464,7 +431,9 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib, rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
+                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda
+                    Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
+                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -635,7 +604,36 @@ td{
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-                            <img src="{{asset('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
+                            <p>
+                                Oʻzbekiston Respublikasi
+                                Moliya vazirligi Gʻaznachiligi
+                                Bank: HKKM MB Toshkent sh. B.B.
+                                H/r: 23402000300100001010
+                                STIR: 201122919, MFO: 00014
+                                Sh.h.r: 400910860262667094100009004
+                                STIR: 201122349, KOD 7950100
+                                Tel.: (71) 233-66-36,
+                                Manzil: Sayilgoh koʻchasi, 35 uy.
+
+
+                            </p>
+                            <p>
+                                Rektor _____________ A. Tashkulov
+                            </p>
+                            <p>
+                                Bosh buxgalter _______________ M.Parpiyev
+                            </p>
+                            <p>
+                                Talabalarga xizmat
+                                koʻrsatish boʻlimi
+                                boshligʻi
+                                ___________ S.Rajabboyev
+
+                            </p>
+                            <p>
+                                Yuriskonsult ______________D.Aliboyev
+
+                            </p>
                         </td>
                         <td class="w-50" style="width: 49%">
 
@@ -661,6 +659,23 @@ td{
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="col-md-12 text-center" style="padding-bottom: 50px">
+                <div class="tasdiq btn-success "
+                     style="width: 100%; padding: 10px !important;margin-left:10px; margin-right: 10px ">
+                    <p>
+                        Men , Talaba <b>{{ $student->fio() }}</b> , shartnoma mazmuni bilan to'liq tanishdim va uning
+                        shartlariga roziman hamda shaxsiy ma`lumotlarim
+                        to'g'riligini tasdiqlayman
+                    </p>
+                </div>
+                <form id="accept-form" action="{{route('student.agreement.join_training.pdf_agreement')}}"
+                      method="post">
+                    {{csrf_field()}}
+                    {{method_field('POST')}}
+                    <input type="text" hidden value="{{$student->id}}" name="student_id">
+                    <input type="text" hidden value="{{$getting_date}}" name="getting_date">
+                </form>
             </div>
 
         </div>
