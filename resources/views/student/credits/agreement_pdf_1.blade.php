@@ -520,7 +520,7 @@
                     </tr>
                     <tr>
                          <td class="w-50" style="width: 49%">
-                             <img style="width:280px" src="{{asset('pechat/pechat_kredit.jpg')}}">
+                             <img style="width:280px" src="{{public_path('pechat/pechat_kredit.jpg')}}">
                         </td>
                         <td class="w-50" style="width: 49%">
 

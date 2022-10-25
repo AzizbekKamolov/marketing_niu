@@ -118,9 +118,7 @@
         </tr>
         </tbody>
     </table>
-    @if($which_process == 'pdf')
-        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->generate(
-        "Toshkent davlat yuridik universiteti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course
-    )) !!} ">
+       @if($which_process == 'pdf')
+        <img src="data:image/png;base64, {{$qrcode}} ">
     @endif
 </div>
