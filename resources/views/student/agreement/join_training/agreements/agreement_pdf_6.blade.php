@@ -265,7 +265,7 @@ td{
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2022/2023 oʻquv yili
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2024/2025 oʻquv yili
                     davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va dasturlariga muvofiq
                     oʻqitadi, Talaba esa Shartnomaning 2-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga oshiradi hamda
                     Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish majburiyatini oladi.
