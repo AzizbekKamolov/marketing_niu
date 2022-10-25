@@ -642,7 +642,7 @@ td{
                     <tr>
                         <td class="w-50" style="width: 49%">
 
-                            <img src="{{asset('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
+                            <img src="{{public_path('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
                         </td>
                         <td class="w-50" style="width: 49%">
 
