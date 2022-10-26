@@ -265,13 +265,14 @@
             </div>
             <div class="col-md-12 mb-1 ">
 
-                <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 58 (ellik sakkiz) bazaviy hisoblash miqdori.
+                <b>2.1.2.</b> 2023/2024 o‘quv yili uchun 58 (ellik sakkiz) bazaviy hisoblash miqdori.
                 Bunda belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim
                 muassasasiga to‘lanadi: <br>
-                2024-yil 15-oktyabgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori; <br>
-                2024-yil 15-dekabrgacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori. <br>
-                2025-yil 15-fevralgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori; <br>
-                2025-yil 01-maygacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori.
+                2023-yil 15-oktyabgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori;<br>
+2023-yil 15-dekabrgacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori.<br>
+2024-yil 15-fevralgacha – 14,5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori;<br>
+2024-yil 01-maygacha – 14, 5 (o‘n to‘rtu, besh) bazaviy hisoblash miqdori.<br>
+
 
             </div>
             <div class="col-md-12 mb-1 ">
