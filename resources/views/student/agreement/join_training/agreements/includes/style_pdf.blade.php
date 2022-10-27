@@ -76,11 +76,11 @@
     /*    padding-right: 30px;*/
     /*}*/
     .mt-1 {
-        margin-top: 7px;
+        margin-top: 2px;
     }
 
     .mb-1 {
-        margin-bottom: 7px;
+        margin-bottom: 2px;
     }
 
     .word-line {
@@ -111,6 +111,10 @@
         display: inline-block;
         width: 49%;
 
+    }
+    h4{
+        padding: 0;
+        margin: 0;
     }
 </style>
 @endif

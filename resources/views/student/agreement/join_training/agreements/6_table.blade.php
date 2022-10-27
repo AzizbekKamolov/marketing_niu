@@ -56,7 +56,7 @@
     <tr>
         <td rowspan="3">2023/2024- oʻquv yili</td>
         <td rowspan="3">TDYU</td>
-        <td>Jami 31 899 824 (oʻttiz bir million sakkiz yuz toʻqson toʻqqiz ming sakkiz yuz yigirma toʻrt) soʻm,
+        <td>Jami 26 199 824 (yigirma olti million bir yuz to`qson to`qqiz ming sakkiz yuz yigirma to`rt) soʻm,
             shundan:
         </td>
         <td></td>

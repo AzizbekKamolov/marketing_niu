@@ -30,7 +30,23 @@ class JoinTrainingController extends Controller
 {
     public function get_data(Request $request)
     {
-        $student = JoinTrainingStudent::where('passport_seria', $request->passport_seria)->where('passport_number', $request->passport_number)->where('passport_jshir', $request->passport_jshir)->first();
+        $student = JoinTrainingStudent::where(function($query) use ($request){
+            if ($request->passport_seria){
+                $query->where('passport_seria', $request->passport_seria);
+            }
+        })->where(function($query) use ($request){
+            if ($request->passport_number){
+                $query->where('passport_number', $request->passport_number);
+            }
+        })->where(function($query) use ($request){
+            if ($request->passport_jshir){
+                $query->where('passport_jshir', $request->passport_jshir);
+            }
+        })->where(function($query) use ($request){
+            if ($request->id_code){
+                $query->where('id_code', $request->id_code);
+            }
+        })->first();
         if ($student) {
             return view('student.agreement.join_training.data_info', [
                 'data' => $student,
@@ -44,6 +60,11 @@ class JoinTrainingController extends Controller
     public function form()
     {
         return view('student.agreement.join_training.form');
+    }
+
+    public function form_tdyu()
+    {
+        return view('student.agreement.join_training.form_tdyu');
     }
 
     public function show_agreement(Request $request)
