@@ -13,9 +13,7 @@
 </head>
 <body>
 @include('student.agreement.join_training.agreements.includes.php_function')
-@if($type_show == 'pdf')
     @include('student.agreement.join_training.agreements.includes.style_pdf')
-@endif
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
@@ -35,7 +33,9 @@
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
-            <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
+           <div class="col-md-6 text-right"><p>{{date('Y' , strtotime($getting_date))}} yil
+                    “{{date('d', strtotime($getting_date))}}
+                    ” {{get_month_name(date('m' , strtotime($getting_date)))}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbspToshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim muassasasi)
@@ -422,5 +422,16 @@
     </div>
     <div class="col-md-2"></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.tasdiq').click(function () {
+        if (confirm('Tasdiqlaysizmi?')) {
+            $('#accept-form').submit();
+        }
+
+    })
+</script>
 </body>
 </html>

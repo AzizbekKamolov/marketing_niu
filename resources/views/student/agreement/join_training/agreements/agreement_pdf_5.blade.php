@@ -9,14 +9,15 @@
     <!-- Latest compiled and minified CSS -->
 
     <!-- Optional theme -->
-    {{--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"--}}
-    {{--          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--}}
+    @if($type_show == 'show')
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+              crossorigin="anonymous">
+    @endif
 </head>
 <body>
 @include('student.agreement.join_training.agreements.includes.php_function')
-@if($type_show == 'pdf')
-    @include('student.agreement.join_training.agreements.includes.style_pdf')
-@endif
+@include('student.agreement.join_training.agreements.includes.style_pdf')
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 ">
@@ -27,7 +28,7 @@
                     Mutaxassisni qoʻshma taʻlim dasturi boʻyicha tayyorlash haqida ikki tomonlama
                     KONTRAKT
                     <br>
-                     (stipendiyasiz shaklda)
+                    (stipendiyasiz shaklda)
 
                 </h4>
                 <h4 class="text-bold"> №{{$student->id_code}}</h4>
@@ -35,22 +36,25 @@
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6 text-left"><p>Toshkent shahri</p></div>
-            <div class="col-md-6 text-right"><p>{{$year}} yil “{{$day}}” {{$month}}</p></div>
+            <div class="col-md-6 text-right"><p>{{date('Y' , strtotime($getting_date))}} yil
+                    “{{date('d', strtotime($getting_date))}}
+                    ” {{get_month_name(date('m' , strtotime($getting_date)))}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbspToshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim muassasasi)
                     nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabayevich, bir tomondan,
                     va
                     <b>{{$student->fio()}}</b>
-                    (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya”
-                    taʻlim yoʻnalishi boʻyicha Yanka Kupala nomidagi Grodno davlat universiteti (Belarus
-                    Respublikasi) (keyingi oʻrinlarda – GrDU) bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha talabani
-                    bakalavriat bosqichida oʻqitish maqsadida mazkur ikki tomonlama stipendiyasiz shakldagi toʻlov
-                    kontrakt shartnomasini (keyingi oʻrinlarda – Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi
-                    muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan mablagʻlarni taqsimlash tartibi
-                    toʻgʻrisidagi nizom (roʻyxat raqami 2431, 2013-yil 26-fevral), Oʻzbekiston Respublikasi Vazirlar
-                    Mahkamasining 2019-yil 3-dekabrdagi 967-son, 2021-yil 10-iyundagi 359-son qarorlari, Toshkent
-                    davlat yuridik universiteti kengashining 2022-yil 31-avgustdagi 1-son majlis bayonnomasiga muvofiq tuzdilar:
+                    (keyingi oʻrinlarda – Talaba), ikkinchi tomondan, (birgalikda – Tomonlar) “Yurisprudensiya (faoliyat
+                    turlari boʻyicha)” taʻlim yoʻnalishi doirasida Belarus Respublikasi Yanka Kupala nomidagi Grodno
+                    davlat universiteti (keyingi oʻrinlarda – GrGU) bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha
+                    talabani bakalavriat bosqichida oʻqitish maqsadida mazkur kontraktni (keyingi oʻrinlarda – Kontrakt)
+                    Oʻzbekiston Respublikasi Prezidentining 2020-yil 29-apreldagi
+                    PF–5987-son Farmoni, 2019-yil 11-iyuldagi PQ–4391-son qarori, Oʻzbekiston Respublikasi Vazirlar
+                    Mahkamasining 2019-yil 3-dekabrdagi 967-son va 2021-yil 6-iyuldagi 421-son qarori hamda Oliy va
+                    oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt shakli va undan tushgan
+                    mablagʻlarni taqsimlash tartibi toʻgʻrisidagi nizomga (roʻyxat raqami 2431, 2013-yil 26-fevral)
+                    muvofiq tuzdilar:
 
 
                 </p>
@@ -62,10 +66,13 @@
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani 2024/2025 oʻquv yili
-                    davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va dasturlariga muvofiq
-                    oʻqitadi, Talaba esa Shartnomaning 2-bobida koʻrsatilgan tartib va miqdordagi toʻlovni amalga oshiradi hamda
-                    Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish majburiyatini oladi.
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Kontraktga asosan Taʻlim muassasasi Talabani Kontraktning
+                    2.1-bandida koʻrsatib oʻtilgan davr davomida belgilangan taʻlim standartlari va oʻquv dasturlariga
+                    muvofiq toʻlov-kontrakt shakli asosida oʻqitadi, Talaba esa Kontraktning 2-bobida koʻrsatilgan
+                    tartib
+                    va miqdordagi toʻlovni amalga oshiradi hamda Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim
+                    olish majburiyatini oladi.
+
 
                 </p>
             </div>
@@ -78,57 +85,42 @@
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.1.</b> GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Talaba 2022/2023 oʻquv yili
-                    davomida Ta’lim muassasasida ta’lim olishini inobatga olgan holda Kontrakt boʻyicha toʻlovlar
-                    miqdori va muddatlari quyidagicha belgilandi:
+                    <b>2.1.</b> GrGU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha taʻlim olish joylari
+                    va oʻqitishning toʻlov miqdorlari tegishli boʻlgan oliy taʻlim tashkilotlar, oʻqitishning toʻlov
+                    miqdorlari va toʻlovlar reja-jadvali oʻquv yillari kesimida quyidagicha belgilandi:
+
 
                 </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    <b>2.1.1</b> 2022/2023-, 2023/2024- va 2025/2026-o‘quv yillari uchun har bir o‘quv yiliga 31
-                    (o‘ttiz bir) bazaviy hisoblash miqdorini tashkil qiladi va quyidagi muddatlarda Ta’lim
-                    muassasasiga toʻlanadi:
-                    <br>
-                    &nbsp &nbsp 2022-yil 1-noyabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2022-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2023-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2023-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2023-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2023-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2024-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2024-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2025-yil 15-oktyabgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2025-yil 15-dekabrgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2026-yil 15-fevralgacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori; <br>
-                    &nbsp &nbsp 2026-yil 01-maygacha – 7,75 (yettiyu, yetmish besh) bazaviy hisoblash miqdori.
-
-                </p>
-
-            </div>
-            <div class="col-md-12 mb-1 ">
-
-                &nbsp &nbsp <b>2.1.2.</b> 2024/2025 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda
-                &nbsp &nbsp belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga
-                to‘lanadi:
+                @include('student.agreement.join_training.agreements.5_table')
                 <br>
-                &nbsp &nbsp 2024-yil 15-oktyabgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
-                &nbsp &nbsp 2024-yil 15-dekabrgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
-                &nbsp &nbsp 2025-yil 15-fevralgacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori; <br>
-                &nbsp &nbsp 2025-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh) bazaviy hisoblash miqdori. <br>
+                * mazkur summa miqdori O‘zbekiston Respublikasi belgilangan bazaviy hisoblash miqdorining 31 baravar
+                miqdoridan kelib chiqib belgilangan.
+                <br>
+                ** mazkur summa miqdori O‘zbekiston Respublikasi belgilangan bazaviy hisoblash miqdorining 77 baravar
+                miqdoridan kelib chiqib belgilangan.
 
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.2.</b> Kontraktni amal qilish davrida bazaviy hisoblash miqdori oʻzgargan taqdirda Kontrakt
-                    boʻyicha tegishli ravishda oʻzgargan toʻlov miqdori oʻquv yilining keyingi davrida uchun toʻlanadi.
+                    <b>2.2.</b> Oʻquv yili davomida bazaviy hisoblash miqdori o‘zgarganda Taʼlim muassasasi tomonidan
+                    oʻqitishning toʻlov miqdori qayta hisob-kitob qilinadi va bir tomonlama Kontraktga tegishli
+                    oʻzgartirishlar kiritiladi.
+                    Bunda, qayta hisob-kitob faqatgina oʻquv yilining qolgan muddati uchun amalga oshiriladi.
+                    Qayta hisob-kitob natijasida toʻlanishi lozim boʻlgan qoʻshimcha mablagʻ oʻqitish uchun toʻlovni
+                    oshirilganligi toʻgʻrisidagi xabarnoma olingan kundan boshlab Talaba tomonidan bir oy muddatda
+                    amalga oshirilishi lozim.
+                    Oʻqitishning toʻlov miqdori kamaytirilganda ortiqcha toʻlangan mablagʻ keyingi toʻlovlar hisobiga
+                    oʻtkaziladi yoki toʻlovni amalga oshirgan Talabaning yozma murojaatiga koʻra qaytarib beriladi.
+
                 </p>
             </div>
             <div class="col-md-12 mb-1 ">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    <b>2.3.</b>GrDU bilan tuzilgan qoʻshma ta’lim dasturi boʻyicha Kontraktni stipendiyasizdan shakldan stipendiyali
-                    shakliga oʻtishga yoʻl qoʻyilmaydi.
+                    <b>2.3.</b> GrGU bilan tuzilgan qoʻshma taʻlim dasturi boʻyicha Kontraktni stipendiyasiz shakldan
+                    stipendiyali shakliga oʻtishga yoʻl qoʻyilmaydi.
+
                 </p>
             </div>
 
@@ -153,10 +145,13 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1.2. Ta’lim muassasasining ichki hujjatlarida belgilangan qoidalarga rioya qilmagan, bir
-                    semestr davomida darslarni uzrli sabablarsiz 74 soatdan ortiq qoldirgan yoki oʻqitish uchun
-                    belgilangan miqdordagi toʻlovni oʻz vaqtida amalga oshirmagan Talabaga nisbatan belgilangan
-                    tartibda talabalar safidan chetlashtirish, tegishli kursda qoldirish yoki boshqa choralarni qoʻllash.
+                    3.1.2. Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2021-yil 6-iyuldagi 421-son qarori bilan
+                    tasdiqlangan Oʻzbekiston Respublikasi va xorijiy hamkor oliy taʼlim tashkilotlarining qoʻshma taʼli
+                    dasturlari asosida taʼlim faoliyatini tashkil etish tartibi toʻgʻrisida nizom, Oliy taʼlim
+                    toʻgʻrisida nizom (roʻyxat raqami 1222, 22.02.2003-yil) hamda Taʼlim muassasasining ichki
+                    hujjatlarida belgilangan qoidalarida nazarda tutilgan asoslar boʻyicha Talabaga nisbatan belgilangan
+                    tartibda talabalar safidan chetlashtirish, tegishli kursda qoldirish yoki boshqa choralarni
+                    qoʻllash.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -266,7 +261,9 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib, rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
+                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda
+                    Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
+                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp

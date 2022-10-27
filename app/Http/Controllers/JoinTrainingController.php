@@ -54,9 +54,10 @@ class JoinTrainingController extends Controller
             $get = JoinTrainingAgreementGetting::where('student_id', $student->id)->orderBy('id', 'DESC')->first();
             $getting_date = $get->getting_date;
         }
-        return view('student.agreement.join_training.agreements.agreement_' . $student->join_training_university_id, [
+        return view('student.agreement.join_training.agreements.agreement_pdf_' . $student->join_training_university_id, [
             'student' => $student,
-            'getting_date' => $getting_date
+            'getting_date' => $getting_date,
+            'type_show' => 'show'
         ]);
     }
 
@@ -74,7 +75,8 @@ class JoinTrainingController extends Controller
 //        ]);
         return PDF::loadView('student.agreement.join_training.agreements.agreement_pdf_' . $student->join_training_university_id, [
             'student' => $student,
-            'getting_date' => $request->getting_date
+            'getting_date' => $request->getting_date,
+            'type_show' => 'pdf'
         ])->download($student->fio() . '.pdf');
     }
 
