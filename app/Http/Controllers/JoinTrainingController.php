@@ -13,6 +13,7 @@ use Test\Model\AmountConvertToWord;
 use Test\Model\GettingAgreement;
 use Test\Model\JoinTrainingAgreementGetting;
 use Test\Model\JoinTrainingStudent;
+use Test\Model\JoinTrainingUniversity;
 use Test\Model\OtherAgreementType;
 use Test\Model\Student;
 use Test\Model\Lyceum;
@@ -30,20 +31,20 @@ class JoinTrainingController extends Controller
 {
     public function get_data(Request $request)
     {
-        $student = JoinTrainingStudent::where(function($query) use ($request){
-            if ($request->passport_seria){
+        $student = JoinTrainingStudent::where(function ($query) use ($request) {
+            if ($request->passport_seria) {
                 $query->where('passport_seria', $request->passport_seria);
             }
-        })->where(function($query) use ($request){
-            if ($request->passport_number){
+        })->where(function ($query) use ($request) {
+            if ($request->passport_number) {
                 $query->where('passport_number', $request->passport_number);
             }
-        })->where(function($query) use ($request){
-            if ($request->passport_jshir){
+        })->where(function ($query) use ($request) {
+            if ($request->passport_jshir) {
                 $query->where('passport_jshir', $request->passport_jshir);
             }
-        })->where(function($query) use ($request){
-            if ($request->id_code){
+        })->where(function ($query) use ($request) {
+            if ($request->id_code) {
                 $query->where('id_code', $request->id_code);
             }
         })->first();
@@ -89,15 +90,20 @@ class JoinTrainingController extends Controller
         $getting->student_id = $student->id;
         $getting->getting_date = $request->getting_date;
         $getting->save();
+        $university = JoinTrainingUniversity::find($student->join_training_university_id);
 //        return $getting;
 //        return view('student.agreement.join_training.agreements.agreement_pdf_'.$student->join_training_university_id , [
 //            'student' => $student,
 //            'getting_date' => $request->getting_date
 //        ]);
+//        return
+        $qr_string = "Toshkent davlat yuridik universiteti. Qo`shma ta`lim. ".$university->course."-kurs " . $student->first_name . ' ' . $student->last_name. ' ' . $student->middle_name;
+        $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
         return PDF::loadView('student.agreement.join_training.agreements.agreement_pdf_' . $student->join_training_university_id, [
             'student' => $student,
             'getting_date' => $request->getting_date,
-            'type_show' => 'pdf'
+            'type_show' => 'pdf',
+            'qrcode' => $qrcode
         ])->download($student->fio() . '.pdf');
     }
 

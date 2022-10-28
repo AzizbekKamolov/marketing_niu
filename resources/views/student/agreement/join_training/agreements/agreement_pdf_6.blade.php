@@ -399,7 +399,7 @@
             @elseif($type_show == 'show')
                 @include('student.agreement.join_training.agreements.includes.rekvizit')
             @endif
-
+ @include('student.agreement.join_training.agreements.includes.qr_code')
         </div>
     </div>
     <div class="col-md-2"></div>

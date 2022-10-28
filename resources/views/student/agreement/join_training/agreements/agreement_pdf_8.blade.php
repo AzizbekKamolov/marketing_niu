@@ -462,7 +462,7 @@
             </div>
 
             @include('student.agreement.join_training.agreements.includes.rekvizit_rustambekov')
-
+ @include('student.agreement.join_training.agreements.includes.qr_code')
         </div>
     </div>
     <div class="col-md-2"></div>
