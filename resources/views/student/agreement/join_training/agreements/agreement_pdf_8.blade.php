@@ -47,18 +47,16 @@
                 </p>
                 <p>
                     1. Asosiy Shartnomaning 2.1.2-bandi quyidagi tahrirda bayon etilsin:
-                    “2.1.2. 2022/2023 o‘quv yili uchun 77 (yetmish yetti) bazaviy hisoblash miqdori. Bunda belgilangan
+                    “2.1.2. 2022/2023 o‘quv yili uchun 58 (ellik sakkiz) bazaviy hisoblash miqdori. Bunda belgilangan
                     to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi:
 
                 </p>
-                2022-yil 1-noyabrgacha –bazaviy hisoblash miqdorining 19,25 (o‘n to‘qqizu, yigirma besh) baravari; <br>
-                2022-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 19,25 (o‘n to‘qqizu, yigirma besh) baravari.
-                <br>
-                2023-yil 15-fevralgacha – bazaviy hisoblash miqdorining 19,25 (o‘n to‘qqizu, yigirma besh) baravari;
-                <br>
-                2023-yil 01-maygacha – 19,25 (o‘n to‘qqizu, yigirma besh).” <br>
-                2. Ushbu qoʻshimcha kelishuv ikki nusxada tuzilib, tomonlarga bir nusxadan beriladi va ularning har biri
-                teng yuridik kuchga ega hisoblanadi.
+                2022-yil 1-noyabrgacha –bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari; <br>
+                2022-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari. <br>
+                2023-yil 15-fevralgacha – bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari; <br>
+                2023-yil 01-maygacha – 14,5 (o‘n to‘rtu, besh) baravari.” <br>
+
+                2. Ushbu qoʻshimcha kelishuv ikki nusxada tuzilib, tomonlarga bir nusxadan beriladi va ularning har biri teng yuridik kuchga ega hisoblanadi.
                 <br>
                 3. Ushbu qoʻshimcha kelishuv 2021 yil 12-oktyabrdagi _________-sonli shartnomaning ajralmas qismi
                 hisoblanadi va Asosiy shartnomaning boshqa bandlari oʻzgarishsiz qoldiriladi.
