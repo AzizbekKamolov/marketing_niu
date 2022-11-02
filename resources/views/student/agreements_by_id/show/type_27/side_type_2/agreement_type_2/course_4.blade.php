@@ -39,9 +39,10 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabaevich bir tomondan
                     va
+                    @if($student->birthday)
                     <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
                     yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) uchinchi tomondan (birgalikda –
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) uchinchi tomondan (birgalikda –
                     Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat {{$student->course}} - kurs davomida
                     oʻqitish maqsadida mazkur uch tomonlama toʻlov-kontrakt shartnomasini (keyingi oʻrinlarda –
                     Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt

@@ -48,9 +48,11 @@ class JoinTrainingController extends Controller
                 $query->where('id_code', $request->id_code);
             }
         })->first();
+        $agreement_side_types = AgreementSideType::all();
         if ($student) {
             return view('student.agreement.join_training.data_info', [
                 'data' => $student,
+                'agreement_side_types'=>$agreement_side_types
             ]);
         } else {
             return redirect()->back()->with('error', "Malumot topilmadi");
@@ -70,21 +72,24 @@ class JoinTrainingController extends Controller
 
     public function show_agreement(Request $request)
     {
+//        return $request;
         $student = JoinTrainingStudent::find($request->student_id);
         $getting_date = date('Y-m-d');
         if (JoinTrainingAgreementGetting::where('student_id', $student->id)->exists()) {
             $get = JoinTrainingAgreementGetting::where('student_id', $student->id)->orderBy('id', 'DESC')->first();
             $getting_date = $get->getting_date;
         }
-        return view('student.agreement.join_training.agreements.agreement_pdf_' . $student->join_training_university_id, [
+        return view('student.agreement.join_training.agreements.side_type_'.$request->agreement_side_type_id.'.agreement_pdf_' . $student->join_training_university_id, [
             'student' => $student,
             'getting_date' => $getting_date,
-            'type_show' => 'show'
+            'type_show' => 'show',
+            'agreement_side_type_id' => $request->agreement_side_type_id
         ]);
     }
 
     public function pdf_agreement(Request $request)
     {
+//        return $request;
         $student = JoinTrainingStudent::find($request->student_id);
         $getting = new JoinTrainingAgreementGetting();
         $getting->student_id = $student->id;
@@ -99,11 +104,12 @@ class JoinTrainingController extends Controller
 //        return
         $qr_string = "Toshkent davlat yuridik universiteti. Qo`shma ta`lim. ".$university->course."-kurs " . $student->first_name . ' ' . $student->last_name. ' ' . $student->middle_name;
         $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
-        return PDF::loadView('student.agreement.join_training.agreements.agreement_pdf_' . $student->join_training_university_id, [
+        return PDF::loadView('student.agreement.join_training.agreements.side_type_'.$request->agreement_side_type_id.'.agreement_pdf_' . $student->join_training_university_id, [
             'student' => $student,
             'getting_date' => $request->getting_date,
             'type_show' => 'pdf',
-            'qrcode' => $qrcode
+            'qrcode' => $qrcode,
+            'agreement_side_type_id' => $request->agreement_side_type_id
         ])->download($student->fio() . '.pdf');
     }
 
