@@ -14,7 +14,7 @@
                         </td>
                         <td class="w-50" style="width: 49%">
                             <p class="w-100 text-center text-bold">
-                                Talaba
+                               @include('student.agreement.join_training.agreements.includes.for_side_type_2_head')
                             </p>
                         </td>
                     </tr>
@@ -23,7 +23,7 @@
                             <img src="{{public_path('/pechat/pechat-join-2022.png')}}" alt="" style="width: 100%">
                         </td>
                         <td class="w-50" style="width: 49%">
-
+@include('student.agreement.join_training.agreements.includes.for_side_type_2_foot')
                             <p class="word-line">
                                 <b>{{$student->fio()}}</b>
                             </p>

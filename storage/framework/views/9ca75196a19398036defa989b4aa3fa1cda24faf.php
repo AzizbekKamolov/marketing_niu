@@ -20,10 +20,7 @@
               <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.contract_cards')); ?>">To'lov shartnomalarini
                 olish</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="<?php echo e(route('student.super_cards')); ?>">Tabaqalashtirilgan
-                to'lov-shartnoma asosida <br>o'qish uchun ariza topshirish </a>
-            </li>
+  
 
 
 

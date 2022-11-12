@@ -14,7 +14,7 @@
                         </td>
                         <td class="w-50" style="width: 49%">
                             <p class="w-100 text-center text-bold">
-                                Talaba
+                                @include('student.agreement.join_training.agreements.includes.for_side_type_2_head')
                             </p>
                         </td>
                     </tr>
@@ -53,6 +53,7 @@
                         </td>
                         <td class="w-50" style="width: 49%">
 
+                            @include('student.agreement.join_training.agreements.includes.for_side_type_2_foot')
                             <p class="word-line">
                                 <b>{{$student->fio()}}</b>
                             </p>
@@ -91,5 +92,6 @@
                     {{method_field('POST')}}
                     <input type="text" hidden value="{{$student->id}}" name="student_id">
                     <input type="text" hidden value="{{$getting_date}}" name="getting_date">
+                    <input type="text" hidden value="{{$agreement_side_type_id}}" name="agreement_side_type_id">
                 </form>
             </div>

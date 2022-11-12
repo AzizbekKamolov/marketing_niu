@@ -69,9 +69,6 @@
                     </fieldset>
 
                     <div class="col-12 my-3">
-                         <div>
-                            <p class=" text-center color-warning">3 tomonlama shartnomalar tez orada tizimga joylanadi !</p>
-                        </div>
                         <div>
                             <h1 class="fs-3 text-center">Shartnomalar</h1>
                         </div>
@@ -93,7 +90,6 @@
                                                     <h5 class="modal-title" id="exampleModalLabel">{{$item->name}}</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close">
-{{--                                                        <span aria-hidden="true">&times;</span>--}}
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
@@ -139,53 +135,6 @@
                             @endforeach
                         </fieldset>
 
-{{--                        <fieldset class="scheduler-border myBorder rounded w-100 p-3">--}}
-{{--                            <legend class="scheduler-border w-auto">Boshqa shartnomalar</legend>--}}
-{{--                            @foreach($data->type->other_agreement_types as $item)--}}
-{{--                            <div class="col-12 my-3 myBorder">--}}
-{{--                                <button class="btn border border-2 w-100 text-center py-sm-1 py-md-2 py-xl-3" data-bs-toggle="modal"--}}
-{{--                                    data-bs-target="#other_agreement_modal{{$item->id}}">--}}
-{{--                                    {{$item->name}}--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                             <div class="modal fade" id="other_agreement_modal{{$item->id}}" tabindex="-1" role="dialog"--}}
-{{--                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">--}}
-{{--                                <div class="modal-dialog modal-dialog-centered" role="document">--}}
-{{--                                    <div class="modal-content">--}}
-{{--                                        <div class="modal-header">--}}
-{{--                                            <h5 class="modal-title" id="exampleModalLabel">{{$item->name}}</h5>--}}
-{{--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="modal-body">--}}
-{{--                                            <form action="{{route('student.other_agreement.show_agreement')}}"--}}
-{{--                                                  id="form_other{{$item->id}}" method="post">--}}
-{{--                                                {{csrf_field()}}--}}
-{{--                                                {{method_field('POST')}}--}}
-{{--                                                <input type="text" hidden value="{{$data->id}}" name="student_id">--}}
-{{--                                                <input type="text" hidden value="{{$item->id}}"--}}
-{{--                                                       name="other_agreement_type_id">--}}
-{{--                                                <div class="row">--}}
-{{--                                                    <div class="col-md-12 text-center">--}}
-{{--                                                        <h2>{{$item->name}}</h2>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-
-{{--                                            </form>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="modal-footer">--}}
-{{--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bekor--}}
-{{--                                                qilish--}}
-{{--                                            </button>--}}
-{{--                                            <button type="submit" form="form_other{{$item->id}}" class="btn btn-primary">--}}
-{{--                                                Shartnomani ko`rish--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            @endforeach--}}
-{{--                        </fieldset>--}}
                     </div>
 
                 </div>

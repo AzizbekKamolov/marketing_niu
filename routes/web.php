@@ -242,6 +242,7 @@ Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_appl
 
 Route::group(['prefix' => 'jointraining'], function () {
     Route::get('/student/form', 'JoinTrainingController@form')->name('student.agreement.join_training.form');
+    Route::get('/student/form-tdyu', 'JoinTrainingController@form_tdyu')->name('student.agreement.join_training_tdyu.form');
     Route::post('/student/get-data', 'JoinTrainingController@get_data')->name('student.agreement.join_training.get_data');
     Route::post('/student/show-agreement', 'JoinTrainingController@show_agreement')->name('student.agreement.join_training.show_agreement');
     Route::post('/student/pdf-agreement', 'JoinTrainingController@pdf_agreement')->name('student.agreement.join_training.pdf_agreement');
