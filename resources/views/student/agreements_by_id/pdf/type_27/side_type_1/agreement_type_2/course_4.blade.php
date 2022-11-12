@@ -307,7 +307,7 @@
                     3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} )
                     so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>2022-yil 10-dekabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
                     <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 

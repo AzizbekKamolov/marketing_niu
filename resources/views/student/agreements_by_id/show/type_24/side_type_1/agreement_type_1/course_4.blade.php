@@ -253,7 +253,7 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.2. Talaba kuzgi semestr uchun 8 811 622,50 (sakkiz million sakkiz yuz o‘n bir ming olti yuz
                     yigirma ikki so‘m, ellik tiyin ) so‘mni quyidagi muddatlarda to‘laydi: <br>
-                    2022-yil 1-noyabrgacha - 4 405 811,25 so‘m; <br>
+                    2022-yil 10-dekabrgacha - 4 405 811,25 so‘m; <br>
                     2023-yil 1-yanvargacha - 4 405 811,25 so‘m.
 
 

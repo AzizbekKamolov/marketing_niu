@@ -1,7 +1,9 @@
 <?php
+
 use Test\Model\StudentPayment;
 use Test\Model\SmsRas;
 use Test\Model\SmsSend;
+
 Route::group([
     'prefix' => \LaravelLocalization::setLocale(),
 ], function () {
@@ -108,7 +110,7 @@ Route::group([
     Route::get('/super-amount-type-marketing/{type}', 'StudentController@amount_type_marketing')->name('amount_type_marketing');
     Route::get('/super-give-id-by-type/{type}', 'StudentController@give_id_by_type')->name('give_id_by_type');
     Route::get('/super-dir-lang-type/{dir}/{lang}', 'SuperController@dir_lang_type')->name('dir_lang_type');
-    Route::get('/student-import-example',  function (){
+    Route::get('/student-import-example', function () {
         return response()->download(public_path('files/students-import-example.xlsx'));
     })->name('student.import.example');
 
@@ -247,34 +249,35 @@ Route::group(['prefix' => 'jointraining'], function () {
 
 
 Route::get('/sms-ras', function () {
-        $rass1 = SmsRas::where('status', 0)->get()->toArray();
+    $rass1 = SmsRas::where('status', 0)->get()->toArray();
+
+    $smsSend = new SmsSend();
+    $chunked = array_chunk($rass1, 100);
+//    return $rass1;
+    foreach ($chunked as $itemChunk) {
+        $rass = $itemChunk;
         $body = [];
         $index = 0;
-        $smsSend = new SmsSend();
-        $chunked = array_chunk($rass1, 100);
-//        return $rass1;
-        foreach ($chunked as $itemChunk) {
-            $rass = $itemChunk;
-            foreach ($rass as $item) {
-                $body['messages'][$index]['recipient'] = $item['number'];
-                $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
-                $body['messages'][$index]['sms']['originator'] = '3700';
-                $body['messages'][$index]['sms']['content']['text'] = $item['name'];
-                $index++;
-            }
-            if (count($rass)) {
-                $result = $smsSend->send_many_sms(json_encode($body));
-                foreach ($rass as $item) {
-                    $itemGet = SmsRas::find($item['id']);
-                    $itemGet->response = json_encode($result);
-                    $itemGet->status = 1;
-                    $itemGet->update();
-                }
-            }
-            sleep(1);
+        foreach ($rass as $item) {
+            $body['messages'][$index]['recipient'] = $item['number'];
+            $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
+            $body['messages'][$index]['sms']['originator'] = '3700';
+            $body['messages'][$index]['sms']['content']['text'] = $item['name'];
+            $index++;
         }
-        return 'Success';
-    });
+        if (count($rass)) {
+            $result = $smsSend->send_many_sms(json_encode($body));
+            foreach ($rass as $item) {
+                $itemGet = SmsRas::find($item['id']);
+                $itemGet->response = json_encode($result);
+                $itemGet->status = 1;
+                $itemGet->update();
+            }
+        }
+        sleep(1);
+    }
+    return 'Success';
+});
 //Route::get('/schot', function () {
 //    $r = 'Test\Model\Rrr'::where('status', 4)->get();
 //    foreach ($r as $item) {
