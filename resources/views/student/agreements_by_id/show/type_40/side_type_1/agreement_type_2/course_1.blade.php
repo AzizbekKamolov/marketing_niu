@@ -222,7 +222,7 @@
                     2.4.7. Shartnoma elektron shaklda Taʻlim muassasasining marketing.tsul.uz yoki Oliy va oʻrta taʻlim
                     vazirligining kontrakt.edu.uz saytida joylashtirilgan boʻlib, Talaba oʻz ID raqami yoki passport
                     maʻlumotlarini kiritadi va shartnoma shartlari bilan tanishadi. Agar talaba shartnoma shartlariga
-                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi. 
+                    rozi boʻlsa, u holda bu haqida tegishli tugmani bosadi va uni yuklab oladi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -249,7 +249,7 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.2. Talaba kuzgi semestr uchun  <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} ) so‘mni
-                    2022 yilning 1 noyabrgacha to‘laydi.
+                    2022 yilning 10 dekabrgacha to‘laydi.
 
 
                 </p>

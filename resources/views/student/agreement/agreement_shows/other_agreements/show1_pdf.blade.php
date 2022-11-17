@@ -512,7 +512,7 @@
                     </tr>
                     <tr>
                         <td class="w-50" style="width: 49%">
-                            <img src="{{asset('files/pechat/ttj/ttj_pechat2.png')}}" style="width: 100%; height: auto"
+                            <img src="{{public_path('files/pechat/ttj/ttj_pechat2.png')}}" style="width: 100%; height: auto"
                                  alt="">
                         </td>
 {{--                        <td class="w-50" style="width: 49%">--}}

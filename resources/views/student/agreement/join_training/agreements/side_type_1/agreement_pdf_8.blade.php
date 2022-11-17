@@ -47,18 +47,29 @@
                 </p>
                 <p>
                     1. Asosiy Shartnomaning 2.1.2-bandi quyidagi tahrirda bayon etilsin:
-                    “2.1.2. 2022/2023 o‘quv yili uchun 58 (ellik sakkiz) bazaviy hisoblash miqdori. Bunda belgilangan
+                    “2.1.2. 2022/2023 o‘quv yili uchun 17 400 000 (o'n yetti million to'rt yuz ming ) so'm. Bunda
+                    belgilangan
                     to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi:
 
                 </p>
-                2022-yil 1-noyabrgacha –bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari; <br>
-                2022-yil 15-dekabrgacha – bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari. <br>
-                2023-yil 15-fevralgacha – bazaviy hisoblash miqdorining 14,5 (o‘n to‘rtu, besh) baravari; <br>
-                2023-yil 01-maygacha – 14,5 (o‘n to‘rtu, besh) baravari.” <br>
+                2022-yil 15-noyabrgacha –4 350 000 (to'rt million uch yuz ellik ming) so'm; <br>
+                2022-yil 15-dekabrgacha – 4 350 000 (to'rt million uch yuz ellik ming) so'm. <br>
+                2023-yil 15-fevralgacha – 4 350 000 (to'rt million uch yuz ellik ming) so'm; <br>
+                2023-yil 01-maygacha – 4 350 000 (to'rt million uch yuz ellik ming) so'm.” <br>
 
-                2. Ushbu qoʻshimcha kelishuv ikki nusxada tuzilib, tomonlarga bir nusxadan beriladi va ularning har biri teng yuridik kuchga ega hisoblanadi.
+                2. Asosiy Shartnomaga 2.1.3-band qo‘shilsin va quyidagi tahrirda bayon etilsin:
+                “2.1.3. 2022/2023 o‘quv yili uchun GrDUga 8 936 000 (sakkiz million to‘qqiz yuz o‘ttiz olti ming) so'm.
+                Bunda belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda GrDUning yoki Ta’lim
+                muassasining hisob raqamiga to‘lanadi: <br>
+                2022-yil 20-noyabrgacha – 2 234 000 (ikki million ikki yuz o’ttiz to’rt ming) so'm; <br>
+                2022-yil 15-dekabrgacha – 2 234 000 (ikki million ikki yuz o’ttiz to’rt ming) so'm; <br>
+                2023-yil 15-fevralgacha – 2 234 000 (ikki million ikki yuz o’ttiz to’rt ming) so'm; <br>
+                2023-yil 01-maygacha – 2 234 000 (ikki million ikki yuz o’ttiz to’rt ming) so'm.” <br>
+
+                3. Ushbu qoʻshimcha kelishuv ikki nusxada tuzilib, tomonlarga bir nusxadan beriladi va ularning har biri
+                teng yuridik kuchga ega hisoblanadi.
                 <br>
-                3. Ushbu qoʻshimcha kelishuv 2021 yil 12-oktyabrdagi _________-sonli shartnomaning ajralmas qismi
+                4. Ushbu qoʻshimcha kelishuv 2021 yil 12-oktyabrdagi _________-sonli shartnomaning ajralmas qismi
                 hisoblanadi va Asosiy shartnomaning boshqa bandlari oʻzgarishsiz qoldiriladi.
                 <br>
 
@@ -161,7 +172,7 @@
                     belgilangan to‘lov-kontrakt miqdorini bo‘lib quyidagi muddatlarda Ta’lim muassasasiga to‘lanadi:
                 </p>
                 <p>
-                    2022-yil 15-oktyabgacha – 21 (yigirma bir) bazaviy hisoblash miqdori; <br>
+                    2022-yil 1-noyabrgacha – 21 (yigirma bir) bazaviy hisoblash miqdori; <br>
                     2022-yil 15-dekabrgacha – 21 (yigirma bir) bazaviy hisoblash miqdori. <br>
                     2023-yil 15-fevralgacha – 21 (yigirma bir) bazaviy hisoblash miqdori; <br>
                     2023-yil 01-maygacha – 21 (yigirma bir) bazaviy hisoblash miqdori. <br>
@@ -462,7 +473,7 @@
             </div>
 
             @include('student.agreement.join_training.agreements.includes.rekvizit_rustambekov')
- @include('student.agreement.join_training.agreements.includes.qr_code')
+            @include('student.agreement.join_training.agreements.includes.qr_code')
         </div>
     </div>
     <div class="col-md-2"></div>
