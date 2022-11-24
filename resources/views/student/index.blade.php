@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="card cardShadow  border mt-2 mt-sm-2 mt-xl-4">
-                        <a class="text-decoration-none" href="{{ route('student.super_cards') }}">
+                      <a class="text-decoration-none" href="{{ route('student.super_cards') }}">
                             <div
                                     class="card-body align-items-center justify-content-center d-flex flex-column my-2 my-sm-0">
                                 <div class="col">
@@ -45,7 +45,8 @@
                                 </div>
                                 <div class="row">
                                     <h5 class="card-title fs-5 fw-bold colorFour text-center">Tabaqalashtirilgan
-                                        to'lov-shartnoma asosida o'qish uchun ariza topshirish</h5>
+                                        to'lov-shartnoma asosida o'qish uchun ariza topshirish  </h5>
+                                  
                                 </div>
                             </div>
                         </a>

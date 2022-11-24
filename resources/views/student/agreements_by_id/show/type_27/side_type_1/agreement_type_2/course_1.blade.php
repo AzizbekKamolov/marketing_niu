@@ -38,9 +38,10 @@
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim
                     muassasasi) nomidan Ustavga asosan ish yurituvchi @include('student.agreements_by_id.show.includes.include_variables') bir tomondan
                     va talabalikka tavsiya etilgan abituriyent
+                     @if($student->birthday)
                     <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
                     yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda –
                     Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat 1-kurs davomida
                     oʻqitish maqsadida mazkur ikki tomonlama toʻlov-kontrakt shartnomasini (keyingi oʻrinlarda –
                     Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt
@@ -252,7 +253,7 @@
                     3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} )
                     so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>2022-yil 10-dekabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
                     <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 

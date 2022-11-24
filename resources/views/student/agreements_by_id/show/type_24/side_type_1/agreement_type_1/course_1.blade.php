@@ -56,7 +56,7 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan Taʻlim muassasasi Talabani
                     2022/2023 oʻquv yili davomida belgilangan taʻlim standartlari, malaka talablari, oʻquv reja va
                     dasturlariga muvofiq oʻqitadi, Talaba esa Shartnomaning 3-bobida koʻrsatilgan tartib va miqdordagi
-                    toʻlovni amalga oshiradi hamda Taʻl  im muassasasida belgilangan tartibga muvofiq taʻlim olish
+                    toʻlovni amalga oshiradi hamda Taʻlim muassasasida belgilangan tartibga muvofiq taʻlim olish
                     majburiyatini oladi.
                 </p>
                 <p>
@@ -247,7 +247,7 @@
                     3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} )
                     so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>2022-yil 10-dekabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
                     <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 

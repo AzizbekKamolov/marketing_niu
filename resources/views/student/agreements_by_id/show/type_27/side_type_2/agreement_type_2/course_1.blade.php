@@ -41,9 +41,10 @@
                     _____________________________________________ (vakolat beruvchi hujjat turi) asosan ish yurituvchi
                     _____________________________________________ (rahbarning familiyasi , ismi , sharifi, lavozimi) ikkinchi tomondan
                     va talabalikka tavsiya etilgan abituriyent
+                     @if($student->birthday)
                     <b>{{date('Y-m-d' , strtotime($student->birthday))}}</b>
                     yilda
-                    tug’ilgan <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) uchinchi tomondan (birgalikda –
+                    tug’ilgan @endif <b>{{$student->fio()}}</b> (keyingi oʻrinlarda – Talaba) uchinchi tomondan (birgalikda –
                     Tomonlar), “Yurisprudensiya” taʻlim yoʻnalishi boʻyicha Talabani bakalavriat 1-kurs davomida
                     oʻqitish maqsadida mazkur uch tomonlama toʻlov-kontrakt shartnomasini (keyingi oʻrinlarda –
                     Shartnoma) Oliy va oʻrta maxsus, kasb-hunar taʻlimi muassasalarida oʻqitishning toʻlov-kontrakt
@@ -305,7 +306,7 @@
                     3.2. Talaba kuzgi semestr uchun <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} )
                     so‘mni quyidagi muddatlarda to‘laydi:
-                    <br>2022-yil 1-noyabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
+                    <br>2022-yil 10-dekabrgacha - <b>{{$student->part_four_1_summa}} so‘m;</b>
                     <br>2023-yil 1-yanvargacha - <b>{{$student->part_four_2_summa}} so‘m.</b>
 
 

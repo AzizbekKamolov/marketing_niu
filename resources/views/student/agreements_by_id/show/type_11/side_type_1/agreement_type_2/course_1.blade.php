@@ -250,7 +250,7 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.2. Talaba kuzgi semestr uchun  <b>{{$student->part1_summa}}</b>
                     ( {{$student->part1_summa_word}} ) so‘mni
-                    2022 yilning 1 noyabrgacha to‘laydi.
+                    2022 yilning 10 dekabrgacha to‘laydi.
 
 
                 </p>

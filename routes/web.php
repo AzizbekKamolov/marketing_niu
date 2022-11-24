@@ -1,7 +1,9 @@
 <?php
+
 use Test\Model\StudentPayment;
 use Test\Model\SmsRas;
 use Test\Model\SmsSend;
+
 Route::group([
     'prefix' => \LaravelLocalization::setLocale(),
 ], function () {
@@ -9,6 +11,7 @@ Route::group([
     Route::get('/', ['uses' => 'IndexController@index', 'as' => 'index']);
     Route::get('university', ['uses' => 'IndexController@university', 'as' => 'university']);
 });
+Route::get('generate-agreements', 'GenerateAgreementController@index');
 Route::get('super', 'SuperController@super')->name('super.super');
 Route::get('super-perevod', 'SuperController@super_perevod')->name('super.super_perevod');
 Route::get('/contract-cards', 'SuperController@contract_cards')->name('student.contract_cards');
@@ -108,7 +111,7 @@ Route::group([
     Route::get('/super-amount-type-marketing/{type}', 'StudentController@amount_type_marketing')->name('amount_type_marketing');
     Route::get('/super-give-id-by-type/{type}', 'StudentController@give_id_by_type')->name('give_id_by_type');
     Route::get('/super-dir-lang-type/{dir}/{lang}', 'SuperController@dir_lang_type')->name('dir_lang_type');
-    Route::get('/student-import-example',  function (){
+    Route::get('/student-import-example', function () {
         return response()->download(public_path('files/students-import-example.xlsx'));
     })->name('student.import.example');
 
@@ -240,6 +243,7 @@ Route::post('/lyceum/super/store-application', 'SuperLyceumController@store_appl
 
 Route::group(['prefix' => 'jointraining'], function () {
     Route::get('/student/form', 'JoinTrainingController@form')->name('student.agreement.join_training.form');
+    Route::get('/student/form-tdyu', 'JoinTrainingController@form_tdyu')->name('student.agreement.join_training_tdyu.form');
     Route::post('/student/get-data', 'JoinTrainingController@get_data')->name('student.agreement.join_training.get_data');
     Route::post('/student/show-agreement', 'JoinTrainingController@show_agreement')->name('student.agreement.join_training.show_agreement');
     Route::post('/student/pdf-agreement', 'JoinTrainingController@pdf_agreement')->name('student.agreement.join_training.pdf_agreement');
@@ -247,34 +251,35 @@ Route::group(['prefix' => 'jointraining'], function () {
 
 
 Route::get('/sms-ras', function () {
-        $rass1 = SmsRas::where('status', 0)->get()->toArray();
+    $rass1 = SmsRas::where('status', 0)->get()->toArray();
+
+    $smsSend = new SmsSend();
+    $chunked = array_chunk($rass1, 100);
+//    return $rass1;
+    foreach ($chunked as $itemChunk) {
+        $rass = $itemChunk;
         $body = [];
         $index = 0;
-        $smsSend = new SmsSend();
-        $chunked = array_chunk($rass1, 100);
-//        return $rass1;
-        foreach ($chunked as $itemChunk) {
-            $rass = $itemChunk;
-            foreach ($rass as $item) {
-                $body['messages'][$index]['recipient'] = $item['number'];
-                $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
-                $body['messages'][$index]['sms']['originator'] = '3700';
-                $body['messages'][$index]['sms']['content']['text'] = $item['name'];
-                $index++;
-            }
-            if (count($rass)) {
-                $result = $smsSend->send_many_sms(json_encode($body));
-                foreach ($rass as $item) {
-                    $itemGet = SmsRas::find($item['id']);
-                    $itemGet->response = json_encode($result);
-                    $itemGet->status = 1;
-                    $itemGet->update();
-                }
-            }
-            sleep(1);
+        foreach ($rass as $item) {
+            $body['messages'][$index]['recipient'] = $item['number'];
+            $body['messages'][$index]['message-id'] = $item['id'] . uniqid();
+            $body['messages'][$index]['sms']['originator'] = '3700';
+            $body['messages'][$index]['sms']['content']['text'] = $item['name'];
+            $index++;
         }
-        return 'Success';
-    });
+        if (count($rass)) {
+            $result = $smsSend->send_many_sms(json_encode($body));
+            foreach ($rass as $item) {
+                $itemGet = SmsRas::find($item['id']);
+                $itemGet->response = json_encode($result);
+                $itemGet->status = 1;
+                $itemGet->update();
+            }
+        }
+        sleep(1);
+    }
+    return 'Success';
+});
 //Route::get('/schot', function () {
 //    $r = 'Test\Model\Rrr'::where('status', 4)->get();
 //    foreach ($r as $item) {
