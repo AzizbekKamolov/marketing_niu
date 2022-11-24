@@ -9,6 +9,7 @@ Route::group([
     Route::get('/', ['uses' => 'IndexController@index', 'as' => 'index']);
     Route::get('university', ['uses' => 'IndexController@university', 'as' => 'university']);
 });
+Route::get('generate-agreements', 'GenerateAgreementController@index');
 Route::get('super', 'SuperController@super')->name('super.super');
 Route::get('super-perevod', 'SuperController@super_perevod')->name('super.super_perevod');
 Route::get('/contract-cards', 'SuperController@contract_cards')->name('student.contract_cards');
