@@ -242,7 +242,7 @@ td{
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbspToshkent davlat yuridik universiteti (keyingi oʻrinlarda – Taʻlim muassasasi)
-                    nomidan Ustavga asosan ish yurituvchi rektor Tashkulov Akbar Djurabayevich, bir tomondan,
+                    nomidan Ustavga asosan ish yurituvchi @include('student.agreements_by_id.show.includes.include_variables'), bir tomondan,
                     va
                     <b>{{$student->fio()}}</b>
                     (keyingi oʻrinlarda – Talaba) ikkinchi tomondan (birgalikda – Tomonlar), “Yurisprudensiya”
@@ -456,7 +456,9 @@ td{
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib, rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
+                    3.4.5. Kontraktni imzolangandan keyin Ta’lim muassasasiga taqdim etadi. Kontrakt elektron shaklda
+                    Ta’lim muassasasining marketing.tsul.uz saytidan olingan taqdirda uning shartlari bilan tanishib,
+                    rozi boʻlgan holda bu haqda tegishli tugmani bosadi va Kontraktni yuklab oladi.
                 </p>
             </div>
             <div class="col-md-12 text-center">
