@@ -65,7 +65,7 @@
         <div style="padding-left: 40%; text-align: right">
             <p>
                 Toshkent davlat yuridik universiteti <br>
-                rektori A.D.Tashkulov ga <br>
+                @include('student.agreements_by_id.show.includes.include_variables') ga <br>
                 {{--						<b>{{ $data->viloyat }}</b>, <b>{{ $data->tuman }}</b>,  <br>--}}
 {{--                <b>{{ $data->address }}</b> da yashovchi fuqaro <br>--}}
                 <b>{{ $data->last_name }} {{ $data->first_name }} {{ $data->middle_name }}</b> dan <br>
