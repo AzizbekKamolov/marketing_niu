@@ -39,7 +39,7 @@
                 <br>
                 <p>
                     &nbsp &nbsp &nbsp &nbspToshkent davlat yuridik universiteti (keyingi o‘rinlarda – Ta’lim muassasasi)
-                    nomidan Ustavga asosan rektor Tashkulov Akbar Djurabaevich bir tomondan, va
+                    nomidan Ustavga asosan @include('student.agreements_by_id.show.includes.include_variables') bir tomondan, va
                       _____________________________________________ (keyingi o'rinlarda - Tashkilot) nomidan
                     _____________________________________________ (vakolat beruvchi hujjat turi) asosan ish yurituvchi
                     _____________________________________________ (rahbarning familiyasi , ismi , sharifi, lavozimi)

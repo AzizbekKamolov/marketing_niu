@@ -37,7 +37,7 @@
             <div class="col-md-12 mt-1 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp Toshkent davlat yuridik universiteti (keyingi oʻrinlarda – Ta’lim
-                    muassasasi) nomidan Ustavga asosan ish yurituvchi rektori A.Tashkulov, bir tomondan, va
+                    muassasasi) nomidan Ustavga asosan ish yurituvchi @include('student.agreements_by_id.show.includes.include_variables'), bir tomondan, va
                     _____________ yilda tugʻilgan
                     <b>{{$student->fio()}}</b>
                     (keyingi oʻrinlarda – Talaba) ikkinchi tomondan 2020-yil 21-oktyabrdagi {{$student->id_code}}-sonli
