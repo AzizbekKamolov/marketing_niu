@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angren Universiteti</title>
+    <title>NIU</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{asset('marketing2021/img/logo222.svg')}}">
+    <link rel="icon" type="image/png" href="{{asset('marketing2021/img/niu_logotype_white.png')}}">
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="{{asset('marketing2021/css/bootstrap-5.0.2-dist/css/bootstrap.min.css')}}">
