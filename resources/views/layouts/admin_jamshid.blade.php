@@ -12,7 +12,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets_admin/assets/images/favicon.png') }}">
 
-    <title>Angren Universiteti</title>
+    <title>NIU</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets_admin/assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets_admin/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
@@ -98,7 +98,7 @@
                                 {{-- <img src="{{ asset('assets_admin/assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" /> --}}
                                 <!-- Light Logo text -->
                                 {{-- <img src="{{ asset('assets_admin/assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /> --}}
-                                <h3><b style="color: black;">Angren Uiversiteti</b></h3>
+                                <h3><b style="color: black;">Navoiy Innovatsiyalar Universiteti</b></h3>
                             </span>
                         </a>
                     </div>

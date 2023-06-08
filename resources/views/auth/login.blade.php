@@ -37,7 +37,7 @@
                 </form>
             </div>
             <div class="app-login-box-footer">
-                &copy; Angren Universiteti <?php echo date('Y')?>.<br> Barcha huquqlar himoyalangan.
+                &copy; Navoiy Innovatsiyalar Universiteti <?php echo date('Y')?>.<br> Barcha huquqlar himoyalangan.
             </div>
         </div>
 
