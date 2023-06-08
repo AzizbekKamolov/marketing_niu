@@ -33,6 +33,6 @@ L<footer class="footer">
     <!-- line -->
     <hr class="m-0">
     <div class="container">
-        <p class="small colorTwo m-0 p-2"><i class="far fa-copyright"></i>&nbsp;Copyright auni.uz. All Rights Reserved</p>
+        <p class="small colorTwo m-0 p-2"><i class="far fa-copyright"></i>&nbsp;Copyright niuedu.uz. All Rights Reserved</p>
     </div>
 </footer>
