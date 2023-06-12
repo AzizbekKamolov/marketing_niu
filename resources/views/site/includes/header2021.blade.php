@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="justify-content-center align-items-center d-flex">
           <a class="navbar-brand px-4 justify-content-center align-items-center d-flex" href="/">
-            <img src="{{asset('marketing2021/img/niu_logotype_white.png')}}" alt="" width="120" height="65" class="d-inline-block align-text-top color-white">
+            <img src="{{asset('marketing2021/img/niu_logotype_white.png')}}" alt="" width="180" class="d-inline-block align-text-top color-white">
           </a>
           <!-- <h1 class="fs-3 text-white">Marketing TSUL</h1> -->
         </div>

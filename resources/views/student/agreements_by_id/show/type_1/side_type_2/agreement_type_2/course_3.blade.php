@@ -19,7 +19,7 @@
                     OLIY TA’LIM XIZMATLARINI KO‘RSATISH TO‘G‘RISIDA
                     To‘lov kontrakt (uch tomonlama kontrakt) asosida mutaxassis tayyorlashga
                 </h4>
-                <h4 class="text-bold">SHARTNOMASI № RU-{{$student->id_code}}/k</h4>
+                <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>{{$student->id_code}}</b></h4>
             </div>
             {{--            <div style="display: inline-block; width: 49%" class="">--}}
@@ -63,10 +63,10 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Bakalavr</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Sirtqi</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Kunduzgi</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>5 (besh) yil</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>4 (to'rt) yil</b>
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Filologiya tillarini o'qitish (Rus

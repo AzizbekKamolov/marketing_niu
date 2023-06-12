@@ -17,10 +17,8 @@
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     OLIY TA’LIM XIZMATLARINI KO‘RSATISH TO‘G‘RISIDA
-                    To‘lov kontrakt (uch tomonlama kontrakt) asosida mutaxassis tayyorlashga
                 </h4>
-                <h4 class="text-bold">SHARTNOMASI № RU-{{$student->id_code}}/k</h4>
-                <h4 class="text-bold">ID: <b>{{$student->id_code}}</b></h4>
+                <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
             </div>
             {{--            <div style="display: inline-block; width: 49%" class="">--}}
             {{--                {{$dateArray['year']}} yil “{{$dateArray['day']}} ” {{$dateArray['month']}}--}}
@@ -36,11 +34,8 @@
                     &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
-                    tomondan, va _____________________________________________________________ (keyingi o‘rinlarda –
-                    “Buyurtmachi” deb ataladi) nomidan _________________________________________________________
-                    ikkinchi tomondan va
-                    {{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani bakalavriat
-                    {{ $student->course }}-kurs davomida o‘qitish maqsadida mazkur shartnomani (keyingi
+                    tomondan, va{{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
+                    bakalavriat {{ $student->course }}-kurs davomida o‘qitish maqsadida mazkur shartnomani (keyingi
                     o‘rinlarda–Shartnoma) quyidagi
                     shartlar asosida tuzdilar:
 
@@ -63,10 +58,10 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Bakalavr</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Sirtqi</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Kunduzgi</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>5 (besh) yil</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>4 (to'rt) yil</b>
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Filologiya tillarini o'qitish (Rus
@@ -201,11 +196,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.3. Buyurtmachi o’qitish uchun belgilangan to’lov miqdorining ______ foizini talabilikka qabul
-                    qilingan abiturientlar uchun shartnoma berilgan kundan boshlab 10 bank ish kuni ichida hamda
-                    ikkinchi va undan keying bosqich talabalari uchun _____________________________ gacha, qolgan
-                    qismini ____________________ gacha to’lash hamda to’lovni amalga oshirganlik haqidagi bank to’lov
-                    topshiriqnomasini yoki kvitansiya nusxasini topshirish.
+                    2.4.3. Talaba o‘quv mashg‘ulotlarida muntazam qatnashadi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
@@ -242,12 +233,20 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. . Buyurtmachi shartnoma to‘lov miqdorining ________ foizini talabilikka qabul qilingan
-                    abiturientlar uchun shartnoma berilgan kundan boshlab 10 bank ish kuni ichida hamda ikkinchi va
-                    undan keyingi bosqich talabalari uchun 10 bank ish kuni ichida, shartnoma to‘lov miqdorining qolgan
-                    qismini 01.03.2023 gacha to’lash mumkin bo‘ladi.
+                    3.2. Buyurtmachi shartnoma to‘lov miqdorini 3.1. bandida ko‘rsatilgan 10 bank kuni ichida ushbu
+                    to‘lovni teng ikki qismga bo‘lib to‘lashi mumkin bo‘ladi.
 
                 </p>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp
+                    3.3. To‘lov-shartnoma asosida o‘qish istagini bildirgan abituriyentlarga birinchi yarim yillik uchun
+                    toʼlov shartnomasi summasini 50% miqdorini
+                    15.04.2023 yilgacha yoki Talim muassasasi komissiyasi tomonidan belgilangan muddatgacha, bahorgi
+                    semestr (ikkinchi yarim yillik) uchun
+                    15 may 2023 yilga qadar ikkiga boʼlib toʼlash;
+
+                </p>
+
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
                     3.3. Buyurtmachi tomonidan Shartnoma bo‘yicha o‘qitish qiymatini to‘lashda to‘lov topshiriqnomasida
@@ -515,7 +514,7 @@
                     </p>
 
                 </div>
-                @include('student.agreements_by_id.show.includes.rekvisit_show')
+                @include('student.agreements_by_id.show.includes.rekvisit_show_2')
                 @include('student.agreements_by_id.show.includes.form_accept')
 
 
