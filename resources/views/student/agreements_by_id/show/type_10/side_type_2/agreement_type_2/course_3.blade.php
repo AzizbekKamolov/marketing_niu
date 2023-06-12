@@ -17,7 +17,6 @@
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     OLIY TA’LIM XIZMATLARINI KO‘RSATISH TO‘G‘RISIDA
-                    To‘lov kontrakt (uch tomonlama kontrakt) asosida mutaxassis tayyorlashga
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
             </div>
@@ -68,7 +67,7 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>4 (to'rt) yil</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Iqtisodiyot(tarmoqlar va sohalar bo'yicha)</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Iqtisodiyot (tarmoqlar va sohalar bo'yicha)</b>
                 </p>
             </div>
 

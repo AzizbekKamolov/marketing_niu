@@ -628,7 +628,7 @@ class AgreementController extends Controller
                     if (is_int($qarz)  && isset($student->backlog)){
                         $student->all_summa = $all_summa;
                     }
-                    $qr_string = "Angren universiteti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
+                    $qr_string = "Navoiy Innovatsiyalar instituti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
                     $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                     $d = date('Y_m_d__H_i_s');
                     return PDF::loadView('student.agreements_by_id.show.type_' . $type->id . '.side_type_' . $agreement_side_type->id . '.agreement_type_' . $agreement_type->id . '.course_' . $student->course, [

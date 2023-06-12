@@ -64,7 +64,7 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>5 (besh) yil</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Iqtisodiyot(tarmoqlar va sohalar bo'yicha)</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Iqtisodiyot (tarmoqlar va sohalar bo'yicha)</b>
                 </p>
             </div>
 
