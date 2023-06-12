@@ -1,6 +1,6 @@
 <div class="col-md-12 text-center">
     <h4 class="text-bold">
-       7. Tomonlarning manzillari va to`lov rekvizitlari
+        8. TOMONLARNING REKVIZITLARI VA IMZOLARI
     </h4>
 </div>
 <div class="col-md-12">
@@ -14,7 +14,7 @@
             </td>
             <td class="w-50" style="width: 49%">
                 <p class="w-100 text-center text-bold">
-                    Talaba
+                    Ta’lim oluvchi:
                 </p>
             </td>
         </tr>
@@ -22,24 +22,29 @@
             @if($which_process == 'show')
                 <td class="w-50" style="width: 49%">
                     <p class="text-bold">
-                        “ANGREN UNIVERSITETI” MCHJ
+                        Navoiy Innovatsiyalar instituti NTM
                     </p>
                     <p>
-                    <p class="text-bold">Yuridik manzili:</p>
-                    Toshkent viloyati, Angren shahri, Ozodlik MFY,<br>
-                    Fleyshmaxer ko’chasi, 2-uy.<br>
-                    <span class="text-bold">To‘lov rekvizitlari:</span>
-                    <br>
-                    <span class="text-bold">H/r:</span> 20208000105586065001 <br>
-                    <span class="text-bold">INN:</span> 310 009 930 <br>
-                    <span class="text-bold">MФО:</span> 01125 <br>
+                    <p class="text-bold">Pochta manzili:</p>
+                    Navoiy vilovati, Karmana tumani, Toshkent ko'chasi, 39-uy<br>
+                    <p class="text-bold">E-mail</p>
+                    <br>navoiyinnovatsiyalarinstituti@gmail.com <br>
+                    <p class="text-bold">Tel:</p>
+                    <br>+998 95 277 00 99 <br>
+                    <p class="text-bold">Faks:</p>
+                    <br>+998 95 277 00 88 <br>
+                    <span class="text-bold">Bank rekvizitlari:</span>
+                    <p>“Invest Finance Bank" ATB</p>
+                    <span class="text-bold">H/r:</span> 20212000605461327002 <br>
+                    <span class="text-bold">INN:</span> 309037476 <br>
+                    <span class="text-bold">MФО:</span> 01148 <br>
                     AT Xalq Banki Mirzo Ulug‘bek filiali
                     <br>
-                    Rahbar: Sindarov Komil Oydinovich
+                    Rahbar: B.F.Yalg’ashev
                     <br>
                     <br>
-{{--                    <img src="{{asset('pechat\imzo.jpg')}}" alt="" width="100">--}}
-{{--                    <img src="{{asset('pechat\pechat.png')}}" alt="" width="120">--}}
+                    {{--                    <img src="{{asset('pechat\imzo.jpg')}}" alt="" width="100">--}}
+                    {{--                    <img src="{{asset('pechat\pechat.png')}}" alt="" width="120">--}}
                     <br>
                     <span class="text-bold">Imzo:</span> _________________ <br>
                 </td>
@@ -57,9 +62,9 @@
                 <p class="w-100 text-center">
                     (F.I.Sh.)
                 </p>
-{{--                <p>--}}
-{{--                    Manzili: <b>{{$student->address}}</b>--}}
-{{--                </p>--}}
+                {{--                <p>--}}
+                {{--                    Manzili: <b>{{$student->address}}</b>--}}
+                {{--                </p>--}}
 
                 <p>
                     Pasport seriyasi <b>{{$student->passport_seria}}</b> raqami
@@ -86,18 +91,30 @@
             </td>
         </tr>
         <tr>
-                <td class="w-50 text-center" style="width: 49%">
-                    <p>
-                    <span class="text-bold">Tashkilot nomi:</span> _____________________________________________________________________________________ <br>
-                    <span class="text-bold">Manzil:</span> ______________________________________________________________________________________________ <br>
-                    <span class="text-bold">Bank:</span> ________________________________________________________________________________________________ <br>
-                    <span class="text-bold">X/r:</span> __________________________________________________________________________________________________ <br>
-                    <span class="text-bold">Bank kodi:</span> ___________________________________________________________________________________________ <br>
-                    <span class="text-bold">STIR:</span> ________________________________________________________________________________________________ <br>
-                    <span class="text-bold">Telefon:</span> _____________________________________________________________________________________________ <br>
-                    <span class="text-bold">Rektor:</span> ______________________________________________________________________________________________ <br>
-                    <span class="text-bold">Imzo:</span> ________________________________________________________________________________________________ <br>
-                </td>
+            <td class="w-50 text-center" style="width: 49%">
+                <p>
+                    <span class="text-bold">Tashkilot nomi:</span>
+                    _____________________________________________________________________________________ <br>
+                    <span class="text-bold">Manzil:</span>
+                    ______________________________________________________________________________________________ <br>
+                    <span class="text-bold">Bank:</span>
+                    ________________________________________________________________________________________________
+                    <br>
+                    <span class="text-bold">X/r:</span>
+                    __________________________________________________________________________________________________
+                    <br>
+                    <span class="text-bold">INN:</span>
+                    ______________________________________________________________________________________________ <br>
+                    <span class="text-bold">MFO:</span>
+                    ________________________________________________________________________________________________
+                    <br>
+{{--                    <span class="text-bold">Buyurtmachi-rahbar:</span>--}}
+{{--                    <br>--}}
+                    <span class="text-bold">Buyurtmachi-rahbar: </span>
+                    <br>
+                    <span class="text-bold">F.I.Sh: </span>
+                    _____________________________________________________________________________________________ <br>
+            </td>
         </tr>
         </tbody>
     </table>

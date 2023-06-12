@@ -17,10 +17,8 @@
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     OLIY TA’LIM XIZMATLARINI KO‘RSATISH TO‘G‘RISIDA
-                    To‘lov kontrakt (uch tomonlama kontrakt) asosida mutaxassis tayyorlashga
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № RU-{{$student->id_code}}/k</h4>
-                <h4 class="text-bold">ID: <b>{{$student->id_code}}</b></h4>
             </div>
             {{--            <div style="display: inline-block; width: 49%" class="">--}}
             {{--                {{$dateArray['year']}} yil “{{$dateArray['day']}} ” {{$dateArray['month']}}--}}
@@ -36,11 +34,8 @@
                     &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
-                    tomondan, va _____________________________________________________________ (keyingi o‘rinlarda –
-                    “Buyurtmachi” deb ataladi) nomidan _________________________________________________________
-                    ikkinchi tomondan va
-                    {{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani bakalavriat
-                    {{ $student->course }}-kurs davomida o‘qitish maqsadida mazkur shartnomani (keyingi
+                    tomondan, va{{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
+                    bakalavriat {{ $student->course }}-kurs davomida o‘qitish maqsadida mazkur shartnomani (keyingi
                     o‘rinlarda–Shartnoma) quyidagi
                     shartlar asosida tuzdilar:
 
@@ -63,7 +58,7 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Bakalavr</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Sirtqi</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Kunduzgi</b>
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>5 (besh) yil</b>

@@ -1,3 +1,3 @@
 <?php
-    echo $rector = 'K.O.Sindarov';
+    echo $rector = 'Abulhasan Nuriymon Abduraxim';
 ?>
