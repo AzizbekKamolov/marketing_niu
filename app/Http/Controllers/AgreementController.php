@@ -21,7 +21,7 @@ use Test\Model\StudentPayment;
 use Test\Model\StudentTypeAgreementSideType;
 use Test\Model\StudentTypeAgreementType;
 use Test\Model\Type;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+//use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class AgreementController extends Controller
@@ -629,7 +629,7 @@ class AgreementController extends Controller
                         $student->all_summa = $all_summa;
                     }
                     $qr_string = "Navoiy Innovatsiyalar instituti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
-                    $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                    $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                     $d = date('Y_m_d__H_i_s');
                     return PDF::loadView('student.agreements_by_id.show.type_' . $type->id . '.side_type_' . $agreement_side_type->id . '.agreement_type_' . $agreement_type->id . '.course_' . $student->course, [
                         'student' => $student,
@@ -638,7 +638,7 @@ class AgreementController extends Controller
                         'getting_date' => $getting_date,
                         'dateArray' => $dateArray,
                         'which_process' => 'pdf',
-                        'qrcode' => $qrcode
+//                        'qrcode' => $qrcode
                     ])->download($student->fio() . '.pdf');
 //                    \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
 //                    return $b;
@@ -646,13 +646,13 @@ class AgreementController extends Controller
                         if ($type->edu_place == 'sirtqi') {
                             $ended = 2022 + 5 - $student->course;
                             $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' , SIRTQI';
-                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                             $b =  PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date,
-                                'qr_code' => $qrcode
+//                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
                             \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                             return $b;
@@ -660,26 +660,26 @@ class AgreementController extends Controller
                             if ($student->type_student == 1) {
                                 $ended = 2022 + 4 - $student->course;
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 $b = PDF::loadView('student.agreement.agreement_shows.agreements.super_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date,
-                                    'qr_code' => $qrcode
+//                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                                 \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                                 return $b;
                             }
                             if ($student->type_student == 2) {
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 $b = PDF::loadView('student.agreement.agreement_shows.agreements.super_magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date,
-                                    'qr_code' => $qrcode
+//                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                                 \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                                 return $b;
@@ -689,13 +689,13 @@ class AgreementController extends Controller
                         if ($type->edu_place == 'sirtqi') {
                             $ended = 2022 + 5 - $student->course;
                             $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' , SIRTQI';
-                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                             $b = PDF::loadView('student.agreement.agreement_shows.agreements.sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date,
-                                'qr_code' => $qrcode
+//                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
                             \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                             return $b;
@@ -705,13 +705,13 @@ class AgreementController extends Controller
 //                            return $agreement_type->id;
                                 $ended = 2022 + 4 - $student->course;
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,O`qishni ko`chirish(Ukraina)';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 $b = PDF::loadView('student.agreement.agreement_shows.agreements.ukraina.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date,
-                                    'qr_code' => $qrcode
+//                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                                 \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                                 return $b;
@@ -731,13 +731,13 @@ class AgreementController extends Controller
 //                                    return $agreement_side_type->id.'-'.$agreement_type->id;
                                     $ended = 2022 + 4 - $student->course;
 //                                    $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' ,KUNDUZGI BAKALAVR';
-//                                    $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+//////                                    $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                     $b = PDF::loadView('student.agreement.agreement_shows.agreements.simple_bakalavr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                         'student' => $student,
                                         'agreement_type' => $agreement_type,
                                         'agreement_side_type' => $agreement_side_type,
                                         'getting_date' => $getting_date,
-//                                        'qr_code' => $qrcode,
+////                                        'qr_code' => $qrcode,
                                         'dateArray' => $dateArray
                                     ])->download($student->fio() . '.pdf');
                                     \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
@@ -747,13 +747,13 @@ class AgreementController extends Controller
                             }
                             if ($student->type_student == 2) {
                                 $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-2022 ,KUNDUZGI MAGISTRATURA';
-                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+////                                $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
                                 $b = PDF::loadView('student.agreement.agreement_shows.agreements.magistr.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                     'student' => $student,
                                     'agreement_type' => $agreement_type,
                                     'agreement_side_type' => $agreement_side_type,
                                     'getting_date' => $getting_date,
-                                    'qr_code' => $qrcode
+//                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
                                 \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
                                 return $b;
