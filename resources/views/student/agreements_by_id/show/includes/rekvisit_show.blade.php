@@ -22,19 +22,18 @@
             @if($which_process == 'show')
                 <td class="w-50" style="width: 49%">
                     <p class="text-bold">
-                        Navoiy Innovatsiyalar instituti NTM
+                        Navoiy Innovatsiyalar Universiteti NTM
                     </p>
-                    <p>
-                    <p class="text-bold">Pochta manzili:</p>
+                    <span class="text-bold">Pochta manzili:</span>
                     Navoiy vilovati, Karmana tumani, Toshkent ko'chasi, 39-uy<br>
-                    <p class="text-bold">E-mail</p>
+                    <span class="text-bold">E-mail</span>
                     navoiyinnovatsiyalarinstituti@gmail.com <br>
-                    <p class="text-bold">Tel:</p>
-                    +998 95 277 00 99 <br>
-                    <p class="text-bold">Faks:</p>
+                    <span class="text-bold">Tel:</span>
+                    +998 95 277 00 99
+                    <span class="text-bold">Faks:</span>
                     +998 95 277 00 88 <br>
-                    <span class="text-bold">Bank rekvizitlari:</span>
-                    <p>“Invest Finance Bank" ATB</p>
+                    <span class="text-bold">Bank rekvizitlari:</span><br>
+                    <span>“Invest Finance Bank" ATB</span><br>
                     <span class="text-bold">H/r:</span> 20212000605461327002 <br>
                     <span class="text-bold">INN:</span> 309037476 <br>
                     <span class="text-bold">MФО:</span> 01148 <br>
