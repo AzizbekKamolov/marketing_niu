@@ -28,11 +28,11 @@
                     <p class="text-bold">Pochta manzili:</p>
                     Navoiy vilovati, Karmana tumani, Toshkent ko'chasi, 39-uy<br>
                     <p class="text-bold">E-mail</p>
-                    <br>navoiyinnovatsiyalarinstituti@gmail.com <br>
+                    navoiyinnovatsiyalarinstituti@gmail.com <br>
                     <p class="text-bold">Tel:</p>
-                    <br>+998 95 277 00 99 <br>
+                    +998 95 277 00 99 <br>
                     <p class="text-bold">Faks:</p>
-                    <br>+998 95 277 00 88 <br>
+                    +998 95 277 00 88 <br>
                     <span class="text-bold">Bank rekvizitlari:</span>
                     <p>“Invest Finance Bank" ATB</p>
                     <span class="text-bold">H/r:</span> 20212000605461327002 <br>
