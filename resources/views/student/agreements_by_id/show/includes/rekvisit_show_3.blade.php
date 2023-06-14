@@ -118,7 +118,7 @@
         </tr>
         </tbody>
     </table>
-       @if($which_process == 'pdf')
-        <img src="data:image/png;base64, {{$qrcode}} ">
-    @endif
+{{--       @if($which_process == 'pdf')--}}
+{{--        <img src="data:image/png;base64, {{$qrcode}} ">--}}
+{{--    @endif--}}
 </div>
