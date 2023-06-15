@@ -628,8 +628,15 @@ class AgreementController extends Controller
                     if (is_int($qarz)  && isset($student->backlog)){
                         $student->all_summa = $all_summa;
                     }
-                    $qr_string = "Navoiy Innovatsiyalar instituti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
-////                    $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+
+//                    $qr_string = "Navoiy Innovatsiyalar instituti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
+//                    $qr_string = asset('pechat/qr_code.png');
+                    $path = 'pechat/qr_code.png';
+                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
+                    $data = file_get_contents($path);
+                    $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
+//                    $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+//                    $qrcode = base64_encode($qr_string);
                     $d = date('Y_m_d__H_i_s');
                     return PDF::loadView('student.agreements_by_id.show.type_' . $type->id . '.side_type_' . $agreement_side_type->id . '.agreement_type_' . $agreement_type->id . '.course_' . $student->course, [
                         'student' => $student,
@@ -638,7 +645,7 @@ class AgreementController extends Controller
                         'getting_date' => $getting_date,
                         'dateArray' => $dateArray,
                         'which_process' => 'pdf',
-//                        'qrcode' => $qrcode
+                        'qrcode' => $qrcode
                     ])->download($student->fio() . '.pdf');
 //                    \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
 //                    return $b;

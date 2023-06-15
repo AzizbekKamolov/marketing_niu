@@ -19,7 +19,7 @@
             </td>
         </tr>
         <tr>
-            @if($which_process == 'show')
+{{--            @if($which_process == 'show')--}}
                 <td class="w-50" style="width: 49%">
                     <p class="text-bold">
                         Navoiy Innovatsiyalar Universiteti NTM
@@ -47,12 +47,12 @@
                     <br>
                     <span class="text-bold">Imzo:</span> _________________ <br>
                 </td>
-            @endif
-            @if($which_process == 'pdf')
-                <td class="w-50" style="width: 49%">
-                    <img src="{{public_path('/pechat/angren.png')}}" alt="" style="width: 100%">
-                </td>
-            @endif
+{{--            @endif--}}
+{{--            @if($which_process == 'pdf')--}}
+{{--                <td class="w-50" style="width: 49%">--}}
+{{--                    <img src="{{public_path('/pechat/angren.png')}}" alt="" style="width: 100%">--}}
+{{--                </td>--}}
+{{--            @endif--}}
             <td class="w-50">
 
                 <p class="word-line">
@@ -119,7 +119,7 @@
     </table>
     <br>
     <br>
-{{--    @if($which_process == 'pdf')--}}
-{{--        <img src="data:image/png;base64, {{$qrcode}} ">--}}
-{{--    @endif--}}
+    @if($which_process == 'pdf')
+        <img src="{{$qrcode}} ">
+    @endif
 </div>
