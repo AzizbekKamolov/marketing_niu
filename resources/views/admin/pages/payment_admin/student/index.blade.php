@@ -53,10 +53,11 @@
                                             data-target="#importStudentsModal">
                                         Talabalarni import qilish
                                     </button>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#importPaymentModal">
-                                        To'lovlarni import qilish
-                                    </button>
+                                    <a href="{{ route('student.import.example') }}" class="btn btn-primary">Students import example</a>
+{{--                                    <button type="button" class="btn btn-primary" data-toggle="modal"--}}
+{{--                                            data-target="#importPaymentModal">--}}
+{{--                                        To'lovlarni import qilish--}}
+{{--                                    </button>--}}
                                 </div>
                             @endif
                             @include('admin.pages.payment_admin.student.importModal')

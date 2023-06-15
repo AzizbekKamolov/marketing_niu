@@ -174,7 +174,7 @@
                         {{-- <li class="sidebar-item" style="bottom: 0px; padding-bottom: 30px; position: fixed; cursor: pointer; color: #6C75EA !important; background-color: white;  border: 1px solid #7574ea; "> <a class="sidebar-link  button_for_logout" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Chiqish</span></a></li> --}}
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
-                                    </form></li>
+                                    </form>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

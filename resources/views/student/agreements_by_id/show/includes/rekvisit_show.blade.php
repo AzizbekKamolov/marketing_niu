@@ -22,7 +22,7 @@
 {{--            @if($which_process == 'show')--}}
                 <td class="w-50" style="width: 49%">
                     <p class="text-bold">
-                        Navoiy Innovatsiyalar Universiteti NTM
+                        Navoiy Innovatsiyalar Universiteti
                     </p>
                     <span class="text-bold">Pochta manzili:</span>
                     Navoiy vilovati, Karmana tumani, Toshkent ko'chasi, 39-uy<br>
@@ -37,9 +37,8 @@
                     <span class="text-bold">H/r:</span> 20212000605461327002 <br>
                     <span class="text-bold">INN:</span> 309037476 <br>
                     <span class="text-bold">MФО:</span> 01148 <br>
-                    AT Xalq Banki Mirzo Ulug‘bek filiali
                     <br>
-                    Rahbar: B.F.Yalg’ashev
+                    Rahbar: @include('student.agreements_by_id.show.includes.include_variables')
                     <br>
                     <br>
                     {{--                    <img src="{{asset('pechat\imzo.jpg')}}" alt="" width="100">--}}

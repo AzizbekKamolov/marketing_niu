@@ -526,6 +526,7 @@ class AgreementController extends Controller
                             'getting_date' => $getting_date,
                             'dateArray' => $dateArray,
                             'which_process' => 'show',
+                            'type' => $type,
 //                            'qrcode' => $qrcode
                         ]);
                     } else {
@@ -650,7 +651,8 @@ class AgreementController extends Controller
                         'getting_date' => $getting_date,
                         'dateArray' => $dateArray,
                         'which_process' => 'pdf',
-                        'qrcode' => $qrcode
+                        'qrcode' => $qrcode,
+                        'type' => $type,
                     ])->download($student->fio() . '.pdf');
 //                    \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
 //                    return $b;

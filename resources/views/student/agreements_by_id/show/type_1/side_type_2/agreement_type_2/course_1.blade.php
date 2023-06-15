@@ -241,7 +241,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. . Buyurtmachi shartnoma to‘lov miqdorining ________ foizini talabilikka qabul qilingan
+                    3.2. Buyurtmachi shartnoma to‘lov miqdorining ________ foizini talabilikka qabul qilingan
                     abiturientlar uchun shartnoma berilgan kundan boshlab 10 bank ish kuni ichida hamda ikkinchi va
                     undan keyingi bosqich talabalari uchun 10 bank ish kuni ichida, shartnoma to‘lov miqdorining qolgan
                     qismini 01.03.2023 gacha to’lash mumkin bo‘ladi.

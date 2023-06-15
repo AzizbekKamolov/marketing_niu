@@ -241,9 +241,9 @@
                     &nbsp &nbsp &nbsp &nbsp
                     3.3. To‘lov-shartnoma asosida o‘qish istagini bildirgan abituriyentlarga birinchi yarim yillik uchun
                     toʼlov shartnomasi summasini 50% miqdorini
-                    15.04.2023 yilgacha yoki Talim muassasasi komissiyasi tomonidan belgilangan muddatgacha, bahorgi
+                    {{ $type->part1 }} yoki Talim muassasasi komissiyasi tomonidan belgilangan muddatgacha, bahorgi
                     semestr (ikkinchi yarim yillik) uchun
-                    15 may 2023 yilga qadar ikkiga boʼlib toʼlash;
+                    {{ $type->part2 }} qadar ikkiga boʼlib toʼlash;
 
                 </p>
 
