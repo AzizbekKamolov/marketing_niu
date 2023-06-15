@@ -508,6 +508,10 @@ class AgreementController extends Controller
                     $student->part_four_4_summa = number_format($part_four_4_summa);
                     $accessTypesArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
                             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
+//                    $path = 'pechat/qr_code.png';
+//                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
+//                    $data = file_get_contents($path);
+//                    $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
                     if (in_array($type->id,$accessTypesArray)) {
                         if ($student->status == 0) {
                             return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
@@ -521,7 +525,8 @@ class AgreementController extends Controller
                             'agreement_side_type' => $agreement_side_type,
                             'getting_date' => $getting_date,
                             'dateArray' => $dateArray,
-                            'which_process' => 'show'
+                            'which_process' => 'show',
+                            'qrcode' => $qrcode
                         ]);
                     } else {
                         return "Shartnomalar tez orada joylanadi";

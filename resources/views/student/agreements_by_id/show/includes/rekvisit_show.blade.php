@@ -120,6 +120,6 @@
     <br>
     <br>
     @if($which_process == 'pdf')
-        <img src="{{$qrcode}} ">
+        <img src="{{$qrcode}}" width="200">
     @endif
 </div>
