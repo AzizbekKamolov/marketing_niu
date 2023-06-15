@@ -45,7 +45,7 @@
                     {{--                    <img src="{{asset('pechat\imzo.jpg')}}" alt="" width="100">--}}
                     {{--                    <img src="{{asset('pechat\pechat.png')}}" alt="" width="120">--}}
                     <br>
-                    <span class="text-bold">Imzo:</span> _________________ <br>
+{{--                    <span class="text-bold">Imzo:</span> _________________ <br>--}}
                 </td>
 {{--            @endif--}}
 {{--            @if($which_process == 'pdf')--}}
@@ -73,9 +73,9 @@
                     Tel: <b>{{$student->phone}}</b>
                 </p>
                 <br>
-{{--                <p>--}}
-{{--                    Imzo _________________--}}
-{{--                </p>--}}
+                <p>
+                    Imzo _________________
+                </p>
             </td>
         </tr>
         </tbody>
