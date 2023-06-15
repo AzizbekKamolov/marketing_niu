@@ -526,7 +526,7 @@ class AgreementController extends Controller
                             'getting_date' => $getting_date,
                             'dateArray' => $dateArray,
                             'which_process' => 'show',
-                            'qrcode' => $qrcode
+//                            'qrcode' => $qrcode
                         ]);
                     } else {
                         return "Shartnomalar tez orada joylanadi";
