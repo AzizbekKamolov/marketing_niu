@@ -11,6 +11,16 @@
         <form action="{{route('import.students')}}" method="post" id="importForm" enctype="multipart/form-data">
          {{csrf_field()}}
 
+          <div class="form-group">
+            <label for="status_new">Shartnoma turi</label>
+            <select name="status_new" id="status_new" class="form-control">
+              @foreach($types as $type)
+                <option value="{{$type->id}}">
+                  {{$type->name}}</option>
+
+              @endforeach
+            </select>
+          </div>
           <div class="form-group mb-3">
             <label for="">File</label>
             <input type="file" accept=".xlsx" name="file" class="form-control">

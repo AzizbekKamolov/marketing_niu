@@ -35,6 +35,7 @@ class PaymentAdminController extends Controller
             $students = StudentPayment::orderBy('id', 'DESC')->with('type')->get();
             return view('admin.pages.payment_admin.student.index', [
                 'data' => $students,
+                'types' => Type::query()->get(),
             ]);
         } else {
             return "xatolik!!";

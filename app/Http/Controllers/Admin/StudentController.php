@@ -40,7 +40,7 @@ StudentController extends Controller
 
         return view('admin.pages.shartnoma.index', [
             'data' => $students,
-            'type' => 'super'
+            'type' => 'super',
         ]);
     }
 
@@ -300,8 +300,11 @@ StudentController extends Controller
     {
 //          $students = Student::where('status' , '<>' , 3)->where('status' , '<>' , 4)->paginate(20);
         $students = StudentPayment::orderBy('id', 'DESC')->get();
+        $types = Type::query()->get();
+        dd($types);
         return view('admin.pages.shartnoma.index', [
             'data' => $students,
+            'types' => Type::query()->get(),
         ]);
     }
 
@@ -536,40 +539,39 @@ StudentController extends Controller
     public function importStudents(Request $request){
 
         $request->validate([
-            'file' => ['required', 'file']
+            'file' => ['required', 'file'],
+            'status_new' => 'required|exists:types,id'
         ]);
         $file = $request->file('file');
         $data = \Excel::toCollection(new StudentImport, $file);
+        $type = Type::query()->find($request->status_new);
         if (count($data) >= 1) {
+            $result = [];
             foreach ($data[0] as $d) {
                 while (strlen($d['passport_number']) < 7){
                     $d['passport_number'] = '0' . $d['passport_number'];
                 }
-                $student = StudentPayment::where('id_code', $d['id_code'])->orWhere(DB::raw('CONCAT(students.passport_seria,"",students.passport_number)'), $d['passport_seria'].$d['passport_number'])->first();
+                $idCode = $type->comment . '-' . $d['passport_number'] . '/' . $type->contract_type . "-" . $d['course'] . '/' . $d['group'];
+                $student = StudentPayment::query()->where('passport_seria', $d['passport_seria'])
+                    ->where('passport_number', $d['passport_number'])
+                    ->first();
+                if (empty($student)){
 
-                if (empty($student) && !empty($d['id_code'])){
-                    $result[] = collect([
-                        'id_code' => $d['id_code'],
-                        'last_name' => $d['last_name'],
-                        'first_name' => $d['first_name'],
-                        'middle_name' => $d['middle_name'],
-                        'passport_seria' => $d['passport_seria'],
-                        'passport_number' => $d['passport_number'],
+                    $a['id_code'] = $idCode;
+                    $a['last_name'] = $d['last_name'];
+                    $a['first_name'] = $d['first_name'];
+                    $a['middle_name'] = $d['middle_name'];
+                    $a['passport_seria'] = $d['passport_seria'];
+                    $a['passport_number'] = $d['passport_number'];
 //                        'passport_jshir' => $d['passport_jshir'],
 //                        'birthday' => date('Y-m-d', strtotime($d['birthday'])),
-                        'course' => $d['course'],
-                        'phone' => '+998' . $d['phone'],
-                    ]);
-                }else if (!empty($d['id_code'])){
-                    $dataErrors[] = $d;
+                    $a['course'] = $d['course'];
+                    $a['phone'] = '+998' . $d['phone'];
+                    $result[] = $a;
                 }
             }
-            $types  = Type::all();
-            return view('admin.pages.payment_admin.student.studentsImportInfo', [
-                'data' => collect($result ?? []),
-                'types' => $types,
-                'dataErrors' => collect($dataErrors ?? [])
-            ]);
+            StudentPayment::query()->insert($result);
+            return redirect()->route('payment_admin.student.index')->with('success', 'Talabalar muvaffaqiyatlin saqlandi');
         }
         return $data[0];
     }
