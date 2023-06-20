@@ -563,6 +563,8 @@ StudentController extends Controller
                     $a['middle_name'] = $d['middle_name'];
                     $a['passport_seria'] = $d['passport_seria'];
                     $a['passport_number'] = $d['passport_number'];
+                    $a['status_new'] = $request->status_new;
+                    $a['status'] = 1;
 //                        'passport_jshir' => $d['passport_jshir'],
 //                        'birthday' => date('Y-m-d', strtotime($d['birthday'])),
                     $a['course'] = $d['course'];
