@@ -112,8 +112,9 @@ Route::group([
     Route::get('/super-amount-type-marketing/{type}', 'StudentController@amount_type_marketing')->name('amount_type_marketing');
     Route::get('/super-give-id-by-type/{type}', 'StudentController@give_id_by_type')->name('give_id_by_type');
     Route::get('/super-dir-lang-type/{dir}/{lang}', 'SuperController@dir_lang_type')->name('dir_lang_type');
+
     Route::get('/example-import-students', function () {
-        return response()->download(public_path('files/example_import_students.xlsx'));
+        return response()->download(public_path('files/example_import_student.xlsx'));
     })->name('student.import.example');
 
     Route::get('/magister-dir-lang-super/{dir}/{lang}', 'SuperController@magister_dir_lang_super')->name('magister_dir_lang_super');
