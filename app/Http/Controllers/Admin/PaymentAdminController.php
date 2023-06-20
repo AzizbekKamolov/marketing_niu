@@ -153,7 +153,9 @@ class PaymentAdminController extends Controller
             $student->passport_jshir = $request->passport_jshir;
             $student->course = $request->course;
             $student->status_new = $request->status_new;
-            $student->backlog = $request->backlog;
+            if (!empty($request->backlog)){
+                $student->backlog = $request->backlog;
+            }
             $student->status_check = 1;
             $student->type_student = $request->type_degree;
             $student->update();
