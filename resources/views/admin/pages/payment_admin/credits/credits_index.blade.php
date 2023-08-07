@@ -47,9 +47,10 @@
                                 <div>
 
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#importPaymentModal">
+                                            data-target="#importPaymentModal"> <i class="fa fa-plus"></i>
                                         Kreditlarni import qilish
                                     </button>
+                                    <a href="/files/credit.xlsx" class="btn btn-cyan"><i class="fa fa-copy"></i> Kredit import example</a>
                                 </div>
                             @endif
                             @include('admin.pages.payment_admin.credits.importCredits')
