@@ -567,7 +567,7 @@ StudentController extends Controller
                     $a['status_new'] = $request->status_new;
                     $a['status'] = 1;
                     $a['region'] = $d['region'];
-                    $a['area'] = $d['region'];
+                    $a['area'] = $d['area'];
                     $a['passport_jshir'] = $d['passport_jshir'];
                     $a['passport_given_date'] = date('Y-m-d', strtotime($d['passport_given_date']));
 //                        'passport_jshir' => $d['passport_jshir'],
