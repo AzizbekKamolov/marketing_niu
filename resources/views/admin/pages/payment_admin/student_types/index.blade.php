@@ -55,6 +55,7 @@
                                                 <th>Darajasi</th>
                                                 <th>Shartnoma turlari(stipendiya boyicha)</th>
                                                 <th>Shartnoma turlari(tomonlar boyicha)</th>
+                                                <th>Bitr kredit narxi</th>
                                                 <th>Amallar</th>
 
                                             </tr>
@@ -83,6 +84,9 @@
                                                    @foreach($item->agreement_side_types as $agreemen_side)
                                                        <span>{{$agreemen_side->name}}</span> <br>
                                                    @endforeach
+                                               </td>
+                                               <td>
+                                                   {{ $item->credit_price->price }}
                                                </td>
                                                <td>
                                                    <a href="{{ route('payment_admin.types_edit', ['id' => $item->id]) }}" class="btn btn-cyan btn-icon">
