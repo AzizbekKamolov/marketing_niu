@@ -32,4 +32,9 @@ class Type extends Model
        return $all;
     }
 
+    public function credit_price()
+    {
+        return $this->hasOne(CreditPrice::class, 'id', 'degree');
+    }
+
 }

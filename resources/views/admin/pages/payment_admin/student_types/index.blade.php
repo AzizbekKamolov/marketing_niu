@@ -55,6 +55,7 @@
                                                 <th>Darajasi</th>
                                                 <th>Shartnoma turlari(stipendiya boyicha)</th>
                                                 <th>Shartnoma turlari(tomonlar boyicha)</th>
+                                                <th>Amallar</th>
 
                                             </tr>
                                         </thead>
@@ -82,6 +83,16 @@
                                                    @foreach($item->agreement_side_types as $agreemen_side)
                                                        <span>{{$agreemen_side->name}}</span> <br>
                                                    @endforeach
+                                               </td>
+                                               <td>
+                                                   <a href="{{ route('payment_admin.types_edit', ['id' => $item->id]) }}" class="btn btn-cyan btn-icon">
+                                                       <i class="icon-pencil"></i>
+                                                   </a>
+                                                   <form action="{{ route('payment_admin.types_destroy', ['id' => $item->id]) }}" method="post">
+                                                       {{ csrf_field() }}
+                                                       {{ method_field('delete') }}
+                                                       <button class="btn btn-danger btn-icon deleteData"><i class="icon-trash"></i></button>
+                                                   </form>
                                                </td>
 
                                            </tr>

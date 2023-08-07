@@ -10,4 +10,5 @@ class CreditPrice extends Model
     {
         return $this->belongsTo(StudentDegree::class , 'degree' , 'degree');
     }
+    protected $guarded = [];
 }

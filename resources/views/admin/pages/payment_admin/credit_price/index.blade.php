@@ -41,6 +41,9 @@
                                           <h4 class="card-title">Kredit narxlari</h4>
                                       </div>
                                     <div>
+                                        <a href="{{route('credit_prices.create')}}" class="btn btn-success"
+                                           style="color: white; cursor: pointer"><i class="fa fa-plus"></i> Kredit narxi qo'shish
+                                        </a>
                                     </div>
 
                                 </div>
@@ -53,7 +56,7 @@
                                                 <th>#</th>
                                                 <th>Talaba turi</th>
                                                 <th>Bir kredit narxi</th>
-
+                                                <th>Amallar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,6 +69,16 @@
                                                </td>
                                                <td>
                                                    {{$item->price}}
+                                               </td>
+                                               <td>
+                                                   <a href="{{ route('credit_prices.edit', ['id' => $item->id]) }}" class="btn btn-cyan btn-icon">
+                                                       <i class="icon-pencil"></i>
+                                                   </a>
+                                                   <form action="{{ route('credit_prices.destroy', ['id' => $item->id]) }}" method="post">
+                                                       {{ csrf_field() }}
+                                                       {{ method_field('delete') }}
+                                                       <button class="btn btn-danger btn-icon deleteData"><i class="icon-trash"></i></button>
+                                                   </form>
                                                </td>
                                            </tr>
                                            @endforeach

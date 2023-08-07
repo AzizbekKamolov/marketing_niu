@@ -154,10 +154,13 @@ Route::group([
     Route::post('/payments-import', 'PaymentImportController@import')->name('payments.import');
     Route::post('/payments-import-save', 'PaymentImportController@import_save')->name('payments.import_save');
 
+
 //    payment admin new
     Route::get('/payment-admin/student-types', 'PaymentAdminController@student_types')->name('payment_admin.student_types');
     Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
-//    Route::get('/payment-admin/student-types/{id}', 'PaymentAdminController@student_types_show')->name('payment_admin.student_types_show');
+    Route::get('/payment-admin/student-types/{id}/edit', 'TypeController@edit')->name('payment_admin.types_edit');
+    Route::put('/payment-admin/student-types/{id}', 'TypeController@update')->name('payment_admin.types_update');
+    Route::delete('/payment-admin/student-types/{id}', 'TypeController@destroy')->name('payment_admin.types_destroy');
 
     Route::resource('credit_prices', 'CreditPriceController');
 
