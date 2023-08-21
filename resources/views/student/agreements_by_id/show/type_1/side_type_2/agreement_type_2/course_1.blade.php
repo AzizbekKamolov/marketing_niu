@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-12 ">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan OTM 2022-2023 o‘quv yili davomida
+                    &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan OTM 2023-2024 o‘quv yili davomida
                     belgilangan ta’lim standartlari va o‘quv dasturlariga muvofiq o‘qitadi, Buyurtmachi esa
                     Shartnomaning 3-bobida ko‘rsatilgan tartib va miqdordagi to‘lovni amalga oshiradi hamda Talaba OTMda
                     belgilangan tartibga muvofiq ta’lim olish majburiyatini oladi:
@@ -236,7 +236,7 @@
             <div class="col-md-12 mb-1">
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.1. 2022-2023 o‘quv yilida ta’lim olish uchun to‘lov summasi {{ $student->all_summa }}
+                    3.1. 2023-2024 o‘quv yilida ta’lim olish uchun to‘lov summasi {{ $student->all_summa }}
                     ({{ $student->all_summa_word }})
                 </p>
                 <p>
