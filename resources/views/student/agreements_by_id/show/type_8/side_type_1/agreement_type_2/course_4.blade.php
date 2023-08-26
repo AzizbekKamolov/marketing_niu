@@ -31,7 +31,7 @@
                     ” {{$dateArray['month']}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
+                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar universiteti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
                     tomondan, va{{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
@@ -52,7 +52,6 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.1.</b> Mazkur Shartnomaga asosan OTM 2023-2024 o‘quv yili davomida
                     belgilangan ta’lim standartlari va o‘quv dasturlariga muvofiq o‘qitadi, Buyurtmachi esa
                     Shartnomaning 3-bobida ko‘rsatilgan tartib va miqdordagi to‘lovni amalga oshiradi hamda Talaba OTMda
-                    belgilangan tartibga muvofiq ta’lim olish majburiyatini oladi:
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Bakalavr</b>
@@ -63,6 +62,7 @@
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>3 (uch) yil</b>
                 </p>
+                belgilangan tartibga muvofiq ta’lim olish majburiyatini oladi:
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Maktabgacha ta'lim</b>
                 </p>
@@ -199,17 +199,13 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.4. Talaba o‘quv mashg‘ulotlarida muntazam qatnashadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.4.5. Talaba OTMda belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
+                    2.4.4. Talaba OTMda belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
                     darajasini oshirib boradi. Qo‘ldirilgan darslar OTM tomonidan qoplab berilmaydi va ushbu darslar
                     uchun qayta hisob-kitob qilinmaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.6. Shartnomani imzolaganidan keyin uning bir nusxasini va boshqa talab qilingan hujjatlarni
+                    2.4.5. Shartnomani imzolaganidan keyin uning bir nusxasini va boshqa talab qilingan hujjatlarni
                     OTMga taqdim etadi. Hujjatlar (ushbu shartnomani imzolangan nusxasi, diplom, attestat va yoki
                     shahodatnoma asli, belgilangan fotosurat, shaxsni tasdiqlovchi hujjat nusxasi) va yoki ularning
                     nusxalarini OTM tomonidan belgilangan muddatda qisman va yoki to‘liq taqdim etilmasligi talabalikka
@@ -260,12 +256,6 @@
                     </h4>
                 </div>
 
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
@@ -472,7 +462,7 @@
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
                         6.5. Davlat, xususiy va boshqa oliy ta’lim muassasalarida belgilangan chegirmalar, imtiyozlar
-                        “Navoiy Innovatsiyalar instituti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
+                        “Navoiy Innovatsiyalar universiteti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
                         hujjatlari bilan belgilanadi.
                     </p>
 

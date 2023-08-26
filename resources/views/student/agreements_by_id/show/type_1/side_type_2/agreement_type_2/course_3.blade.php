@@ -21,12 +21,6 @@
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
                 <h4 class="text-bold">ID: <b>{{$student->id_code}}</b></h4>
             </div>
-            {{--            <div style="display: inline-block; width: 49%" class="">--}}
-            {{--                {{$dateArray['year']}} yil “{{$dateArray['day']}} ” {{$dateArray['month']}}--}}
-            {{--            </div>--}}
-            {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
-            {{--                <span>Toshkent shahri</span>--}}
-            {{--            </div>--}}
             <div class="col-md-6 text-left"><p>Navoiy viloyat</p></div>
             <div class="col-md-6 text-right"><p>{{$dateArray['year']}} yil “{{$dateArray['day']}}
                     ” {{$dateArray['month']}}</p></div>
@@ -241,7 +235,7 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.2. . Buyurtmachi shartnoma to‘lov miqdorining ________ foizini talabilikka qabul qilingan
+                    3.2. Buyurtmachi shartnoma to‘lov miqdorining ________ foizini talabilikka qabul qilingan
                     abiturientlar uchun shartnoma berilgan kundan boshlab 10 bank ish kuni ichida hamda ikkinchi va
                     undan keyingi bosqich talabalari uchun 10 bank ish kuni ichida, shartnoma to‘lov miqdorining qolgan
                     qismini {{ $type->part1 }} to’lash mumkin bo‘ladi.
@@ -261,12 +255,6 @@
                     </h4>
                 </div>
 
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp

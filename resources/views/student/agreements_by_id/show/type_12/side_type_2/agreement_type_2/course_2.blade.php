@@ -31,7 +31,7 @@
                     ” {{$dateArray['month']}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
+                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar universiteti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
                     tomondan, va _____________________________________________________________ (keyingi o‘rinlarda –
@@ -58,7 +58,7 @@
                     belgilangan tartibga muvofiq ta’lim olish majburiyatini oladi:
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Turizm (faoliyat yo'nalishlari bo'yicha)</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.2.</b> Ta’lim bosqichi: <b>Bakalavr</b>
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp <b>1.3.</b> Ta’lim shakli: <b>Kunduzgi</b>
@@ -67,7 +67,7 @@
                     &nbsp &nbsp &nbsp &nbsp <b>1.4.</b> O’qish davomiyligi: <b>4 (to'rt) yil</b>
                 </p>
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Biologiya</b>
+                    &nbsp &nbsp &nbsp &nbsp <b>1.5.</b> Ta’lim yo‘nalishi: <b>Turizm (faoliyat yo'nalishlari bo'yicha)</b>
                 </p>
             </div>
 
@@ -259,12 +259,6 @@
                     </h4>
                 </div>
 
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
@@ -471,7 +465,7 @@
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
                         6.5. Davlat, xususiy va boshqa oliy ta’lim muassasalarida belgilangan chegirmalar, imtiyozlar
-                        “Navoiy Innovatsiyalar instituti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
+                        “Navoiy Innovatsiyalar universiteti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
                         hujjatlari bilan belgilanadi.
                     </p>
 

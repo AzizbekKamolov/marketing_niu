@@ -31,7 +31,7 @@
                     ” {{$dateArray['month']}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
+                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar universiteti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
                     tomondan, va{{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
@@ -199,10 +199,6 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.4. Talaba o‘quv mashg‘ulotlarida muntazam qatnashadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
                     2.4.5. Talaba OTMda belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
                     darajasini oshirib boradi. Qo‘ldirilgan darslar OTM tomonidan qoplab berilmaydi va ushbu darslar
                     uchun qayta hisob-kitob qilinmaydi.
@@ -260,12 +256,6 @@
                     </h4>
                 </div>
 
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
@@ -472,7 +462,7 @@
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
                         6.5. Davlat, xususiy va boshqa oliy ta’lim muassasalarida belgilangan chegirmalar, imtiyozlar
-                        “Navoiy Innovatsiyalar instituti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
+                        “Navoiy Innovatsiyalar universiteti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
                         hujjatlari bilan belgilanadi.
                     </p>
 
