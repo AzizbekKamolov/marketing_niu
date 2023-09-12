@@ -20,12 +20,6 @@
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
             </div>
-            {{--            <div style="display: inline-block; width: 49%" class="">--}}
-            {{--                {{$dateArray['year']}} yil “{{$dateArray['day']}} ” {{$dateArray['month']}}--}}
-            {{--            </div>--}}
-            {{--            <div style="display: inline-block; width: 49%" class=" text-right">--}}
-            {{--                <span>Toshkent shahri</span>--}}
-            {{--            </div>--}}
             <div class="col-md-6 text-left"><p>Navoiy viloyat</p></div>
             <div class="col-md-6 text-right"><p>{{$dateArray['year']}} yil “{{$dateArray['day']}}
                     ” {{$dateArray['month']}}</p></div>
@@ -200,17 +194,13 @@
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.4. Talaba o‘quv mashg‘ulotlarida muntazam qatnashadi.
-                </p>
-                <p>
-                    &nbsp &nbsp &nbsp &nbsp
-                    2.4.5. Talaba OTMda belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
+                    2.4.4. Talaba OTMda belgilangan tartib va doirada ta’lim oladi hamda ushbu jarayonda bilim
                     darajasini oshirib boradi. Qo‘ldirilgan darslar OTM tomonidan qoplab berilmaydi va ushbu darslar
                     uchun qayta hisob-kitob qilinmaydi.
                 </p>
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    2.4.6. Shartnomani imzolaganidan keyin uning bir nusxasini va boshqa talab qilingan hujjatlarni
+                    2.4.5. Shartnomani imzolaganidan keyin uning bir nusxasini va boshqa talab qilingan hujjatlarni
                     OTMga taqdim etadi. Hujjatlar (ushbu shartnomani imzolangan nusxasi, diplom, attestat va yoki
                     shahodatnoma asli, belgilangan fotosurat, shaxsni tasdiqlovchi hujjat nusxasi) va yoki ularning
                     nusxalarini OTM tomonidan belgilangan muddatda qisman va yoki to‘liq taqdim etilmasligi talabalikka
@@ -261,12 +251,6 @@
                     </h4>
                 </div>
 
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp

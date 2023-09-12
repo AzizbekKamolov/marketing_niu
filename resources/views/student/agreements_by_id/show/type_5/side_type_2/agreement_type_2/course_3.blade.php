@@ -17,7 +17,6 @@
             <div class="col-md-12 text-center text-bold">
                 <h4 class="text-bold">
                     OLIY TA’LIM XIZMATLARINI KO‘RSATISH TO‘G‘RISIDA
-                    To‘lov kontrakt (uch tomonlama kontrakt) asosida mutaxassis tayyorlashga
                 </h4>
                 <h4 class="text-bold">SHARTNOMASI № {{$student->id_code}}</h4>
             </div>
@@ -32,7 +31,7 @@
                     ” {{$dateArray['month']}}</p></div>
             <div class="col-md-12 mt-1 mb-1">
                 <p>
-                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
+                    &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar universiteti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
                     tomondan, va _____________________________________________________________ (keyingi o‘rinlarda –
@@ -269,12 +268,6 @@
                 <div class="col-md-12 mb-1">
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
-                        4.1. Shartnoma quyidagi hollarda OTM tomonidan bir tomonlama bekor qilinadi:
-                    </p>
-                </div>
-                <div class="col-md-12 mb-1">
-                    <p>
-                        &nbsp &nbsp &nbsp &nbsp
                         4.1.1. Ustav va boshqa ichki hujjatlariga muvofiq Talaba talabalar safidan chiqarilganda;
                     </p>
                 </div>
@@ -472,7 +465,7 @@
                     <p>
                         &nbsp &nbsp &nbsp &nbsp
                         6.5. Davlat, xususiy va boshqa oliy ta’lim muassasalarida belgilangan chegirmalar, imtiyozlar
-                        “Navoiy Innovatsiyalar instituti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
+                        “Navoiy Innovatsiyalar universiteti NTM” OTMga tatbiq etilmaydi, bunday holatlar OTM ichki
                         hujjatlari bilan belgilanadi.
                     </p>
 
