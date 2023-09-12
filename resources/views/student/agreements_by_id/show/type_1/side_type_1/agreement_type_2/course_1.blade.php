@@ -28,7 +28,7 @@
                     &nbsp &nbsp &nbsp &nbsp Navoiy Innovatsiyalar instituti NTM (keyingi o‘rinlarda – Ta’lim muassasasi
                     OTM) nomidan Ustavga asosan ish yurutuvchi rektor
                     @include('student.agreements_by_id.show.includes.include_variables') bir
-                    tomondan, va{{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
+                    tomondan, va {{ $student->fio() }} (keying o’rinlarda – Talaba), birgalikda – Tomonlar, Talabani
                     bakalavriat {{ $student->course }}-kurs davomida o‘qitish maqsadida mazkur shartnomani (keyingi
                     o‘rinlarda–Shartnoma) quyidagi
                     shartlar asosida tuzdilar:
