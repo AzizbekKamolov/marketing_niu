@@ -489,13 +489,13 @@ class AgreementController extends Controller
                     if($student->description == 'eski_sana'){
                         $getting_date = date('Y-m-d' , strtotime('2022-12-10'));
                     }
-//                    return $student;
-//                    $dateArray['year'] = date('Y', strtotime($getting_date));
+
+//                    $dateArray['year'] = date('Y' ,strtotime($getting_date));
 //                    $dateArray['month'] = $this->get_month_name(date('m', strtotime($getting_date)));
-//                    $dateArray['day'] = date('d', strtotime($getting_date));
-                    $dateArray['year'] = date('Y' ,strtotime($getting_date));
-                    $dateArray['month'] = $this->get_month_name(date('m', strtotime($getting_date)));
-                    $dateArray['day'] = date('d' ,strtotime($getting_date));
+//                    $dateArray['day'] = date('d' ,strtotime($getting_date));
+                    $dateArray['year'] = date('Y');
+                    $dateArray['month'] = $this->get_month_name(date('m'));
+                    $dateArray['day'] = date('d');
                     $student->all_summa = number_format($all_summa);
                     $student->part2_summa = number_format($part2_summa);
                     $student->part1_summa = number_format($part1_summa);
