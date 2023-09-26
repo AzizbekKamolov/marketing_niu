@@ -440,8 +440,9 @@ class AgreementController extends Controller
                 $request->agreement_side_type_id = $explode[1];
                 $request->agreement_type_id = $explode[2];
             }else{
-                return "Qr kodda xatolik bor";
+                return "<h1>Qr kodda xatolik bor</h1>";
             }
+            dd($explode);
         }
         $student = StudentPayment::find($request->student_id);
         if ($student) {
