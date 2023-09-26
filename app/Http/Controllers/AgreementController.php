@@ -433,6 +433,16 @@ class AgreementController extends Controller
 
     public function show_agreement(Request $request)
     {
+        if ($request->has('code')){
+            $explode = explode('&', $request->code);
+            if (count($explode) == 3 && is_int($explode[0]) && is_int($explode[1]) && is_int($explode[2])){
+                $request->student_id = $explode[0];
+                $request->agreement_side_type_id = $explode[1];
+                $request->agreement_type_id = $explode[2];
+            }else{
+                return "Qr kodda xatolik bor";
+            }
+        }
         $student = StudentPayment::find($request->student_id);
         if ($student) {
             $type = Type::find($student->status_new);
@@ -638,11 +648,14 @@ class AgreementController extends Controller
 
 //                    $qr_string = "Navoiy Innovatsiyalar instituti\n".$student->first_name.' '.$student->last_name."\nJami to`lov summasi: ".$student->all_summa." so`m\nKursi: ".$student->course;
 //                    $qr_string = asset('pechat/qr_code.png');
-                    $path = 'pechat/qr_code.png';
-                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
-                    $data = file_get_contents($path);
-                    $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
-                    $str = "http://marketing.niuedu.uz/student/show-agreement-qr?student_id=$request->student_id&agreement_side_type_id=$request->agreement_side_type_id&agreement_type_id=$request->agreement_type_id";
+//                    $path = 'pechat/qr_code.png';
+//                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
+//                    $data = file_get_contents($path);
+//                    $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
+//                    $a = base64_encode("student_id=$request->student_id&agreement_side_type_id=$request->agreement_side_type_id&agreement_type_id=$request->agreement_type_id");
+                    $a = base64_encode("$request->student_id&$request->agreement_side_type_id&$request->agreement_type_id");
+
+                    $str = "http://marketing.niuedu.uz/student/show-agreement-qr?code=$a";
                     $qrcode = base64_encode(QrCode::size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $str)));
 //                    $qrcode = base64_encode($qr_string);
                     $d = date('Y_m_d__H_i_s');
