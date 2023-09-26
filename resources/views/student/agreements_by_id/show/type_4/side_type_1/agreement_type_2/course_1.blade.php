@@ -244,7 +244,7 @@
 
                 <p>
                     &nbsp &nbsp &nbsp &nbsp
-                    3.3. Buyurtmachi tomonidan Shartnoma bo‘yicha o‘qitish qiymatini to‘lashda to‘lov topshiriqnomasida
+                    3.4. Buyurtmachi tomonidan Shartnoma bo‘yicha o‘qitish qiymatini to‘lashda to‘lov topshiriqnomasida
                     Talabaning familiyasi, ismi, sharifi hamda o‘qiyotgan kursi to‘liq ko‘rsatiladi.
 
                 </p>
