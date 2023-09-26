@@ -434,7 +434,7 @@ class AgreementController extends Controller
     public function show_agreement(Request $request)
     {
         if ($request->has('code')){
-            $explode = explode('&', $request->code);
+            $explode = explode('&', base64_decode($request->code));
             if (count($explode) == 3 && is_int($explode[0]) && is_int($explode[1]) && is_int($explode[2])){
                 $request->student_id = $explode[0];
                 $request->agreement_side_type_id = $explode[1];
@@ -442,7 +442,7 @@ class AgreementController extends Controller
             }else{
                 return "<h1>Qr kodda xatolik bor</h1>";
             }
-            dd($explode);
+
         }
         $student = StudentPayment::find($request->student_id);
         if ($student) {
