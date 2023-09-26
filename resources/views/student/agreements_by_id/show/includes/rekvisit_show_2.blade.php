@@ -80,6 +80,6 @@
     </table>
 
     @if($which_process == 'pdf')
-        <img src="{{$qrcode}} " width="200">
+        <img src="data:image/png;base64, {{$qrcode}} " width="200">
     @endif
 </div>

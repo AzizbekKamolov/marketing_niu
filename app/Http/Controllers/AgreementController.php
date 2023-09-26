@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Test\Model\AgreementSideType;
 use Test\Model\AgreementType;
 use Test\Model\AmountConvertToWord;
@@ -641,7 +642,8 @@ class AgreementController extends Controller
                     $type1 = pathinfo($path, PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
                     $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
-//                    $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
+                    $str = "http://marketing.niuedu.uz/student/show-agreement-qr?student_id=$request->student_id&agreement_side_type_id=$request->agreement_side_type_id&agreement_type_id=$request->agreement_type_id";
+                    $qrcode = base64_encode(QrCode::size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $str)));
 //                    $qrcode = base64_encode($qr_string);
                     $d = date('Y_m_d__H_i_s');
                     return PDF::loadView('student.agreements_by_id.show.type_' . $type->id . '.side_type_' . $agreement_side_type->id . '.agreement_type_' . $agreement_type->id . '.course_' . $student->course, [
