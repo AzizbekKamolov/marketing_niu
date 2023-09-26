@@ -435,13 +435,17 @@ class AgreementController extends Controller
     {
         if ($request->has('code')){
             $explode = explode('&', base64_decode($request->code));
-            dd($explode);
-            if (count($explode) == 3 && is_int($explode[0]) && is_int($explode[1]) && is_int($explode[2])){
-                $request->student_id = $explode[0];
-                $request->agreement_side_type_id = $explode[1];
-                $request->agreement_type_id = $explode[2];
-            }else{
-                return "<h1>Qr kodda xatolik bor</h1>";
+            if (count($explode) == 3) {
+                $student_id = (int)$explode[0];
+                $agreement_side_type_id = (int)$explode[1];
+                $agreement_type_id = (int)$explode[2];
+                if (is_int($student_id) && is_int($agreement_side_type_id) && is_int($agreement_type_id)) {
+                    $request->student_id = $explode[0];
+                    $request->agreement_side_type_id = $explode[1];
+                    $request->agreement_type_id = $explode[2];
+                } else {
+                    return "<h1>Qr kodda xatolik bor</h1>";
+                }
             }
 
         }
