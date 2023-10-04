@@ -238,7 +238,7 @@
                     toʼlov shartnomasi summasini 50% miqdorini
                     {{ $type->part1 }} yoki Talim muassasasi komissiyasi tomonidan belgilangan muddatgacha, bahorgi
                     semestr (ikkinchi yarim yillik) uchun
-                    {{ $type->part1 }} qadar ikkiga boʼlib toʼlash;
+                    {{ $type->part2 }} qadar ikkiga boʼlib toʼlash;
 
                 </p>
 
