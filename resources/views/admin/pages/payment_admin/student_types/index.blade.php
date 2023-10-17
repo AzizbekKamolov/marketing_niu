@@ -86,7 +86,7 @@
                                                    @endforeach
                                                </td>
                                                <td>
-                                                   {{ $item->credit_price->price }}
+                                                   {{ $item->credit_price->price ?? ''}}
                                                </td>
                                                <td>
                                                    <a href="{{ route('payment_admin.types_edit', ['id' => $item->id]) }}" class="btn btn-cyan btn-icon">

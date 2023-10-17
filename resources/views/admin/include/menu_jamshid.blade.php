@@ -314,6 +314,11 @@
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
                 class="hide-menu">Kredit narxlari </span> </a></li>
 @endif
+@if(in_array(auth()->user()->role, [11, 777]))
+    <li class="sidebar-item"><a class="sidebar-link " href="{{route('user.index')}}"
+                                aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                    class="hide-menu">Foydalanuvchilar</span> </a></li>
+@endif
 @if(Auth::user()->role == 12)
     <li class="sidebar-item @if(Request::is('backoffice/ttj-admin/ttj-admin-students')) selected @endif"><a
             class="sidebar-link  " href="{{route('ttj_admin.students')}}" aria-expanded="false"><i

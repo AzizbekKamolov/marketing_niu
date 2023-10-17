@@ -301,7 +301,6 @@ StudentController extends Controller
 //          $students = Student::where('status' , '<>' , 3)->where('status' , '<>' , 4)->paginate(20);
         $students = StudentPayment::orderBy('id', 'DESC')->get();
         $types = Type::query()->get();
-        dd($types);
         return view('admin.pages.shartnoma.index', [
             'data' => $students,
             'types' => Type::query()->get(),
