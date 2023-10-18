@@ -42,7 +42,7 @@
                     <div class="card-body">
                         <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
                             <div>
-                                <h4 class="card-title">Foydalanuvchi qo'shish</h4>
+                                <h4 class="card-title">Foydalanuvchi ma'lumotlarini yangilash</h4>
                             </div>
                             <div>
                                 <button class="btn btn-success form_submit" type="submit" form="student_create"><i
@@ -67,7 +67,8 @@
                                                 Ism
                                                 <span class="error">
                                                 @if ($errors->has('name'))
-                                                        | {{ $errors->first('name') }} @endif
+                                                        | {{ $errors->first('name') }}
+                                                    @endif
                                             </span>
                                             </label>
                                             <input required type="text" class="form-control" name="name"
@@ -78,12 +79,16 @@
                                                 Ism
                                                 <span class="error">
                                                 @if ($errors->has('role'))
-                                                        | {{ $errors->first('role') }} @endif
+                                                        | {{ $errors->first('role') }}
+                                                    @endif
                                             </span>
                                             </label>
                                             <select name="role" class="form-control">
-                                                <option value="7" @if($user->role == 7) selected @endif>Superadmin</option>
-                                                <option value="11" @if($user->role == 11) selected @endif>Payment admin </option>
+                                                @foreach($roles as $role)
+                                                    <option value="{{ $role->id }}"
+                                                    @if($role->id == $user->role) selected @endif
+                                                    >{{ $role->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-6 form-group">
@@ -91,7 +96,8 @@
                                                 Username
                                                 <span class="error">
                                                 @if ($errors->has('username'))
-                                                        | {{ $errors->first('username') }} @endif
+                                                        | {{ $errors->first('username') }}
+                                                    @endif
                                             </span>
                                             </label>
                                             <input required type="text" class="form-control" name="username"
@@ -102,7 +108,8 @@
                                                 Parol
                                                 <span class="error">
                                                 @if ($errors->has('password'))
-                                                        | {{ $errors->first('password') }} @endif
+                                                        | {{ $errors->first('password') }}
+                                                    @endif
                                             </span>
                                             </label>
                                             <input type="password" class="form-control" name="password"
@@ -197,30 +204,30 @@
             'regex': '[0-9]*',
         });
     </script>
-{{--    <script>--}}
-{{--        function get_type_by_degree(id) {--}}
-{{--            var url = '/backoffice/get-type-by-degree/' + id;--}}
-{{--            $.ajax({--}}
-{{--                url: url,--}}
-{{--                method: 'GET',--}}
-{{--                success: function (result3) {--}}
-{{--                    console.log(result3);--}}
-{{--                    var txt = '';--}}
-{{--                    var old = '{{old('status_new')}}';--}}
-{{--                    $.each(JSON.parse(result3), function (key, value) {--}}
-{{--                        if (old == value['id']) {--}}
-{{--                            var gg = 'selected';--}}
-{{--                        } else {--}}
-{{--                            var gg = '';--}}
-{{--                        }--}}
-{{--                        txt = txt + '<option ' + gg + ' value="' + value['id'] + '">' + value['name'] + '</option>';--}}
-{{--                    });--}}
-{{--                    $('select[name="status_new"]').html(txt);--}}
-{{--                }--}}
-{{--            });--}}
-{{--        }--}}
+    {{--    <script>--}}
+    {{--        function get_type_by_degree(id) {--}}
+    {{--            var url = '/backoffice/get-type-by-degree/' + id;--}}
+    {{--            $.ajax({--}}
+    {{--                url: url,--}}
+    {{--                method: 'GET',--}}
+    {{--                success: function (result3) {--}}
+    {{--                    console.log(result3);--}}
+    {{--                    var txt = '';--}}
+    {{--                    var old = '{{old('status_new')}}';--}}
+    {{--                    $.each(JSON.parse(result3), function (key, value) {--}}
+    {{--                        if (old == value['id']) {--}}
+    {{--                            var gg = 'selected';--}}
+    {{--                        } else {--}}
+    {{--                            var gg = '';--}}
+    {{--                        }--}}
+    {{--                        txt = txt + '<option ' + gg + ' value="' + value['id'] + '">' + value['name'] + '</option>';--}}
+    {{--                    });--}}
+    {{--                    $('select[name="status_new"]').html(txt);--}}
+    {{--                }--}}
+    {{--            });--}}
+    {{--        }--}}
 
-{{--    </script>--}}
+    {{--    </script>--}}
 @endsection
 
 

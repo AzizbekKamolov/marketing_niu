@@ -4,6 +4,7 @@ namespace Test\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Test\Http\Controllers\Controller;
+use Test\Role;
 use Test\User;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.pages.payment_admin.users.create');
+        $roles = Role::query()->get();
+        return view('admin.pages.payment_admin.users.create', compact('roles'));
     }
     public function store(Request $request)
     {
@@ -36,7 +38,8 @@ class UserController extends Controller
     }
     public function edit(User $user)
     {
-        return view('admin.pages.payment_admin.users.edit', compact('user'));
+        $roles = Role::query()->get();
+        return view('admin.pages.payment_admin.users.edit', compact('user', 'roles'));
     }
 
     public function show($id)

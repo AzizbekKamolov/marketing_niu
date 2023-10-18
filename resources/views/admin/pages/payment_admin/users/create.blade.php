@@ -81,8 +81,9 @@
                                             </span>
                                             </label>
                                             <select name="role" class="form-control">
-                                                <option value="7">Superadmin</option>
-                                                <option value="11">Payment admin </option>
+                                                @foreach($roles as $role)
+                                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-6 form-group">
