@@ -15,6 +15,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index()
     {
     	if (Auth::user()->role == 5) {
