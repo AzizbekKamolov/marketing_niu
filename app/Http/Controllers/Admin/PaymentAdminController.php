@@ -287,22 +287,22 @@ class PaymentAdminController extends Controller
         $student->course = $request->course;
         $student->status_check = 1;
         $student->save();
-        if (isset($request->send_id_code) && $request->send_id_code == 'on' && $request->phone != '' && $request->phone != null) {
-            $number = str_replace('+', '', $request->phone);
-            $number = str_replace('(', '', $number);
-            $number = str_replace(')', '', $number);
-            $number = str_replace('_', '', $number);
-            $number = str_replace('-', '', $number);
-            if (strlen($number) == 12) {
-                $send_sms = new SmsSend();
-                $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
-                $result = $send_sms->send_one_sms($number, $text);
-                if ($result) {
-                    $student->sms_sended = 1;
-                    $student->update();
-                }
-            }
-        }
+//        if (isset($request->send_id_code) && $request->send_id_code == 'on' && $request->phone != '' && $request->phone != null) {
+//            $number = str_replace('+', '', $request->phone);
+//            $number = str_replace('(', '', $number);
+//            $number = str_replace(')', '', $number);
+//            $number = str_replace('_', '', $number);
+//            $number = str_replace('-', '', $number);
+//            if (strlen($number) == 12) {
+//                $send_sms = new SmsSend();
+//                $text = 'NIU MARKETING: Hurmatli talaba sizning marketing.niuedu.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
+//                $result = $send_sms->send_one_sms($number, $text);
+//                if ($result) {
+//                    $student->sms_sended = 1;
+//                    $student->update();
+//                }
+//            }
+//        }
         return redirect()->back()->with('success', 'Ma`lumot saqlandi');
     }
 
@@ -396,28 +396,28 @@ class PaymentAdminController extends Controller
     public function send_id_code(Request $request)
     {
         $student = StudentPayment::find($request->student_id);
-        if ($student) {
-            $sms = new SmsSend();
-            if ($student->phone) {
-                if (strlen($student->phone) == 13) {
-                    $number = str_replace('+', '', $student->phone);
-                    $number = str_replace(' ', '', $number);
-                    $number = str_replace('_', '', $number);
-                    if (strlen($number) == 12) {
-                        $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
-                        $sms->send_one_sms($number, $text);
-                        return redirect()->back()->with('success', 'Jo`natildi');
-                    } else {
-                        return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
-                    }
-                } else {
-                    return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
-                }
-            }
-            return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
-        } else {
-            return redirect()->back()->with('error', 'Talaba topilmadi');
-        }
+//        if ($student) {
+//            $sms = new SmsSend();
+//            if ($student->phone) {
+//                if (strlen($student->phone) == 13) {
+//                    $number = str_replace('+', '', $student->phone);
+//                    $number = str_replace(' ', '', $number);
+//                    $number = str_replace('_', '', $number);
+//                    if (strlen($number) == 12) {
+//                        $text = 'TSUL MARKETING: Hurmatli talaba sizning marketing.tsul.uz tizimidan foydalanishingiz uchun id kodingiz: 002-00' . $student->id_code;
+//                        $sms->send_one_sms($number, $text);
+//                        return redirect()->back()->with('success', 'Jo`natildi');
+//                    } else {
+//                        return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+//                    }
+//                } else {
+//                    return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+//                }
+//            }
+//            return redirect()->back()->with('error', 'Telefon raqam to`liq emas');
+//        } else {
+//            return redirect()->back()->with('error', 'Talaba topilmadi');
+//        }
 //        return $request;
     }
 
