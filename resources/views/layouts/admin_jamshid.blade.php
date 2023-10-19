@@ -98,7 +98,7 @@
                                 {{-- <img src="{{ asset('assets_admin/assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" /> --}}
                                 <!-- Light Logo text -->
                                 {{-- <img src="{{ asset('assets_admin/assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /> --}}
-                                <h3><b style="color: black;">Navoiy Innovatsiyalar Universiteti</b></h3>
+                                <h3><b style="color: black;">Navoiy Innovatsiyalar <br>Universiteti</b></h3>
                             </span>
                         </a>
                     </div>
