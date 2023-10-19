@@ -81,6 +81,8 @@ Route::group([
     ]);
 
     //jamshid
+    Route::resource('role', 'RoleController');
+    Route::get('role/delete/{user}', 'RoleController@destroy')->name('roles.delete');
     Route::resource('user', 'UserController');
     Route::get('user/delete/{user}', 'UserController@destroy')->name('users.delete');
     Route::resource('student', 'StudentController');
