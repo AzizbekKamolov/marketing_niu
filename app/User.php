@@ -27,7 +27,7 @@ class User extends Authenticatable
     public function getRole()
     {
         switch ($this->role){
-            case 7: echo "Superadmin"; break;
+            case 777: echo "Superadmin"; break;
             case 6: echo "Admin"; break;
             case 5: echo "Dekan"; break;
             case 8: echo "Stat"; break;

@@ -63,6 +63,17 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="">
+                                                Role ID
+                                                <span class="error">
+                                                @if ($errors->has('id'))
+                                                        | {{ $errors->first('id') }} @endif
+                                            </span>
+                                            </label>
+                                            <input required type="text" class="form-control" name="id"
+                                                   value="@if(old('id')){{old('id')}}@endif">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="">
                                                 Role nomi
                                                 <span class="error">
                                                 @if ($errors->has('name'))
