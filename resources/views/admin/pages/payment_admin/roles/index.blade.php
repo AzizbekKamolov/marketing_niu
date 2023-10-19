@@ -56,6 +56,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th></th>
                                     <th></th>
@@ -65,6 +66,9 @@
                                 @foreach($roles as $item)
                                     <tr>
                                         <td>{{  $loop->iteration }}</td>
+                                        <td>
+                                            {{ $item->id }}
+                                        </td>
                                         <td>
                                             {{ $item->name }}
                                         </td>

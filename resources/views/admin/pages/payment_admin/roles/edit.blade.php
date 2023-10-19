@@ -62,7 +62,19 @@
                                 <fieldset class="scheduler-border ">
                                     <legend class="scheduler-border w-auto">Majburiy</legend>
                                     <div class="row">
-                                        <div class="col-md-12 form-group">
+                                        <div class="col-md-6 form-group">
+                                            <label for="">
+                                                Role
+                                                <span class="error">
+                                                @if ($errors->has('id'))
+                                                        | {{ $errors->first('id') }}
+                                                    @endif
+                                            </span>
+                                            </label>
+                                            <input required type="text" class="form-control" name="id"
+                                                   value="{{ $role->id }}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
                                             <label for="">
                                                 Role
                                                 <span class="error">
