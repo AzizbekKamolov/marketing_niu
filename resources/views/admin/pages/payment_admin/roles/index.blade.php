@@ -73,16 +73,20 @@
                                             {{ $item->name }}
                                         </td>
                                         <td class="last-td">
-                                            <a href="{{route('role.edit' , ['id' => $item->id])}}"
-                                               class="btn btn-info"><i
-                                                        class="fa fa-edit"></i></a>
+                                            @if(auth()->user()->role == 777 )
+                                                <a href="{{route('role.edit' , ['id' => $item->id])}}"
+                                                   class="btn btn-info"><i
+                                                            class="fa fa-edit"></i></a>
+                                            @endif
 
                                         </td>
                                         <td class="last-td">
-                                            <a href="{{route('roles.delete' , [$item->id])}}"
-                                               class="btn btn-danger"
-                                               onclick="confirm('Haqiqatdaan ham o\'chirmoqchimisiz')"><i
-                                                        class="fa fa-trash"></i></a>
+                                            @if(auth()->user()->role == 777)
+                                                <a href="{{route('roles.delete' , [$item->id])}}"
+                                                   class="btn btn-danger"
+                                                   onclick="confirm('Haqiqatdaan ham o\'chirmoqchimisiz')"><i
+                                                            class="fa fa-trash"></i></a>
+                                            @endif
 
                                         </td>
                                     </tr>

@@ -41,10 +41,11 @@
                             <div>
                                 <h4 class="card-title">Talabalar ro'yhati</h4>
                             </div>
-                            @if(Auth::user()->role == 11)
+                            @if(Auth::user()->role == 777)
                                 <div>
                                     <a href="{{route('user.create')}}" class="btn btn-success"
-                                       style="color: white; cursor: pointer"><i class="fa fa-plus"></i> Foydalanuvchi qo'shish
+                                       style="color: white; cursor: pointer"><i class="fa fa-plus"></i> Foydalanuvchi
+                                        qo'shish
                                     </a>
                                 </div>
                             @endif
@@ -80,16 +81,20 @@
 
                                         </td>
                                         <td class="last-td">
-                                            <a href="{{route('user.edit' , ['id' => $item->id])}}"
-                                               class="btn btn-info"><i
-                                                        class="fa fa-edit"></i></a>
+                                            @if(auth()->user()->role == 777)
+                                                <a href="{{route('user.edit' , ['id' => $item->id])}}"
+                                                   class="btn btn-info"><i
+                                                            class="fa fa-edit"></i></a>
+                                            @endif
 
                                         </td>
                                         <td class="last-td">
-                                            <a href="{{route('users.delete' , [$item->id])}}"
-                                               class="btn btn-danger"
-                                               onclick="confirm('Haqiqatdaan ham o\'chirmoqchimisiz')"><i
-                                                        class="fa fa-trash"></i></a>
+                                            @if(auth()->user()->role == 777)
+                                                <a href="{{route('users.delete' , [$item->id])}}"
+                                                   class="btn btn-danger"
+                                                   onclick="confirm('Haqiqatdaan ham o\'chirmoqchimisiz')"><i
+                                                            class="fa fa-trash"></i></a>
+                                            @endif
 
                                         </td>
                                     </tr>
