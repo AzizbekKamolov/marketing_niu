@@ -10,6 +10,6 @@ class Payment extends Model
 {
     protected  $table = 'payments';
     public function student(){
-        return $this->belongsTo('App\Model\StudentPayment');
+        return $this->belongsTo(StudentPayment::class, 'student_id', 'id');
     }
 }

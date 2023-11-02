@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreditPrices extends Migration
+class AddColumnBacklogToStudents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreditPrices extends Migration
      */
     public function up()
     {
-        Schema::create('credit_prices', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('degree');
-            $table->integer('price');
-            $table->timestamps();
+        Schema::table('students', function (Blueprint $table) {
+            $table->string('backlog')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreditPrices extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropColumn('backlog');
+        });
     }
 }
