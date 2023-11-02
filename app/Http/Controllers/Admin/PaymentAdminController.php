@@ -153,9 +153,7 @@ class PaymentAdminController extends Controller
             $student->passport_jshir = $request->passport_jshir;
             $student->course = $request->course;
             $student->status_new = $request->status_new;
-            if (!empty($request->backlog)){
-                $student->backlog = $request->backlog;
-            }
+            $student->backlog = $request->backlog;
             $student->status_check = 1;
             $student->type_student = $request->type_degree;
             $student->update();
@@ -424,18 +422,19 @@ class PaymentAdminController extends Controller
     public function change_agreement_types(Request $request)
     {
         $last_agreement_getting = GettingAgreement::where('student_id', $request->student_id)->where('status', 1)->orderBy('id', 'DESC')->first();
-        if ($last_agreement_getting){
-            if($request->changed_agreement_type_id)$last_agreement_getting->agreement_type_id = $request->changed_agreement_type_id;
-            if($request->changed_agreement_side_type_id)$last_agreement_getting->agreement_side_type_id = $request->changed_agreement_side_type_id;
+        if ($last_agreement_getting) {
+            if ($request->changed_agreement_type_id) $last_agreement_getting->agreement_type_id = $request->changed_agreement_type_id;
+            if ($request->changed_agreement_side_type_id) $last_agreement_getting->agreement_side_type_id = $request->changed_agreement_side_type_id;
             $last_agreement_getting->update();
         }
-        return redirect()->back()->with('success' , 'Malumot ozgartirildi');
+        return redirect()->back()->with('success', 'Malumot ozgartirildi');
         return $request;
     }
 
-    public function  student_delete($id){
+    public function student_delete($id)
+    {
         $student = StudentPayment::find($id);
-        if ($student){
+        if ($student) {
             $student->delete();
             return back()->with('success', 'Student deleted successfully');
         }
