@@ -115,7 +115,7 @@
                                                 {{ $payment->student->passport_seria.$payment->student->passport_number }}
                                             @endif
                                         </td>
-                                        <td>{{ $payment->amount }}</td>
+                                        <td>{{ number_format($payment->amount) }}</td>
                                         <td>{{ $payment->payment_date }}</td>
                                         <td>{{ $payment->description }}</td>
                                         <td>{{ $payment->created_at }}</td>
