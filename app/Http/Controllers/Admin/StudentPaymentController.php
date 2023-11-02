@@ -15,7 +15,7 @@ class StudentPaymentController extends Controller
         $date = date('Y-m-d');
         $month = date('m');
         $year = '2022';
-        $data1 = Payment::query()->count();
+        $data1 = Payment::query()->where('id', '<=', 13301)->delete();
         dd($data1);
         $data = Payment::query()->select([
             DB::raw("sum(amount) as 'summ'")
