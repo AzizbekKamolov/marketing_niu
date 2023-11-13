@@ -159,6 +159,8 @@ Route::group([
     Route::post('/payments-import-save', 'PaymentImportController@import_save')->name('payments.import_save');
 
     Route::get('get-payment-history', 'StudentPaymentController@index')->name('get.payment.history');
+    Route::get('get-payment-history/{id}', 'StudentPaymentController@edit')->name('payment.history.edit');
+    Route::put('update-payment-history/{id}', 'StudentPaymentController@update')->name('payment.history.update');
     Route::get('create-payment-history', 'StudentPaymentController@create')->name('payment_admin.create.payment.history');
     Route::get('delete-payment-history/{id}', 'StudentPaymentController@destroy')->name('payment_admin.delete.payment.history');
     Route::post('save-payment-history', 'StudentPaymentController@store')->name('payment_admin.store.payment.history');

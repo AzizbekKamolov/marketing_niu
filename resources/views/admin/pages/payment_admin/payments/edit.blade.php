@@ -1,58 +1,114 @@
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 800px;">
-    <div class="modal-content">
-        <form action="{{route('payment_admin.store.payment.history')}}" method="post">
-            {{csrf_field()}}
+@extends('layouts.admin_jamshid')
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">ddd</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+@section('content')
+
+    <style type="text/css">
+        .pagination li a {
+            padding: 12px;
+            border: 1px solid #E8EEF3;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .pagination li.active span {
+            padding: 12px;
+            border: 1px solid #E8EEF3 !important;
+            background-color: #5f76e8;
+            margin-left: 5px;
+            margin-right: 5px;
+            color: white;
+        }
+
+        .border-default {
+            border: 1px solid #E8EEF3;
+
+        }
+
+        .last-td {
+            width: 1px;
+            padding-left: 3px !important;
+            padding-right: 3px !important;
+        }
+
+    </style>
+    <div class="container-fluid">
+
         <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="">
-                    Passport seria va raqam
-                    <span class="error">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between; padding-bottom: 15px;">
+                            <form action="{{route('payment.history.update', [$data->id])}}" method="post">
+                                {{csrf_field()}}
+                                <input type="hidden" name="_method" value="PUT">
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="">
+                                                Passport seria va raqam
+                                                <span class="error" style="color: red">
+                                                    @if(session()->has('student_error')) {{ session()->get('student_error') }} @endif
                                                 @if ($errors->has('passport_seria'))
-                            | {{ $errors->first('passport_seria') }} @endif
-                        @if ($errors->has('passport_number'))
-                            | {{ $errors->first('passport_number') }} @endif
-                        @if ($errors->has('passport_seria_number'))
-                            | {{ $errors->first('passport_seria_number') }} @endif
+                                                        | {{ $errors->first('passport_seria') }} @endif
+                                                    @if ($errors->has('passport_number'))
+                                                        | {{ $errors->first('passport_number') }} @endif
+                                                    @if ($errors->has('passport_seria_number'))
+                                                        | {{ $errors->first('passport_seria_number') }} @endif
                                             </span>
-                    <div style="display: flex; margin-top: 7px;">
-                        <input required type="text" class="form-control" style="width: 30%"
-                               name="passport_seria"
-                               value="@if(old('passport_seria')){{old('passport_seria')}}@endif">
-                        <input required type="text" class="form-control" style="width: 70%"
-                               name="passport_number"
-                               value="@if(old('passport_number')){{old('passport_number')}}@endif">
+                                                <div style="display: flex; margin-top: 7px;">
+                                                    <input required type="text" class="form-control" style="width: 30%"
+                                                           name="passport_seria"
+                                                           value="@if($data->student){{$data->student->passport_seria}}@endif">
+                                                    <input required type="text" class="form-control" style="width: 70%"
+                                                           name="passport_number"
+                                                           value="@if($data->student){{$data->student->passport_number}}@endif">
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="">To'lov summasi
+                                            <span class="error" style="color: red">@if ($errors->has('amount'))
+                                                    | {{ $errors->first('amount') }} @endif</span>
+                                            </label>
+                                            <input type="text" class="form-control payment_amount" name="amount" value="{{ $data->amount }}">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="">To'lov sanasi<span class="error" style="color: red">@if ($errors->has('payment_date'))
+                                                        | {{ $errors->first('payment_date') }} @endif</span></label>
+                                            <input type="date" class="form-control" name="payment_date" value="{{ $data->payment_date }}">
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <label for="">Izoh<span style="color: red">@if ($errors->has('description'))
+                                                        | {{ $errors->first('description') }} @endif</span></label>
+                                            <textarea name="description" id="" cols="30" rows="4" class="form-control" >{{ $data->description }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> Saqlash</button>
+                                </div>
+                            </form>
+
                     </div>
-                </label>
+
+                </div>
             </div>
-            <div class="col-md-6 form-group">
-                <label for="">To'lov summasi</label>
-                <input type="text" class="form-control payment_amount" name="amount">
-            </div>
-            <div class="col-md-6 form-group">
-                <label for="">To'lov sanasi</label>
-                <input type="date" class="form-control" name="payment_date">
-            </div>
-            <div class="col-md-12 form-group">
-                <label for="">Izoh</label>
-                <textarea name="description" id="" cols="30" rows="4" class="form-control" ></textarea>
-            </div>
-            <input type="text" hidden readonly value="11" name="student_id">
+
+
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Yopish</button>
-        <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> Saqlash</button>
-      </div>
-        </form>
     </div>
-  </div>
-</div>
+
+@endsection
+@section('js')
+    <script>
+        $('input[name="passport_seria"]').inputmask({
+            'mask': 'AA',
+        });
+        $('input[name="passport_number"]').inputmask({
+            'mask': '9999999',
+        });
+    </script>
+@endsection
+
