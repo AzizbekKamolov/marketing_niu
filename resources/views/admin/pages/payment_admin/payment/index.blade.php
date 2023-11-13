@@ -90,6 +90,10 @@
                                                    <td></td>
                                                    <td>{{$item->description}}</td>
                                                    <td class="last-td">
+                                                       <a href="{{route('payment.history.edit' , ['id' => $item->id])}}"
+                                                          class="btn btn-light"
+                                                          style="color: #0053ff"><i
+                                                                   class="fa fa-edit"></i></a>
                                                        <form  action="{{route('payment_admin.student.payment.delete' , ['id' => $item->id])}}" method="post">
                                                            <a href="#" class="btn btn-light btn_delete" style="color: #cc3b38"><i class="fa fa-trash"></i></a>
                                                            {{csrf_field()}}

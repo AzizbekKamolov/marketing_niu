@@ -81,19 +81,21 @@
                                 <h4 class="card-title">Talabalar ro'yhati</h4>
                             </div>
                             <form action="{{ route('get.payment.history') }}" method="get" class="form-inline">
-                                   <div class="form-group">
-                                       <input type="date" class="form-control" name="from_date"
-                                       value="{{ request('from_date') }}">
-                                       <label for="">dan</label>
-                                   </div>
-                                   <div class="form-group mx-sm-3">
-                                       <input type="date" class="form-control" name="to_date"
-                                              value="{{ request('to_date') }}">
-                                       <label for="">gacha</label>
-                                   </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-outline-success"><i class="fa fa-filter"></i></button>
-                                    <a href="{{ route('get.payment.history') }}" type="submit" class="btn btn-outline-info"><i class="fa fa-home"></i></a>
+                                    <input type="date" class="form-control" name="from_date"
+                                           value="{{ request('from_date') }}">
+                                    <label for="">dan</label>
+                                </div>
+                                <div class="form-group mx-sm-3">
+                                    <input type="date" class="form-control" name="to_date"
+                                           value="{{ request('to_date') }}">
+                                    <label for="">gacha</label>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-success"><i class="fa fa-filter"></i>
+                                    </button>
+                                    <a href="{{ route('get.payment.history') }}" type="submit"
+                                       class="btn btn-outline-info"><i class="fa fa-home"></i></a>
                                 </div>
                             </form>
                             <div>
@@ -136,11 +138,12 @@
                                         <td>{{ $payment->payment_date }}</td>
                                         <td>{{ $payment->description }}</td>
                                         <td>{{ $payment->created_at }}</td>
-                                        {{--                                        <td class="last-td">--}}
-                                        {{--                                            <a href="{{route('payment_admin.student.check.edit' , ['id' => $payment->id])}}"--}}
-                                        {{--                                               class="btn btn-light" style="color: #0053ff"><i--}}
-                                        {{--                                                        class="fa fa-edit"></i></a>--}}
-                                        {{--                                        </td>--}}
+                                        <td class="last-td">
+                                            <a href="{{route('payment.history.edit' , ['id' => $payment->id])}}"
+                                               class="btn btn-light"
+                                               style="color: #0053ff"><i
+                                                        class="fa fa-edit"></i></a>
+                                        </td>
                                         <td class="last-td">
                                             <a href="{{route('payment_admin.delete.payment.history' , [$payment->id])}}"
                                                class="btn btn-danger"
