@@ -13,15 +13,29 @@ class StudentPaymentController extends Controller
     public function index(Request $request)
     {
         $date = date('Y-m-d');
+
         $month = date('m');
-        $data = Payment::query()->select([
-            DB::raw("sum(amount) as 'summ'")
-        ])->whereDate('created_at', $date)->first();
         $dataMonth = Payment::query()->select([
             DB::raw("sum(amount) as 'summ'")
         ])->whereMonth('created_at', $month)->first();
+        if ($request->to_date){
+            $date = $request->to_date;
+            $dataMonth = Payment::query()->select([
+                DB::raw("sum(amount) as 'summ'")
+            ])->whereDate('created_at', '<=', $date)->first();
+        }
+        $data = Payment::query()->select([
+            DB::raw("sum(amount) as 'summ'")
+        ])->whereDate('created_at', $date)->first();
 
-        $payments = Payment::query()->with('student')->latest()->paginate();
+        $payments = Payment::query()->with('student')->where(function ($query) use ($request){
+            if ($request->from_date){
+                $query->whereDate('created_at', '>=', $request->from_date);
+            }
+            if ($request->to_date){
+                $query->whereDate('created_at', '<=', $request->to_date);
+            }
+        })->latest()->paginate();
         return view('admin.pages.payment_admin.payments.index', compact('payments', 'data', 'dataMonth'));
     }
 
