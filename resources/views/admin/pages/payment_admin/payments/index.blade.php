@@ -99,6 +99,12 @@
                                 </div>
                             </form>
                             <div>
+                                @include('admin.pages.payment_admin.payments.importPaymentsModal')
+                                <a href="{{ asset('files/niu_marketing.xlsx') }}" class="btn btn-cyan"><i class="fa fa-download"></i>To'lovlar import example</a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#importStudentsModal">
+                                    To'lovlar import
+                                </button>
                                 <a href="{{ route('payment_admin.create.payment.history') }}" class="btn btn-success">
                                     <i class="fa fa-plus">To'lov qo'shish</i>
                                 </a>

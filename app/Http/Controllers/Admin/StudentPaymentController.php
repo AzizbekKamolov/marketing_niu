@@ -5,6 +5,7 @@ namespace Test\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Test\Http\Controllers\Controller;
+use Test\Imports\StudentImport;
 use Test\Model\Payment;
 use Test\Model\StudentPayment;
 
@@ -110,5 +111,40 @@ class StudentPaymentController extends Controller
         $data = Payment::query()->findOrFail($id);
         $data->delete();
         return redirect()->route('get.payment.history')->with('success', "To'lov tarixi o'chirildi");
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file',
+        ]);
+
+        $file = $request->file('file');
+        $data = \Excel::toCollection(new StudentImport, $file);
+        if (count($data) >= 1) {
+            $result = [];
+            foreach ($data[0] as $d) {
+                while (strlen($d['passport_number']) < 7){
+                    $d['passport_number'] = '0' . $d['passport_number'];
+                }
+                $student = StudentPayment::query()->where('passport_seria', $d['passport_seria'])
+                    ->where('passport_number', $d['passport_number'])
+                    ->first();
+                if (!empty($student)){
+                    $a['id_code'] = $student->id_code;
+                    $a['student_id'] = $student->id;
+                    $a['amount'] = $d['amount'];
+                    $a['description'] = $d['description'];
+                    $a['payment_date'] = date("Y-m-d", strtotime($d['payment_date']));
+                    $a['created_by'] = auth()->user()->id;
+//                    $a['passport_seria'] = $student->passport_seria;
+//                    $a['passport_number'] = $student->passport_number;
+                    $result[] = $a;
+                }
+            }
+            Payment::query()->insert($result);
+            return redirect()->route('get.payment.history')->with('success', "To'lovlar tarixi saqlandi");
+        }
+        return redirect()->route('get.payment.history')->with('error', 'To\'lovlar tarixi saqlanmadi');
     }
 }
