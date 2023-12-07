@@ -137,6 +137,7 @@ class StudentPaymentController extends Controller
                     $a['description'] = $d['description'];
                     $a['payment_date'] = date("Y-m-d", strtotime($d['payment_date']));
                     $a['created_by'] = auth()->user()->id;
+                    $a['created_at'] = date("Y-m-d H:i:s");
 //                    $a['passport_seria'] = $student->passport_seria;
 //                    $a['passport_number'] = $student->passport_number;
                     $result[] = $a;
