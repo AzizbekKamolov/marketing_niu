@@ -33,10 +33,13 @@
                     <span class="text-bold">Faks:</span>
                     +998 95 277 00 88 <br>
                     <span class="text-bold">Bank rekvizitlari:</span><br>
-                    <span>“Invest Finance Bank" ATB</span><br>
-                    <span class="text-bold">H/r:</span> 20212000605461327002 <br>
+                    <span>AT  "Aloqabank" BOSH</span><br>
+{{--                    <span>“Invest Finance Bank" ATB</span><br>--}}
+{{--                    <span class="text-bold">H/r:</span> 20212000605461327002 <br>--}}
+                    <span class="text-bold">H/r:</span> 20212000905461327001 <br>
                     <span class="text-bold">INN:</span> 309037476 <br>
-                    <span class="text-bold">MФО:</span> 01148 <br>
+{{--                    <span class="text-bold">MФО:</span> 01148 <br>--}}
+                    <span class="text-bold">MФО:</span> 00401 <br>
                     Rahbar: @include('student.agreements_by_id.show.includes.include_variables')
                     <br>
                     <br>
