@@ -2,26 +2,22 @@
 
 namespace Test\Http\Controllers;
 
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use App;
+use PDF;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Test\Model\AgreementSideType;
 use Test\Model\AgreementType;
 use Test\Model\AmountConvertToWord;
-use Test\Model\GettingAgreement;
-use Test\Model\OtherAgreementType;
-use Test\Model\Student;
-use Test\Model\Lyceum;
 use Test\Model\Discount;
-use PDF;
+use Test\Model\GettingAgreement;
+use Test\Model\Lyceum;
+use Test\Model\OtherAgreementType;
 use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
 use Test\Model\StudentTypeAgreementSideType;
 use Test\Model\StudentTypeAgreementType;
 use Test\Model\Type;
+
 //use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
@@ -70,7 +66,7 @@ class AgreementController extends Controller
                         'agreement_side_types' => $agreement_side_types
                     ]);
                 } else {
-                    return redirect()->back()->with('error', "pasprot nomer xato");
+                    return redirect()->back()->with('error', "passport nomer xato");
                 }
             } else {
                 return redirect()->back()->with('error', "pasprot seria xato");
@@ -104,10 +100,12 @@ class AgreementController extends Controller
     {
         return view('student.agreement.form_first_classified_course_masofaviy');
     }
+
     public function form_first_classified_courses_transfer_study()
     {
         return view('student.agreement.form_first_classified_courses_transfer_study');
     }
+
     public function form_first_classified_courses_magistr()
     {
         return view('student.agreement.form_first_classified_courses_magistr');
@@ -117,10 +115,12 @@ class AgreementController extends Controller
     {
         return view('student.agreement.form_classified_perevod');
     }
+
     public function form_classified_perevod_sirtqi()
     {
         return view('student.agreement.form_classified_perevod_sirtqi');
     }
+
     public function form_super_magister()
     {
         return view('student.agreement.super_magister');
@@ -217,6 +217,53 @@ class AgreementController extends Controller
     public function lyceum_form()
     {
         return view('student.agreement_lyceum.form');
+    }
+
+    public function getSideTypes(Request $request)
+    {
+        if ($request->passport) {
+            $payment_student = StudentPayment::query()
+//                ->with('type.agreement_side_types')
+//                ->with('type.other_agreement_types')
+//                ->with('getting_agreements')
+                ->where('passport_seria', strtoupper(substr($request->passport, 0, 2)))
+                ->where('passport_number', substr($request->passport, 2))
+                ->first();
+            if ($payment_student) {
+                        $agreement_type_ids = StudentTypeAgreementType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
+                        $agreement_side_type_ids = StudentTypeAgreementSideType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
+                        $getting = GettingAgreement::query()->where('student_id', $payment_student->id)->where('status', 1)->first();
+                        $agreement_types = AgreementType::query()->where(function ($query) use ($getting) {
+                            if ($getting) {
+                                $query->where('id', $getting->agreement_type_id);
+                            }
+                        })->whereIn('id', $agreement_type_ids)->get();
+                        $agreement_side_types = AgreementSideType::query()->whereIn('id', $agreement_side_type_ids)->get();
+                        $result = [];
+                        foreach ($agreement_side_types as $type){
+                            $a['name'] = $type->name;
+                            $b = [];
+                            foreach ($agreement_types as $t){
+                                $c['name'] = $t->name;
+                                $base = base64_encode("$payment_student->id&$type->id&$t->id");
+                                $c['url'] = "http://marketing.niuedu.uz/student/download-agreement?code=$base";
+                                $b[] = $c;
+                            }
+                            $a['types'] = $b;
+                            $result[] = $a;
+                        }
+                        return response()->json([
+                            'data' => $result,
+                            'status' => 1,
+                            "message" => "success",
+                            "student" => $payment_student
+                        ], 200);
+                }
+        }
+        return response()->json([
+            "status" => 0,
+            "message" => "Siz talabalar ro'yxatidan topilmadingiz"
+        ], 404);
     }
 
     public function lyceum_show_agreement(Request $request)
@@ -358,11 +405,11 @@ class AgreementController extends Controller
             $d = date('Y_m_d__H_i_s');
             if ($amount->type == 'simple') {
                 $b = PDF::loadView('student.agreement_lyceum.agreement_pdf', ['data' => $ly])->download($ly->fio() . '.pdf');
-                \Storage::disk('students')->put($ly->fio(). $d . ".pdf", $b);
+                \Storage::disk('students')->put($ly->fio() . $d . ".pdf", $b);
                 return $b;
             } elseif ($amount->type == 'super') {
-                $b =  PDF::loadView('student.agreement_lyceum.agreement_pdf_super', ['data' => $ly])->download($ly->fio() . '.pdf');
-                \Storage::disk('students')->put($ly->fio(). $d . ".pdf", $b);
+                $b = PDF::loadView('student.agreement_lyceum.agreement_pdf_super', ['data' => $ly])->download($ly->fio() . '.pdf');
+                \Storage::disk('students')->put($ly->fio() . $d . ".pdf", $b);
                 return $b;
             }
         }
@@ -433,7 +480,7 @@ class AgreementController extends Controller
 
     public function show_agreement(Request $request)
     {
-        if ($request->has('code')){
+        if ($request->has('code')) {
             $explode = explode('&', base64_decode($request->code));
             if (count($explode) == 3) {
                 $student_id = (int)$explode[0];
@@ -444,7 +491,10 @@ class AgreementController extends Controller
                     $request->agreement_side_type_id = $explode[1];
                     $request->agreement_type_id = $explode[2];
                 } else {
-                    return "<h1>Qr kodda xatolik bor</h1>";
+                    return response()->json([
+                        "status" => 0,
+                        "message" => "Siz talabalar ro'yxatidan topilmadingiz"
+                    ], 404);
                 }
             }
 
@@ -466,7 +516,7 @@ class AgreementController extends Controller
                         $all_summa = $all_summa * $dif_discount;
                     }
                     $qarz = $student->backlog;
-                    if (isset($student->backlog)){
+                    if (isset($student->backlog)) {
                         $all_summa = $qarz;
                     }
                     $part1_summa = '';
@@ -503,8 +553,8 @@ class AgreementController extends Controller
                     if ($getting) {
                         $getting_date = $getting->getting_date;
                     }
-                    if($student->description == 'eski_sana'){
-                        $getting_date = date('Y-m-d' , strtotime('2022-12-10'));
+                    if ($student->description == 'eski_sana') {
+                        $getting_date = date('Y-m-d', strtotime('2022-12-10'));
                     }
 
 //                    $dateArray['year'] = date('Y' ,strtotime($getting_date));
@@ -524,12 +574,12 @@ class AgreementController extends Controller
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
                     $accessTypesArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-                            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
+                        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
 //                    $path = 'pechat/qr_code.png';
 //                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
 //                    $data = file_get_contents($path);
 //                    $qrcode = 'data:image/' . $type1 . ';base64,' . base64_encode($data);
-                    if (in_array($type->id,$accessTypesArray)) {
+                    if (in_array($type->id, $accessTypesArray)) {
                         if ($student->status == 0) {
                             return "Siz uchun kursdan kursga o'tish buyrug'i chiqmagan";
                         }
@@ -557,6 +607,22 @@ class AgreementController extends Controller
 
     public function pdf_agreement(Request $request)
     {
+        if ($request->has('code') && $request->code) {
+            $explode = explode('&', base64_decode($request->code));
+            if (count($explode) == 3) {
+                $student_id = (int)$explode[0];
+                $agreement_side_type_id = (int)$explode[1];
+                $agreement_type_id = (int)$explode[2];
+                if (is_int($student_id) && is_int($agreement_side_type_id) && is_int($agreement_type_id)) {
+                    $request->student_id = $explode[0];
+                    $request->agreement_side_type_id = $explode[1];
+                    $request->agreement_type_id = $explode[2];
+                } else {
+                    return "<h1>Qr kodda xatolik bor</h1>";
+                }
+            }
+
+        }
         $student = StudentPayment::find($request->student_id);
         if ($student) {
             $type = Type::find($student->status_new);
@@ -571,7 +637,7 @@ class AgreementController extends Controller
                     }
                     $getting = new GettingAgreement();
                     $getting->student_id = $student->id;
-                    $getting->getting_date = $request->getting_date;
+                    $getting->getting_date = $request->getting_date ?? date("Y-m-d");
                     $getting->agreement_type_id = $agreement_type->id;
                     $getting->agreement_side_type_id = $agreement_side_type->id;
                     $getting->status = 1;
@@ -585,7 +651,7 @@ class AgreementController extends Controller
                         $all_summa = $all_summa * $dif_discount;
                     }
                     $qarz = $student->backlog;
-                    if (isset($student->backlog)){
+                    if (isset($student->backlog)) {
                         $all_summa = $qarz;
                     }
                     $part1_summa = '';
@@ -626,8 +692,8 @@ class AgreementController extends Controller
                     if ($getting) {
                         $getting_date = $getting->getting_date;
                     }
-                    if($student->description == 'eski_sana'){
-                        $getting_date = date('Y-m-d' , strtotime('2022-12-10'));
+                    if ($student->description == 'eski_sana') {
+                        $getting_date = date('Y-m-d', strtotime('2022-12-10'));
                     }
 //                    $dateArray['year'] = date('Y', strtotime($getting_date));
 //                    $dateArray['month'] = $this->get_month_name(date('m', strtotime($getting_date)));
@@ -645,10 +711,10 @@ class AgreementController extends Controller
                     $student->part_four_2_summa = number_format($part_four_2_summa);
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
-                    if ($student->status_new == 24 && $student->course == 4 && $agreement_type->id == 1){
+                    if ($student->status_new == 24 && $student->course == 4 && $agreement_type->id == 1) {
                         $student->all_summa = 17623245.0;
                     }
-                    if (is_int($qarz)  && isset($student->backlog)){
+                    if (is_int($qarz) && isset($student->backlog)) {
                         $student->all_summa = $all_summa;
                     }
 
@@ -682,14 +748,14 @@ class AgreementController extends Controller
                             $ended = 2022 + 5 - $student->course;
                             $qr_string = 'Toshkent davlat yuridik universiteti , ' . $student->course . '-kurs , ' . $student->fio() . ',' . 'talim tugash vaqti-' . $ended . ' , SIRTQI';
 ////                            $qrcode = base64_encode(QrCode::format('svg')->size(100)->errorCorrection('H')->generate(iconv('latin1', 'utf-8', $qr_string)));
-                            $b =  PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
+                            $b = PDF::loadView('student.agreement.agreement_shows.agreements.super_sirtqi.agreement_pdf_' . $agreement_side_type->id . '_' . $agreement_type->id, [
                                 'student' => $student,
                                 'agreement_type' => $agreement_type,
                                 'agreement_side_type' => $agreement_side_type,
                                 'getting_date' => $getting_date,
 //                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
-                            \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                            \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                             return $b;
                         } else {
                             if ($student->type_student == 1) {
@@ -703,7 +769,7 @@ class AgreementController extends Controller
                                     'getting_date' => $getting_date,
 //                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
-                                \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                 return $b;
                             }
                             if ($student->type_student == 2) {
@@ -716,7 +782,7 @@ class AgreementController extends Controller
                                     'getting_date' => $getting_date,
 //                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
-                                \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                 return $b;
                             }
                         }
@@ -732,7 +798,7 @@ class AgreementController extends Controller
                                 'getting_date' => $getting_date,
 //                                'qr_code' => $qrcode
                             ])->download($student->fio() . '.pdf');
-                            \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                            \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                             return $b;
                         } else {
 
@@ -748,7 +814,7 @@ class AgreementController extends Controller
                                     'getting_date' => $getting_date,
 //                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
-                                \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                 return $b;
                             } elseif ($student->type_student == 1) {
                                 if ($student->course == 1) {
@@ -760,7 +826,7 @@ class AgreementController extends Controller
                                         'getting_date' => $getting_date,
                                         'dateArray' => $dateArray
                                     ])->download($student->fio() . '.pdf');
-                                    \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                    \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                     return $b;
                                 } else {
 //                                    return $agreement_side_type->id.'-'.$agreement_type->id;
@@ -775,7 +841,7 @@ class AgreementController extends Controller
 ////                                        'qr_code' => $qrcode,
                                         'dateArray' => $dateArray
                                     ])->download($student->fio() . '.pdf');
-                                    \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                    \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                     return $b;
                                 }
 
@@ -790,7 +856,7 @@ class AgreementController extends Controller
                                     'getting_date' => $getting_date,
 //                                    'qr_code' => $qrcode
                                 ])->download($student->fio() . '.pdf');
-                                \Storage::disk('students')->put($student->fio(). $d . ".pdf", $b);
+                                \Storage::disk('students')->put($student->fio() . $d . ".pdf", $b);
                                 return $b;
                             }
                         }
