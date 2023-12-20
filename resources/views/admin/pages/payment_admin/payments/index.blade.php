@@ -100,7 +100,8 @@
                             </form>
                             <div>
                                 @include('admin.pages.payment_admin.payments.importPaymentsModal')
-                                <a href="{{ asset('files/niu_marketing.xlsx') }}" class="btn btn-cyan"><i class="fa fa-download"></i>To'lovlar import example</a>
+                                <a href="{{ asset('files/niu_marketing.xlsx') }}" class="btn btn-cyan"><i
+                                            class="fa fa-download"></i>To'lovlar import example</a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#importStudentsModal">
                                     To'lovlar import
@@ -140,7 +141,13 @@
                                                 {{ $payment->student->passport_seria.$payment->student->passport_number }}
                                             @endif
                                         </td>
-                                        <td>{{ number_format($payment->amount) }}</td>
+                                        <td>
+                                            @if(is_numeric($payment->amount))
+                                                {{ number_format($payment->amount) }}
+                                            @else
+                                                {{ $payment->amount }}
+                                            @endif
+                                        </td>
                                         <td>{{ $payment->payment_date }}</td>
                                         <td>{{ $payment->description }}</td>
                                         <td>{{ $payment->created_at }}</td>
