@@ -32,7 +32,7 @@ class PaymentAdminController extends Controller
     public function index()
     {
         if (Auth::user()->role == 11 || Auth::user()->role == 12) {
-            $students = StudentPayment::orderBy('id', 'DESC')->with('type')->get();
+            $students = StudentPayment::query()->orderBy('id', 'DESC')->with('type')->paginate();
             return view('admin.pages.payment_admin.student.index', [
                 'data' => $students,
                 'types' => Type::query()->get(),

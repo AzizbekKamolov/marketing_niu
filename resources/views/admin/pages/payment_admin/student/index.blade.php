@@ -65,7 +65,8 @@
 
 
                         <div class="table-responsive">
-                            <table id="multi_col_order" class="table table-striped table-bordered no-wrap export">
+                            <table class="table table-striped table-bordered no-wrap export">
+{{--                            <table id="multi_col_order" class="table table-striped table-bordered no-wrap export">--}}
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -143,6 +144,7 @@
 
 
                             </table>
+                            {{ $data->appends($_GET)->links() }}
                         </div>
                     </div>
 
