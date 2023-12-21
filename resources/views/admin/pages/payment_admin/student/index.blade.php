@@ -86,10 +86,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php $i = 0; @endphp
                                 @foreach($data as $item)
                                     <tr>
-                                        <td>{{  ++$i }}</td>
+                                        <td>{{  ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}</td>
                                         <td>
                                             <a href="{{route('payment_admin.student.show' , ['id' => $item->id])}}"
                                                class="" style="color: #000000">{{ $item->fio() }}</a>

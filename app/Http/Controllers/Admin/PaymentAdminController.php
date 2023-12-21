@@ -32,9 +32,18 @@ class PaymentAdminController extends Controller
     public function index()
     {
         if (Auth::user()->role == 11 || Auth::user()->role == 12) {
-            $students = StudentPayment::query()->orderBy('id', 'DESC')->with('type')->paginate();
+            $students = StudentPayment::query();
+            if (\request()->has('search')) {
+                $students->where('last_name', 'like', '%'.\request()->search.'%')->
+                orWhere('first_name', 'like', '%'.\request()->search.'%')->
+                orWhere('middle_name', 'like', '%'.\request()->search.'%')->
+                orWhere('id_code', 'like', '%'.\request()->search.'%')->
+                orWhere('passport_number', 'like', '%'.\request()->search.'%')->
+                orWhere('phone', 'like', '%'.\request()->search.'%');
+            }
+            $data = $students->orderBy('id', 'DESC')->with('type')->paginate();
             return view('admin.pages.payment_admin.student.index', [
-                'data' => $students,
+                'data' => $data,
                 'types' => Type::query()->get(),
             ]);
         } else {
