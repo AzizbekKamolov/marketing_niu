@@ -25,21 +25,36 @@ use Test\Model\StudentTypeAgreementType;
 use Test\Model\StudentTypeOtherAgreementType;
 use Test\Model\Type;
 use Test\Model\GettingAgreement;
+use function foo\func;
 
 
 class PaymentAdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::user()->role == 11 || Auth::user()->role == 12) {
             $students = StudentPayment::query();
-            if (\request()->has('search')) {
-                $students->where('last_name', 'like', '%'.\request()->search.'%')->
-                orWhere('first_name', 'like', '%'.\request()->search.'%')->
-                orWhere('middle_name', 'like', '%'.\request()->search.'%')->
-                orWhere('id_code', 'like', '%'.\request()->search.'%')->
-                orWhere('passport_number', 'like', '%'.\request()->search.'%')->
-                orWhere('phone', 'like', '%'.\request()->search.'%');
+            if ($request->fio) {
+                $students->where('last_name', 'like', '%'.$request->fio.'%')->
+                orWhere('first_name', 'like', '%'.$request->fio.'%')->
+                orWhere('middle_name', 'like', '%'.$request->fio.'%');
+            }
+            if ($request->id_code) {
+                $students->where('id_code', 'like', '%'.$request->id_code.'%');
+            }
+            if ($request->passport) {
+                $students->where('passport_number', 'like', '%'.$request->passport.'%');
+            }
+            if ($request->birthday) {
+                $students->whereDate('birthday', $request->birthday);
+            }
+            if ($request->phone) {
+                $students->where('phone', 'like', '%'.$request->phone.'%');
+            }
+            if ($request->type_name) {
+                $students->whereHas('type', function($query) use ($request){
+                    $query->where('name', 'like', '%'.$request->type_name.'%');
+                });
             }
             $data = $students->orderBy('id', 'DESC')->with('type')->paginate();
             return view('admin.pages.payment_admin.student.index', [

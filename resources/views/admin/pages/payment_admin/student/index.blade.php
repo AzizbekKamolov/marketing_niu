@@ -84,6 +84,24 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
+                                <tr>
+                                    <form action="{{ route('payment_admin.student.index') }}" method="get" >
+                                        <th></th>
+                                        <th><input type="text" name="fio" class="form-control" value="{{request()->get('fio')}}"></th>
+                                        <th><input type="text" name="id_code" class="form-control" value="{{request()->get('id_code')}}"></th>
+                                        <th><input type="text" name="passport" class="form-control" value="{{request()->get('passport')}}"></th>
+                                        <th><input type="date" name="birthday" class="form-control" value="{{request()->get('birthday')}}"></th>
+                                        <th><input type="text" name="phone" class="form-control" value="{{request()->get('phone')}}"></th>
+                                        <th><input type="text" name="type_name" class="form-control" value="{{request()->get('type_name')}}"></th>
+                                        <input type="text" name="search" value="{{request()->get('search')}}" style="border-radius: 2px; height: calc(1.5em + 0.75rem + 2px);padding: .375rem .75rem; border: 1px solid #e9ecef">
+                                       <th> <button type="submit" class="btn btn-outline-success"><i class="fa fa-filter"></i>
+                                           </button>
+                                           </th>
+                                        <th><a href="{{ route('payment_admin.student.index') }}" type="submit"
+                                               class="btn btn-outline-info"><i class="fa fa-home"></i></a></th>
+                                        <th></th>
+                                    </form>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($data as $item)
