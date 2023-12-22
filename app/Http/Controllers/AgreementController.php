@@ -574,7 +574,7 @@ class AgreementController extends Controller
                     $student->part_four_3_summa = number_format($part_four_3_summa);
                     $student->part_four_4_summa = number_format($part_four_4_summa);
                     $accessTypesArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-                        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
+                        15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 //                    $path = 'pechat/qr_code.png';
 //                    $type1 = pathinfo($path, PATHINFO_EXTENSION);
 //                    $data = file_get_contents($path);
