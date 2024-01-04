@@ -12,6 +12,7 @@ use Test\Model\Discount;
 use Test\Model\GettingAgreement;
 use Test\Model\Lyceum;
 use Test\Model\OtherAgreementType;
+use Test\Model\Payment;
 use Test\Model\StudentOtherAgreementAccess;
 use Test\Model\StudentPayment;
 use Test\Model\StudentTypeAgreementSideType;
@@ -159,6 +160,7 @@ class AgreementController extends Controller
             }
 
         }
+        return 1;
     }
 
     public function pdf_other_agreement(Request $request)
@@ -1014,5 +1016,35 @@ class AgreementController extends Controller
         }
 
         return $text;
+    }
+
+    public function getPayments(Request $request)
+    {
+        if ($request->passport) {
+            $payment_student = StudentPayment::query()
+//                ->with('type.agreement_side_types')
+//                ->with('type.other_agreement_types')
+//                ->with('getting_agreements')
+                ->where('passport_seria', strtoupper(substr($request->passport, 0, 2)))
+                ->where('passport_number', substr($request->passport, 2))
+                ->first();
+            if ($payment_student) {
+                $result['payment_history'] = Payment::query()->where('student_id', $payment_student->id)->get();
+                $result['payments'] = StudentTypeAgreementType::query()
+                    ->with('agreement_type', 'type:id,name,comment,part1,part2')
+                    ->where('type_id', $payment_student->status_new)->get();
+
+                return response()->json([
+                    'data' => $result,
+                    "student" => $payment_student,
+                    'status' => 1,
+                    "message" => "success",
+                ], 200);
+            }
+        }
+        return response()->json([
+            "status" => 0,
+            "message" => "Siz talabalar ro'yxatidan topilmadingiz"
+        ], 404);
     }
 }

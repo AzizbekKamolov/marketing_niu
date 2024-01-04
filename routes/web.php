@@ -220,6 +220,7 @@ Route::get('/home', function () {
 //new routes
 Route::post('/student/get-data', 'AgreementController@get_data')->name('student.agreement.get_data');
 Route::get('/student/get-side-types', 'AgreementController@getSideTypes');
+Route::get('/student/get-payments', 'AgreementController@getPayments');
 Route::get('/student/show-agreement-qr', 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
 Route::get('/student/download-agreement', 'AgreementController@pdf_agreement');
 Route::post('/student/show-agreement', 'AgreementController@show_agreement')->name('student.agreement.show_agreement');
