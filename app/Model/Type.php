@@ -22,6 +22,11 @@ class Type extends Model
     public function other_agreement_types(){
         return $this->belongsToMany(OtherAgreementType::class , 'student_type_other_agreement_types' , 'type_id' , 'other_agreement_type_id' , 'id');
     }
+
+    public function student_payments()
+    {
+        return $this->hasMany(StudentTypeAgreementType::class, 'type_id', 'id');
+    }
     public function allamount()
     {
         $a = $this->amount;

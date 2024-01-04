@@ -10,6 +10,9 @@ class StudentTypeAgreementType extends Model
         return $this->belongsTo(AgreementType::class , 'agreement_type_id');
     }
 
+    public function type(){
+        return $this->belongsTo(Type::class , 'type_id', 'id');
+    }
     public function agreement_side_type(){
         return $this->belongsTo(AgreementSideType::class , 'agreement_side_type_id');
     }
