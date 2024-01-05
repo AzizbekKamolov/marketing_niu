@@ -232,35 +232,35 @@ class AgreementController extends Controller
                 ->where('passport_number', substr($request->passport, 2))
                 ->first();
             if ($payment_student) {
-                        $agreement_type_ids = StudentTypeAgreementType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
-                        $agreement_side_type_ids = StudentTypeAgreementSideType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
-                        $getting = GettingAgreement::query()->where('student_id', $payment_student->id)->where('status', 1)->first();
-                        $agreement_types = AgreementType::query()->where(function ($query) use ($getting) {
-                            if ($getting) {
-                                $query->where('id', $getting->agreement_type_id);
-                            }
-                        })->whereIn('id', $agreement_type_ids)->get();
-                        $agreement_side_types = AgreementSideType::query()->whereIn('id', $agreement_side_type_ids)->get();
-                        $result = [];
-                        foreach ($agreement_side_types as $type){
-                            $a['name'] = $type->name;
-                            $b = [];
-                            foreach ($agreement_types as $t){
-                                $c['name'] = $t->name;
-                                $base = base64_encode("$payment_student->id&$type->id&$t->id");
-                                $c['url'] = "http://marketing.niuedu.uz/student/download-agreement?code=$base";
-                                $b[] = $c;
-                            }
-                            $a['types'] = $b;
-                            $result[] = $a;
-                        }
-                        return response()->json([
-                            'data' => $result,
-                            'status' => 1,
-                            "message" => "success",
-                            "student" => $payment_student
-                        ], 200);
+                $agreement_type_ids = StudentTypeAgreementType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_type_id');
+                $agreement_side_type_ids = StudentTypeAgreementSideType::query()->where('type_id', $payment_student->status_new)->pluck('agreement_side_type_id');
+                $getting = GettingAgreement::query()->where('student_id', $payment_student->id)->where('status', 1)->first();
+                $agreement_types = AgreementType::query()->where(function ($query) use ($getting) {
+                    if ($getting) {
+                        $query->where('id', $getting->agreement_type_id);
+                    }
+                })->whereIn('id', $agreement_type_ids)->get();
+                $agreement_side_types = AgreementSideType::query()->whereIn('id', $agreement_side_type_ids)->get();
+                $result = [];
+                foreach ($agreement_side_types as $type) {
+                    $a['name'] = $type->name;
+                    $b = [];
+                    foreach ($agreement_types as $t) {
+                        $c['name'] = $t->name;
+                        $base = base64_encode("$payment_student->id&$type->id&$t->id");
+                        $c['url'] = "http://marketing.niuedu.uz/student/download-agreement?code=$base";
+                        $b[] = $c;
+                    }
+                    $a['types'] = $b;
+                    $result[] = $a;
                 }
+                return response()->json([
+                    'data' => $result,
+                    'status' => 1,
+                    "message" => "success",
+                    "student" => $payment_student
+                ], 200);
+            }
         }
         return response()->json([
             "status" => 0,
@@ -605,6 +605,8 @@ class AgreementController extends Controller
                 }
             }
         }
+        return "<h2>Talabalar ro'yxatidan topilmadingiz</h2>";
+
     }
 
     public function pdf_agreement(Request $request)
