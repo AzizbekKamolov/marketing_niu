@@ -36,7 +36,7 @@
 {{--                    <span>AT  "Aloqabank" BOSH</span><br>--}}
                     <span>"Invest Finance Bank" ATB</span><br>
 {{--                    <span class="text-bold">H/r:</span> 20212000605461327002 <br>--}}
-                    <span class="text-bold">H/r:</span> 20212000605461237002 <br>
+                    <span class="text-bold">H/r:</span> 20212000605461327002 <br>
                     <span class="text-bold">INN:</span> 309037476 <br>
 {{--                    <span class="text-bold">MФО:</span> 01148 <br>--}}
                     <span class="text-bold">MФО:</span> 001148 <br>
