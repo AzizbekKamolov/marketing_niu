@@ -181,7 +181,7 @@
                                 </tbody>
 
                             </table>
-                            {{ $payments->links() }}
+                            {{ $payments->appends($_GET)->links() }}
                         </div>
                     </div>
 
