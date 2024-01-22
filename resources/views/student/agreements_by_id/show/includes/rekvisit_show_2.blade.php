@@ -39,7 +39,7 @@
                     <span class="text-bold">H/r:</span> 20212000605461327002 <br>
                     <span class="text-bold">INN:</span> 309037476 <br>
 {{--                    <span class="text-bold">MФО:</span> 01148 <br>--}}
-                    <span class="text-bold">MФО:</span> 01148 <br>
+                    <span class="text-bold">MФО:</span> 01145 <br>
                     Rahbar: @include('student.agreements_by_id.show.includes.include_variables')
                     <br>
                     <br>
