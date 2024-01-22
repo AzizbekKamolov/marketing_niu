@@ -92,8 +92,13 @@
                                     <label for="">gacha</label>
                                 </div>
                                 <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="amount"
-                                           value="{{ request('amount') }}">
+                                    <input type="text" class="form-control" name="from_amount"
+                                           value="{{ request('from_amount') }}">
+                                    <label for="">dan</label>
+                                </div>
+                                <div class="form-group mx-sm-3">
+                                    <input type="text" class="form-control" name="to_amount"
+                                           value="{{ request('to_amount') }}">
                                     <label for="">gacha</label>
                                 </div>
                                 <div class="form-group">
