@@ -91,6 +91,11 @@
                                            value="{{ request('to_date') }}">
                                     <label for="">gacha</label>
                                 </div>
+                                <div class="form-group mx-sm-3">
+                                    <input type="text" class="form-control" name="amount"
+                                           value="{{ request('amount') }}">
+                                    <label for="">gacha</label>
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-success"><i class="fa fa-filter"></i>
                                     </button>
