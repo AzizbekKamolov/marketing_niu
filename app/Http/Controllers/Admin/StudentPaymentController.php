@@ -36,6 +36,12 @@ class StudentPaymentController extends Controller
             if ($request->to_date){
                 $query->whereDate('created_at', '<=', $request->to_date);
             }
+            if ($request->from_amount){
+                $query->where('amount', '>=', $request->from_amount);
+            }
+            if ($request->to_amount){
+                $query->where('amount', '<=', $request->to_amount);
+            }
         })->latest()->paginate();
         return view('admin.pages.payment_admin.payments.index', compact('payments', 'data', 'dataMonth'));
     }
